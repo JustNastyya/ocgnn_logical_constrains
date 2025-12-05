@@ -1,0 +1,5 @@
+- wenn ich keine constrains habe, baue ein decision tree -> dadurch krieg die constrains
+- okidoki. also mach das als letztes level
+- benchmark
+- perfomance: ROC score F1 score
+

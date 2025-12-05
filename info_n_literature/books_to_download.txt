@@ -1,0 +1,23 @@
+
+hardware:
+	https://katalog.ub.tu-dortmund.de/id/ir01388a%3Aubd.alma%3A991013577372806445
+
+wie funktioniert das internet:
+	computer networking (downloaded)
+	https://hpbn.co/?utm_source=chatgpt.com
+	Routing TCP/IP, Volume 1, 2nd Edition
+cool links:
+	https://www.rfc-editor.org/
+graphs:
+	https://networksciencebook.com/chapter/2#degree
+GNNs:
+	https://www.cs.mcgill.ca/~wlh/grl_book/
+bachlor thesis:
+	https://psorus.github.io/thesis/anh.pdf
+	https://arxiv.org/pdf/2002.09594
+	https://pytorch-geometric.readthedocs.io/en/latest/cheatsheet/gnn_cheatsheet.html
+	https://github.com/boschresearch/GraphLevel-AnomalyDetection/tree/master
+	https://arxiv.org/abs/2205.13845
+	https://grlplus.github.io/papers/79.pdf
+	https://arxiv.org/pdf/2205.00523
+
