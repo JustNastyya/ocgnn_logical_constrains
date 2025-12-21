@@ -98,71 +98,56 @@ by pressing ctrl + ` you can go to terminal.
 by ctrl + 1 you can go to the opened file
 by ctrl + 2 you can go to the opened file on the right (or open new one)
 
-## pytorch basics
+## OCGIN for dummies
 
-PyTorch is mainly about tensors and neural networks
+- do a usual gnn
+- do a sum of all nodes and you get a vector. (assuming every node representation was also a vector of each of nodes attributes). Formally: node emdebbing -> graph embedding
+- so just a fucking sum. (for GIN). sometimes people use max/mean
+- ah yeah, and this sum is taken from ALL layers (individually) so you have a sum vektor for every layer and then you concatenate them (stack on top of one another)
+- aand that you value for the graph!
 
-a tensor is like  a multidimentional array, but it can live on a GPU
+you can do an anomaly score. that would be just the difference between the calculated vector and the learned normal space center square
 
-### neural networks
-in pytoch all neural networks are subclasses of nn.Module
-this class keeps track of the layers, applies forward functions usw.
-when subclassing i need to define 2 things:
+the loss is then this quadratic distance devided by N
 
-- layers in __init__
-- forward computation in forward
-(functions)
+while training we will minimize loss.
 
-1. in init:
+and after training we will compute the radius of the normal space. there you can make a choice:
+- 95 quantile of normal distances
+- mean +k* std
+- or some other stuff
 
-do the layer as `self.something = nn.layer_type(params like dimentions)`
+### and what about the center??
+the center of the normal space is computer as the 1 step of training
 
-2. in forward:
+after we have initilized random weights we pass all normal graps though the model, average the result and this is the center. now it is frozen forever.
 
-defy how the data flows. like you get in `forward(self, x)`
-and x is the input data. so you do something like:
+### what bout node level?
 
-- passing it though layers:
+do the same stuff but dont sum across the layer. 
 
-`x = F.relu(self.something(x))`
+there you can have either one center or a couple of centers for different kinds of nodes. but basically it is the same thing but without aggregation.
 
-(and the activation function)
 
-and perfhaps second layer
-`x = self.something_2(x)`
+# how the fuck can i use logical constrains??
 
-and dont forget to return the x
+## usual nn
 
-you never call forward directly. do:
-`output = model(input)`
+1. form logical constrains
+2. turn logic into loss by saying
+`L_total = L_data + lambda * L_logic`
+3. turn your logic into soft logic
 
-`nn.Linear` is the fully connected layer
+types of contrains:
+- *soft* linda like penalties. can be violated per cost
+- *hard* can never be violated
 
-### training
+### example
 
-1. define the optimizer
+logic is: A->B or not(A) + B
 
-`optimizer = torch.optim.Adam(model.parameters(), lr=0.01)`
+also translated as "A is high and B is low then penal"
 
-the adam is like a tuned up gradien descend wich the step = 0.01
+example is in `pytorch_basics/doing_logical-constrains_with_nn.py`
 
-2. define the loss function like the MSE by
-
-`loss_fn = nn.MSELoss()`
-
-### write the training loop
-
-you do the hole thing quite manually. do the
-
-1. clear stuff from previous training like
-`optimizer.zero_grad()`
-2. forward pass like
-`outputs = model(X)`
-3. compute loss
-`loss = loss_fn(outputs, y)`
-4. do the backward thingy
-`loss.backward()`
-5. update weights
-`optimizer.step()`
-
-and idk print stuff like the loss `loss.item()`
+there the `logits` are the raw outputs of the neural network
