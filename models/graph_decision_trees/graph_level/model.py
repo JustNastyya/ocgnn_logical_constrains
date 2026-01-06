@@ -15,18 +15,21 @@ class GraphDecisionTreeNode:
         self.right = None  # Right child
         self.is_leaf = False
         self.predicted_class = None
+        self.y_label_number = None # TODO sounds wierd
     
     def fit(self, X, y):
         # If all labels are the same, make a leaf node
         if y.unique().numel() == 1:
             self.is_leaf = True
             self.predicted_class = y[0].item()
+            self.y_label_number = "all the same"
             return
 
         # Check if maximum depth is reached
         if self.max_depth is not None and self.depth >= self.max_depth:
             self.is_leaf = True
             self.predicted_class = y.mode()[0].item()
+            self.y_label_number = f"{sum(y == 0)} v.s. {sum(y == 1)}"
             return
 
         # Find the best split
@@ -56,6 +59,7 @@ class GraphDecisionTreeNode:
         if self.feature_index is None:
             self.is_leaf = True
             self.predicted_class = y.mode()[0].item()
+            self.y_label_number = f"no valid split is found with {sum(y == 0)} v.s. {sum(y == 1)}"
             return
 
         # Recursively build the left and right subtrees
@@ -109,11 +113,11 @@ class GraphDecisionTreeNode:
         if not(self.left.is_leaf):
             self.left.print_tree(root_for_text_repr, is_left=True)    
         else: # class labeling
-            Node(f"yes?: it is a class {self.left.predicted_class}!", parent=root_for_text_repr)
+            Node(f"yes?: it is a class {self.left.predicted_class}! with {self.left.y_label_number}", parent=root_for_text_repr)
         if not(self.right.is_leaf):
             self.right.print_tree(root_for_text_repr, is_left=False)    
         else: # class labeling
-            Node(f"no?: it is a class {self.left.predicted_class}!", parent=root_for_text_repr)
+            Node(f"no?: it is a class {self.right.predicted_class}! with {self.right.y_label_number}", parent=root_for_text_repr)
         
         if root is None: # actual printing
             for pre, _, node in RenderTree(root_for_text_repr):

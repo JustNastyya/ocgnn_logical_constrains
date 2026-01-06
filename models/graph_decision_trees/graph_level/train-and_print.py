@@ -9,37 +9,24 @@ from config import GraphLevelFeatureExtractor
 from torch_geometric.datasets import TUDataset
 from torch_geometric.loader import DataLoader
 from torch.utils.data import random_split
-
-# TODO you got a decision tree with only 0s cuz you dataset has mostly ones!
-# do a equal split
+import random
 
 
 logger.info("Loading Config...")
-attribute_list = ["node_features", "node_degree"]
+attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
 config = GraphLevelFeatureExtractor(attribute_list)
 
 logger.info("Loading Dataset...")
-dataset = TUDataset(root="data/TUDataset", name='REDDIT-BINARY')    
-loader = DataLoader(dataset, batch_size=32, shuffle=True)
-NORMAL_LABEL = 0
-dataset.edge_index
+dataset = TUDataset(root="data/MUTAG", name='MUTAG')    
 
-max_depth = 3
+NORMAL_LABEL = 0
+max_depth = 2
 logger.info(f"Starting training with max depth: {max_depth}")
-X, y = config.extract_features(dataset)
+
+X, y = config.extract_features(dataset, balance=True)
 decision_tree = GraphDecisionTreeNode(max_depth=max_depth)
 decision_tree.fit(X=X, y=y)
 
 logger.info("Training completed!")
 
 decision_tree.print_tree()
-
-"""
-predictions = decision_tree.predict(X_test)
-
-# Calculate accuracy
-accuracy = (predictions == y_test).float().mean()
-print(f"Test Accuracy: {accuracy.item() * 100:.2f}%")
-
-"""
-
