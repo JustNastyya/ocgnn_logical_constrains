@@ -1,66 +1,84 @@
-from GraphNets import GIN
 import torch
 import torch.nn as nn
-import torch.optim as optim
 from torch_geometric.datasets import TUDataset
 from torch_geometric.loader import DataLoader
+import torch.nn.functional as F
+from torch_geometric.nn import GINConv, global_mean_pool
 from torch.utils.data import random_split
 from loguru import logger
 
 
 class OCGIN(nn.Module):
-    def __init__(self, dim_features, config):
-        super(OCGIN, self).__init__()
+    def __init__(self, in_dim, hidden_dim, num_layers, device):
+        super().__init__()
 
-        self.dim_targets = config['hidden_dim']
-        self.num_layers = config['num_layers']
-        self.device = config['device']
-        self.net = GIN(dim_features, self.dim_targets, config)
-        self.center = torch.zeros(1, self.dim_targets * self.num_layers, requires_grad=False).to('cpu')
-        self.reset_parameters()
+        self.device = device
+        self.num_layers = num_layers
+
+        self.convs = nn.ModuleList()
+        self.mlps = nn.ModuleList()
+
+        for i in range(num_layers):
+            input_dim = in_dim if i == 0 else hidden_dim
+
+            mlp = nn.Sequential(
+                nn.Linear(input_dim, hidden_dim),
+                nn.ReLU(),
+                nn.Linear(hidden_dim, hidden_dim),
+            )
+
+            self.convs.append(GINConv(mlp))
+            self.mlps.append(mlp)
+
+        # center of Deep SVDD
+        self.register_buffer("center", torch.zeros(hidden_dim))
+
     def forward(self, data):
-        data = data.to(self.device)
-        z = self.net(data)
-        return [z, self.center]
+        x, edge_index, batch = data.x, data.edge_index, data.batch
 
-    def init_center(self, train_loader):
-        with torch.no_grad():
-            for data in train_loader:
-                data = data.to('cpu')
-                z = self.forward(data)
-                self.center += torch.sum(z[0], 0, keepdim=True)
-            self.center = self.center / len(train_loader.dataset)
+        for conv in self.convs:
+            x = conv(x, edge_index)
+            x = F.relu(x)
 
-    def reset_parameters(self):
-        self.net.reset_parameters()
+        # graph-level embedding
+        z = global_mean_pool(x, batch)
+
+        return z
+
+    def loss(self, z):
+        return torch.mean(torch.sum((z - self.center) ** 2, dim=1))
+
+    @torch.no_grad()
+    def init_center(self, loader):
+        self.eval()
+        n_samples = 0
+        center = torch.zeros_like(self.center)
+
+        for data in loader:
+            data = data.to(self.device)
+            z = self.forward(data)
+            center += z.sum(dim=0)
+            n_samples += z.size(0)
+
+        self.center.copy_(center / n_samples)
+
+    def anomaly_score(self, z):
+        return torch.sum((z - self.center) ** 2, dim=1)
 
 
-def ocgin_loss(z, center):
-    return torch.mean(torch.sum((z - center) ** 2, dim=1))
+def train_ocgin(model, loader, epochs, lr):
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
+    model.init_center(loader)
 
-def train_ocgin(model, train_loader, config):
-    optimizer = optim.Adam(
-        model.parameters(),
-        lr=config['lr'],
-        weight_decay=config.get('weight_decay', 0.0)
-    )
+    for epoch in range(epochs):
+        model.train()
+        total_loss = 0
 
-    # ---- Phase 1: Initialize center ----
-    logger.info("Initializing center...")
-    model.eval()
-    model.init_center(train_loader)
-
-    # ---- Phase 2: Train GIN ----
-    logger.info("Training OCGIN...")
-    model.train()
-
-    for epoch in range(config['epochs']):
-        total_loss = 0.0
-
-        for data in train_loader:
-            z, center = model(data)
-            loss = ocgin_loss(z, center)
+        for data in loader:
+            data = data.to(model.device)
+            z = model(data)
+            loss = model.loss(z)
 
             optimizer.zero_grad()
             loss.backward()
@@ -68,8 +86,7 @@ def train_ocgin(model, train_loader, config):
 
             total_loss += loss.item()
 
-        avg_loss = total_loss / len(train_loader)
-        logger.info(f"Epoch {epoch:03d} | Loss: {avg_loss:.6f}")
+        print(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")
 
 
 def compute_anomaly_scores(model, loader):
@@ -78,9 +95,9 @@ def compute_anomaly_scores(model, loader):
 
     with torch.no_grad():
         for data in loader:
-            z, center = model(data)
-            score = torch.sum((z - center) ** 2, dim=1)
-            scores.append(score.cpu())
+            data = data.to(model.device)
+            z = model(data)
+            scores.append(model.anomaly_score(z).cpu())
 
     return torch.cat(scores, dim=0)
 
@@ -90,6 +107,7 @@ if __name__ == "__main__":
     # ------------------
     # CONFIGURATION
     # ------------------
+
     config = {
         "hidden_dim": 64,
         "num_layers": 3,
@@ -98,6 +116,17 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "weight_decay": 1e-5,
+        "norm_layer": "gn",
+        "learning_rate": 0.001,
+        "result_folder": "results",
+        "save_scores": False,
+        "num_repeat": 1,
+        "shuffle": True,
+        "bias": False,
+        "loss": "OCGIN",
+        "l2": 0,
+        "aggregation": "add",
+        "dataset": "MUTAG"
     }
 
     # ------------------
@@ -107,7 +136,7 @@ if __name__ == "__main__":
     # train_dataset must contain ONLY NORMAL GRAPHS
     logger.info("##################### Loading data")
     
-    dataset = TUDataset(root="data/TUDataset", name='REDDIT-BINARY')    
+    dataset = TUDataset(root="data/TUDataset", name=config["dataset"])    
     loader = DataLoader(dataset, batch_size=32, shuffle=True)
     NORMAL_LABEL = 0  # or 1
 
@@ -140,14 +169,14 @@ if __name__ == "__main__":
     # ------------------
     # CREATE MODEL
     # ------------------
-    dim_features = 0# train_dataset.num_node_features
-    model = OCGIN(dim_features, config).to(config["device"])
+    dim_features = 7 # train_dataset.num_node_features
+    model = OCGIN(dim_features, config["hidden_dim"], config["num_layers"], config["device"]).to(config["device"])
 
     # ------------------
     # TRAIN
     # ------------------
     logger.info("##################### staring training")
-    train_ocgin(model, train_loader, config)
+    train_ocgin(model, loader, config["epochs"], config["lr"])
 
     # ------------------
     # TEST / SCORE

@@ -1,3 +1,9 @@
+# hi
+
+this is my bachlor diary
+
+here i am going to informally keep track of stuff i learn, do, swear about and so on.
+
 ## general aim
 
 so i want to build a ocgnn model with logical constrains.
@@ -151,3 +157,16 @@ also translated as "A is high and B is low then penal"
 example is in `pytorch_basics/doing_logical-constrains_with_nn.py`
 
 there the `logits` are the raw outputs of the neural network
+
+## building logical constrains for graphs
+
+all info under `models/graph_decision_trees/readme.md`
+
+one downside: can only be implemented for the first layer of the nn
+
+# ocgin specifics
+
+here i am just trying to undestand every little detail about an ocgin implementation in `models/simple_ocgin/simple_ocgin.py`
+
+i got this piece of code by cutting around the Graph-Level-Anomaly detection library
+
