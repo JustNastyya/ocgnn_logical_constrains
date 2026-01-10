@@ -170,3 +170,126 @@ here i am just trying to undestand every little detail about an ocgin implementa
 
 i got this piece of code by cutting around the Graph-Level-Anomaly detection library
 
+### mlps?
+
+as i have written an OCGIN is quite like a usual GNN but with an extra step. it is not quite true
+
+an OCGIN consist of GIN layers, which consist of two steps:
+
+1) (1 + lambda) * weight_v^(k - 1) # the weight of the previous layer
+2) + BIG_SUM(weight_neightbors^(k -1)) # the sum of weight of the neighbors of the previous layer
+3) sum 1 + 2. now you got a vector for sum of 1+ 2 for every of the node features
+4) apply MLP. which stands for multi layer perceptron
+
+which is pretty much a simple feed-forward neural network
+
+here:
+```
+mlp = nn.Sequential(
+    nn.Linear(d_in, d_hidden),
+    nn.ReLU(),
+    nn.Linear(d_hidden, d_out),
+)
+```
+
+the difference to a usual GNN is that the ususal GNN would apply to 1 + 2 something like a relu and be ready. a GIN uses a small network for every node.
+
+in our example if every node has 7 features, then it would get for the first layer for node 1 a vector of length 7 as aggregated values of neightbors and then apply to this vector a simple neural network (which an output vector of whatever length we want. usually of the nuber of hidden dim)
+
+by that a network can learn different non linear interpretations of every node, every feature
+
+### self.register_buffer("center", torch.zeros(hidden_dim))
+
+register_buffer stores non trainable model state
+
+in this line we just kinda say, hey, i have this parameter, store it.
+
+afterwards the center is initiated in `init_center`
+
+### z = global_mean_pool(x, batch)
+
+takes a mean of all states of the GIN (of quasi every node-embedding from all layers)
+
+z.shape = [batch_size, hidden_dim]
+
+batch size cuz we have a bunchof graphs in a batch.
+so it is like one vector per graph
+
+### init_center
+
+`@torch.no_grad()` is a decorator which tells pytorch not to build a computation graph for everything inside this function
+
+computation graph? -> see next subchater
+
+`self.eval()` puts the model ito the evaluation mode, because we want deterministic embeddings, no randomness, no training time
+
+evaluation mode? -> see next subchapter
+
+n_samples - how many raphs we have proceeded
+
+`torch.zeros_like` - create a vector/matrix of zeros and dimentions as the self.center
+
+important: MLP parameters are randomly initialized
+
+since `z.shape = [batch_size, hidden_dim]`
+
+by `z.sum(dim=0)` we sum over batch_size and get a vector of hidden_dim
+
+and z.size(0) gets the number of graphs in the batch
+
+`self.center.copy_(center / n_samples)` updates center
+
+### train_ocgin
+
+`model.train()` sets model into the training mode
+
+`model.parameters()` all trainable parameter (so not the center)
+
+`lr` - learning rate
+
+`optimizer.zero_grad()` stes gradients to zero
+cuz in `loss.backward()` gradients are summed, not replaced.
+
+`optimizer.step()` - updates the parameters with the gradients which are stores in the computation graph after applying loss.backward() 
+
+### torch computation graph
+
+torch kinda saves all operations we do.
+
+like: Linear > ReLu > Linear > GINConv etc
+
+uses it to compute gradients and stuff. and it saves tensors too. so it is computationally expensive and we need it only for training
+
+### states of model
+
+Some layers behave differently during training vs evaluation
+
+(not in this particular model)
+
+thats why a model has a training and evaluation mode.
+
+e.g. Dropout > randomply zero some etries during training
+would not do that in evaluation mode
+
+a model has more states > TODO
+
+### after training
+
+now as we have trained the model, we can freely chose a boundary of the hypershere
+
+it can be something like "take a 95 procent quantile of all ambeddings of all normal agraphs" and we get a hidden_dim vector of distances to the center.
+
+after forwarding a new graph we take a mean of all node embeddings and see if it is in the boundary
+
+the `compute_anomaly_scores` does exactly that. it computes the kinda distance squared from every graph to the center. if we would choose a boundary (95% quantile) we would take it from the anomaly scores
+
+it we would test, we would do:
+
+```
+train_scores = compute_anomaly_scores(model, train_loader)
+R = torch.quantile(train_scores, 0.95)
+
+test_scores = compute_anomaly_scores(model, test_loader)
+pred = (test_scores > R).int()  # 1 = anomaly, 0 = normal
+
+```

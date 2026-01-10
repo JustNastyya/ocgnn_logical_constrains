@@ -16,7 +16,6 @@ class OCGIN(nn.Module):
         self.num_layers = num_layers
 
         self.convs = nn.ModuleList()
-        self.mlps = nn.ModuleList()
 
         for i in range(num_layers):
             input_dim = in_dim if i == 0 else hidden_dim
@@ -28,7 +27,6 @@ class OCGIN(nn.Module):
             )
 
             self.convs.append(GINConv(mlp))
-            self.mlps.append(mlp)
 
         # center of Deep SVDD
         self.register_buffer("center", torch.zeros(hidden_dim))
