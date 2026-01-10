@@ -1,5 +1,6 @@
 # Import necessary libraries
 import torch
+from loguru import logger 
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -21,8 +22,8 @@ X_test = torch.tensor(X_test_np, dtype=torch.float32)
 y_train = torch.tensor(y_train_np, dtype=torch.long)
 y_test = torch.tensor(y_test_np, dtype=torch.long)
 
-print(f"Training data shape: {X_train.shape}")
-print(f"Test data shape: {X_test.shape}")
+logger.info(f"Training data shape: {X_train.shape}")
+logger.info(f"Test data shape: {X_test.shape}")
 
 
 class DecisionTreeNode:
@@ -132,9 +133,9 @@ class DecisionTreeNode:
         else: # class labeling
             Node(f"no?: it is a class {self.left.predicted_class}!", parent=root_for_text_repr)
         
-        if root is None: # actual printing
+        if root is None: # actual logger.infoing
             for pre, _, node in RenderTree(root_for_text_repr):
-                print(f"{pre}{node.name}")
+                logger.info(f"{pre}{node.name}")
             
 
 # Initialize the Decision Tree with a maximum depth
@@ -144,13 +145,13 @@ decision_tree = DecisionTreeNode(max_depth=max_depth)
 # Train the Decision Tree
 decision_tree.fit(X_train, y_train)
 
-print(f"Decision Tree trained with max depth {max_depth}")
+logger.info(f"Decision Tree trained with max depth {max_depth}")
 
 # Make predictions on the test set
 predictions = decision_tree.predict(X_test)
 
 # Calculate accuracy
 accuracy = (predictions == y_test).float().mean()
-print(f"Test Accuracy: {accuracy.item() * 100:.2f}%")
+logger.info(f"Test Accuracy: {accuracy.item() * 100:.2f}%")
 
 decision_tree.print_tree()

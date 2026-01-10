@@ -82,4 +82,4 @@ def train_ocgin(model, loader, epochs, lr):
 
             total_loss += loss.item()
 
-        print(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")
+        logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")

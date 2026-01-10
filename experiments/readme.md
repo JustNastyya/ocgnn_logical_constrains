@@ -30,7 +30,7 @@ for results are to be:
 Loss, test error
 
 TODO:
-- the results are to be saved automaticly in the results folder as logs. file is to be named as a kinda mix out of all config params + version
 - implement different evaluation metrics
 - logical constrains, of course
 - why is R one dimentional 1 number? !!!!!!
+- config as class in order not to fuck with strings

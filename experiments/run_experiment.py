@@ -7,12 +7,15 @@ from torch.utils.data import random_split
 
 from experiments.model_reference import model_reference
 from models.utils import compute_anomaly_scores
-from experiments.utils import print_config_params
+from experiments.logging_utils import print_config_params, get_filename, init_logging
 
 NORMAL_LABEL = 0
 
 
 def run_experiment(config, constrains=None):
+    log_filename = get_filename(config)
+    init_logging(log_filename)
+    
     logger.info("##################### Loading config parameters")
     ModelClass = config["model_train"]["model"] 
     train_loop_func = config["model_train"]["train_loop"]
@@ -86,7 +89,7 @@ def run_experiment(config, constrains=None):
 
     logger.info(compare.sum().item() / len(compare))
     logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
-    
+
 
 
 if __name__ == "__main__":
@@ -98,7 +101,8 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "MUTAG",
-        "model_train": model_reference["simple_ocgin"]
+        "model_train": model_reference["simple_ocgin"],
+        "is_logical": False
     }
 
     run_experiment(config)

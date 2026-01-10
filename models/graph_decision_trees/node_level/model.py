@@ -120,5 +120,5 @@ class NodeLevelGraphDecisionTree:
         
         if root is None: # actual printing
             for pre, _, node in RenderTree(root_for_text_repr):
-                print(f"{pre}{node.name}")
+                logger.info(f"{pre}{node.name}")
             
