@@ -32,5 +32,4 @@ Loss, test error
 TODO:
 - implement different evaluation metrics
 - logical constrains, of course
-- why is R one dimentional 1 number? !!!!!!
 - config as class in order not to fuck with strings

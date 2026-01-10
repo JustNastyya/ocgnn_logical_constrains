@@ -279,6 +279,9 @@ now as we have trained the model, we can freely chose a boundary of the hypershe
 
 it can be something like "take a 95 procent quantile of all ambeddings of all normal agraphs" and we get a hidden_dim vector of distances to the center.
 
+and the score is then score = sum((z - c)^2)
+which is kinda the squared distance to the center
+
 after forwarding a new graph we take a mean of all node embeddings and see if it is in the boundary
 
 the `compute_anomaly_scores` does exactly that. it computes the kinda distance squared from every graph to the center. if we would choose a boundary (95% quantile) we would take it from the anomaly scores

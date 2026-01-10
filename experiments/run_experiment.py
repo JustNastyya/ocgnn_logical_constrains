@@ -91,7 +91,6 @@ def run_experiment(config, constrains=None):
     logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
 
 
-
 if __name__ == "__main__":
     config = {
         "hidden_dim": 64,
