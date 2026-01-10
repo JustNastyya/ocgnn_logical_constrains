@@ -293,3 +293,27 @@ test_scores = compute_anomaly_scores(model, test_loader)
 pred = (test_scores > R).int()  # 1 = anomaly, 0 = normal
 
 ```
+
+# now guess i will start experimentin
+
+## ablauf
+
+first of all i can imagine i will have a bunch of models which i will want to compare to each other.
+
+so it makes sence to write a module which would run stuff from different datasets and be like: run model1 and model2 with the same parameters and print results
+
+the milestone is that i have no idea how different these models will be.
+
+i can imagine those will be all OCGIN/OCGTL but i still havent understood how OCGTLs work.. and i feel now its not the time
+
+so: in the models in every model folder i will have the model itself and its training loop
+
+in the folder experiments i will have some kind of config where i would set:
+
+- dataset
+- number of layers
+- learning rate
+- hidden layers
+- and the model
+
+more about the exact implementation of experiments in experiments/readme.md
