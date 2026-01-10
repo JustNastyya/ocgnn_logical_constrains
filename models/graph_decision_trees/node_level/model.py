@@ -1,11 +1,10 @@
 # Import necessary libraries
 import torch
-import numpy as np
 from anytree import Node, RenderTree
 from loguru import logger
 
 
-class GraphDecisionTreeNode:
+class NodeLevelGraphDecisionTree:
     def __init__(self, depth=0, max_depth=None):
         self.depth = depth
         self.max_depth = max_depth
@@ -63,9 +62,9 @@ class GraphDecisionTreeNode:
             return
 
         # Recursively build the left and right subtrees
-        self.left = GraphDecisionTreeNode(
+        self.left = NodeLevelGraphDecisionTree(
             depth=self.depth + 1, max_depth=self.max_depth)
-        self.right = GraphDecisionTreeNode(
+        self.right = NodeLevelGraphDecisionTree(
             depth=self.depth + 1, max_depth=self.max_depth)
         self.left.fit(X[best_left_mask], y[best_left_mask])
         self.right.fit(X[best_right_mask], y[best_right_mask])

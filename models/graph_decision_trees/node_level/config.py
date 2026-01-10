@@ -1,9 +1,10 @@
-from template_config import TemplateFeatureExtractor
 import torch
 import random
 from collections import defaultdict
 
-class GraphLevelFeatureExtractor(TemplateFeatureExtractor):
+from models.graph_decision_trees.template_config import TemplateFeatureExtractor
+
+class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     def __init__(self, attribute_list):
         super().__init__(attribute_list)
     
