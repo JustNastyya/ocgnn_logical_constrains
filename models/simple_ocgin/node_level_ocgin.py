@@ -1,0 +1,84 @@
+from loguru import logger
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch_geometric.nn import GINConv, global_mean_pool
+
+
+class NodeOCGIN(nn.Module):
+    def __init__(self, in_dim, hidden_dim, num_layers, device):
+        super().__init__()
+
+        self.device = device
+        self.num_layers = num_layers
+
+        self.convs = nn.ModuleList()
+
+        for i in range(num_layers):
+            input_dim = in_dim if i == 0 else hidden_dim
+
+            mlp = nn.Sequential(
+                nn.Linear(input_dim, hidden_dim),
+                nn.ReLU(),
+                nn.Linear(hidden_dim, hidden_dim, bias=False),
+            )
+
+            self.convs.append(GINConv(mlp))
+
+        # center of Deep SVDD
+        self.register_buffer("center", torch.zeros(hidden_dim))
+
+    def forward(self, data):
+        x, edge_index = data.x, data.edge_index
+    
+        for conv in self.convs:
+            x = conv(x, edge_index)
+            x = F.relu(x)
+
+        return x
+
+    def loss(self, z):
+        return torch.mean(torch.sum((z - self.center) ** 2, dim=1))
+
+
+    @torch.no_grad()
+    def init_center(self, loader):
+        self.eval()
+        n_samples = 0
+        center = torch.zeros_like(self.center)
+
+        for data in loader:
+            data = data.to(self.device)
+            z = self.forward(data)
+            center += z.sum(dim=0)
+            n_samples += z.size(0)
+
+        self.center.copy_(center / n_samples)
+
+    def anomaly_score(self, z):
+        return torch.sum((z - self.center) ** 2, dim=1)
+
+
+
+def train_node_ocgin(model, loader, epochs, lr):
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
+
+    model.init_center(loader)
+
+    for epoch in range(epochs):
+        model.train()
+        total_loss = 0
+
+        for data in loader:
+            data = data.to(model.device)
+            z = model(data)
+            loss = model.loss(z)
+
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+
+        logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")

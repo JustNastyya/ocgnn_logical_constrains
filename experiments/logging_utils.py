@@ -10,7 +10,7 @@ FILENAME_CONFIG = [
     "hidden_dim",
     "logical_num"
 ]
-RESULTS_PATH = "/home/ana/stuff/1uni/bachlor/experiments/results"
+RESULTS_PATH = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/results"
 
 def print_config_params(config):
     logger.info("Config parameters:")
@@ -60,5 +60,6 @@ def init_logging(filename):
     logger.add(
         log_dir / filename,
         level="TRACE",
-        format=log_format
+        format=log_format,
+        backtrace=True
     )
