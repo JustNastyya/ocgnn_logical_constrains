@@ -43,16 +43,13 @@ class NodeOCGIN(nn.Module):
 
 
     @torch.no_grad()
-    def init_center(self, loader):
+    def init_center(self, data):
         self.eval()
-        n_samples = 0
-        center = torch.zeros_like(self.center)
 
-        for data in loader:
-            data = data.to(self.device)
-            z = self.forward(data)
-            center += z.sum(dim=0)
-            n_samples += z.size(0)
+        data = data.to(self.device)
+        z = self.forward(data)
+        center = z.sum(dim=0)
+        n_samples = z.size(0)
 
         self.center.copy_(center / n_samples)
 
@@ -61,24 +58,23 @@ class NodeOCGIN(nn.Module):
 
 
 
-def train_node_ocgin(model, loader, epochs, lr):
+def train_node_ocgin(model, data, train_mask, test_mask, epochs, lr):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
-    model.init_center(loader)
+    model.init_center(data[train_mask])
 
     for epoch in range(epochs):
         model.train()
         total_loss = 0
 
-        for data in loader:
-            data = data.to(model.device)
-            z = model(data)
-            loss = model.loss(z)
+        data = data.to(model.device)
+        z = model(data)
+        loss = model.loss(z[train_mask])
 
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-            total_loss += loss.item()
+        total_loss += loss.item()
 
-        logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")
+    logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")

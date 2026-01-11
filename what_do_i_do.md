@@ -320,3 +320,21 @@ in the folder experiments i will have some kind of config where i would set:
 - and the model
 
 more about the exact implementation of experiments in experiments/readme.md
+
+## node level OCGIN
+
+since i have for now learned how to generate constraines only for node level, i guess it will be better to start there. and implement an node level ocgin.
+
+it is supposed to be the same thing but without the aggregation through layers. alright
+
+*doing the node level ocgin*
+
+my fuckups from previous hours:
+
+- firstly, the decision tree i have built for node level is kinda useless for the applied datasets cuz i have biult it using graph level datasets. upsi. gotta rewrite it to suit actual node level datasets
+- secondly in my run experiments arcitechture i had no idea how node level datasets behave. so my now idea is no split experiments totally into graph and node level and stop fucking
+- thirdly i might not be able to run experiments on reddit datasets or any large datasets for that matter cuz i dont have enough cpu
+
+my vergict: managable but it is a pain in the ass
+
+my status: i have changed some stuff in the ode level ocgin to suit the data but havent run it yet

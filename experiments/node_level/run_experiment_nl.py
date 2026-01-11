@@ -1,21 +1,26 @@
 from loguru import logger
 
 import torch
-from torch_geometric.datasets import TUDataset
-from torch_geometric.loader import DataLoader
-from torch.utils.data import random_split
 
-from experiments.model_reference import model_reference
-from models.utils import compute_anomaly_scores
+from experiments.node_level.model_reference_nl import model_reference
+from experiments.node_level.data_loader_nl import get_data, split_test_train
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
+from models.utils import compute_anomaly_scores_node_level
 NORMAL_LABEL = 0
 
-
-def run_experiment(config, constrains=None):
+def experiment_logging_wrapper(config):
+    """A wrapper for logging occuring errors"""
     log_filename = get_filename(config)
     init_logging(log_filename)
     
+    try:
+        run_experiment(config)
+    except Exception as e:
+        logger.exception("Failure")
+
+
+def run_experiment(config, constrains=None):
     logger.info("##################### Loading config parameters")
     ModelClass = config["model_train"]["model"] 
     train_loop_func = config["model_train"]["train_loop"]
@@ -29,46 +34,21 @@ def run_experiment(config, constrains=None):
     
     print_config_params(config)
     
-    logger.info("##################### Loading data")
+    logger.info("##################### Loading data") 
+    dataset, loader = get_data(dataset_name, batch_size)
+    data, train_mask, test_mask = split_test_train(dataset, batch_size)
     
-    dataset = TUDataset(root=f"data/{dataset_name}", name=dataset_name)    
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-
-    normal_graphs = [d for d in dataset if d.y.item() == NORMAL_LABEL]
-    anomalous_graphs = [d for d in dataset if d.y.item() != NORMAL_LABEL]
-
-    num_normal = len(normal_graphs)
-    train_size = int(0.8 * num_normal)
-    test_size = num_normal - train_size
-
-    train_dataset, test_normal = random_split(
-        normal_graphs, [train_size, test_size]
-    )
-
-    test_dataset = test_normal + anomalous_graphs
-
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=batch_size,
-        shuffle=True
-    )
-
-    test_loader = DataLoader(
-        test_dataset,
-        batch_size=batch_size,
-        shuffle=False
-    )
     logger.info("##################### creating model")
 
     dim_features = 7 # train_dataset.num_node_features
     model = ModelClass(dim_features, hidden_dim, num_layers, device).to(device)
 
     logger.info("##################### staring training")
-    train_loop_func(model, train_loader, epochs, lr)
+    train_loop_func(model, data, train_mask, test_mask, epochs, lr)
 
     logger.info("##################### computing scores")
-    train_scores = compute_anomaly_scores(model, train_loader)
-    test_scores = compute_anomaly_scores(model, test_loader)
+    train_scores = compute_anomaly_scores_node_level(model, data, train_mask)
+    test_scores = compute_anomaly_scores_node_level(model, data, test_mask)
     
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
     R = torch.quantile(train_scores, 0.95)
@@ -99,10 +79,10 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "MUTAG",
-        "model_train": model_reference["simple_ocgin"],
-        "is_logical": False
+        "dataset": "Cora",
+        "model_train": model_reference["simple_node_ocgin"],
+        "is_logical": False,
     }
 
-    run_experiment(config)
+    experiment_logging_wrapper(config)
     

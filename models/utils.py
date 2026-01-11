@@ -13,7 +13,7 @@ def compute_anomaly_scores_graph_level(model, loader):
     return torch.cat(scores, dim=0)
 
 
-def compute_anomaly_scores_node_level(model, loader):
+def compute_anomaly_scores_node_level(model, data, mask_ind):
     model.eval()
     scores = []
 

@@ -44,3 +44,12 @@ TODO:
 - config as class in order not to fuck with strings
 - from torch_geometric.loader import NeighborLoader for big datasets for node level
 - gl: not just TUDatasets
+
+e.g.:
+```
+from enum import Enum
+
+class TaskType(Enum):
+    GRAPH = "graph"
+    NODE = "node"
+```
