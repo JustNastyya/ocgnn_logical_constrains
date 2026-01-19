@@ -10,7 +10,8 @@ FILENAME_CONFIG = [
     "hidden_dim",
     "logical_num"
 ]
-RESULTS_PATH = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/results"
+RESULTS_PATH_GL = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/results"
+RESULTS_PATH_NL = "/home/ana/stuff/1uni/bachlor/experiments/node_level/results"
 
 def print_config_params(config):
     logger.info("Config parameters:")
@@ -25,7 +26,7 @@ def print_config_params(config):
     logger.info("")
 
 
-def get_filename(config):
+def get_filename(config, level):
     file_name_list = []
     for filename_entity in FILENAME_CONFIG:
         if filename_entity == "model_train":
@@ -37,7 +38,11 @@ def get_filename(config):
             file_name_list.append(config[filename_entity])
     
     filename = "_".join([str(entity) for entity in file_name_list])
-    existing = os.listdir(RESULTS_PATH)
+    
+    if level == "node":
+        existing = os.listdir(RESULTS_PATH_NL)
+    else:
+        existing = os.listdir(RESULTS_PATH_GL)        
     
     # versioning
     version = 1
@@ -49,11 +54,15 @@ def get_filename(config):
     return result_filename
 
 
-def init_logging(filename):
+def init_logging(filename, level):
     from loguru import logger
     from pathlib import Path
 
-    log_dir = Path(RESULTS_PATH)
+    if level == "node":
+        log_dir = Path(RESULTS_PATH_NL)
+    else:
+        log_dir = Path(RESULTS_PATH_GL)
+    
     log_dir.mkdir(parents=True, exist_ok=True)
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
     

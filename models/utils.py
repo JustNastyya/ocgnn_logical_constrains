@@ -15,13 +15,11 @@ def compute_anomaly_scores_graph_level(model, loader):
 
 def compute_anomaly_scores_node_level(model, data, mask_ind):
     model.eval()
-    scores = []
-
+    
     with torch.no_grad():
-        for data in loader:
-            data = data.to(model.device)
-            z = model(data)
-            scores.append(model.anomaly_score(z).cpu())
+        data = data.to(model.device)
+        z = model(data)
+        scores = model.anomaly_score(z[mask_ind]).cpu()
 
-    return torch.cat(scores, dim=0)
+    return scores
 

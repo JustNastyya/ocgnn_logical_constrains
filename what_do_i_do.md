@@ -337,4 +337,9 @@ my fuckups from previous hours:
 
 my vergict: managable but it is a pain in the ass
 
-my status: i have changed some stuff in the ode level ocgin to suit the data but havent run it yet
+my status: i have changed some stuff in the node level ocgin to suit the data but havent run it yet
+
+hey hey, my node level ocgin is working!!!!
+
+i mean, its not foor, got like a 0.08 test rate, but whatever
+

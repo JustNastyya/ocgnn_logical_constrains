@@ -1,0 +1,77 @@
+2026-01-19 22:36:01.594 CET | INFO     | Line   24 (run_experiment_gl.py): ##################### Loading config parameters
+2026-01-19 22:36:01.595 CET | INFO     | Line   16 (logging_utils.py): Config parameters:
+2026-01-19 22:36:01.595 CET | INFO     | Line   17 (logging_utils.py): 
+2026-01-19 22:36:01.596 CET | INFO     | Line   21 (logging_utils.py): hidden_dim: 64
+2026-01-19 22:36:01.596 CET | INFO     | Line   21 (logging_utils.py): num_layers: 3
+2026-01-19 22:36:01.596 CET | INFO     | Line   21 (logging_utils.py): device: cpu
+2026-01-19 22:36:01.596 CET | INFO     | Line   21 (logging_utils.py): lr: 0.001
+2026-01-19 22:36:01.597 CET | INFO     | Line   21 (logging_utils.py): epochs: 50
+2026-01-19 22:36:01.597 CET | INFO     | Line   21 (logging_utils.py): batch_size: 32
+2026-01-19 22:36:01.597 CET | INFO     | Line   21 (logging_utils.py): dataset: MUTAG
+2026-01-19 22:36:01.598 CET | INFO     | Line   21 (logging_utils.py): is_logical: False
+2026-01-19 22:36:01.598 CET | INFO     | Line   23 (logging_utils.py): 
+2026-01-19 22:36:01.598 CET | INFO     | Line   24 (logging_utils.py): Training on model: GraphOCGIN
+2026-01-19 22:36:01.598 CET | INFO     | Line   25 (logging_utils.py): 
+2026-01-19 22:36:01.599 CET | INFO     | Line   37 (run_experiment_gl.py): ##################### Loading data
+2026-01-19 22:36:01.753 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### creating model
+2026-01-19 22:36:01.754 CET | INFO     | Line   44 (run_experiment_gl.py): creating model with number of node features: 7
+2026-01-19 22:36:01.902 CET | INFO     | Line   47 (run_experiment_gl.py): ##################### staring training
+2026-01-19 22:36:02.029 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 000 | Loss 0.001598
+2026-01-19 22:36:02.079 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 001 | Loss 0.001917
+2026-01-19 22:36:02.125 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 002 | Loss 0.001264
+2026-01-19 22:36:02.175 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 003 | Loss 0.000693
+2026-01-19 22:36:02.243 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 004 | Loss 0.000636
+2026-01-19 22:36:02.310 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 005 | Loss 0.000599
+2026-01-19 22:36:02.363 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 006 | Loss 0.000401
+2026-01-19 22:36:02.417 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 007 | Loss 0.000372
+2026-01-19 22:36:02.486 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 008 | Loss 0.000312
+2026-01-19 22:36:02.536 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 009 | Loss 0.000266
+2026-01-19 22:36:02.578 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 010 | Loss 0.000198
+2026-01-19 22:36:02.620 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 011 | Loss 0.000179
+2026-01-19 22:36:02.663 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 012 | Loss 0.000159
+2026-01-19 22:36:02.706 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 013 | Loss 0.000153
+2026-01-19 22:36:02.749 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 014 | Loss 0.000139
+2026-01-19 22:36:02.798 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 015 | Loss 0.000100
+2026-01-19 22:36:02.840 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 016 | Loss 0.000104
+2026-01-19 22:36:02.889 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 017 | Loss 0.000099
+2026-01-19 22:36:02.942 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 018 | Loss 0.000083
+2026-01-19 22:36:03.008 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 019 | Loss 0.000084
+2026-01-19 22:36:03.141 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 020 | Loss 0.000072
+2026-01-19 22:36:03.285 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 021 | Loss 0.000063
+2026-01-19 22:36:03.396 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 022 | Loss 0.000057
+2026-01-19 22:36:03.469 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 023 | Loss 0.000061
+2026-01-19 22:36:03.559 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 024 | Loss 0.000056
+2026-01-19 22:36:03.602 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 025 | Loss 0.000049
+2026-01-19 22:36:03.650 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 026 | Loss 0.000044
+2026-01-19 22:36:03.699 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 027 | Loss 0.000047
+2026-01-19 22:36:03.747 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 028 | Loss 0.000041
+2026-01-19 22:36:03.799 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 029 | Loss 0.000042
+2026-01-19 22:36:03.848 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 030 | Loss 0.000038
+2026-01-19 22:36:03.898 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 031 | Loss 0.000038
+2026-01-19 22:36:03.948 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 032 | Loss 0.000034
+2026-01-19 22:36:03.999 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 033 | Loss 0.000036
+2026-01-19 22:36:04.049 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 034 | Loss 0.000034
+2026-01-19 22:36:04.100 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 035 | Loss 0.000031
+2026-01-19 22:36:04.151 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 036 | Loss 0.000029
+2026-01-19 22:36:04.203 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 037 | Loss 0.000029
+2026-01-19 22:36:04.251 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 038 | Loss 0.000025
+2026-01-19 22:36:04.302 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 039 | Loss 0.000026
+2026-01-19 22:36:04.351 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 040 | Loss 0.000025
+2026-01-19 22:36:04.403 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 041 | Loss 0.000022
+2026-01-19 22:36:04.456 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 042 | Loss 0.000022
+2026-01-19 22:36:04.502 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 043 | Loss 0.000023
+2026-01-19 22:36:04.550 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 044 | Loss 0.000020
+2026-01-19 22:36:04.598 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 045 | Loss 0.000019
+2026-01-19 22:36:04.648 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 046 | Loss 0.000022
+2026-01-19 22:36:04.696 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 047 | Loss 0.000019
+2026-01-19 22:36:04.751 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 048 | Loss 0.000019
+2026-01-19 22:36:04.798 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 049 | Loss 0.000016
+2026-01-19 22:36:04.799 CET | INFO     | Line   50 (run_experiment_gl.py): ##################### computing scores
+2026-01-19 22:36:04.906 CET | INFO     | Line   54 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-01-19 22:36:04.913 CET | INFO     | Line   56 (run_experiment_gl.py): tensor(4.3615e-05)
+2026-01-19 22:36:04.921 CET | INFO     | Line   58 (run_experiment_gl.py): Test anomaly scores:
+2026-01-19 22:36:04.921 CET | INFO     | Line   59 (run_experiment_gl.py): tensor([2.9317e-05, 9.1583e-06, 3.5854e-06, 7.8080e-06, 7.8653e-06, 3.7021e-05,
+        3.5434e-05, 1.1599e-05, 1.1164e-05, 1.4972e-05])
+2026-01-19 22:36:04.924 CET | INFO     | Line   61 (run_experiment_gl.py): ##################### test rate: 
+2026-01-19 22:36:04.967 CET | INFO     | Line   71 (run_experiment_gl.py): 0.7898550724637681
+2026-01-19 22:36:04.967 CET | INFO     | Line   72 (run_experiment_gl.py): right classified: 109 out of 138

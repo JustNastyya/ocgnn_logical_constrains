@@ -11,8 +11,8 @@ from models.utils import compute_anomaly_scores_graph_level
 
 def experiment_logging_wrapper(config):
     """A wrapper for logging occuring errors"""
-    log_filename = get_filename(config)
-    init_logging(log_filename)
+    log_filename = get_filename(config, level="graph")
+    init_logging(log_filename, level="graph")
     
     try:
         run_experiment(config)

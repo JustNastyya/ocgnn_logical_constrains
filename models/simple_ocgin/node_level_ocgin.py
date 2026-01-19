@@ -43,12 +43,12 @@ class NodeOCGIN(nn.Module):
 
 
     @torch.no_grad()
-    def init_center(self, data):
+    def init_center(self, data, train_mask):
         self.eval()
 
         data = data.to(self.device)
         z = self.forward(data)
-        center = z.sum(dim=0)
+        center = z[train_mask].sum(dim=0)
         n_samples = z.size(0)
 
         self.center.copy_(center / n_samples)
@@ -61,7 +61,7 @@ class NodeOCGIN(nn.Module):
 def train_node_ocgin(model, data, train_mask, test_mask, epochs, lr):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
-    model.init_center(data[train_mask])
+    model.init_center(data, train_mask)
 
     for epoch in range(epochs):
         model.train()

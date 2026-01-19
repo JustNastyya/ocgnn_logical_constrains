@@ -11,8 +11,8 @@ NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
     """A wrapper for logging occuring errors"""
-    log_filename = get_filename(config)
-    init_logging(log_filename)
+    log_filename = get_filename(config, level="node")
+    init_logging(log_filename, level="node")
     
     try:
         run_experiment(config)
@@ -37,10 +37,10 @@ def run_experiment(config, constrains=None):
     logger.info("##################### Loading data") 
     dataset, loader = get_data(dataset_name, batch_size)
     data, train_mask, test_mask = split_test_train(dataset, batch_size)
-    
+    data.x    
     logger.info("##################### creating model")
 
-    dim_features = 7 # train_dataset.num_node_features
+    dim_features = data.x.shape[1] # train_dataset.num_node_features
     model = ModelClass(dim_features, hidden_dim, num_layers, device).to(device)
 
     logger.info("##################### staring training")
@@ -60,12 +60,9 @@ def run_experiment(config, constrains=None):
     logger.info("##################### test rate: ")
     
     pred = (test_scores > R).int()
-    y = []
-    for data in test_loader:
-        y.append(data.y)
-    
-    y_vec = torch.cat(y, dim=0)
-    compare = pred == y_vec
+    # all labels except of 0 is an anomaly
+    y = (data.y[test_mask] > 0).int()
+    compare = pred == y
 
     logger.info(compare.sum().item() / len(compare))
     logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
@@ -84,5 +81,4 @@ if __name__ == "__main__":
         "is_logical": False,
     }
 
-    experiment_logging_wrapper(config)
-    
+    experiment_logging_wrapper(config=config)
