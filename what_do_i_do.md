@@ -343,3 +343,6 @@ hey hey, my node level ocgin is working!!!!
 
 i mean, its not foor, got like a 0.08 test rate, but whatever
 
+aand now i have implemented my desicion tree for node level!
+
+the only thing todo is to implement the logical constrains for ocgin!
