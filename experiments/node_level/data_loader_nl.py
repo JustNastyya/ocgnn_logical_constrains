@@ -23,7 +23,7 @@ def get_data(dataset_name, batch_size):
         return dataset, loader
         
 
-def split_test_train(dataset, batch_size):
+def split_test_train(dataset):
     data = dataset[0]
     normal_mask = (data.y == NORMAL_LABEL)
     anomaly_mask = ~normal_mask

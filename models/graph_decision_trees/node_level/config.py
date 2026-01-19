@@ -3,42 +3,32 @@ import random
 from collections import defaultdict
 
 from models.graph_decision_trees.template_config import TemplateFeatureExtractor
+from experiments.node_level.data_loader_nl import get_data, split_test_train
 
 class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     def __init__(self, attribute_list):
         super().__init__(attribute_list)
     
-    def extract_features(self, dataset, balance=False):
-        X_l = []
-        y_l = []
+    def extract_features(self, dataset_name, balance=False):
+        dataset, _ = get_data(dataset_name, batch_size=32)
+        data, _, _ = split_test_train(dataset)
+    
+        xs = []
+
+        for feature_name in self.attribute_list:
+            
+            feature_l = self.translator[feature_name](data)
+            if feature_l is not None:
+                if type(feature_l) is list:
+                    xs.extend(feature_l)
+                else:    
+                    xs.append(feature_l)
         
-        for graph_idx, data in enumerate(dataset):
-            xs = []
-
-            for feature_name in self.attribute_list:
-                
-                feature_l = self.translator[feature_name](data)
-                if feature_l is not None:
-                    if type(feature_l) is list:
-                        xs.extend(feature_l)
-                    else:    
-                        xs.append(feature_l)
-            
-            if len(xs) > 1:
-                X_l.append(torch.stack(xs, dim=1))
-            else:
-                X_l.append(xs[0]) # TODO len 0
-
-            graph_label = data.y  
-            num_nodes = data.num_nodes
-            node_y = graph_label.repeat(num_nodes)
-            y_l.append(node_y)
-            
-        X = torch.cat(tuple(X_l), dim=0)
+        X = torch.stack(xs, dim=1)
         if len(X.shape) == 1:
             X = X.unsqueeze(1)  
-        y = torch.cat(y_l, dim=0)
         
+        y = (data.y > 0).int()
         if balance:
             return self.balance(X, y)
         return X, y

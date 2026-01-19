@@ -36,7 +36,7 @@ def run_experiment(config, constrains=None):
     
     logger.info("##################### Loading data") 
     dataset, loader = get_data(dataset_name, batch_size)
-    data, train_mask, test_mask = split_test_train(dataset, batch_size)
+    data, train_mask, test_mask = split_test_train(dataset)
     data.x    
     logger.info("##################### creating model")
 

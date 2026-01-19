@@ -12,11 +12,10 @@ def train_and_print(attribute_list, max_depth, dataset_name):
     config = NodeLevelFeatureExtractor(attribute_list)
 
     logger.info("Loading Dataset...")
-    dataset = TUDataset(root="data/MUTAG", name='MUTAG')    
+    X, y = config.extract_features(dataset_name, balance=True)
 
     logger.info(f"Starting training with max depth: {max_depth}")
 
-    X, y = config.extract_features(dataset, balance=True)
     decision_tree = NodeLevelGraphDecisionTree(max_depth=max_depth)
     decision_tree.fit(X=X, y=y)
 
@@ -28,6 +27,6 @@ def train_and_print(attribute_list, max_depth, dataset_name):
 if __name__ == "__main__":
     attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
     max_depth = 2
-    dataset_name = "MUTAG"
+    dataset_name = "Cora"
     train_and_print(attribute_list, max_depth, dataset_name)
     
