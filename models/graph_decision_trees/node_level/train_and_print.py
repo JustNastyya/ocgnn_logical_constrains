@@ -5,9 +5,10 @@ from torch_geometric.datasets import TUDataset
 
 from models.graph_decision_trees.node_level.model import NodeLevelGraphDecisionTree
 from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from models.graph_decision_trees.node_level.filename_utils import get_filename
 
 
-def train_and_print(attribute_list, max_depth, dataset_name):
+def train_and_print(attribute_list, max_depth, dataset_name, save=True):
     logger.info("Loading Config...")
     config = NodeLevelFeatureExtractor(attribute_list)
 
@@ -22,11 +23,23 @@ def train_and_print(attribute_list, max_depth, dataset_name):
     logger.info("Training completed!")
 
     decision_tree.print_tree()
+    
+    filepath = get_filename(dataset_name, attribute_list, max_depth)
+    
+    logger.info(f"Saving as JSON under {filepath}")
+    decision_tree.save_tree_decisions_as_json(filepath)
 
 
 if __name__ == "__main__":
     attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
     max_depth = 2
     dataset_name = "Cora"
-    train_and_print(attribute_list, max_depth, dataset_name)
+    save = True
+    
+    train_and_print(
+        attribute_list=attribute_list,
+        max_depth=max_depth,
+        dataset_name=dataset_name,
+        save=save
+    )
     

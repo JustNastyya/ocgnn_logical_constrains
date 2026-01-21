@@ -346,3 +346,20 @@ i mean, its not foor, got like a 0.08 test rate, but whatever
 aand now i have implemented my desicion tree for node level!
 
 the only thing todo is to implement the logical constrains for ocgin!
+
+## starting the implemntation
+
+ideas for constrains:
+1. using in loss as rules. like L_total = L_task + lambda * SUM(rules_which_give_anomaly)
+
+2. + to node attributes
+
+3. fuzzy logic or lukasiewicz logic to the logic function
+
+will have to optimize the process
+
+### saving logical constrains
+
+i will save the got logical constrains in the file under path
+
+`constrains/dataset/tree_depth.json`

@@ -1,0 +1,78 @@
+[
+  {
+    "conditions": [
+      {
+        "feature_index": 1263,
+        "op": "<=",
+        "threshold": 0.0
+      },
+      {
+        "feature_index": 205,
+        "op": "<=",
+        "threshold": 0.0
+      }
+    ],
+    "predicted_class": 1,
+    "meta": {
+      "depth": 2,
+      "y_label_number": "98 v.s. 242"
+    }
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 1263,
+        "op": "<=",
+        "threshold": 0.0
+      },
+      {
+        "feature_index": 205,
+        "op": ">",
+        "threshold": 0.0
+      }
+    ],
+    "predicted_class": 0,
+    "meta": {
+      "depth": 2,
+      "y_label_number": "33 v.s. 7"
+    }
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 1263,
+        "op": ">",
+        "threshold": 0.0
+      },
+      {
+        "feature_index": 19,
+        "op": "<=",
+        "threshold": 0.0
+      }
+    ],
+    "predicted_class": 0,
+    "meta": {
+      "depth": 2,
+      "y_label_number": "214 v.s. 76"
+    }
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 1263,
+        "op": ">",
+        "threshold": 0.0
+      },
+      {
+        "feature_index": 19,
+        "op": ">",
+        "threshold": 0.0
+      }
+    ],
+    "predicted_class": 1,
+    "meta": {
+      "depth": 2,
+      "y_label_number": "6 v.s. 26"
+    }
+  }
+]

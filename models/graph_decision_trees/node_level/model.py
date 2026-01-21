@@ -2,6 +2,9 @@
 import torch
 from anytree import Node, RenderTree
 from loguru import logger
+import json
+import numpy as np
+from sklearn.tree import _tree
 
 
 class NodeLevelGraphDecisionTree:
@@ -15,6 +18,7 @@ class NodeLevelGraphDecisionTree:
         self.is_leaf = False
         self.predicted_class = None
         self.y_label_number = None # TODO sounds wierd
+        self.rules = []
     
     def fit(self, X, y):
         # If all labels are the same, make a leaf node
@@ -121,4 +125,45 @@ class NodeLevelGraphDecisionTree:
         if root is None: # actual printing
             for pre, _, node in RenderTree(root_for_text_repr):
                 logger.info(f"{pre}{node.name}")
-            
+
+    def save_tree_decisions_as_json(self, filename):
+        rules = []
+
+        def recurse(node, path_conditions):
+            if node.is_leaf:
+                rules.append({
+                    "conditions": path_conditions.copy(),
+                    "predicted_class": node.predicted_class,
+                    "meta": {
+                        "depth": node.depth,
+                        "y_label_number": node.y_label_number
+                    }
+                })
+                return
+
+            if node.left is not None:
+                recurse(
+                    node.left,
+                    path_conditions + [{
+                        "feature_index": node.feature_index,
+                        "op": "<=",
+                        "threshold": float(node.threshold)
+                    }]
+                )
+
+            if node.right is not None:
+                recurse(
+                    node.right,
+                    path_conditions + [{
+                        "feature_index": node.feature_index,
+                        "op": ">",
+                        "threshold": float(node.threshold)
+                    }]
+                )
+
+        recurse(self, [])
+
+        with open(filename, "w") as f:
+            json.dump(rules, f, indent=2)
+
+        logger.info(f"Saved {len(rules)} rules to {filename}")
