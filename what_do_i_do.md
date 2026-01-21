@@ -373,3 +373,5 @@ read about it under `constrains/readme.md`
 FUCK. i forgot that my decision tree uses also other attributes other then node attributes. will have to go around
 
 so. i will save instead of feature indexes like my names of stuff. and my logical constrains handler will need to compute them like again and use them
+
+nope. what i have done now is describe in the readme. it might even work

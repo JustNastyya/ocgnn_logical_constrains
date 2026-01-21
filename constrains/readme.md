@@ -8,29 +8,37 @@ we have handlers which load constrains and use them.
 the constrains are saved under `data` and have a structure of:
 
 all conditions in the condition list are AND to each other to create the "predicted class"
+
+additional_attributes describe the additional attributes and their used indexes in the constrains
 ```
-[
-  {
-    "conditions": [
-      {
-        "feature_index": ,
-        "op": "<=",                     # or <
-        "threshold": 0.0                # decision boundary
-      },
-      {
-        "feature_index": 205,
-        "op": "<=",
-        "threshold": 0.0
-      }
+{
+    "constrains": [
+    {
+        "conditions": [
+        {
+            "feature_index": ,
+            "op": "<=",                     # or <
+            "threshold": 0.0                # decision boundary
+        },
+        {
+            "feature_index": 205,
+            "op": "<=",
+            "threshold": 0.0
+        }
+        ],
+        "predicted_class": 1,
+        "meta": {
+        "depth": 2,
+        "y_label_number": "98 v.s. 225"   # how hard is the descision boundary
+        }
+    },
+    ...
     ],
-    "predicted_class": 1,
-    "meta": {
-      "depth": 2,
-      "y_label_number": "98 v.s. 225"   # how hard is the descision boundary
-    }
-  },
-...
-]
+    "additional_attributes": {
+        "1433": "node_degree",
+        "1434": "clustering_coefficient"
+  }
+}
 ```
 
 ## handlers
