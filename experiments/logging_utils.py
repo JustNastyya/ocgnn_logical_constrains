@@ -18,9 +18,11 @@ def print_config_params(config):
     logger.info("")
     
     for param in config.keys():
-        if param != "model_train":
+        if param == "constrains_handler":
+            logger.info(f"{param}: {config[param].__name__}")
+        elif param != "model_train":
             logger.info(f"{param}: {config[param]}")
-    
+        
     logger.info("")
     logger.info(f"Training on model: {config["model_train"]["model"].__name__}")
     logger.info("")
@@ -33,7 +35,7 @@ def get_filename(config, level):
             file_name_list.append(config["model_train"]["model"].__name__)
         elif filename_entity == "logical_num":
             if config["is_logical"]:
-                file_name_list.append(config["logical_constraint_ref"]) # TODO
+                file_name_list.append(config["constrains_handler"].__name__)
         else:
             file_name_list.append(config[filename_entity])
     

@@ -6,6 +6,8 @@ from experiments.node_level.model_reference_nl import model_reference
 from experiments.node_level.data_loader_nl import get_data, split_test_train
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
+from constrains.nl_rules_based_handler import NLRuleBasedHandler
+
 from models.utils import compute_anomaly_scores_node_level
 NORMAL_LABEL = 0
 
@@ -40,11 +42,23 @@ def run_experiment(config, constrains=None):
     data.x    
     logger.info("##################### creating model")
 
+    
     dim_features = data.x.shape[1] # train_dataset.num_node_features
     model = ModelClass(dim_features, hidden_dim, num_layers, device).to(device)
 
     logger.info("##################### staring training")
-    train_loop_func(model, data, train_mask, test_mask, epochs, lr)
+
+    if config["is_logical"]:
+        logger.info("setting up the logical constrains")
+
+        ConstrainHandler = config["constrains_handler"]
+        constrains_filepath = config["constrains_filepath"]
+        l_factor = config["l_factor"]
+        constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
+    
+        train_loop_func(model, data, train_mask, test_mask, epochs, lr, constrains_handler_obj)
+    else:
+        train_loop_func(model, data, train_mask, test_mask, epochs, lr)
 
     logger.info("##################### computing scores")
     train_scores = compute_anomaly_scores_node_level(model, data, train_mask)
@@ -69,6 +83,7 @@ def run_experiment(config, constrains=None):
 
 
 if __name__ == "__main__":
+    """
     config = {
         "hidden_dim": 64,
         "num_layers": 3,
@@ -82,3 +97,23 @@ if __name__ == "__main__":
     }
 
     experiment_logging_wrapper(config=config)
+    
+    """
+    
+    config = {
+        "hidden_dim": 64,
+        "num_layers": 3,
+        "device": "cuda" if torch.cuda.is_available() else "cpu",
+        "lr": 1e-3,
+        "epochs": 50,
+        "batch_size": 32,
+        "dataset": "Cora",
+        "model_train": model_reference["loss_logic_rule_based"],
+        "is_logical": True,
+        "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+        "constrains_handler": NLRuleBasedHandler,
+        "l_factor": 0.1
+    }
+
+    experiment_logging_wrapper(config=config)
+    

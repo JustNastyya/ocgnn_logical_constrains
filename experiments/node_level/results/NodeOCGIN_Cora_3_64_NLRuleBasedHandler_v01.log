@@ -1,0 +1,52 @@
+2026-01-21 23:58:09.057 CET | INFO     | Line   26 (run_experiment_nl.py): ##################### Loading config parameters
+2026-01-21 23:58:09.057 CET | INFO     | Line   17 (logging_utils.py): Config parameters:
+2026-01-21 23:58:09.057 CET | INFO     | Line   18 (logging_utils.py): 
+2026-01-21 23:58:09.057 CET | INFO     | Line   24 (logging_utils.py): hidden_dim: 64
+2026-01-21 23:58:09.057 CET | INFO     | Line   24 (logging_utils.py): num_layers: 3
+2026-01-21 23:58:09.057 CET | INFO     | Line   24 (logging_utils.py): device: cpu
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): lr: 0.001
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): epochs: 50
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): batch_size: 32
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): dataset: Cora
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): is_logical: True
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): constrains_filepath: constrains/data/Cora_auto_generated_2_101_102_103.json
+2026-01-21 23:58:09.058 CET | INFO     | Line   22 (logging_utils.py): constrains_handler: NLRuleBasedHandler
+2026-01-21 23:58:09.058 CET | INFO     | Line   24 (logging_utils.py): l_factor: 0.1
+2026-01-21 23:58:09.058 CET | INFO     | Line   26 (logging_utils.py): 
+2026-01-21 23:58:09.059 CET | INFO     | Line   27 (logging_utils.py): Training on model: NodeOCGIN
+2026-01-21 23:58:09.059 CET | INFO     | Line   28 (logging_utils.py): 
+2026-01-21 23:58:09.059 CET | INFO     | Line   39 (run_experiment_nl.py): ##################### Loading data
+2026-01-21 23:58:09.077 CET | INFO     | Line   43 (run_experiment_nl.py): ##################### creating model
+2026-01-21 23:58:09.131 CET | INFO     | Line   49 (run_experiment_nl.py): ##################### staring training
+2026-01-21 23:58:09.131 CET | INFO     | Line   52 (run_experiment_nl.py): setting up the logical constrains
+2026-01-21 23:58:09.131 CET | ERROR    | Line   22 (run_experiment_nl.py): Failure
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+  File "/home/ana/stuff/1uni/bachlor/experiments/node_level/run_experiment_nl.py", line 118, in <module>
+    experiment_logging_wrapper(config=config)
+    │                                 └ {'hidden_dim': 64, 'num_layers': 3, 'device': 'cpu', 'lr': 0.001, 'epochs': 50, 'batch_size': 32, 'dataset': 'Cora', 'model_t...
+    └ <function experiment_logging_wrapper at 0x7ac783a142c0>
+
+> File "/home/ana/stuff/1uni/bachlor/experiments/node_level/run_experiment_nl.py", line 20, in experiment_logging_wrapper
+    run_experiment(config)
+    │              └ {'hidden_dim': 64, 'num_layers': 3, 'device': 'cpu', 'lr': 0.001, 'epochs': 50, 'batch_size': 32, 'dataset': 'Cora', 'model_t...
+    └ <function run_experiment at 0x7ac6c4234720>
+
+  File "/home/ana/stuff/1uni/bachlor/experiments/node_level/run_experiment_nl.py", line 59, in run_experiment
+    train_loop_func(model, data, train_mask, test_mask, epochs, lr, constrains_handler_obj)
+    │               │      │     │           │          │       │   └ <constrains.nl_rules_based_handler.NLRuleBasedHandler object at 0x7ac6b59413d0>
+    │               │      │     │           │          │       └ 0.001
+    │               │      │     │           │          └ 50
+    │               │      │     │           └ tensor([True, True, True,  ..., True, True, True])
+    │               │      │     └ tensor([False, False, False,  ..., False, False, False])
+    │               │      └ Data(x=[2708, 1433], edge_index=[2, 10556], y=[2708], train_mask=[2708], val_mask=[2708], test_mask=[2708])
+    │               └ NodeOCGIN(
+    │                   (convs): ModuleList(
+    │                     (0): GINConv(nn=Sequential(
+    │                       (0): Linear(in_features=1433, out_features=64, bias=T...
+    └ <function train_node_ocgin at 0x7ac6c4234860>
+
+TypeError: train_node_ocgin() takes 6 positional arguments but 7 were given

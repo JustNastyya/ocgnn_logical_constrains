@@ -2,16 +2,16 @@ import json
 import torch
 from loguru import logger
 
-from experiments.node_level.run_experiment_nl import NORMAL_LABEL
 from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
 
 
 class NLRuleBasedHandler:
-    def __init__(self, filename, l_factor):
+    def __init__(self, filename, l_factor, normal_label):
         self.filename = filename
         self.json_rules = self._load_rules(filename)
         self.l_factor = l_factor
         self.anomaly_rules = []
+        self.normal_label = normal_label
         self._load_anomaly_rules()
 
     def _load_rules(self, filename):
@@ -20,7 +20,7 @@ class NLRuleBasedHandler:
     
     def _load_anomaly_rules(self):
         for rule in self.json_rules["constrains"]:
-            if rule["predicted_class"] != NORMAL_LABEL:
+            if rule["predicted_class"] != self.normal_label:
                 self.anomaly_rules.append(rule)
     
     def soft_leq(self, x, threshold):
@@ -55,7 +55,7 @@ class NLRuleBasedHandler:
         X, _ = config.extract_features(data, balance=True)
         
         # fail save
-        self._test_attribute_mapping(attribute_list, config.attribute_list)
+        self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
 
         rule_values = []
         for rule in self.anomaly_rules:

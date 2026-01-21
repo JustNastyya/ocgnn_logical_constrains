@@ -375,3 +375,10 @@ FUCK. i forgot that my decision tree uses also other attributes other then node 
 so. i will save instead of feature indexes like my names of stuff. and my logical constrains handler will need to compute them like again and use them
 
 nope. what i have done now is describe in the readme. it might even work
+
+### first try to implement loss as rules
+
+i have to freaking idea what i am doing. i just added the omputed loss to the hole loss.
+the model is in `constrains_in_loss/nl_ocgin`
+
+and now i am at the point where my great fail test is failing and idk why. you may solve my fuckups if you run the experiments
