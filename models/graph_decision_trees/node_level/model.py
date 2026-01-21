@@ -126,7 +126,7 @@ class NodeLevelGraphDecisionTree:
             for pre, _, node in RenderTree(root_for_text_repr):
                 logger.info(f"{pre}{node.name}")
 
-    def save_tree_decisions_as_json(self, filename):
+    def save_tree_decisions_as_json(self, filename, additional_attributes):
         rules = []
 
         def recurse(node, path_conditions):
@@ -162,6 +162,12 @@ class NodeLevelGraphDecisionTree:
                 )
 
         recurse(self, [])
+        
+        # adding the attribute list
+        rules = {
+            "constrains": rules,
+            "additional_attributes": additional_attributes
+        }
 
         with open(filename, "w") as f:
             json.dump(rules, f, indent=2)

@@ -1,7 +1,10 @@
 import json
 import torch
+from loguru import logger
 
 from experiments.node_level.run_experiment_nl import NORMAL_LABEL
+from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+
 
 class NLRuleBasedHandler:
     def __init__(self, filename, l_factor):
@@ -16,7 +19,7 @@ class NLRuleBasedHandler:
             return json.load(f)
     
     def _load_anomaly_rules(self):
-        for rule in self.json_rules:
+        for rule in self.json_rules["constrains"]:
             if rule["predicted_class"] != NORMAL_LABEL:
                 self.anomaly_rules.append(rule)
     
@@ -45,10 +48,30 @@ class NLRuleBasedHandler:
 
         return self.soft_and(torch.stack(cond_values))
 
-    def get_constraint_value(self, x):
+    def get_constraint_value(self, data):
+        # extend X by the additional features
+        attribute_list = self.json_rules["additional_attributes"].values()
+        config = NodeLevelFeatureExtractor(attribute_list)
+        X, _ = config.extract_features(data, balance=True)
+        
+        # fail save
+        self._test_attribute_mapping(attribute_list, config.attribute_list)
+
         rule_values = []
         for rule in self.anomaly_rules:
-            rule_values.append(self.rule_satisfaction(rule, x))
+            rule_values.append(self.rule_satisfaction(rule, X))
         
         return self.l_factor * self.soft_or(torch.stack(rule_values))
 
+    def _test_attribute_mapping(self, old_attribute_mapper, new_attribute_mapper):
+        try:
+            assert len(old_attribute_mapper) == len(new_attribute_mapper)
+            for index in old_attribute_mapper.keys():
+                assert old_attribute_mapper[index] == new_attribute_mapper[index]
+
+        except Exception as e:
+            logger.info("attribute mapping error: The new and old attribute lists do not match")
+            logger.info(f"new attribute_list: {new_attribute_mapper}")
+            logger.info(f"old attribute_list: {old_attribute_mapper}")
+            
+            raise Exception

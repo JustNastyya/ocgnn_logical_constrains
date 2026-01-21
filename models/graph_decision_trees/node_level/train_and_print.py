@@ -13,8 +13,9 @@ def train_and_print(attribute_list, max_depth, dataset_name, save=True):
     config = NodeLevelFeatureExtractor(attribute_list)
 
     logger.info("Loading Dataset...")
-    X, y = config.extract_features(dataset_name, balance=True)
-
+    data = config.get_data(dataset_name)
+    X, y = config.extract_features(data, balance=True)
+    
     logger.info(f"Starting training with max depth: {max_depth}")
 
     decision_tree = NodeLevelGraphDecisionTree(max_depth=max_depth)
@@ -27,12 +28,13 @@ def train_and_print(attribute_list, max_depth, dataset_name, save=True):
     filepath = get_filename(dataset_name, attribute_list, max_depth)
     
     logger.info(f"Saving as JSON under {filepath}")
-    decision_tree.save_tree_decisions_as_json(filepath)
+    additional_attributes = config.index_mapping
+    decision_tree.save_tree_decisions_as_json(filepath, additional_attributes)
 
 
 if __name__ == "__main__":
     attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
-    max_depth = 2
+    max_depth = 3
     dataset_name = "Cora"
     save = True
     

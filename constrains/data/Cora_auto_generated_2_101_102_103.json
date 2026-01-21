@@ -1,78 +1,84 @@
-[
-  {
-    "conditions": [
-      {
-        "feature_index": 1263,
-        "op": "<=",
-        "threshold": 0.0
-      },
-      {
-        "feature_index": 205,
-        "op": "<=",
-        "threshold": 0.0
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 19,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1263,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "125 v.s. 182"
       }
-    ],
-    "predicted_class": 1,
-    "meta": {
-      "depth": 2,
-      "y_label_number": "98 v.s. 242"
-    }
-  },
-  {
-    "conditions": [
-      {
-        "feature_index": 1263,
-        "op": "<=",
-        "threshold": 0.0
-      },
-      {
-        "feature_index": 205,
-        "op": ">",
-        "threshold": 0.0
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 19,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1263,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "214 v.s. 94"
       }
-    ],
-    "predicted_class": 0,
-    "meta": {
-      "depth": 2,
-      "y_label_number": "33 v.s. 7"
-    }
-  },
-  {
-    "conditions": [
-      {
-        "feature_index": 1263,
-        "op": ">",
-        "threshold": 0.0
-      },
-      {
-        "feature_index": 19,
-        "op": "<=",
-        "threshold": 0.0
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 19,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "10 v.s. 74"
       }
-    ],
-    "predicted_class": 0,
-    "meta": {
-      "depth": 2,
-      "y_label_number": "214 v.s. 76"
-    }
-  },
-  {
-    "conditions": [
-      {
-        "feature_index": 1263,
-        "op": ">",
-        "threshold": 0.0
-      },
-      {
-        "feature_index": 19,
-        "op": ">",
-        "threshold": 0.0
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 19,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "2 v.s. 1"
       }
-    ],
-    "predicted_class": 1,
-    "meta": {
-      "depth": 2,
-      "y_label_number": "6 v.s. 26"
     }
+  ],
+  "additional_attributes": {
+    "1433": "node_degree",
+    "1434": "clustering_coefficient"
   }
-]
+}

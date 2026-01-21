@@ -7,7 +7,7 @@ class TemplateFeatureExtractor:
     def __init__(self, attribute_list):
         self.attribute_list = attribute_list
         self.translator = {
-            "node_features": self.node_features,
+            "node_features": self.node_features, # have to remain the first ones!
             "node_degree": self.node_degree, # TODO: directed
             "clustering_coefficient": self.clustering_coefficient,
         }

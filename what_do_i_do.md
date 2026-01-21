@@ -367,3 +367,9 @@ i will save the got logical constrains in the file under path
 and i guess i will need a constaint handler to handle constrains
 
 more to it under constrains
+
+read about it under `constrains/readme.md`
+
+FUCK. i forgot that my decision tree uses also other attributes other then node attributes. will have to go around
+
+so. i will save instead of feature indexes like my names of stuff. and my logical constrains handler will need to compute them like again and use them

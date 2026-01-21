@@ -8,11 +8,14 @@ from experiments.node_level.data_loader_nl import get_data, split_test_train
 class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     def __init__(self, attribute_list):
         super().__init__(attribute_list)
+        self.index_mapping = {}
     
-    def extract_features(self, dataset_name, balance=False):
+    def get_data(self, dataset_name):
         dataset, _ = get_data(dataset_name, batch_size=32)
         data, _, _ = split_test_train(dataset)
+        return data
     
+    def extract_features(self, data, balance=False):
         xs = []
 
         for feature_name in self.attribute_list:
@@ -22,7 +25,11 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
                 if type(feature_l) is list:
                     xs.extend(feature_l)
                 else:    
+                    feature_new_ind = len(xs)
+                    
+                    # is needed later for using in experiments
                     xs.append(feature_l)
+                    self.index_mapping[feature_new_ind] = feature_name
         
         X = torch.stack(xs, dim=1)
         if len(X.shape) == 1:
@@ -50,4 +57,3 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
         X_bal = X[balanced_indices]
         y_bal = y[balanced_indices]
         return X_bal, y_bal
-
