@@ -362,4 +362,8 @@ will have to optimize the process
 
 i will save the got logical constrains in the file under path
 
-`constrains/dataset/tree_depth.json`
+`constrains/smth.json`
+
+and i guess i will need a constaint handler to handle constrains
+
+more to it under constrains
