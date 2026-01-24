@@ -66,7 +66,7 @@ class NLRuleBasedHandler:
     def _test_attribute_mapping(self, old_attribute_mapper, new_attribute_mapper):
         try:
             assert len(old_attribute_mapper) == len(new_attribute_mapper)
-            for index in old_attribute_mapper.keys():
+            for index in sorted(old_attribute_mapper.keys()):
                 assert old_attribute_mapper[index] == new_attribute_mapper[index]
 
         except Exception as e:

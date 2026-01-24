@@ -3,12 +3,12 @@
     {
       "conditions": [
         {
-          "feature_index": 19,
+          "feature_index": 1263,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1263,
+          "feature_index": 205,
           "op": "<=",
           "threshold": 0.0
         }
@@ -16,18 +16,18 @@
       "predicted_class": 1,
       "meta": {
         "depth": 2,
-        "y_label_number": "125 v.s. 182"
+        "y_label_number": "98 v.s. 243"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 19,
+          "feature_index": 1263,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1263,
+          "feature_index": 205,
           "op": ">",
           "threshold": 0.0
         }
@@ -35,49 +35,50 @@
       "predicted_class": 0,
       "meta": {
         "depth": 2,
-        "y_label_number": "214 v.s. 94"
+        "y_label_number": "33 v.s. 4"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 19,
+          "feature_index": 1263,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 2,
+          "feature_index": 581,
           "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "219 v.s. 80"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 1263,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 581,
+          "op": ">",
           "threshold": 0.0
         }
       ],
       "predicted_class": 1,
       "meta": {
         "depth": 2,
-        "y_label_number": "10 v.s. 74"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 19,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 2,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 0,
-      "meta": {
-        "depth": 2,
-        "y_label_number": "2 v.s. 1"
+        "y_label_number": "1 v.s. 24"
       }
     }
   ],
   "additional_attributes": {
+    "0:1433": "node_features",
     "1433": "node_degree",
     "1434": "clustering_coefficient"
   }

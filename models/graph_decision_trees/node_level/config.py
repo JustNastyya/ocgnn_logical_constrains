@@ -23,13 +23,19 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
             feature_l = self.translator[feature_name](data)
             if feature_l is not None:
                 if type(feature_l) is list:
-                    xs.extend(feature_l)
+                    feature_new_ind_start = len(xs)
+                    xs.extend(feature_l) 
+                    feature_new_ind_end = len(xs)
+
+                    self.index_mapping[
+                        f"{feature_new_ind_start}:{feature_new_ind_end}"
+                        ] = feature_name
                 else:    
                     feature_new_ind = len(xs)
                     
                     # is needed later for using in experiments
                     xs.append(feature_l)
-                    self.index_mapping[feature_new_ind] = feature_name
+                    self.index_mapping[str(feature_new_ind)] = feature_name
         
         X = torch.stack(xs, dim=1)
         if len(X.shape) == 1:
