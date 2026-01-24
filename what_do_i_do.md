@@ -380,3 +380,12 @@ just trained my first OCGIN with logical constrains and it worked!! just had to 
 
 i guess i shall write a module which will save results from a bunch of experiments in a kinda json thing
 UPT: done, see run_bunch_experiments
+
+now i guess i shall think about creating automatic tables. not sure yet in which format. my options are:
+
+-tex
+-exel
+
+i guess for the beginning where i am not writing yet i shall create exel tables to see them better. afterwards i can do the latex
+
+State now: chatgpt wrote the script which produces the exel and it works but kinda fucked (see the exel and the input json)
