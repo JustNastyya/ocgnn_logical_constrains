@@ -61,7 +61,7 @@ class NLRuleBasedHandler:
         for rule in self.anomaly_rules:
             rule_values.append(self.rule_satisfaction(rule, X))
         
-        return self.l_factor * self.soft_or(torch.stack(rule_values))
+        return self.l_factor * self.soft_or_prob(torch.stack(rule_values))
 
     def _test_attribute_mapping(self, old_attribute_mapper, new_attribute_mapper):
         try:

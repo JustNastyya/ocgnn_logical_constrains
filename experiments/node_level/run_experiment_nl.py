@@ -13,8 +13,9 @@ NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
     """A wrapper for logging occuring errors"""
-    log_filename = get_filename(config, level="node")
-    init_logging(log_filename, level="node")
+    if config["save_logs"]:
+        log_filename = get_filename(config, level="node")
+        init_logging(log_filename, level="node")
     
     try:
         run_experiment(config)
@@ -112,7 +113,8 @@ if __name__ == "__main__":
         "is_logical": True,
         "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains_handler": NLRuleBasedHandler,
-        "l_factor": 0.1
+        "l_factor": 0.1,
+        "save_logs": False,
     }
 
     experiment_logging_wrapper(config=config)
