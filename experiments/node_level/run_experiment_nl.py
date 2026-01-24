@@ -18,7 +18,7 @@ def experiment_logging_wrapper(config):
         init_logging(log_filename, level="node")
     
     try:
-        run_experiment(config)
+        return run_experiment(config)
     except Exception as e:
         logger.exception("Failure")
 
@@ -65,9 +65,12 @@ def run_experiment(config, constrains=None):
     train_scores = compute_anomaly_scores_node_level(model, data, train_mask)
     test_scores = compute_anomaly_scores_node_level(model, data, test_mask)
     
+    results = {}
+
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
     R = torch.quantile(train_scores, 0.95)
     logger.info(R)
+    results["decision_boundary"] = R.item()
 
     logger.info("Test anomaly scores:")
     logger.info(test_scores[:10])
@@ -79,9 +82,12 @@ def run_experiment(config, constrains=None):
     y = (data.y[test_mask] > 0).int()
     compare = pred == y
 
-    logger.info(compare.sum().item() / len(compare))
+    test_rate = compare.sum().item() / len(compare)
+    logger.info(test_rate)
     logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
 
+    results["test_rate"] = test_rate
+    return results 
 
 if __name__ == "__main__":
     """
@@ -114,7 +120,7 @@ if __name__ == "__main__":
         "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains_handler": NLRuleBasedHandler,
         "l_factor": 0.1,
-        "save_logs": False,
+        "save_logs": True,
     }
 
     experiment_logging_wrapper(config=config)

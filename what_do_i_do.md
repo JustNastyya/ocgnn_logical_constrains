@@ -351,9 +351,7 @@ the only thing todo is to implement the logical constrains for ocgin!
 
 ideas for constrains:
 1. using in loss as rules. like L_total = L_task + lambda * SUM(rules_which_give_anomaly)
-
 2. + to node attributes
-
 3. fuzzy logic or lukasiewicz logic to the logic function
 
 will have to optimize the process
@@ -361,19 +359,12 @@ will have to optimize the process
 ### saving logical constrains
 
 i will save the got logical constrains in the file under path
-
 `constrains/smth.json`
-
-and i guess i will need a constaint handler to handle constrains
-
-more to it under constrains
-
-read about it under `constrains/readme.md`
+and i guess i will need a constaint handler to handle constrains. more to it under constrains. read about it under `constrains/readme.md`
 
 FUCK. i forgot that my decision tree uses also other attributes other then node attributes. will have to go around
 
 so. i will save instead of feature indexes like my names of stuff. and my logical constrains handler will need to compute them like again and use them
-
 nope. what i have done now is describe in the readme. it might even work
 
 ### first try to implement loss as rules
@@ -382,3 +373,10 @@ i have to freaking idea what i am doing. i just added the computed loss to the h
 the model is in `constrains_in_loss/nl_ocgin`
 
 and now i am at the point where my great fail test is failing and idk why. you may solve my fuckups if you run the experiments
+
+ALRIGHT MOTHERFUCKER AHDHSADJA
+
+just trained my first OCGIN with logical constrains and it worked!! just had to mean up the constraint values. this motherfucker will work for any number of nodes/hidden layers, like whatever. i am so pumped.
+
+i guess i shall write a module which will save results from a bunch of experiments in a kinda json thing
+UPT: done, see run_bunch_experiments

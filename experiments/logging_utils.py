@@ -10,8 +10,11 @@ FILENAME_CONFIG = [
     "hidden_dim",
     "logical_num"
 ]
-RESULTS_PATH_GL = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/results"
-RESULTS_PATH_NL = "/home/ana/stuff/1uni/bachlor/experiments/node_level/results"
+LOG_RESULTS_PATH_GL = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results"
+LOG_RESULTS_PATH_NL = "/home/ana/stuff/1uni/bachlor/experiments/node_level/log_results"
+
+BUNCH_RESULTS_PATH_GL = "/home/ana/stuff/1uni/bachlor/experiments/graph_level/bunch_results"
+BUNCH_RESULTS_PATH_NL = "/home/ana/stuff/1uni/bachlor/experiments/node_level/bunch_results"
 
 def print_config_params(config):
     logger.info("Config parameters:")
@@ -42,9 +45,9 @@ def get_filename(config, level):
     filename = "_".join([str(entity) for entity in file_name_list])
     
     if level == "node":
-        existing = os.listdir(RESULTS_PATH_NL)
+        existing = os.listdir(LOG_RESULTS_PATH_NL)
     else:
-        existing = os.listdir(RESULTS_PATH_GL)        
+        existing = os.listdir(LOG_RESULTS_PATH_GL)        
     
     # versioning
     version = 1
@@ -61,9 +64,9 @@ def init_logging(filename, level):
     from pathlib import Path
 
     if level == "node":
-        log_dir = Path(RESULTS_PATH_NL)
+        log_dir = Path(LOG_RESULTS_PATH_NL)
     else:
-        log_dir = Path(RESULTS_PATH_GL)
+        log_dir = Path(LOG_RESULTS_PATH_GL)
     
     log_dir.mkdir(parents=True, exist_ok=True)
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"

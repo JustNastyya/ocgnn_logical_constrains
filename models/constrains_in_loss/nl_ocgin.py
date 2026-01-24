@@ -39,7 +39,7 @@ class NodeOCGINLossConstrains(nn.Module):
         return x
 
     def loss(self, z, constrain_L):
-        return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L
+        return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
 
     @torch.no_grad()
@@ -77,5 +77,5 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
         optimizer.step()
 
         total_loss += loss.item()
-
-    logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")
+        if epoch % 10 == 0:
+            logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")

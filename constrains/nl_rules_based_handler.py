@@ -49,6 +49,7 @@ class NLRuleBasedHandler:
         return self.soft_and(torch.stack(cond_values))
 
     def get_constraint_value(self, data):
+        """returns a vector of length of node constraint values"""
         # extend X by the additional features
         attribute_list = self.json_rules["additional_attributes"].values()
         config = NodeLevelFeatureExtractor(attribute_list)

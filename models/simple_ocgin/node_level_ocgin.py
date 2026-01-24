@@ -77,4 +77,5 @@ def train_node_ocgin(model, data, train_mask, test_mask, epochs, lr):
 
         total_loss += loss.item()
 
-    logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")
+        if epoch % 10 == 0:
+            logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")
