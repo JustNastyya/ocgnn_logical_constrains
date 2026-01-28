@@ -10,38 +10,42 @@ from pathlib import Path
 # =========================
 # CONFIG
 # =========================
-JSON_PATH = "experiments/node_level/bunch_json_results/first_try.json"
-OUTPUT_EXCEL = "wrapping_data/exel/model_results_first_try.xlsx"
+
+
+JSON_NAME = "first_better_try" # without.json
+
+JSON_PATH = f"experiments/node_level/bunch_json_results/{JSON_NAME}.json"
+OUTPUT_EXCEL = f"wrapping_data/exel/model_results_{JSON_NAME}.xlsx"
+
 METRIC_NAME = "test_rate"
+VARYING_PARAMS_ALL = {"hidden_dim", "num_layers"}
+VARYING_PARAMS_CONSTRAINS = {"constrains_filepath", "l_factor"}
+SHEET_PARAM = "num_layers"
 
-VARYING_PARAMS = {"hidden_dim", "num_layers", "constrains_l"}
+"""
+for now works only for these varying parameters
 
-# =========================
-# HELPERS
-# =========================
-def extract_constrains_l(constrains_filepath):
-    """
-    Extract constrains_l from filepath.
-    Example:
-    Cora_auto_generated_3_101_102_103.json -> 101_102_103
-    """
-    if not constrains_filepath:
-        return None
-    name = Path(constrains_filepath).stem
-    parts = name.split("_")
-    return "_".join(parts[4:]) if len(parts) > 4 else name
+num_layers is assigned to the sheets
+
+on every sheet:
+1 table: non constrains
+hidden dim - the col of the table
+
+1 table for every constrains_filepath with
+col: hidden_dim, row - l_factor
+
+"""
 
 
 def flatten_record(record):
     cfg = record["model_config"]
     res = record["model_results"]
-
+    model_params = cfg["model_train"]
+    
     flat = dict(cfg)
     flat.update(res)
-
-    flat["constrains_l"] = extract_constrains_l(
-        cfg.get("constrains_filepath")
-    )
+    del flat["model_train"]
+    flat.update(model_params)
 
     return flat
 
@@ -51,7 +55,7 @@ def flatten_record(record):
 # =========================
 with open(JSON_PATH, "r") as f:
     raw = json.load(f)
-
+# record = raw[0]
 rows = [flatten_record(r) for r in raw]
 df = pd.DataFrame(rows)
 
@@ -60,7 +64,7 @@ df = pd.DataFrame(rows)
 # =========================
 non_varying = {}
 for col in df.columns:
-    if col in VARYING_PARAMS or col == METRIC_NAME:
+    if col in VARYING_PARAMS_ALL or col in VARYING_PARAMS_CONSTRAINS or col == METRIC_NAME:
         continue
 
     # skip columns with dicts / lists
@@ -99,6 +103,7 @@ with pd.ExcelWriter(OUTPUT_EXCEL, engine="openpyxl") as writer:
 
     # ---- One sheet per hidden_dim ----
     for hidden_dim in sorted(df["hidden_dim"].unique()):
+        # hidden_dim = sorted(df["hidden_dim"].unique())[0]
         sheet_name = f"hidden_dim_{hidden_dim}"
         start_row = 0
 
@@ -109,21 +114,18 @@ with pd.ExcelWriter(OUTPUT_EXCEL, engine="openpyxl") as writer:
             df_non_logical["hidden_dim"] == hidden_dim
         ]
 
-        if not subset_non_logical.empty:
-            pivot_non_logical = subset_non_logical.pivot_table(
-                index="num_layers",
-                values=METRIC_NAME,
-                aggfunc="mean"
-            ).reset_index()
+        pivot_non_logical = subset_non_logical[
+            ["model", "num_layers", METRIC_NAME]
+            ].set_index("model").T
 
-            pivot_non_logical.to_excel(
-                writer,
-                sheet_name=sheet_name,
-                index=False,
-                startrow=start_row
-            )
+        pivot_non_logical.to_excel(
+            writer,
+            sheet_name=sheet_name,
+            index=True,
+            startrow=start_row
+        )
 
-            start_row += len(pivot_non_logical) + 3
+        start_row += len(pivot_non_logical) + 3
 
         # =========================
         # LOGICAL MODELS
@@ -132,18 +134,20 @@ with pd.ExcelWriter(OUTPUT_EXCEL, engine="openpyxl") as writer:
             df_logical["hidden_dim"] == hidden_dim
         ]
 
-        for constrains_l in sorted(
-            subset_logical["constrains_l"].dropna().unique()
+        # constrains_filepath = subset_logical["constrains_filepath"].loc[1]
+        for constrains_filepath in sorted(
+            subset_logical["constrains_filepath"].dropna().unique()
         ):
             subset_c = subset_logical[
-                subset_logical["constrains_l"] == constrains_l
+                subset_logical["constrains_filepath"] == constrains_filepath
             ]
 
             if subset_c.empty:
                 continue
-
+            
+            model_name = subset_c.model.reset_index(drop=True)[0]
             title_df = pd.DataFrame(
-                [[f"Constrains: {constrains_l}"]],
+                [[f"Model: {model_name}, Constrains: {constrains_filepath}"]],
                 columns=[""]
             )
             title_df.to_excel(
@@ -155,16 +159,16 @@ with pd.ExcelWriter(OUTPUT_EXCEL, engine="openpyxl") as writer:
             )
             start_row += 1
 
-            pivot_logical = subset_c.pivot_table(
-                index="num_layers",
-                values=METRIC_NAME,
-                aggfunc="mean"
-            ).reset_index()
+            pivot_logical = subset_c.pivot(
+                index="l_factor",        # rows
+                columns="num_layers",    # columns
+                values=METRIC_NAME       # cell values
+            )
 
             pivot_logical.to_excel(
                 writer,
                 sheet_name=sheet_name,
-                index=False,
+                index=True,
                 startrow=start_row
             )
 

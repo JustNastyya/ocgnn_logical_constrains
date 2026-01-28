@@ -68,34 +68,34 @@ def run_bunch_experiments():
     # and save the results into the results folder as json
     
     #hidden_dim_l = [16, 32, 64, 128, 256]
-    hidden_dim_l = [32]
+    hidden_dim_l = [32, 64]
     # num_layers_l = [2, 3, 4, 5]
     num_layers_l = [3, 5]
-    l_factor_l = [0.01] # fuck. only used in constrains
+    l_factor_l = [0.01, 0.03] # fuck. only used in constrains
     # l_factor_l = [0.1, 0.01, 0.005, 0.001]
     
     constrains_l = [
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "first_try.json"
+    file_full_path = FILEPATH + "first_better_try.json"
     
     results_l = []
 
-    for hidden_dim, num_layers, l_factor in product(
+    for hidden_dim, num_layers in product(
         hidden_dim_l,
-        num_layers_l,
-        l_factor_l
+        num_layers_l
     ):
         results_l.append(experiment_wrapper(
             hidden_dim=hidden_dim,
             num_layers=num_layers,
-            l_factor=l_factor,
             is_logical=False,
             model_train=model_reference["simple_node_ocgin"]
         ))
-
-        for constraint_path in constrains_l:        
+        for constraint_path, l_factor in product(
+                constrains_l,
+                l_factor_l
+            ):
             results_l.append(experiment_wrapper(
                 hidden_dim=hidden_dim,
                 num_layers=num_layers,
