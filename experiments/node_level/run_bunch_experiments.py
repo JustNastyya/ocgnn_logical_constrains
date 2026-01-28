@@ -67,18 +67,15 @@ def run_bunch_experiments():
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
-    #hidden_dim_l = [16, 32, 64, 128, 256]
-    hidden_dim_l = [32, 64]
-    # num_layers_l = [2, 3, 4, 5]
-    num_layers_l = [3, 5]
-    l_factor_l = [0.01, 0.03] # fuck. only used in constrains
-    # l_factor_l = [0.1, 0.01, 0.005, 0.001]
+    hidden_dim_l = [16, 32, 64, 128, 256]
+    num_layers_l = [2, 3, 4, 5]
+    l_factor_l = [0.1, 0.01, 0.005, 0.001]
     
     constrains_l = [
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "first_better_try.json"
+    file_full_path = FILEPATH + "TODO.json"
     
     results_l = []
 

@@ -389,3 +389,4 @@ now i guess i shall think about creating automatic tables. not sure yet in which
 i guess for the beginning where i am not writing yet i shall create exel tables to see them better. afterwards i can do the latex
 
 State now: chatgpt wrote the script which produces the exel and it works but kinda fucked (see the exel and the input json)
+UPD: cleaned up, works fine but only for 4 varying params
