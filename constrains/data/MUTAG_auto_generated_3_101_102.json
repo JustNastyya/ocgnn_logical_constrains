@@ -1,0 +1,171 @@
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": "<=",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 2,
+          "op": "<=",
+          "threshold": 0.27272728085517883
+        },
+        {
+          "feature_index": 7,
+          "op": "<=",
+          "threshold": 2.153846263885498
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "47 v.s. 3"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": "<=",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 2,
+          "op": "<=",
+          "threshold": 0.27272728085517883
+        },
+        {
+          "feature_index": 7,
+          "op": ">",
+          "threshold": 2.153846263885498
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "6 v.s. 4"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": "<=",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 2,
+          "op": ">",
+          "threshold": 0.27272728085517883
+        },
+        {
+          "feature_index": 1,
+          "op": "<=",
+          "threshold": 0.1666666716337204
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "5 v.s. 9"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": "<=",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 2,
+          "op": ">",
+          "threshold": 0.27272728085517883
+        },
+        {
+          "feature_index": 1,
+          "op": ">",
+          "threshold": 0.1666666716337204
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": ">",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 5,
+          "op": "<=",
+          "threshold": 0.10526315867900848
+        },
+        {
+          "feature_index": 1,
+          "op": "<=",
+          "threshold": 0.11999999731779099
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": ">",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 5,
+          "op": "<=",
+          "threshold": 0.10526315867900848
+        },
+        {
+          "feature_index": 1,
+          "op": ">",
+          "threshold": 0.11999999731779099
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "1 v.s. 3"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 7,
+          "op": ">",
+          "threshold": 2.190476179122925
+        },
+        {
+          "feature_index": 5,
+          "op": ">",
+          "threshold": 0.10526315867900848
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    }
+  ],
+  "additional_attributes": {
+    "0:7": "mean_node_features",
+    "7": "mean_node_degree"
+  }
+}

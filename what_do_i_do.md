@@ -390,3 +390,13 @@ i guess for the beginning where i am not writing yet i shall create exel tables 
 
 State now: chatgpt wrote the script which produces the exel and it works but kinda fucked (see the exel and the input json)
 UPD: cleaned up, works fine but only for 4 varying params
+
+UPD: now i think is about time i text Tim and find out if what i was doing here had any sence at all. what i do know i can do before the meeting:
+
+- implement other ways of using logical constrains
+- implement all that for graph level solutions (that would include graph decision trees and graph level models)
+
+TO ASK Tim:
+- can i use a server from uni to train the model on bigger datasets?
+
+starting with graph level decision trees

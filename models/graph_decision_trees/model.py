@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.tree import _tree
 
 
-class NodeLevelGraphDecisionTree:
+class GraphDecisionTree:
     def __init__(self, depth=0, max_depth=None):
         self.depth = depth
         self.max_depth = max_depth
@@ -66,9 +66,9 @@ class NodeLevelGraphDecisionTree:
             return
 
         # Recursively build the left and right subtrees
-        self.left = NodeLevelGraphDecisionTree(
+        self.left = GraphDecisionTree(
             depth=self.depth + 1, max_depth=self.max_depth)
-        self.right = NodeLevelGraphDecisionTree(
+        self.right = GraphDecisionTree(
             depth=self.depth + 1, max_depth=self.max_depth)
         self.left.fit(X[best_left_mask], y[best_left_mask])
         self.right.fit(X[best_right_mask], y[best_right_mask])

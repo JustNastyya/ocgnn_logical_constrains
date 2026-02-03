@@ -1,18 +1,20 @@
 from loguru import logger
 import torch
 
+from torch_geometric.datasets import TUDataset
+
 from models.graph_decision_trees.model import GraphDecisionTree
-from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
-from models.graph_decision_trees.node_level.filename_utils import get_filename
+from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
+from models.graph_decision_trees.graph_level.filename_utils import get_filename
 
 
 def train_and_print(attribute_list, max_depth, dataset_name, save=True):
     logger.info("Loading Config...")
-    config = NodeLevelFeatureExtractor(attribute_list)
+    config = GraphLevelFeatureExtractor(attribute_list)
 
     logger.info("Loading Dataset...")
-    data = config.get_data(dataset_name)
-    X, y = config.extract_features(data, balance=True)
+    dataset = config.get_data(dataset_name)
+    X, y = config.extract_features(dataset, balance=True)
     
     logger.info(f"Starting training with max depth: {max_depth}")
 
@@ -31,9 +33,9 @@ def train_and_print(attribute_list, max_depth, dataset_name, save=True):
 
 
 if __name__ == "__main__":
-    attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
-    max_depth = 3
-    dataset_name = "Cora"
+    attribute_list = ["mean_node_features", "mean_node_degree"]
+    max_depth = 2
+    dataset_name = "MUTAG"
     save = True
     
     train_and_print(

@@ -2,7 +2,7 @@ import torch
 import random
 from collections import defaultdict
 
-from models.graph_decision_trees.template_config import TemplateFeatureExtractor
+from models.graph_decision_trees.node_level.template_config import TemplateFeatureExtractor
 from experiments.node_level.data_loader_nl import get_data, split_test_train
 
 class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
