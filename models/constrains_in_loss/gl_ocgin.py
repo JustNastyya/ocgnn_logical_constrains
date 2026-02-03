@@ -86,4 +86,5 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
 
             total_loss += loss.item()
 
-        logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(loader):.6f}")
+        if epoch % 10 == 0:
+            logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")

@@ -58,7 +58,6 @@ def experiment_wrapper(*args, **kwargs):
         "model_results": model_results
     }
     
-    # would be better to save in between results
     return results
 
 
@@ -75,7 +74,7 @@ def run_bunch_experiments():
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "TODO.json"
+    file_full_path = FILEPATH + "nl_compare_simple_OCGIN_vs_loss_constrains.json"
     
     results_l = []
 

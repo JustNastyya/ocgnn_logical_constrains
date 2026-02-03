@@ -1,0 +1,3782 @@
+[
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 16,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 32,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 64,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.005,
+      "save_logs": true
+    },
+    "model_results": null
+  },
+  {
+    "model_config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "MUTAG",
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/MUTAG_auto_generated_3_101_102.json",
+      "constrains_handler": "GLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": true
+    },
+    "model_results": null
+  }
+]

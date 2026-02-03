@@ -1,0 +1,828 @@
+2026-02-03 23:44:36.557 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:36.565 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:36.571 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:36.577 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:36.583 CET | INFO     | Line   27 (logging_utils.py): num_layers: 3
+2026-02-03 23:44:36.586 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:36.592 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:36.596 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:36.601 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:36.606 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:36.610 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:36.614 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:44:36.621 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:36.626 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.005
+2026-02-03 23:44:36.631 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:36.637 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:36.642 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:36.648 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:36.653 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:36.712 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:36.718 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:36.737 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:36.741 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:36.880 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.019574
+2026-02-03 23:44:37.314 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.001776
+2026-02-03 23:44:37.673 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.001423
+2026-02-03 23:44:37.973 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.001357
+2026-02-03 23:44:38.428 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.001348
+2026-02-03 23:44:38.812 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:38.876 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:38.882 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0110)
+2026-02-03 23:44:38.889 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:38.894 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0109, 0.0106, 0.0103, 0.0115, 0.0102, 0.0102, 0.0104, 0.0102, 0.0102,
+        0.0110])
+2026-02-03 23:44:38.903 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:38.924 CET | INFO     | Line   88 (run_experiment_gl.py): 0.7753623188405797
+2026-02-03 23:44:38.929 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 107 out of 138
+2026-02-03 23:44:38.945 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:38.950 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:38.954 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:38.957 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:38.962 CET | INFO     | Line   27 (logging_utils.py): num_layers: 3
+2026-02-03 23:44:38.968 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:38.972 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:38.976 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:38.983 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:38.988 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:38.993 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:39.000 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:44:39.005 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:39.011 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.001
+2026-02-03 23:44:39.018 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:39.023 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:39.030 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:39.035 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:39.041 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:39.093 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:39.099 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:39.114 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:39.123 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:39.239 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.009908
+2026-02-03 23:44:39.764 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000893
+2026-02-03 23:44:40.187 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000490
+2026-02-03 23:44:40.528 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000403
+2026-02-03 23:44:40.953 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000379
+2026-02-03 23:44:41.259 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:41.322 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:41.329 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0036)
+2026-02-03 23:44:41.337 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:41.343 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0031, 0.0029, 0.0034, 0.0030, 0.0029, 0.0031, 0.0029, 0.0029, 0.0038,
+        0.0029])
+2026-02-03 23:44:41.351 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:41.370 CET | INFO     | Line   88 (run_experiment_gl.py): 0.5869565217391305
+2026-02-03 23:44:41.373 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 81 out of 138
+2026-02-03 23:44:41.411 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:41.419 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:41.427 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:41.434 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:41.439 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:41.446 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:41.452 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:41.457 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:41.464 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:41.470 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:41.477 CET | INFO     | Line   27 (logging_utils.py): is_logical: False
+2026-02-03 23:44:41.484 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:44:41.500 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:41.514 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:44:41.522 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:41.529 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:41.540 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGIN
+2026-02-03 23:44:41.546 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:41.554 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:41.619 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:41.627 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:41.655 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:41.790 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 000 | Loss 0.079570
+2026-02-03 23:44:41.850 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 001 | Loss 0.056861
+2026-02-03 23:44:41.920 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 002 | Loss 0.026420
+2026-02-03 23:44:41.980 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 003 | Loss 0.017966
+2026-02-03 23:44:42.036 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 004 | Loss 0.013856
+2026-02-03 23:44:42.094 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 005 | Loss 0.012617
+2026-02-03 23:44:42.150 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 006 | Loss 0.011157
+2026-02-03 23:44:42.209 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 007 | Loss 0.009478
+2026-02-03 23:44:42.271 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 008 | Loss 0.009031
+2026-02-03 23:44:42.349 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 009 | Loss 0.008633
+2026-02-03 23:44:42.534 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 010 | Loss 0.008128
+2026-02-03 23:44:42.595 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 011 | Loss 0.007670
+2026-02-03 23:44:42.655 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 012 | Loss 0.007430
+2026-02-03 23:44:42.729 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 013 | Loss 0.007142
+2026-02-03 23:44:42.792 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 014 | Loss 0.007031
+2026-02-03 23:44:42.848 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 015 | Loss 0.006919
+2026-02-03 23:44:42.908 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 016 | Loss 0.006805
+2026-02-03 23:44:42.971 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 017 | Loss 0.006749
+2026-02-03 23:44:43.031 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 018 | Loss 0.006708
+2026-02-03 23:44:43.094 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 019 | Loss 0.006653
+2026-02-03 23:44:43.164 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 020 | Loss 0.006621
+2026-02-03 23:44:43.301 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 021 | Loss 0.006574
+2026-02-03 23:44:43.406 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 022 | Loss 0.006557
+2026-02-03 23:44:43.472 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 023 | Loss 0.006551
+2026-02-03 23:44:43.556 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 024 | Loss 0.006526
+2026-02-03 23:44:43.658 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 025 | Loss 0.006503
+2026-02-03 23:44:43.985 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 026 | Loss 0.006490
+2026-02-03 23:44:44.127 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 027 | Loss 0.006489
+2026-02-03 23:44:44.188 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 028 | Loss 0.006486
+2026-02-03 23:44:44.258 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 029 | Loss 0.006484
+2026-02-03 23:44:44.342 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 030 | Loss 0.006469
+2026-02-03 23:44:44.406 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 031 | Loss 0.006459
+2026-02-03 23:44:44.468 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 032 | Loss 0.006457
+2026-02-03 23:44:44.541 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 033 | Loss 0.006452
+2026-02-03 23:44:44.596 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 034 | Loss 0.006447
+2026-02-03 23:44:44.654 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 035 | Loss 0.006450
+2026-02-03 23:44:44.722 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 036 | Loss 0.006444
+2026-02-03 23:44:44.785 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 037 | Loss 0.006446
+2026-02-03 23:44:44.845 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 038 | Loss 0.006444
+2026-02-03 23:44:44.905 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 039 | Loss 0.006445
+2026-02-03 23:44:44.961 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 040 | Loss 0.006453
+2026-02-03 23:44:45.017 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 041 | Loss 0.006435
+2026-02-03 23:44:45.134 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 042 | Loss 0.006450
+2026-02-03 23:44:45.217 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 043 | Loss 0.006446
+2026-02-03 23:44:45.314 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 044 | Loss 0.006438
+2026-02-03 23:44:45.381 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 045 | Loss 0.006434
+2026-02-03 23:44:45.435 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 046 | Loss 0.006432
+2026-02-03 23:44:45.490 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 047 | Loss 0.006431
+2026-02-03 23:44:45.546 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 048 | Loss 0.006432
+2026-02-03 23:44:45.598 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 049 | Loss 0.006429
+2026-02-03 23:44:45.604 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:45.702 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:45.708 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0064)
+2026-02-03 23:44:45.717 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:45.722 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0064, 0.0064, 0.0064, 0.0064, 0.0064, 0.0064, 0.0064, 0.0064, 0.0065,
+        0.0064])
+2026-02-03 23:44:45.732 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:45.747 CET | INFO     | Line   88 (run_experiment_gl.py): 0.7753623188405797
+2026-02-03 23:44:45.750 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 107 out of 138
+2026-02-03 23:44:45.770 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:45.778 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:45.787 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:45.795 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:45.800 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:45.804 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:45.811 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:45.819 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:45.826 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:45.834 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:45.851 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:45.862 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:44:45.871 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:45.878 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:44:45.888 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:45.896 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:45.901 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:45.906 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:45.916 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:45.984 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:45.990 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:46.021 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:46.027 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:46.253 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.011789
+2026-02-03 23:44:47.153 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.003500
+2026-02-03 23:44:47.780 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.003278
+2026-02-03 23:44:48.335 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.003254
+2026-02-03 23:44:48.874 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.003248
+2026-02-03 23:44:49.319 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:49.425 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:49.431 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0044)
+2026-02-03 23:44:49.436 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:49.442 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0043, 0.0043, 0.0044, 0.0043, 0.0043, 0.0043, 0.0043, 0.0043, 0.0044,
+        0.0043])
+2026-02-03 23:44:49.447 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:49.465 CET | INFO     | Line   88 (run_experiment_gl.py): 0.3188405797101449
+2026-02-03 23:44:49.471 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 44 out of 138
+2026-02-03 23:44:49.495 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:49.501 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:49.507 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:49.514 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:49.518 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:49.523 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:49.530 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:49.533 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:49.538 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:49.541 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:49.549 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:49.552 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:44:49.556 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:49.562 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.01
+2026-02-03 23:44:49.565 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:49.569 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:49.572 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:49.576 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:49.580 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:49.624 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:49.630 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:49.651 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:49.655 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:49.800 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.008165
+2026-02-03 23:44:50.373 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000637
+2026-02-03 23:44:50.929 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000508
+2026-02-03 23:44:51.433 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000489
+2026-02-03 23:44:51.844 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000483
+2026-02-03 23:44:52.235 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:52.350 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:52.355 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0019)
+2026-02-03 23:44:52.361 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:52.368 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0018, 0.0018, 0.0018, 0.0019, 0.0018, 0.0020, 0.0019, 0.0019, 0.0019,
+        0.0018])
+2026-02-03 23:44:52.373 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:52.393 CET | INFO     | Line   88 (run_experiment_gl.py): 0.855072463768116
+2026-02-03 23:44:52.397 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 118 out of 138
+2026-02-03 23:44:52.417 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:52.423 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:52.429 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:52.435 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:52.442 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:52.450 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:52.458 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:52.466 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:52.472 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:52.481 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:52.487 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:52.496 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:44:52.504 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:52.511 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.005
+2026-02-03 23:44:52.517 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:52.525 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:52.532 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:52.538 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:52.546 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:52.617 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:52.625 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:52.648 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:52.651 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:52.808 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.009486
+2026-02-03 23:44:53.348 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000457
+2026-02-03 23:44:54.078 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000362
+2026-02-03 23:44:54.573 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000352
+2026-02-03 23:44:55.007 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000350
+2026-02-03 23:44:55.386 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:55.462 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:55.468 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0019)
+2026-02-03 23:44:55.476 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:55.481 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0019, 0.0019, 0.0019, 0.0019, 0.0019, 0.0019, 0.0019, 0.0019, 0.0019,
+        0.0019])
+2026-02-03 23:44:55.485 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:55.509 CET | INFO     | Line   88 (run_experiment_gl.py): 0.7971014492753623
+2026-02-03 23:44:55.517 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 110 out of 138
+2026-02-03 23:44:55.539 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:55.545 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:55.550 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:55.559 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:55.566 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:55.573 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:55.580 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:55.587 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:55.593 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:55.600 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:55.607 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:55.614 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:44:55.627 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:55.638 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.001
+2026-02-03 23:44:55.652 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:55.666 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:55.674 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:55.689 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:55.697 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:55.758 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:55.762 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:55.779 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:55.785 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:55.916 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.009407
+2026-02-03 23:44:56.508 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000444
+2026-02-03 23:44:57.001 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000316
+2026-02-03 23:44:57.534 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000304
+2026-02-03 23:44:58.136 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000300
+2026-02-03 23:44:58.542 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:44:58.680 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:44:58.687 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0025)
+2026-02-03 23:44:58.695 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:44:58.702 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0024, 0.0024, 0.0024, 0.0025, 0.0025, 0.0024, 0.0024, 0.0025, 0.0024,
+        0.0024])
+2026-02-03 23:44:58.710 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:44:58.734 CET | INFO     | Line   88 (run_experiment_gl.py): 0.855072463768116
+2026-02-03 23:44:58.741 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 118 out of 138
+2026-02-03 23:44:58.764 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:44:58.771 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:44:58.777 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:44:58.782 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:44:58.789 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:44:58.794 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:44:58.800 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:44:58.805 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:44:58.811 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:44:58.817 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:44:58.824 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:44:58.831 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:44:58.837 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:44:58.840 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:44:58.844 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:44:58.847 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:44:58.851 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:44:58.857 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:44:58.863 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:44:58.917 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:44:58.924 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:44:58.947 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:44:58.953 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:44:59.117 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.013521
+2026-02-03 23:44:59.665 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.004595
+2026-02-03 23:45:00.112 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.004503
+2026-02-03 23:45:00.581 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.004491
+2026-02-03 23:45:01.153 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.004488
+2026-02-03 23:45:01.570 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:01.659 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:01.666 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0074)
+2026-02-03 23:45:01.675 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:01.681 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0074, 0.0073, 0.0074, 0.0074, 0.0074, 0.0074, 0.0074, 0.0074, 0.0074,
+        0.0074])
+2026-02-03 23:45:01.688 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:01.709 CET | INFO     | Line   88 (run_experiment_gl.py): 0.6086956521739131
+2026-02-03 23:45:01.713 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 84 out of 138
+2026-02-03 23:45:01.734 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:01.740 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:01.746 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:01.754 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:01.766 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:45:01.778 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:01.798 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:01.807 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:01.820 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:01.836 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:01.859 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:01.872 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:01.889 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:01.907 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.01
+2026-02-03 23:45:01.936 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:01.965 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:01.984 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:01.991 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:01.999 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:02.065 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:02.070 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:02.084 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:02.088 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:02.278 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.008743
+2026-02-03 23:45:02.865 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000934
+2026-02-03 23:45:03.404 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000784
+2026-02-03 23:45:04.124 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000757
+2026-02-03 23:45:04.586 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000755
+2026-02-03 23:45:04.986 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:05.079 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:05.091 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0035)
+2026-02-03 23:45:05.097 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:05.103 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0035, 0.0035, 0.0034, 0.0035, 0.0035, 0.0036, 0.0035, 0.0035, 0.0035,
+        0.0035])
+2026-02-03 23:45:05.109 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:05.133 CET | INFO     | Line   88 (run_experiment_gl.py): 0.5652173913043478
+2026-02-03 23:45:05.141 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 78 out of 138
+2026-02-03 23:45:05.172 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:05.182 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:05.188 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:05.194 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:05.201 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:45:05.208 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:05.214 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:05.221 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:05.229 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:05.235 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:05.242 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:05.248 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:05.255 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:05.261 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.005
+2026-02-03 23:45:05.267 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:05.275 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:05.280 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:05.287 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:05.294 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:05.348 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:05.352 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:05.370 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:05.376 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:05.520 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.022993
+2026-02-03 23:45:06.100 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000756
+2026-02-03 23:45:06.623 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000613
+2026-02-03 23:45:07.253 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000594
+2026-02-03 23:45:07.749 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000588
+2026-02-03 23:45:08.104 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:08.180 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:08.187 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0037)
+2026-02-03 23:45:08.194 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:08.201 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0036, 0.0035, 0.0035, 0.0036, 0.0035, 0.0036, 0.0035, 0.0037, 0.0037,
+        0.0035])
+2026-02-03 23:45:08.208 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:08.238 CET | INFO     | Line   88 (run_experiment_gl.py): 0.8333333333333334
+2026-02-03 23:45:08.246 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 115 out of 138
+2026-02-03 23:45:08.265 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:08.269 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:08.273 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:08.279 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:08.285 CET | INFO     | Line   27 (logging_utils.py): num_layers: 4
+2026-02-03 23:45:08.290 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:08.295 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:08.299 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:08.306 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:08.312 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:08.315 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:08.322 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:08.327 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:08.331 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.001
+2026-02-03 23:45:08.337 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:08.344 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:08.348 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:08.355 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:08.361 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:08.404 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:08.411 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:08.431 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:08.437 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:08.579 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.007204
+2026-02-03 23:45:09.156 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000731
+2026-02-03 23:45:09.858 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000608
+2026-02-03 23:45:10.481 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000579
+2026-02-03 23:45:10.912 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000574
+2026-02-03 23:45:11.333 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:11.438 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:11.445 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0049)
+2026-02-03 23:45:11.453 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:11.459 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0049, 0.0048, 0.0048, 0.0049, 0.0048, 0.0048, 0.0048, 0.0048, 0.0049,
+        0.0048])
+2026-02-03 23:45:11.466 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:11.494 CET | INFO     | Line   88 (run_experiment_gl.py): 0.8260869565217391
+2026-02-03 23:45:11.500 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 114 out of 138
+2026-02-03 23:45:11.551 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:11.563 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:11.577 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:11.593 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:11.605 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:11.619 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:11.634 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:11.643 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:11.649 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:11.661 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:11.671 CET | INFO     | Line   27 (logging_utils.py): is_logical: False
+2026-02-03 23:45:11.677 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:45:11.683 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:11.697 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:45:11.720 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:11.727 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:11.737 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGIN
+2026-02-03 23:45:11.746 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:11.850 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:12.009 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:12.016 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:12.041 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:12.142 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 000 | Loss 0.036175
+2026-02-03 23:45:12.223 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 001 | Loss 0.022495
+2026-02-03 23:45:12.301 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 002 | Loss 0.009464
+2026-02-03 23:45:12.376 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 003 | Loss 0.004911
+2026-02-03 23:45:12.452 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 004 | Loss 0.003861
+2026-02-03 23:45:12.527 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 005 | Loss 0.002754
+2026-02-03 23:45:12.603 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 006 | Loss 0.002256
+2026-02-03 23:45:12.678 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 007 | Loss 0.001858
+2026-02-03 23:45:12.753 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 008 | Loss 0.001509
+2026-02-03 23:45:12.832 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 009 | Loss 0.001395
+2026-02-03 23:45:12.910 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 010 | Loss 0.001329
+2026-02-03 23:45:12.983 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 011 | Loss 0.001221
+2026-02-03 23:45:13.054 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 012 | Loss 0.001112
+2026-02-03 23:45:13.125 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 013 | Loss 0.001055
+2026-02-03 23:45:13.197 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 014 | Loss 0.001004
+2026-02-03 23:45:13.270 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 015 | Loss 0.000987
+2026-02-03 23:45:13.337 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 016 | Loss 0.000977
+2026-02-03 23:45:13.398 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 017 | Loss 0.000936
+2026-02-03 23:45:13.470 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 018 | Loss 0.000915
+2026-02-03 23:45:13.533 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 019 | Loss 0.000899
+2026-02-03 23:45:13.596 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 020 | Loss 0.000895
+2026-02-03 23:45:13.692 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 021 | Loss 0.000883
+2026-02-03 23:45:13.840 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 022 | Loss 0.000870
+2026-02-03 23:45:13.968 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 023 | Loss 0.000865
+2026-02-03 23:45:14.110 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 024 | Loss 0.000858
+2026-02-03 23:45:14.237 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 025 | Loss 0.000850
+2026-02-03 23:45:14.340 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 026 | Loss 0.000846
+2026-02-03 23:45:14.416 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 027 | Loss 0.000846
+2026-02-03 23:45:14.557 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 028 | Loss 0.000844
+2026-02-03 23:45:14.647 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 029 | Loss 0.000837
+2026-02-03 23:45:14.759 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 030 | Loss 0.000836
+2026-02-03 23:45:14.841 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 031 | Loss 0.000835
+2026-02-03 23:45:14.919 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 032 | Loss 0.000838
+2026-02-03 23:45:15.003 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 033 | Loss 0.000840
+2026-02-03 23:45:15.084 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 034 | Loss 0.000833
+2026-02-03 23:45:15.151 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 035 | Loss 0.000832
+2026-02-03 23:45:15.233 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 036 | Loss 0.000838
+2026-02-03 23:45:15.303 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 037 | Loss 0.000832
+2026-02-03 23:45:15.365 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 038 | Loss 0.000833
+2026-02-03 23:45:15.435 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 039 | Loss 0.000834
+2026-02-03 23:45:15.506 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 040 | Loss 0.000830
+2026-02-03 23:45:15.583 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 041 | Loss 0.000827
+2026-02-03 23:45:15.646 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 042 | Loss 0.000830
+2026-02-03 23:45:15.719 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 043 | Loss 0.000828
+2026-02-03 23:45:15.785 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 044 | Loss 0.000827
+2026-02-03 23:45:15.854 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 045 | Loss 0.000826
+2026-02-03 23:45:15.941 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 046 | Loss 0.000826
+2026-02-03 23:45:16.009 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 047 | Loss 0.000827
+2026-02-03 23:45:16.140 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 048 | Loss 0.000827
+2026-02-03 23:45:16.356 CET | DEBUG    | Line   85 (graph_level_ocgin.py): Epoch 049 | Loss 0.000825
+2026-02-03 23:45:16.365 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:16.509 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:16.514 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0008)
+2026-02-03 23:45:16.519 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:16.525 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0008, 0.0008, 0.0008, 0.0008, 0.0008, 0.0008, 0.0008, 0.0008, 0.0008,
+        0.0008])
+2026-02-03 23:45:16.530 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:16.544 CET | INFO     | Line   88 (run_experiment_gl.py): 0.6884057971014492
+2026-02-03 23:45:16.554 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 95 out of 138
+2026-02-03 23:45:16.568 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:16.572 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:16.577 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:16.581 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:16.587 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:16.592 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:16.599 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:16.606 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:16.612 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:16.619 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:16.623 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:16.628 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:45:16.633 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:16.637 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:45:16.641 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:16.645 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:16.650 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:16.654 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:16.659 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:16.714 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:16.722 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:16.756 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:16.761 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:17.015 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.008375
+2026-02-03 23:45:17.953 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.002921
+2026-02-03 23:45:18.614 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.002889
+2026-02-03 23:45:19.287 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.002885
+2026-02-03 23:45:19.948 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.002884
+2026-02-03 23:45:20.464 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:20.582 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:20.589 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0010)
+2026-02-03 23:45:20.597 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:20.605 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0010,
+        0.0010])
+2026-02-03 23:45:20.612 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:20.638 CET | INFO     | Line   88 (run_experiment_gl.py): 0.5579710144927537
+2026-02-03 23:45:20.644 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 77 out of 138
+2026-02-03 23:45:20.667 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:20.674 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:20.680 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:20.687 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:20.693 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:20.700 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:20.707 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:20.713 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:20.721 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:20.727 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:20.734 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:20.741 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:45:20.746 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:20.754 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.01
+2026-02-03 23:45:20.760 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:20.767 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:20.774 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:20.779 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:20.787 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:20.843 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:20.847 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:20.872 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:20.876 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:21.044 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.008785
+2026-02-03 23:45:21.767 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000724
+2026-02-03 23:45:22.325 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000649
+2026-02-03 23:45:22.974 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000629
+2026-02-03 23:45:23.503 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000626
+2026-02-03 23:45:23.965 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:24.058 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:24.065 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0031)
+2026-02-03 23:45:24.074 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:24.080 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0031, 0.0031, 0.0031, 0.0031, 0.0031, 0.0031, 0.0031, 0.0031, 0.0032,
+        0.0031])
+2026-02-03 23:45:24.088 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:24.103 CET | INFO     | Line   88 (run_experiment_gl.py): 0.5652173913043478
+2026-02-03 23:45:24.106 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 78 out of 138
+2026-02-03 23:45:24.120 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:24.126 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:24.134 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:24.141 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:24.150 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:24.157 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:24.164 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:24.171 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:24.178 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:24.184 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:24.191 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:24.198 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:45:24.205 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:24.215 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.005
+2026-02-03 23:45:24.233 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:24.252 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:24.259 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:24.268 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:24.276 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:24.333 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:24.340 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:24.367 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:24.374 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:24.687 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.004918
+2026-02-03 23:45:25.390 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000581
+2026-02-03 23:45:25.906 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000510
+2026-02-03 23:45:26.529 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000501
+2026-02-03 23:45:27.016 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000500
+2026-02-03 23:45:27.499 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:27.597 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:27.604 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0033)
+2026-02-03 23:45:27.613 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:27.622 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0033, 0.0033, 0.0032, 0.0033, 0.0033, 0.0032, 0.0032, 0.0032, 0.0033,
+        0.0033])
+2026-02-03 23:45:27.632 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:27.651 CET | INFO     | Line   88 (run_experiment_gl.py): 0.6376811594202898
+2026-02-03 23:45:27.655 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 88 out of 138
+2026-02-03 23:45:27.673 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:27.682 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:27.688 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:27.697 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:27.704 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:27.710 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:27.717 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:27.722 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:27.726 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:27.732 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:27.737 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:27.742 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-03 23:45:27.748 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:27.752 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.001
+2026-02-03 23:45:27.758 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:27.763 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:27.768 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:27.773 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:27.778 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:27.832 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:27.837 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:27.861 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:27.866 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:28.050 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.003359
+2026-02-03 23:45:28.810 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000126
+2026-02-03 23:45:29.392 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000087
+2026-02-03 23:45:30.251 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000081
+2026-02-03 23:45:30.902 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000081
+2026-02-03 23:45:31.410 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:31.550 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:31.558 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0005)
+2026-02-03 23:45:31.569 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:31.585 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005,
+        0.0005])
+2026-02-03 23:45:31.598 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:31.631 CET | INFO     | Line   88 (run_experiment_gl.py): 0.7391304347826086
+2026-02-03 23:45:31.637 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 102 out of 138
+2026-02-03 23:45:31.666 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:31.674 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:31.687 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:31.698 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:31.707 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:31.715 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:31.723 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:31.733 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:31.740 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:31.747 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:31.754 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:31.764 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:31.774 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:31.782 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-03 23:45:31.791 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:31.798 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:31.805 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:31.816 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:31.823 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:31.894 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:31.902 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:31.928 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:31.937 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:32.116 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.009734
+2026-02-03 23:45:33.009 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.004000
+2026-02-03 23:45:33.598 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.003904
+2026-02-03 23:45:34.110 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.003893
+2026-02-03 23:45:34.665 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.003891
+2026-02-03 23:45:35.112 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:35.198 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:35.205 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0020)
+2026-02-03 23:45:35.212 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:35.216 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0020, 0.0020, 0.0020, 0.0020, 0.0020, 0.0020, 0.0020, 0.0020, 0.0020,
+        0.0020])
+2026-02-03 23:45:35.220 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:35.239 CET | INFO     | Line   88 (run_experiment_gl.py): 0.6376811594202898
+2026-02-03 23:45:35.243 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 88 out of 138
+2026-02-03 23:45:35.257 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:35.263 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:35.270 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:35.274 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:35.279 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:35.284 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:35.288 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:35.295 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:35.302 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:35.306 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:35.312 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:35.316 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:35.321 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:35.326 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.01
+2026-02-03 23:45:35.332 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:35.336 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:35.340 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:35.346 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:35.350 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:35.393 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:35.400 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:35.422 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:35.429 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:35.589 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.004716
+2026-02-03 23:45:36.311 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000948
+2026-02-03 23:45:36.837 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000904
+2026-02-03 23:45:37.372 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000898
+2026-02-03 23:45:37.969 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000897
+2026-02-03 23:45:38.403 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:38.490 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:38.494 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0048)
+2026-02-03 23:45:38.501 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:38.509 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0048, 0.0048, 0.0048, 0.0048, 0.0048, 0.0048, 0.0048, 0.0048, 0.0048,
+        0.0048])
+2026-02-03 23:45:38.516 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:38.533 CET | INFO     | Line   88 (run_experiment_gl.py): 0.6521739130434783
+2026-02-03 23:45:38.538 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 90 out of 138
+2026-02-03 23:45:38.554 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:38.559 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:38.564 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:38.569 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:38.573 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:38.581 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:38.587 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:38.594 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:38.601 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:38.605 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:38.613 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:38.619 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:38.623 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:38.629 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.005
+2026-02-03 23:45:38.633 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:38.637 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:38.642 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:38.647 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:38.652 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:38.694 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:38.698 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:38.718 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:38.722 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:38.864 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.004097
+2026-02-03 23:45:39.504 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000470
+2026-02-03 23:45:40.093 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000357
+2026-02-03 23:45:40.602 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000350
+2026-02-03 23:45:41.172 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000349
+2026-02-03 23:45:41.676 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:41.767 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:41.774 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0015)
+2026-02-03 23:45:41.782 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:41.790 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015,
+        0.0015])
+2026-02-03 23:45:41.797 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:41.815 CET | INFO     | Line   88 (run_experiment_gl.py): 0.8188405797101449
+2026-02-03 23:45:41.819 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 113 out of 138
+2026-02-03 23:45:41.834 CET | INFO     | Line   28 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-03 23:45:41.839 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-03 23:45:41.845 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-03 23:45:41.851 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 256
+2026-02-03 23:45:41.855 CET | INFO     | Line   27 (logging_utils.py): num_layers: 5
+2026-02-03 23:45:41.862 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-03 23:45:41.868 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-03 23:45:41.876 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-03 23:45:41.882 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-03 23:45:41.887 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-03 23:45:41.895 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-03 23:45:41.901 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_3_101_102.json
+2026-02-03 23:45:41.908 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-03 23:45:41.915 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.001
+2026-02-03 23:45:41.924 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-03 23:45:41.931 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-03 23:45:41.941 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-03 23:45:41.950 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-03 23:45:41.964 CET | INFO     | Line   41 (run_experiment_gl.py): ##################### Loading data
+2026-02-03 23:45:42.029 CET | INFO     | Line   45 (run_experiment_gl.py): ##################### creating model
+2026-02-03 23:45:42.035 CET | INFO     | Line   48 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-03 23:45:42.077 CET | INFO     | Line   51 (run_experiment_gl.py): ##################### staring training
+2026-02-03 23:45:42.083 CET | INFO     | Line   53 (run_experiment_gl.py): setting up the logical constrains
+2026-02-03 23:45:42.236 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 000 | Loss 0.005195
+2026-02-03 23:45:42.869 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 010 | Loss 0.000208
+2026-02-03 23:45:43.392 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 020 | Loss 0.000157
+2026-02-03 23:45:43.912 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 030 | Loss 0.000150
+2026-02-03 23:45:44.374 CET | DEBUG    | Line   90 (gl_ocgin.py): Epoch 040 | Loss 0.000150
+2026-02-03 23:45:44.862 CET | INFO     | Line   65 (run_experiment_gl.py): ##################### computing scores
+2026-02-03 23:45:45.073 CET | INFO     | Line   69 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-03 23:45:45.086 CET | INFO     | Line   72 (run_experiment_gl.py): tensor(0.0010)
+2026-02-03 23:45:45.100 CET | INFO     | Line   75 (run_experiment_gl.py): Test anomaly scores:
+2026-02-03 23:45:45.107 CET | INFO     | Line   76 (run_experiment_gl.py): tensor([0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0010, 0.0011, 0.0010, 0.0010,
+        0.0010])
+2026-02-03 23:45:45.115 CET | INFO     | Line   78 (run_experiment_gl.py): ##################### test rate: 
+2026-02-03 23:45:45.137 CET | INFO     | Line   88 (run_experiment_gl.py): 0.8333333333333334
+2026-02-03 23:45:45.141 CET | INFO     | Line   89 (run_experiment_gl.py): right classified: 115 out of 138

@@ -1,0 +1,107 @@
+from loguru import logger
+
+import torch
+import json
+import os
+import tempfile
+from itertools import product
+
+from experiments.graph_level.model_reference_gl import model_reference
+from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
+
+from constrains.gl_rules_based_handler import GLRuleBasedHandler
+
+FILEPATH = "experiments/graph_level/bunch_json_results/"
+
+
+def json_dump(data, path):
+    dir_name = os.path.dirname(path)
+    with tempfile.NamedTemporaryFile("w", dir=dir_name, delete=False) as tmp:
+        json.dump(data, tmp, indent=2)
+        tmp.flush()
+        os.fsync(tmp.fileno())
+        tmp_path = tmp.name
+    os.replace(tmp_path, path)
+
+
+def experiment_wrapper(*args, **kwargs):
+    config = {
+        "hidden_dim": 64,
+        "num_layers": 3,
+        "device": "cuda" if torch.cuda.is_available() else "cpu",
+        "lr": 1e-3,
+        "epochs": 50,
+        "batch_size": 32,
+        "dataset": "MUTAG",
+        "model_train": model_reference["loss_logic_graph_ocgin"],
+        "is_logical": True,
+        "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+        "constrains_handler": GLRuleBasedHandler,
+        "l_factor": 0.1,
+        "save_logs": True,
+    }
+    
+    for config_key in kwargs.keys():
+        config[config_key] = kwargs[config_key]
+
+    model_results = experiment_logging_wrapper(config=config)
+    
+    results = {
+        "model_config": {
+            **config,
+            "model_train": {
+                "model": config["model_train"]["model"].__name__,
+                "train_loop": config["model_train"]["train_loop"].__name__,
+            },
+            "constrains_handler": config["constrains_handler"].__name__,
+        },
+        "model_results": model_results
+    }
+    
+    return results
+
+
+def run_bunch_experiments():
+    # gonna iterate over a bunch of settings and train
+    # every time 1 + constrains_n models,
+    # and save the results into the results folder as json
+    
+    hidden_dim_l = [16, 32, 64, 128, 256]
+    num_layers_l = [2, 3, 4, 5]
+    l_factor_l = [0.1, 0.01, 0.005, 0.001]
+    
+    constrains_l = [
+        "constrains/data/MUTAG_auto_generated_2_101_102.json",
+        "constrains/data/MUTAG_auto_generated_3_101_102.json"
+    ]
+    file_full_path = FILEPATH + "gl_compare_simple_OCGIN_vs_loss_constrains.json"
+    
+    results_l = []
+
+    for hidden_dim, num_layers in product(
+        hidden_dim_l,
+        num_layers_l
+    ):
+        results_l.append(experiment_wrapper(
+            hidden_dim=hidden_dim,
+            num_layers=num_layers,
+            is_logical=False,
+            model_train=model_reference["simple_graph_ocgin"]
+        ))
+        for constraint_path, l_factor in product(
+                constrains_l,
+                l_factor_l
+            ):
+            results_l.append(experiment_wrapper(
+                hidden_dim=hidden_dim,
+                num_layers=num_layers,
+                l_factor=l_factor,
+                is_logical=True,
+                constrains_filepath=constraint_path
+            ))
+        
+        json_dump(results_l, file_full_path)
+
+
+if __name__ == "__main__":
+    run_bunch_experiments()

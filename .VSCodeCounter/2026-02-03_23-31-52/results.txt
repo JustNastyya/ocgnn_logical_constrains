@@ -1,0 +1,206 @@
+Date : 2026-02-03 23:31:52
+Directory : /home/ana/stuff/1uni/bachlor
+Total : 124 files,  87638 codes, 354 comments, 1325 blanks, all 89317 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| XML      |         12 |     71,943 |          0 |        118 |     72,061 |
+| JSON     |         23 |      7,374 |          0 |          0 |      7,374 |
+| Log      |         26 |      4,779 |          0 |         38 |      4,817 |
+| Python   |         48 |      2,774 |        354 |        852 |      3,980 |
+| Markdown |         10 |        566 |          0 |        304 |        870 |
+| YAML     |          5 |        202 |          0 |         13 |        215 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                            | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                               |        124 |     87,638 |        354 |      1,325 |     89,317 |
+| . (Files)                                                                                                                       |          2 |        248 |          0 |        160 |        408 |
+| GraphLevel-AnomalyDetection                                                                                                     |         55 |      5,683 |        236 |        382 |      6,301 |
+| GraphLevel-AnomalyDetection (Files)                                                                                             |          4 |        172 |         49 |         60 |        281 |
+| GraphLevel-AnomalyDetection/RESULTS                                                                                             |         33 |      4,222 |          0 |         17 |      4,239 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL                                                                                 |         33 |      4,222 |          0 |         17 |      4,239 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins                                                                        |         33 |      4,222 |          0 |         17 |      4,239 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_0                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_1                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_2                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_3                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_4                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_5                                                                 |          4 |        501 |          0 |          2 |        503 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_6                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_7                                                                 |          4 |        508 |          0 |          2 |        510 |
+| GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_8                                                                 |          1 |        165 |          0 |          1 |        166 |
+| GraphLevel-AnomalyDetection/config                                                                                              |          2 |        141 |         31 |         42 |        214 |
+| GraphLevel-AnomalyDetection/config_files                                                                                        |          5 |        202 |          0 |         13 |        215 |
+| GraphLevel-AnomalyDetection/evaluation                                                                                          |          3 |        150 |         43 |         51 |        244 |
+| GraphLevel-AnomalyDetection/loader                                                                                              |          2 |        131 |         26 |         44 |        201 |
+| GraphLevel-AnomalyDetection/models                                                                                              |          6 |        665 |         87 |        155 |        907 |
+| constrains                                                                                                                      |          8 |        638 |          6 |         42 |        686 |
+| constrains (Files)                                                                                                              |          4 |        126 |          6 |         42 |        174 |
+| constrains/data                                                                                                                 |          4 |        512 |          0 |          0 |        512 |
+| data                                                                                                                            |         12 |     71,943 |          0 |        118 |     72,061 |
+| data/Cora                                                                                                                       |          3 |        798 |          0 |         10 |        808 |
+| data/Cora/Cora                                                                                                                  |          3 |        798 |          0 |         10 |        808 |
+| data/Cora/Cora/processed                                                                                                        |          3 |        798 |          0 |         10 |        808 |
+| data/MUTAG                                                                                                                      |          6 |      3,134 |          0 |          2 |      3,136 |
+| data/MUTAG/MUTAG                                                                                                                |          3 |      1,567 |          0 |          1 |      1,568 |
+| data/MUTAG/MUTAG/processed                                                                                                      |          3 |      1,567 |          0 |          1 |      1,568 |
+| data/MUTAG/processed                                                                                                            |          3 |      1,567 |          0 |          1 |      1,568 |
+| data/REDDIT-BINARY                                                                                                              |          3 |     68,011 |          0 |        106 |     68,117 |
+| data/REDDIT-BINARY/processed                                                                                                    |          3 |     68,011 |          0 |        106 |     68,117 |
+| experiments                                                                                                                     |         22 |      7,956 |         28 |        190 |      8,174 |
+| experiments (Files)                                                                                                             |          2 |        103 |          1 |         35 |        139 |
+| experiments/graph_level                                                                                                         |         10 |        688 |          5 |         82 |        775 |
+| experiments/graph_level (Files)                                                                                                 |          4 |        221 |          5 |         69 |        295 |
+| experiments/graph_level/log_results                                                                                             |          6 |        467 |          0 |         13 |        480 |
+| experiments/node_level                                                                                                          |         10 |      7,165 |         22 |         73 |      7,260 |
+| experiments/node_level (Files)                                                                                                  |          4 |        213 |         22 |         65 |        300 |
+| experiments/node_level/bunch_json_results                                                                                       |          3 |      6,846 |          0 |          0 |      6,846 |
+| experiments/node_level/log_results                                                                                              |          3 |        106 |          0 |          8 |        114 |
+| info_n_literature                                                                                                               |          3 |        103 |          0 |         43 |        146 |
+| models                                                                                                                          |         15 |        686 |         18 |        251 |        955 |
+| models (Files)                                                                                                                  |          1 |         17 |          0 |          9 |         26 |
+| models/constrains_in_loss                                                                                                       |          2 |        115 |          3 |         55 |        173 |
+| models/graph_decision_trees                                                                                                     |         10 |        444 |         12 |        132 |        588 |
+| models/graph_decision_trees (Files)                                                                                             |          2 |        187 |          8 |         40 |        235 |
+| models/graph_decision_trees/graph_level                                                                                         |          4 |        121 |          2 |         44 |        167 |
+| models/graph_decision_trees/node_level                                                                                          |          4 |        136 |          2 |         48 |        186 |
+| models/simple_ocgin                                                                                                             |          2 |        110 |          3 |         55 |        168 |
+| pytorch_basics                                                                                                                  |          6 |        282 |         23 |        103 |        408 |
+| wrapping_data                                                                                                                   |          1 |         99 |         43 |         36 |        178 |
++---------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                        | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/Launch_Exps.py                                                         | Python   |         23 |         15 |          8 |         46 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/README.md                                                              | Markdown |         30 |          0 |         21 |         51 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_0/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_0/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_0/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_0/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_1/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_1/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_1/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_1/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_2/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_2/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_2/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_2/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_3/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_3/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_3/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_3/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_4/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_4/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_4/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_4/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_5/0_experiment.log                   | Log      |        246 |          0 |          1 |        247 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_5/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_5/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_5/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_6/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_6/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_6/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_6/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_7/0_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_7/0_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_7/1_experiment.log                   | Log      |        253 |          0 |          1 |        254 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_7/1_results.json                     | JSON     |          1 |          0 |          0 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/RESULTS/RESULTS_GTL/proteins/FOLD_8/0_experiment.log                   | Log      |        165 |          0 |          1 |        166 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config/__init__.py                                                     | Python   |          0 |          0 |          1 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config/base.py                                                         | Python   |        141 |         31 |         41 |        213 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config_files/config_GTL.yml                                            | YAML     |         48 |          0 |          3 |         51 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config_files/config_GTP.yml                                            | YAML     |         46 |          0 |          3 |         49 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config_files/config_OCGIN.yml                                          | YAML     |         46 |          0 |          3 |         49 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config_files/config_OCGTL.yml                                          | YAML     |         48 |          0 |          3 |         51 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/config_files/config_OCPool.yml                                         | YAML     |         14 |          0 |          1 |         15 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/evaluation/Experiments.py                                              | Python   |         45 |         14 |         17 |         76 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/evaluation/Kfolds_Eval.py                                              | Python   |        105 |         29 |         33 |        167 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/evaluation/__init__.py                                                 | Python   |          0 |          0 |          1 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/launch_my_experiment.py                                                | Python   |         22 |          1 |          8 |         31 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/loader/GraphDataClass.py                                               | Python   |        131 |         26 |         43 |        200 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/loader/__init__.py                                                     | Python   |          0 |          0 |          1 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/GraphNets.py                                                    | Python   |        141 |         15 |         23 |        179 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/GraphTransform.py                                               | Python   |        198 |         25 |         45 |        268 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/Losses.py                                                       | Python   |         73 |         15 |         24 |        112 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/Models.py                                                       | Python   |        164 |         16 |         34 |        214 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/Trainer.py                                                      | Python   |         89 |         16 |         28 |        133 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/models/__init__.py                                                     | Python   |          0 |          0 |          1 |          1 |
+| /home/ana/stuff/1uni/bachlor/GraphLevel-AnomalyDetection/utils.py                                                               | Python   |         97 |         33 |         23 |        153 |
+| /home/ana/stuff/1uni/bachlor/README.md                                                                                          | Markdown |          1 |          0 |          1 |          2 |
+| /home/ana/stuff/1uni/bachlor/constrains/constrains_handler.py                                                                   | Python   |         46 |          0 |         14 |         60 |
+| /home/ana/stuff/1uni/bachlor/constrains/data/Cora_auto_generated_2_101_102_103.json                                             | JSON     |         85 |          0 |          0 |         85 |
+| /home/ana/stuff/1uni/bachlor/constrains/data/Cora_auto_generated_3_101_102_103.json                                             | JSON     |        172 |          0 |          0 |        172 |
+| /home/ana/stuff/1uni/bachlor/constrains/data/MUTAG_auto_generated_2_101_102.json                                                | JSON     |         84 |          0 |          0 |         84 |
+| /home/ana/stuff/1uni/bachlor/constrains/data/MUTAG_auto_generated_3_101_102.json                                                | JSON     |        171 |          0 |          0 |        171 |
+| /home/ana/stuff/1uni/bachlor/constrains/gl_rules_based_handler.py                                                               | Python   |         17 |          3 |          7 |         27 |
+| /home/ana/stuff/1uni/bachlor/constrains/nl_rules_based_handler.py                                                               | Python   |         17 |          3 |          7 |         27 |
+| /home/ana/stuff/1uni/bachlor/constrains/readme.md                                                                               | Markdown |         46 |          0 |         14 |         60 |
+| /home/ana/stuff/1uni/bachlor/data/Cora/Cora/processed/data.pt                                                                   | XML      |        794 |          0 |         10 |        804 |
+| /home/ana/stuff/1uni/bachlor/data/Cora/Cora/processed/pre_filter.pt                                                             | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/Cora/Cora/processed/pre_transform.pt                                                          | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/MUTAG/processed/data.pt                                                                 | XML      |      1,563 |          0 |          1 |      1,564 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/MUTAG/processed/pre_filter.pt                                                           | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/MUTAG/processed/pre_transform.pt                                                        | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/processed/data.pt                                                                       | XML      |      1,563 |          0 |          1 |      1,564 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/processed/pre_filter.pt                                                                 | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/MUTAG/processed/pre_transform.pt                                                              | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/REDDIT-BINARY/processed/data.pt                                                               | XML      |     68,007 |          0 |        106 |     68,113 |
+| /home/ana/stuff/1uni/bachlor/data/REDDIT-BINARY/processed/pre_filter.pt                                                         | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/data/REDDIT-BINARY/processed/pre_transform.pt                                                      | XML      |          2 |          0 |          0 |          2 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/data_loader_gl.py                                                          | Python   |         43 |          0 |         15 |         58 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGINLossConstrains_MUTAG_3_64_GLRuleBasedHandler_v01.log | Log      |         82 |          0 |          1 |         83 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGIN_MUTAG_3_64_v01.log                                  | Log      |         77 |          0 |          1 |         78 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGIN_MUTAG_3_64_v02.log                                  | Log      |         77 |          0 |          1 |         78 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGIN_MUTAG_3_64_v03.log                                  | Log      |         81 |          0 |          1 |         82 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGIN_MUTAG_3_64_v04.log                                  | Log      |         69 |          0 |          8 |         77 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/log_results/GraphOCGIN_MUTAG_3_64_v05.log                                  | Log      |         81 |          0 |          1 |         82 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/model_reference_gl.py                                                      | Python   |         12 |          1 |          3 |         16 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/run_bunch_experiments.py                                                   | Python   |         83 |          3 |         21 |        107 |
+| /home/ana/stuff/1uni/bachlor/experiments/graph_level/run_experiment_gl.py                                                       | Python   |         83 |          1 |         30 |        114 |
+| /home/ana/stuff/1uni/bachlor/experiments/logging_utils.py                                                                       | Python   |         62 |          1 |         17 |         80 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/bunch_json_results/first_better_try.json                                    | JSON     |      4,322 |          0 |          0 |      4,322 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/bunch_json_results/first_try.json                                           | JSON     |        146 |          0 |          0 |        146 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/bunch_json_results/nl_compare_simple_OCGIN_vs_loss_constrains.json          | JSON     |      2,378 |          0 |          0 |      2,378 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/data_loader_nl.py                                                           | Python   |         37 |          0 |         13 |         50 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/log_results/NodeOCGINLossConstrains_Cora_3_64_NLRuleBasedHandler_v01.log    | Log      |         32 |          0 |          1 |         33 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/log_results/NodeOCGIN_Cora_3_64_NLRuleBasedHandler_v01.log                  | Log      |         47 |          0 |          6 |         53 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/log_results/NodeOCGIN_Cora_3_64_v01.log                                     | Log      |         27 |          0 |          1 |         28 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/model_reference_nl.py                                                       | Python   |         12 |          1 |          3 |         16 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/run_bunch_experiments.py                                                    | Python   |         83 |          3 |         21 |        107 |
+| /home/ana/stuff/1uni/bachlor/experiments/node_level/run_experiment_nl.py                                                        | Python   |         81 |         18 |         28 |        127 |
+| /home/ana/stuff/1uni/bachlor/experiments/readme.md                                                                              | Markdown |         41 |          0 |         18 |         59 |
+| /home/ana/stuff/1uni/bachlor/info_n_literature/fun_facts_to_remember.md                                                         | Markdown |         40 |          0 |          4 |         44 |
+| /home/ana/stuff/1uni/bachlor/info_n_literature/my_meeting_tim.md                                                                | Markdown |         34 |          0 |         25 |         59 |
+| /home/ana/stuff/1uni/bachlor/info_n_literature/possible_literature.md                                                           | Markdown |         29 |          0 |         14 |         43 |
+| /home/ana/stuff/1uni/bachlor/models/constrains_in_loss/gl_ocgin.py                                                              | Python   |         61 |          2 |         28 |         91 |
+| /home/ana/stuff/1uni/bachlor/models/constrains_in_loss/nl_ocgin.py                                                              | Python   |         54 |          1 |         27 |         82 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/graph_level/config.py                                                  | Python   |         52 |          1 |         20 |         73 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/graph_level/filename_utils.py                                          | Python   |         12 |          0 |          2 |         14 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/graph_level/template_config.py                                         | Python   |         25 |          1 |          7 |         33 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/graph_level/train_and_print.py                                         | Python   |         32 |          0 |         15 |         47 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/model.py                                                               | Python   |        144 |          8 |         24 |        176 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/node_level/config.py                                                   | Python   |         48 |          1 |         17 |         66 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/node_level/filename_utils.py                                           | Python   |         12 |          0 |          2 |         14 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/node_level/template_config.py                                          | Python   |         45 |          1 |         15 |         61 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/node_level/train_and_print.py                                          | Python   |         31 |          0 |         14 |         45 |
+| /home/ana/stuff/1uni/bachlor/models/graph_decision_trees/readme.md                                                              | Markdown |         43 |          0 |         16 |         59 |
+| /home/ana/stuff/1uni/bachlor/models/simple_ocgin/graph_level_ocgin.py                                                           | Python   |         57 |          2 |         27 |         86 |
+| /home/ana/stuff/1uni/bachlor/models/simple_ocgin/node_level_ocgin.py                                                            | Python   |         53 |          1 |         28 |         82 |
+| /home/ana/stuff/1uni/bachlor/models/utils.py                                                                                    | Python   |         17 |          0 |          9 |         26 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/basic_operations.py                                                                 | Python   |          6 |          1 |          6 |         13 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/basics_pytorch.md                                                                   | Markdown |         55 |          0 |         32 |         87 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/decision_trees.py                                                                   | Python   |        118 |         14 |         26 |        158 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/doing_logical_constrains_with_nn.py                                                 | Python   |         48 |          5 |         16 |         69 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/neural_networks.py                                                                  | Python   |         25 |          0 |         10 |         35 |
+| /home/ana/stuff/1uni/bachlor/pytorch_basics/simple_gnn.py                                                                       | Python   |         30 |          3 |         13 |         46 |
+| /home/ana/stuff/1uni/bachlor/what_do_i_do.md                                                                                    | Markdown |        247 |          0 |        159 |        406 |
+| /home/ana/stuff/1uni/bachlor/wrapping_data/write_experiments_exel.py                                                            | Python   |         99 |         43 |         36 |        178 |
+| Total                                                                                                                           |          |     87,638 |        354 |      1,325 |     89,317 |
++---------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
