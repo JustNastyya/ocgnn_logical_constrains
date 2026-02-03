@@ -1,6 +1,7 @@
 import torch
 from torch_geometric.datasets import TUDataset
 from torch_geometric.loader import DataLoader
+from torch_geometric.data import Dataset
 
 from torch.utils.data import random_split
 
@@ -8,8 +9,22 @@ from torch.utils.data import random_split
 TUDATASETS = ["MUTAG", "REDDIT-BINARY"]
 NORMAL_LABEL = 0
 
+class IndexedDataset(Dataset):
+    def __init__(self, dataset):
+        super().__init__()
+        self.dataset = dataset
+
+    def len(self):
+        return len(self.dataset)
+
+    def get(self, idx):
+        data = self.dataset[idx]
+        data.idx = idx
+        return data
+
 def get_data(dataset_name, batch_size):
     dataset = TUDataset(root=f"data/{dataset_name}", name=dataset_name)    
+    dataset = IndexedDataset(dataset)
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     return dataset, loader
         

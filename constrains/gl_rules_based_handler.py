@@ -2,10 +2,10 @@ import json
 import torch
 from loguru import logger
 
-from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
 
 
-class NLRuleBasedHandler:
+class GLRuleBasedHandler:
     def __init__(self, filename, l_factor, normal_label):
         self.filename = filename
         self.json_rules = self._load_rules(filename)
@@ -48,12 +48,12 @@ class NLRuleBasedHandler:
 
         return self.soft_and(torch.stack(cond_values))
 
-    def get_constraint_value(self, data):
+    def get_constraint_value(self, dataset):
         """returns a vector of length of node constraint values"""
         # extend X by the additional features
         attribute_list = self.json_rules["additional_attributes"].values()
-        config = NodeLevelFeatureExtractor(attribute_list)
-        X, _ = config.extract_features(data, balance=False)
+        config = GraphLevelFeatureExtractor(attribute_list)
+        X, _ = config.extract_features(dataset, balance=False)
         
         # fail save
         self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)

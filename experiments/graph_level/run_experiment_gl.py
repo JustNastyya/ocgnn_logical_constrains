@@ -6,14 +6,18 @@ from experiments.graph_level.model_reference_gl import model_reference
 from experiments.graph_level.data_loader_gl import get_data, split_test_train
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
+from constrains.gl_rules_based_handler import GLRuleBasedHandler
+
 from models.utils import compute_anomaly_scores_graph_level
 
+NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
     """A wrapper for logging occuring errors"""
-    log_filename = get_filename(config, level="graph")
-    init_logging(log_filename, level="graph")
-    
+    if config["save_logs"]:
+        log_filename = get_filename(config, level="graph")
+        init_logging(log_filename, level="graph")
+
     try:
         run_experiment(config)
     except Exception as e:
@@ -45,15 +49,28 @@ def run_experiment(config):
     model = ModelClass(dim_features, hidden_dim, num_layers, device).to(device)
 
     logger.info("##################### staring training")
-    train_loop_func(model, train_loader, epochs, lr)
+    if config["is_logical"]:
+        logger.info("setting up the logical constrains")
+
+        ConstrainHandler = config["constrains_handler"]
+        constrains_filepath = config["constrains_filepath"]
+        l_factor = config["l_factor"]
+        constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
+    
+        train_loop_func(model, train_loader, epochs, lr, constrains_handler_obj, dataset)
+    else:
+        train_loop_func(model, train_loader, epochs, lr)
+
 
     logger.info("##################### computing scores")
     train_scores = compute_anomaly_scores_graph_level(model, train_loader)
     test_scores = compute_anomaly_scores_graph_level(model, test_loader)
     
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
+    results = {}
     R = torch.quantile(train_scores, 0.95)
     logger.info(R)
+    results["decision_boundary"] = R.item()
 
     logger.info("Test anomaly scores:")
     logger.info(test_scores[:10])
@@ -70,6 +87,10 @@ def run_experiment(config):
 
     logger.info(compare.sum().item() / len(compare))
     logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
+    
+    results["test_rate"] = compare.sum().item() / len(compare)
+    return results 
+
 
 
 if __name__ == "__main__":
@@ -81,8 +102,12 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "MUTAG",
-        "model_train": model_reference["simple_graph_ocgin"],
-        "is_logical": False
+        "model_train": model_reference["loss_logic_graph_ocgin"],
+        "is_logical": True,
+        "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
+        "constrains_handler": GLRuleBasedHandler,
+        "l_factor": 0.1,
+        "save_logs": True,
     }
 
     experiment_logging_wrapper(config)

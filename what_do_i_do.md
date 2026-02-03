@@ -399,4 +399,8 @@ UPD: now i think is about time i text Tim and find out if what i was doing here 
 TO ASK Tim:
 - can i use a server from uni to train the model on bigger datasets?
 
+### doing the same for GL
+
 starting with graph level decision trees
+
+FUCK: been implementing constrains handler for GL and for out that i had balance=True for NL constrains handler. That would mean, that i had my constrains implemented only on a small portion of the dataset. in theory on none, rigth.. FUCK. will have to do the experiments all over again
