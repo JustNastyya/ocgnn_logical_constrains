@@ -404,3 +404,41 @@ TO ASK Tim:
 starting with graph level decision trees
 
 FUCK: been implementing constrains handler for GL and for out that i had balance=True for NL constrains handler. That would mean, that i had my constrains implemented only on a small portion of the dataset. in theory on none, rigth.. FUCK. will have to do the experiments all over again
+
+## constraints score!!!
+
+i have developed a score which says how far am i in one constraint zone or another, represented by a value from 0 to 1!!
+
+### results on comparison
+
+i have built this what is better thing to calculate the mean test rate by which i am better. well
+
+for nl_compare_simple_OCGIN_vs_loss_constrains
+0.006095551894563426
+
+nl_compare_simple_OCGIN_vs_loss_specific_constrains
+-0.004527903624382205
+gl_compare_simple_OCGIN_vs_loss_specific_constrains
+-0.00951086956521739
+
+
+gl_compare_simple_OCGIN_vs_loss_constrains
+0.013451086956521743
+
+soo not really statically significant. fuck
+
+
+## where to put my anomaly score
+
+- to loss
+- as attribute
+
+buuut what am i saing with all that philosophically??
+
+like here is a wierd point -> be very carefull with it and... plot it nearer the hypersphere?
+
+perhaps i shall make logical constrains a part of the model? like not just in the training?
+
+otherwise it doesnt make sence to really use the "anomalious" constrains, right?
+
+SO NEW IDEA. use only normal constrains
