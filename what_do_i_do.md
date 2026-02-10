@@ -396,9 +396,6 @@ UPD: now i think is about time i text Tim and find out if what i was doing here 
 - implement other ways of using logical constrains
 - implement all that for graph level solutions (that would include graph decision trees and graph level models)
 
-TO ASK Tim:
-- can i use a server from uni to train the model on bigger datasets?
-
 ### doing the same for GL
 
 starting with graph level decision trees
@@ -442,3 +439,34 @@ perhaps i shall make logical constrains a part of the model? like not just in th
 otherwise it doesnt make sence to really use the "anomalious" constrains, right?
 
 SO NEW IDEA. use only normal constrains
+
+# MEETIN WITH TIM
+
+big topics:
+- my training gives me rather... bad models
+
+- constrains itself, how to get better constrains
+
+- philosophically shall i make constrains not just part of the loss but a part of the model
+
+- what can constrains say to the model?
+
+- my constraint score - any use?
+
+smaller topics:
+- can i use a server from uni to train the model on bigger datasets?
+
+idee from tim:
+
+split in 3 datasets + validation:
+look at the loss in the validation set
+statt 95% quantil: aucroc
+dropout or other things ausprobieren
+odds ratio statt test rate!
+mehr schrauben in die constrains
+
+coole idee: lambda die sich variiert
+
+nicht vergessen: präsentation für 15-20 min grob auf high level darüber was ich hier mache
+
+6.03 - präsentation

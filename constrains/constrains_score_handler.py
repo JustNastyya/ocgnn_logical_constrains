@@ -85,7 +85,7 @@ class ConstraintScoreBasedHandler:
         else:
             # "grey zone"
             constraint_distance = group_dis_diff
-        return constraint_distance # TODO something like softmax
+        return constraint_distance
         
     def _test_attribute_mapping(self, old_attribute_mapper, new_attribute_mapper):
         try:
