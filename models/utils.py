@@ -1,6 +1,8 @@
 import torch
 from loguru import logger
 
+
+# ------------------- anomaly scores -------------------
 def compute_anomaly_scores_graph_level(model, loader):
     model.eval()
     scores = []
@@ -24,34 +26,57 @@ def compute_anomaly_scores_node_level(model, data, mask_ind):
 
     return scores
 
+# ------------------- ratiooos -------------------
 
-def get_test_rate_nl(data, test_mask, test_scores, R):
-    pred = (test_scores > R).int()
-    
-    # all labels except of 0 is an anomaly
-    y = (data.y[test_mask] > 0).int()
+def get_ratios(pred, y):
+    result = {}
+    # test rate
     compare = pred == y
-
-    test_rate = compare.sum().item() / len(compare)
+    n = len(compare)
+    test_rate = compare.sum().item() / n
+    result["test_rate"] = test_rate
     
-    logger.info(test_rate)
-    logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
+    # confusion matrix... hehe
+    true_positive = ((pred == 1) & (y == 1)).sum().item()
+    true_negative = ((pred == 0) & (y == 0)).sum().item()
+    false_positive = ((pred == 1) & (y == 0)).sum().item()
+    false_negative = ((pred == 0) & (y == 1)).sum().item()
+    
+    n_positive = (y == 1).sum().item()
+    n_negative = (y == 0).sum().item()
+    
+    result["true_positive"] = true_positive
+    result["true_negative"] = true_negative
+    result["false_positive"] = false_positive
+    result["false_negative"] = false_negative
+    
+    # bunch of ther metrics
+    eps = 1e-8 # dont wanna devide by zero
+    TPR = true_positive / (true_positive + false_negative + eps)
+    TNR = true_negative / (true_negative + false_positive + eps)
+    Precision = true_positive / (true_positive + false_positive + eps)
+    Balanced_Accuracy = (TPR + TNR) / 2
 
-    return test_rate
+    result["recall"] = TPR
+    result["specificity"] = TNR
+    result["precision"] = Precision
+    result["balanced_accuracy"] = Balanced_Accuracy
+    return result
 
 
-def get_test_rate_gl(test_loader, test_scores, R):
+def get_ratios_nl(data, test_mask, test_scores, R):
+    pred = (test_scores > R).int()
+    y = (data.y[test_mask] > 0).int()
+    
+    return get_ratios(pred, y)
+
+
+def get_ratios_gl(test_loader, test_scores, R):
     pred = (test_scores > R).int()
     y = []
     for data in test_loader:
         y.append(data.y)
     
     y_vec = torch.cat(y, dim=0)
-    compare = pred == y_vec
-
-    right_classified = compare.sum().item()
-    test_rate = right_classified / len(compare)
-    logger.info(test_rate)
-    logger.info(f"right classified: {right_classified} out of {len(compare)}")
     
-    return test_rate
+    return get_ratios(pred, y_vec)

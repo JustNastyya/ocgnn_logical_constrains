@@ -8,7 +8,7 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.gl_rules_based_handler import GLRuleBasedHandler
 
-from models.utils import compute_anomaly_scores_graph_level, get_test_rate_gl
+from models.utils import compute_anomaly_scores_graph_level, get_ratios_gl
 
 NORMAL_LABEL = 0
 
@@ -67,19 +67,19 @@ def run_experiment(config):
     test_scores = compute_anomaly_scores_graph_level(model, test_loader)
     
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
-    results = {}
     R = torch.quantile(train_scores, 0.95)
-    logger.info(R)
-    results["decision_boundary"] = R.item()
 
     logger.info("Test anomaly scores:")
     logger.info(test_scores[:10])
 
-    logger.info("##################### test rate: ")
+    logger.info("")
+    logger.info("##################### testing: ")
     
-    test_rate = get_test_rate_gl(test_loader, test_scores, R)
-    
-    results["test_rate"] = test_rate
+    results = get_ratios_gl(test_loader, test_scores, R)
+    results["decision_boundary"] = R.item()
+
+    for name, value in results.items():
+        logger.info(f"{name}: {round(value, 3)}")
     return results 
 
 

@@ -8,7 +8,7 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
 
-from models.utils import compute_anomaly_scores_node_level, get_test_rate_nl
+from models.utils import compute_anomaly_scores_node_level, get_ratios_nl
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -65,21 +65,19 @@ def run_experiment(config):
     train_scores = compute_anomaly_scores_node_level(model, data, train_mask)
     test_scores = compute_anomaly_scores_node_level(model, data, test_mask)
     
-    results = {}
-
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
     R = torch.quantile(train_scores, 0.95)
-    logger.info(R)
-    results["decision_boundary"] = R.item()
-
     logger.info("Test anomaly scores:")
     logger.info(test_scores[:10])
 
-    logger.info("##################### test rate: ")
+    logger.info("")
+    logger.info("##################### testing: ")
     
-    test_rate = get_test_rate_nl(data, test_mask, test_scores, R)
-    
-    results["test_rate"] = test_rate
+    results = get_ratios_nl(data, test_mask, test_scores, R)
+    results["decision_boundary"] = R.item()
+
+    for name, value in results.items():
+        logger.info(f"{name}: {round(value, 3)}")
     return results 
 
 if __name__ == "__main__":
