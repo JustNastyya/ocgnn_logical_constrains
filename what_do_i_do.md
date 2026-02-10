@@ -86,7 +86,7 @@ so i have OCGIN and OCGTL. both are for anomaly detection
 
 OCGTL avoids hypershere collapse, has better detection perfomance and is more robust.
 
-but since i am a noob, lets start with 
+but since i am a noob, lets start with...
 
 ## OCGIN (One-Class Graph Isomorphism Network)
 
@@ -410,6 +410,7 @@ i have developed a score which says how far am i in one constraint zone or anoth
 
 i have built this what is better thing to calculate the mean test rate by which i am better. well
 
+```
 for nl_compare_simple_OCGIN_vs_loss_constrains
 0.006095551894563426
 
@@ -421,7 +422,7 @@ gl_compare_simple_OCGIN_vs_loss_specific_constrains
 
 gl_compare_simple_OCGIN_vs_loss_constrains
 0.013451086956521743
-
+```
 soo not really statically significant. fuck
 
 
@@ -444,29 +445,40 @@ SO NEW IDEA. use only normal constrains
 
 big topics:
 - my training gives me rather... bad models
-
++ see down there!
 - constrains itself, how to get better constrains
-
++ yours are alright!
 - philosophically shall i make constrains not just part of the loss but a part of the model
-
-- what can constrains say to the model?
-
++ yes!
 - my constraint score - any use?
++ yes!
 
 smaller topics:
 - can i use a server from uni to train the model on bigger datasets?
++ yes!
 
-idee from tim:
+## ideas from tim:
 
-split in 3 datasets + validation:
-look at the loss in the validation set
-statt 95% quantil: aucroc
-dropout or other things ausprobieren
-odds ratio statt test rate!
-mehr schrauben in die constrains
+for my shitty training
+1. split in 3 datasets + validation:
+2. look at the loss in the validation set
+3. statt 95% quantil: aucroc
+4. dropout or other things ausprobieren
+5. odds ratio statt test rate!
+6. mehr schrauben in die constrains
 
-coole idee: lambda die sich variiert
+coole idee: lambda die sich variiert (`l_factor`)
+
 
 nicht vergessen: präsentation für 15-20 min grob auf high level darüber was ich hier mache
 
-6.03 - präsentation
+6.03 - präsentation. yay
+
+# NEW PLAN
+
+ONE. make your models give like... a better testrate then 20% (see steps 1-6 from last section)
+
+TWO. make the presentation for the thesis
+
+THREE. enjoy sleep deprevation.
+
