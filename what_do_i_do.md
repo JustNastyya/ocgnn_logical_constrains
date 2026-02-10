@@ -460,7 +460,7 @@ smaller topics:
 ## ideas from tim:
 
 for my shitty training
-1. split in 3 datasets + validation:
+1. split in 3 datasets + validation:    done!
 2. look at the loss in the validation set
 3. statt 95% quantil: aucroc
 4. dropout or other things ausprobieren

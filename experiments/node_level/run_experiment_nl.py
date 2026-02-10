@@ -8,7 +8,7 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
 
-from models.utils import compute_anomaly_scores_node_level
+from models.utils import compute_anomaly_scores_node_level, get_test_rate_nl
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -77,15 +77,8 @@ def run_experiment(config):
 
     logger.info("##################### test rate: ")
     
-    pred = (test_scores > R).int()
-    # all labels except of 0 is an anomaly
-    y = (data.y[test_mask] > 0).int()
-    compare = pred == y
-
-    test_rate = compare.sum().item() / len(compare)
-    logger.info(test_rate)
-    logger.info(f"right classified: {compare.sum().item()} out of {len(compare)}")
-
+    test_rate = get_test_rate_nl(data, test_mask, test_scores, R)
+    
     results["test_rate"] = test_rate
     return results 
 
