@@ -3,7 +3,7 @@ from loguru import logger
 import torch
 
 from experiments.graph_level.model_reference_gl import model_reference
-from experiments.graph_level.data_loader_gl import get_data, split_test_train
+from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
 from constrains.gl_rules_based_handler import GLRuleBasedHandler
@@ -40,7 +40,7 @@ def run_experiment(config):
     
     logger.info("##################### Loading data") 
     dataset, _ = get_data(dataset_name, batch_size)
-    train_loader, test_loader = split_test_train(dataset, batch_size)
+    train_loader, val_loader, test_loader = split_train_val_test(dataset, batch_size)
     
     logger.info("##################### creating model")
 

@@ -3,7 +3,7 @@ import random
 from collections import defaultdict
 
 from models.graph_decision_trees.node_level.template_config import TemplateFeatureExtractor
-from experiments.node_level.data_loader_nl import get_data, split_test_train
+from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 
 class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     def __init__(self, attribute_list):
@@ -12,7 +12,7 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     
     def get_data(self, dataset_name):
         dataset, _ = get_data(dataset_name, batch_size=32)
-        data, _, _ = split_test_train(dataset)
+        data, _, _, _ = split_train_val_test(dataset)
         return data
     
     def extract_features(self, data, balance=False):

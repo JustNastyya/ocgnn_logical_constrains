@@ -1,4 +1,6 @@
 import torch
+import random
+from torch.utils.data import Subset
 from torch_geometric.datasets import TUDataset
 from torch_geometric.loader import DataLoader
 from torch_geometric.data import Dataset
@@ -29,29 +31,40 @@ def get_data(dataset_name, batch_size):
     return dataset, loader
         
 
-def split_test_train(dataset, batch_size):
-    normal_graphs = [d for d in dataset if d.y.item() == NORMAL_LABEL]
-    anomalous_graphs = [d for d in dataset if d.y.item() != NORMAL_LABEL]
+def split_train_val_test(dataset, batch_size, train_ratio=0.7, val_ratio=0.1, seed=42):
+    # Collect indices instead of Data objects
+    normal_indices = []
+    anomaly_indices = []
 
-    num_normal = len(normal_graphs)
-    train_size = int(0.8 * num_normal)
-    test_size = num_normal - train_size
+    for i in range(len(dataset)):
+        if dataset[i].y.item() == NORMAL_LABEL:
+            normal_indices.append(i)
+        else:
+            anomaly_indices.append(i)
 
-    train_dataset, test_normal = random_split(
-        normal_graphs, [train_size, test_size]
-    )
+    # Shuffle normal graphs
+    random.shuffle(normal_indices)
 
-    test_dataset = test_normal + anomalous_graphs
+    n_total = len(normal_indices)
+    n_train = int(train_ratio * n_total)
+    n_val = int(val_ratio * n_total)
 
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=batch_size,
-        shuffle=True
-    )
+    # Split
+    train_idx = normal_indices[:n_train]
+    val_idx = normal_indices[n_train:n_train + n_val]
+    test_normal_idx = normal_indices[n_train + n_val:]
 
-    test_loader = DataLoader(
-        test_dataset,
-        batch_size=batch_size,
-        shuffle=False
-    )
-    return train_loader, test_loader
+    # Test = remaining normals + ALL anomalies
+    test_idx = test_normal_idx + anomaly_indices
+
+    # Create Subsets
+    train_dataset = Subset(dataset, train_idx)
+    val_dataset = Subset(dataset, val_idx)
+    test_dataset = Subset(dataset, test_idx)
+
+    # Loaders
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+    return train_loader, val_loader, test_loader

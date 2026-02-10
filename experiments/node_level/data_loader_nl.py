@@ -21,30 +21,42 @@ def get_data(dataset_name, batch_size):
         dataset = DATASET_REFERENCE[dataset_name](root=f'data/{dataset_name}', name=dataset_name)
         loader = DataLoader(dataset)
         return dataset, loader
-        
 
-def split_test_train(dataset):
+
+def split_train_val_test(dataset, train_ratio=0.7, val_ratio=0.1):
     data = dataset[0]
+
+    # Identify normal vs anomaly
     normal_mask = (data.y == NORMAL_LABEL)
     anomaly_mask = ~normal_mask
 
     normal_idx = normal_mask.nonzero(as_tuple=False).view(-1)
 
+    # Shuffle normal samples
     perm = torch.randperm(normal_idx.size(0))
-    train_size = int(0.8 * normal_idx.size(0))
 
-    train_idx = normal_idx[perm[:train_size]]
-    test_normal_idx = normal_idx[perm[train_size:]]
+    n_total = normal_idx.size(0)
+    n_train = int(train_ratio * n_total)
+    n_val = int(val_ratio * n_total)
 
+    # Split indices
+    train_idx = normal_idx[perm[:n_train]]
+    val_idx = normal_idx[perm[n_train:n_train + n_val]]
+    test_normal_idx = normal_idx[perm[n_train + n_val:]]
+
+    # Test set = remaining normal + ALL anomalies
     test_idx = torch.cat([
         test_normal_idx,
         anomaly_mask.nonzero(as_tuple=False).view(-1)
     ])
 
+    # Create masks
     train_mask = torch.zeros(data.num_nodes, dtype=torch.bool)
+    val_mask = torch.zeros(data.num_nodes, dtype=torch.bool)
     test_mask = torch.zeros(data.num_nodes, dtype=torch.bool)
 
     train_mask[train_idx] = True
+    val_mask[val_idx] = True
     test_mask[test_idx] = True
 
-    return data, train_mask, test_mask
+    return data, train_mask, val_mask, test_mask

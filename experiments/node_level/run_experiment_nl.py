@@ -3,7 +3,7 @@ from loguru import logger
 import torch
 
 from experiments.node_level.model_reference_nl import model_reference
-from experiments.node_level.data_loader_nl import get_data, split_test_train
+from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
@@ -23,7 +23,7 @@ def experiment_logging_wrapper(config):
         logger.exception("Failure")
 
 
-def run_experiment(config, constrains=None):
+def run_experiment(config):
     logger.info("##################### Loading config parameters")
     ModelClass = config["model_train"]["model"] 
     train_loop_func = config["model_train"]["train_loop"]
@@ -38,8 +38,8 @@ def run_experiment(config, constrains=None):
     print_config_params(config)
     
     logger.info("##################### Loading data") 
-    dataset, loader = get_data(dataset_name, batch_size)
-    data, train_mask, test_mask = split_test_train(dataset)
+    dataset, _ = get_data(dataset_name, batch_size)
+    data, train_mask, val_mask, test_mask = split_train_val_test(dataset)
     data.x    
     logger.info("##################### creating model")
 
