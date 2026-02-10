@@ -42,9 +42,6 @@ def get_ratios(pred, y):
     false_positive = ((pred == 1) & (y == 0)).sum().item()
     false_negative = ((pred == 0) & (y == 1)).sum().item()
     
-    n_positive = (y == 1).sum().item()
-    n_negative = (y == 0).sum().item()
-    
     result["true_positive"] = true_positive
     result["true_negative"] = true_negative
     result["false_positive"] = false_positive
@@ -54,13 +51,15 @@ def get_ratios(pred, y):
     eps = 1e-8 # dont wanna devide by zero
     TPR = true_positive / (true_positive + false_negative + eps)
     TNR = true_negative / (true_negative + false_positive + eps)
-    Precision = true_positive / (true_positive + false_positive + eps)
-    Balanced_Accuracy = (TPR + TNR) / 2
+    precision = true_positive / (true_positive + false_positive + eps)
+    balanced_accuracy = (TPR + TNR) / 2
+    FPR = false_positive / (false_positive + true_negative + eps)
 
     result["recall"] = TPR
     result["specificity"] = TNR
-    result["precision"] = Precision
-    result["balanced_accuracy"] = Balanced_Accuracy
+    result["precision"] = precision
+    result["balanced_accuracy"] = balanced_accuracy
+    result["FPR"] = FPR
     return result
 
 
@@ -80,3 +79,37 @@ def get_ratios_gl(test_loader, test_scores, R):
     y_vec = torch.cat(y, dim=0)
     
     return get_ratios(pred, y_vec)
+
+
+# ------------------- decision boundary -------------------
+
+def get_decision_boundary(y, test_scores):
+    thresholds = torch.linspace(test_scores.min(), test_scores.max(), 500)
+
+    best_R = None
+    best_J = -1
+
+    for R in thresholds:
+        pred = (test_scores > R).int()
+        res = get_ratios(pred, y)
+        J = res["recall"] - res["FPR"] # youdens y
+
+        if J > best_J:
+            best_J = J
+            best_R = R
+
+    return best_R
+
+
+def get_decision_boundary_nl(test_scores, data, test_mask):
+    y = (data.y[test_mask] > 0).int()
+    return get_decision_boundary(y, test_scores)
+
+
+def get_decision_boundary_gl(test_loader, test_scores):
+    y = []
+    for data in test_loader:
+        y.append(data.y)
+    
+    y_vec = torch.cat(y, dim=0)
+    return get_decision_boundary(y_vec, test_scores)

@@ -8,7 +8,7 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
 
-from models.utils import compute_anomaly_scores_node_level, get_ratios_nl
+from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -62,13 +62,14 @@ def run_experiment(config):
         train_loop_func(model, data, train_mask, test_mask, epochs, lr)
 
     logger.info("##################### computing scores")
-    train_scores = compute_anomaly_scores_node_level(model, data, train_mask)
     test_scores = compute_anomaly_scores_node_level(model, data, test_mask)
+    val_scores = compute_anomaly_scores_node_level(model, data, val_mask)
     
     logger.info("computed decision boundary on anomaly scores as 95% quantile:")
-    R = torch.quantile(train_scores, 0.95)
+    
+    R = get_decision_boundary_nl(val_scores, data, val_mask)
     logger.info("Test anomaly scores:")
-    logger.info(test_scores[:10])
+    logger.info(val_scores[:10])
 
     logger.info("")
     logger.info("##################### testing: ")

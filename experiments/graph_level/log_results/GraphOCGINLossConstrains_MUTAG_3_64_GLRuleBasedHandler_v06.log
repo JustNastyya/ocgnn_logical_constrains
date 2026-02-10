@@ -1,0 +1,46 @@
+2026-02-10 23:05:37.746 CET | INFO     | Line   31 (run_experiment_gl.py): ##################### Loading config parameters
+2026-02-10 23:05:37.746 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-02-10 23:05:37.746 CET | INFO     | Line   21 (logging_utils.py): 
+2026-02-10 23:05:37.746 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 64
+2026-02-10 23:05:37.746 CET | INFO     | Line   27 (logging_utils.py): num_layers: 3
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): dataset: MUTAG
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/MUTAG_auto_generated_2_101_102.json
+2026-02-10 23:05:37.747 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: GLRuleBasedHandler
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.1
+2026-02-10 23:05:37.747 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-02-10 23:05:37.748 CET | INFO     | Line   29 (logging_utils.py): 
+2026-02-10 23:05:37.748 CET | INFO     | Line   30 (logging_utils.py): Training on model: GraphOCGINLossConstrains
+2026-02-10 23:05:37.748 CET | INFO     | Line   31 (logging_utils.py): 
+2026-02-10 23:05:37.748 CET | INFO     | Line   44 (run_experiment_gl.py): ##################### Loading data
+2026-02-10 23:05:37.784 CET | INFO     | Line   48 (run_experiment_gl.py): ##################### creating model
+2026-02-10 23:05:37.785 CET | INFO     | Line   51 (run_experiment_gl.py): creating model with number of node features: 7
+2026-02-10 23:05:37.832 CET | INFO     | Line   54 (run_experiment_gl.py): ##################### staring training
+2026-02-10 23:05:37.833 CET | INFO     | Line   56 (run_experiment_gl.py): setting up the logical constrains
+2026-02-10 23:05:37.918 CET | DEBUG    | Line  104 (gl_ocgin.py): Epoch 000 | Loss 0.005986
+2026-02-10 23:05:38.049 CET | DEBUG    | Line  104 (gl_ocgin.py): Epoch 010 | Loss 0.004350
+2026-02-10 23:05:38.177 CET | DEBUG    | Line  104 (gl_ocgin.py): Epoch 020 | Loss 0.004218
+2026-02-10 23:05:38.304 CET | DEBUG    | Line  104 (gl_ocgin.py): Epoch 030 | Loss 0.004197
+2026-02-10 23:05:38.479 CET | DEBUG    | Line  104 (gl_ocgin.py): Epoch 040 | Loss 0.004192
+2026-02-10 23:05:38.597 CET | INFO     | Line   68 (run_experiment_gl.py): ##################### computing scores
+2026-02-10 23:05:38.631 CET | INFO     | Line   73 (run_experiment_gl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-02-10 23:05:38.693 CET | INFO     | Line   77 (run_experiment_gl.py): Test anomaly scores:
+2026-02-10 23:05:38.693 CET | INFO     | Line   78 (run_experiment_gl.py): tensor([5.7323e-05, 3.5582e-04, 1.4486e-04, 1.1070e-04, 1.0476e-04, 3.0453e-04,
+        1.3213e-04, 1.2393e-04, 3.1067e-04, 9.0513e-05])
+2026-02-10 23:05:38.695 CET | INFO     | Line   80 (run_experiment_gl.py): 
+2026-02-10 23:05:38.695 CET | INFO     | Line   81 (run_experiment_gl.py): ##################### testing: 
+2026-02-10 23:05:38.712 CET | INFO     | Line   87 (run_experiment_gl.py): test_rate: 0.761
+2026-02-10 23:05:38.712 CET | INFO     | Line   87 (run_experiment_gl.py): true_positive: 94
+2026-02-10 23:05:38.712 CET | INFO     | Line   87 (run_experiment_gl.py): true_negative: 11
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): false_positive: 2
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): false_negative: 31
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): recall: 0.752
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): specificity: 0.846
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): precision: 0.979
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): balanced_accuracy: 0.799
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): FPR: 0.154
+2026-02-10 23:05:38.713 CET | INFO     | Line   87 (run_experiment_gl.py): decision_boundary: 0.0
