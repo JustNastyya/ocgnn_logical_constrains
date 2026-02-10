@@ -1,5 +1,6 @@
 import json
 import torch.nn
+import numpy as np
 from loguru import logger
 from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
 from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
@@ -27,12 +28,10 @@ class ConstraintScoreBasedHandler:
     
     def _get_distance(self, x, constraint):
         """x - vector and condition taken from json"""
-        # TODO x[condition["feature_index"]] - condition["threshold"] 
-        # would be more accurate
         distances = []
         for condition in constraint["conditions"]:
-            distance += (x[condition["feature_index"]] - condition["threshold"]) ** 2
-        return distance ** 0.5
+            distances.append(x[condition["feature_index"]] - condition["threshold"])
+        return min(distances)
     
     def _get_weighted_group_distance(self, x, constrain_group):
         """weighted_group_distance = lambda / n_constrains * SUM(distance(x, constrain_boundary))"""
@@ -87,17 +86,6 @@ class ConstraintScoreBasedHandler:
             # "grey zone"
             constraint_distance = group_dis_diff
         return constraint_distance # TODO something like softmax
-
-    def get_constraint_value(self, dataset):
-        """returns a vector of length of number of graphs"""
-        # extend X by the additional features
-        attribute_list = self.json_rules["additional_attributes"].values()
-        config = GraphLevelFeatureExtractor(attribute_list)
-        X, _ = config.extract_features(dataset, balance=False)
-        
-        # fail save
-        self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
-
         
     def _test_attribute_mapping(self, old_attribute_mapper, new_attribute_mapper):
         try:
@@ -128,9 +116,11 @@ class GLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         # fail save
         self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
 
-        # TODO for a vector
-        constraint_scores = self.get_constraint_score(X)
-        return constraint_scores
+        scores = [self.get_constraint_score(x) for x in X]
+        
+        # apply sigmoid
+        scores_st = 1 / (1 + np.exp(np.array(scores)))
+        return scores_st
 
 
 class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
@@ -147,6 +137,8 @@ class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         # fail save
         self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
 
-        # TODO for a vector
-        constraint_scores = self.get_constraint_score(X)
-        return constraint_scores
+        scores = [self.get_constraint_score(x) for x in X]
+        
+        # apply sigmoid
+        scores_st = 1 / (1 + np.exp(np.array(scores)))
+        return scores_st
