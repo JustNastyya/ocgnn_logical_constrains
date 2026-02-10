@@ -115,7 +115,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["loss_logic_rule_based"],
+        "model_train": model_reference["node_loss_logic_rule_based"],
         "is_logical": True,
         "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains_handler": NLRuleBasedHandler,

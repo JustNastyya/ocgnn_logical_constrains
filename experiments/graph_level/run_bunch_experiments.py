@@ -33,12 +33,12 @@ def experiment_wrapper(*args, **kwargs):
         "epochs": 50,
         "batch_size": 32,
         "dataset": "MUTAG",
-        "model_train": model_reference["loss_logic_graph_ocgin"],
+        "model_train": model_reference["loss_specific_logic_graph_ocgin"],
         "is_logical": True,
         "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
         "constrains_handler": GLRuleBasedHandler,
         "l_factor": 0.1,
-        "save_logs": True,
+        "save_logs": False,
     }
     
     for config_key in kwargs.keys():
@@ -74,7 +74,7 @@ def run_bunch_experiments():
         "constrains/data/MUTAG_auto_generated_2_101_102.json",
         "constrains/data/MUTAG_auto_generated_3_101_102.json"
     ]
-    file_full_path = FILEPATH + "gl_compare_simple_OCGIN_vs_loss_constrains.json"
+    file_full_path = FILEPATH + "gl_compare_simple_OCGIN_vs_loss_specific_constrains.json"
     
     results_l = []
 

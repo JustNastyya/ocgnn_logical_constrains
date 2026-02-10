@@ -19,7 +19,7 @@ def experiment_logging_wrapper(config):
         init_logging(log_filename, level="graph")
 
     try:
-        run_experiment(config)
+        return run_experiment(config)
     except Exception as e:
         logger.exception("Failure")
 
@@ -102,7 +102,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "MUTAG",
-        "model_train": model_reference["loss_logic_graph_ocgin"],
+        "model_train": model_reference["loss_specific_logic_graph_ocgin"],
         "is_logical": True,
         "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
         "constrains_handler": GLRuleBasedHandler,

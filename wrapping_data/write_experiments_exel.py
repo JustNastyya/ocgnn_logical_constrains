@@ -1,7 +1,3 @@
-"""
-This script is written by chatgpt cuz i dont give a shit
-"""
-
 import json
 import pandas as pd
 from collections import defaultdict

@@ -33,7 +33,7 @@ def experiment_wrapper(*args, **kwargs):
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["loss_logic_rule_based"],
+        "model_train": model_reference["node_loss_logic_rule_based"],
         "is_logical": True,
         "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains_handler": NLRuleBasedHandler,
@@ -74,7 +74,7 @@ def run_bunch_experiments():
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "nl_compare_simple_OCGIN_vs_loss_constrains.json"
+    file_full_path = FILEPATH + "nl_compare_simple_OCGIN_vs_loss_specific_constrains.json"
     
     results_l = []
 

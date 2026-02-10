@@ -38,9 +38,11 @@ class NodeOCGINLossConstrains(nn.Module):
 
         return x
 
-    def loss(self, z, constrain_L):
+    def loss_add_constrain(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
+    def loss_node_defined_constraint(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center) ** 2, dim=1) + constrain_L)
 
     @torch.no_grad()
     def init_center(self, data, train_mask):
@@ -57,8 +59,16 @@ class NodeOCGINLossConstrains(nn.Module):
         return torch.sum((z - self.center) ** 2, dim=1)
 
 
+# wrapper
+def train_node_ocgin_add_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add")
 
-def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+# wrapper    
+def train_node_ocgin_node_defined_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_certain")
+
+
+def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add"):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
     model.init_center(data, train_mask)
@@ -70,8 +80,12 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
 
         data = data.to(model.device)
         z = model(data)
-        loss = model.loss(z[train_mask], L_constrains)
-
+        if loss_type == "add":
+            loss = model.loss_add_constrain(z[train_mask], L_constrains[train_mask])
+        elif loss_type == "node_certain":
+            loss = model.loss_node_defined_constraint(z[train_mask], L_constrains[train_mask])
+            
+        
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -79,3 +93,4 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
         total_loss += loss.item()
         if epoch % 10 == 0:
             logger.debug(f"Epoch {epoch:03d} | Loss {total_loss / len(data):.6f}")
+            

@@ -41,8 +41,11 @@ class GraphOCGINLossConstrains(nn.Module):
 
         return z
 
-    def loss(self, z, constrain_L):
+    def loss_add_constrain(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
+
+    def loss_graph_defined_constraint(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center) ** 2, dim=1) + constrain_L)
 
     @torch.no_grad()
     def init_center(self, loader):
@@ -62,7 +65,15 @@ class GraphOCGINLossConstrains(nn.Module):
         return torch.sum((z - self.center) ** 2, dim=1)
 
 
-def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
+def train_graph_ocgin_add_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
+    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add")
+
+# wrapper    
+def train_graph_ocgin_graph_defined_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
+    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="graph_certain")
+
+
+def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add"):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
     model.init_center(loader)
@@ -78,8 +89,11 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
             
             batch_idx = data.idx
             batch_constraints = L_constrains[batch_idx].to(model.device)
-            loss = model.loss(z, batch_constraints)
-
+            if loss_type == "add":
+                loss = model.loss_add_constrain(z, batch_constraints)
+            elif loss_type == "graph_certain":
+                loss = model.loss_graph_defined_constraint(z, batch_constraints)
+            
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
