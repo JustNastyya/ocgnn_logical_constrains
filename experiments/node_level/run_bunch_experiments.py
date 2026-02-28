@@ -13,7 +13,6 @@ from constrains.nl_rules_based_handler import NLRuleBasedHandler
 
 FILEPATH = "experiments/node_level/bunch_json_results/"
 
-
 def json_dump(data, path):
     dir_name = os.path.dirname(path)
     with tempfile.NamedTemporaryFile("w", dir=dir_name, delete=False) as tmp:
@@ -66,15 +65,17 @@ def run_bunch_experiments():
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
-    hidden_dim_l = [16, 32, 64, 128, 256]
-    num_layers_l = [2, 3, 4, 5]
-    l_factor_l = [0.1, 0.01, 0.005, 0.001]
+    hidden_dim_l = [128, 256]
+    num_layers_l = [3, 4, 5]#  = 4 is till now optimal
+    l_factor_l = [0.1, 0.5, 0.01, 0.001]
+    TRAIN_NORMAL = True
+    TRAIN_ANORMAL = False
     
     constrains_l = [
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "nl_compare_simple_OCGIN_vs_loss_specific_constrains.json"
+    file_full_path = FILEPATH + "nl_finding_best_for_cora.json"
     
     results_l = []
 
@@ -82,24 +83,27 @@ def run_bunch_experiments():
         hidden_dim_l,
         num_layers_l
     ):
-        results_l.append(experiment_wrapper(
-            hidden_dim=hidden_dim,
-            num_layers=num_layers,
-            is_logical=False,
-            model_train=model_reference["simple_node_ocgin"]
-        ))
-        for constraint_path, l_factor in product(
-                constrains_l,
-                l_factor_l
-            ):
+        if TRAIN_NORMAL:
             results_l.append(experiment_wrapper(
                 hidden_dim=hidden_dim,
                 num_layers=num_layers,
-                l_factor=l_factor,
-                is_logical=True,
-                constrains_filepath=constraint_path
+                is_logical=False,
+                model_train=model_reference["simple_node_ocgin"]
             ))
         
+        if TRAIN_ANORMAL:
+            for constraint_path, l_factor in product(
+                    constrains_l,
+                    l_factor_l
+                ):
+                results_l.append(experiment_wrapper(
+                    hidden_dim=hidden_dim,
+                    num_layers=num_layers,
+                    l_factor=l_factor,
+                    is_logical=True,
+                    constrains_filepath=constraint_path
+                ))
+            
         json_dump(results_l, file_full_path)
 
 

@@ -460,11 +460,11 @@ smaller topics:
 ## ideas from tim:
 
 for my shitty training
-1. split in 3 datasets + validation:    done!
-2. look at the loss in the validation set
-3. statt 95% quantil: aucroc
+1. split in 3 datasets + validation:            done!
+2. look at the loss in the validation set       done!
+3. statt 95% quantil: aucroc                    done!
 4. dropout or other things ausprobieren
-5. odds ratio statt test rate!
+5. odds ratio statt test rate!                  done!
 6. mehr schrauben in die constrains
 
 coole idee: lambda die sich variiert (`l_factor`)
@@ -482,3 +482,5 @@ TWO. make the presentation for the thesis
 
 THREE. enjoy sleep deprevation.
 
+FOUR:
+- do a triangler form for the first layer 

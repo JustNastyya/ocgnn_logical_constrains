@@ -45,6 +45,7 @@ def run_experiment(config):
 
     
     dim_features = data.x.shape[1] # train_dataset.num_node_features
+    logger.info(f"dim features: {dim_features}")
     model = ModelClass(dim_features, hidden_dim, num_layers, device).to(device)
 
     logger.info("##################### staring training")
