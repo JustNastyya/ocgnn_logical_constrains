@@ -1,0 +1,1190 @@
+[
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.17380560131795716,
+      "true_positive": 353,
+      "true_negative": 69,
+      "false_positive": 2,
+      "false_negative": 2004,
+      "recall": 0.14976665252376,
+      "specificity": 0.9718309857786155,
+      "precision": 0.9943661971550882,
+      "balanced_accuracy": 0.5607988191511878,
+      "FPR": 0.028169014080539578,
+      "decision_boundary": 0.0021088472567498684
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.06630971993410215,
+      "true_positive": 90,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2267,
+      "recall": 0.038184132371496884,
+      "specificity": 0.999999999859155,
+      "precision": 0.999999999888889,
+      "balanced_accuracy": 0.519092066115326,
+      "FPR": 0.0,
+      "decision_boundary": 0.0048265885561704636
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.16803953871499178,
+      "true_positive": 342,
+      "true_negative": 66,
+      "false_positive": 5,
+      "false_negative": 2015,
+      "recall": 0.14509970301168817,
+      "specificity": 0.9295774646578061,
+      "precision": 0.9855907780695795,
+      "balanced_accuracy": 0.5373385838347471,
+      "FPR": 0.07042253520134895,
+      "decision_boundary": 0.0028691357001662254
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.14497528830313014,
+      "true_positive": 284,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 2073,
+      "recall": 0.12049215103894573,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9895470382930471,
+      "balanced_accuracy": 0.5391193148886457,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.0032059396617114544
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.061367380560131794,
+      "true_positive": 79,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2278,
+      "recall": 0.033517182859425045,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9874999998765626,
+      "balanced_accuracy": 0.5097163378391552,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.004206308629363775
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.0943163097199341,
+      "true_positive": 159,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2198,
+      "recall": 0.06745863385631116,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9937499999378906,
+      "balanced_accuracy": 0.5266870633375982,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.0038282363675534725
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.20098846787479407,
+      "true_positive": 420,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 1937,
+      "recall": 0.17819261773365214,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9929078013949667,
+      "balanced_accuracy": 0.5679695482359989,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.004454866982996464
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.08237232289950576,
+      "true_positive": 131,
+      "true_negative": 69,
+      "false_positive": 2,
+      "false_negative": 2226,
+      "recall": 0.055579126007401024,
+      "specificity": 0.9718309857786155,
+      "precision": 0.9849624059409802,
+      "balanced_accuracy": 0.5137050558930083,
+      "FPR": 0.028169014080539578,
+      "decision_boundary": 0.002991313813254237
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 2,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.06589785831960461,
+      "true_positive": 90,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2267,
+      "recall": 0.038184132371496884,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9890109889023065,
+      "balanced_accuracy": 0.5120498125951911,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.0027359449304640293
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.2372322899505766,
+      "true_positive": 508,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 1849,
+      "recall": 0.21552821383022688,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9941291584932656,
+      "balanced_accuracy": 0.5866373462842862,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.002569594420492649
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.2582372322899506,
+      "true_positive": 560,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 1797,
+      "recall": 0.23759015697820285,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9929078014008349,
+      "balanced_accuracy": 0.5906260643381394,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.003606039099395275
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.047775947281713346,
+      "true_positive": 46,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2311,
+      "recall": 0.01951633432320952,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9787234040470801,
+      "balanced_accuracy": 0.5027159135710474,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.010144103318452835
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.10626029654036244,
+      "true_positive": 188,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2169,
+      "recall": 0.07976240984268239,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9947089946563645,
+      "balanced_accuracy": 0.5328389513307838,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.0024418337270617485
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.2841845140032949,
+      "true_positive": 629,
+      "true_negative": 61,
+      "false_positive": 10,
+      "false_negative": 1728,
+      "recall": 0.26686465846301716,
+      "specificity": 0.8591549294564571,
+      "precision": 0.9843505477154249,
+      "balanced_accuracy": 0.5630097939597372,
+      "FPR": 0.1408450704026979,
+      "decision_boundary": 0.004050125367939472
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.1672158154859967,
+      "true_positive": 339,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 2018,
+      "recall": 0.14382689859930495,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9883381923910105,
+      "balanced_accuracy": 0.5437444351486904,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.004614284262061119
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.1342668863261944,
+      "true_positive": 259,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 2098,
+      "recall": 0.10988544760241882,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9847908744872703,
+      "balanced_accuracy": 0.5267737096502474,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.0034733230713754892
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.21087314662273476,
+      "true_positive": 445,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 1912,
+      "recall": 0.18879932117017906,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9910913140091071,
+      "balanced_accuracy": 0.5662306464341275,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.003319285111501813
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 3,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.1515650741350906,
+      "true_positive": 301,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 2056,
+      "recall": 0.12770470937578404,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9868852458692824,
+      "balanced_accuracy": 0.5356833405369299,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.004353365395218134
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.17504118616144976,
+      "true_positive": 355,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2002,
+      "recall": 0.15061518879868216,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9971910112079441,
+      "balanced_accuracy": 0.5682653408087837,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.007445499766618013
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.08813838550247118,
+      "true_positive": 143,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2214,
+      "recall": 0.06067034365693394,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999999300698,
+      "balanced_accuracy": 0.5303351717580445,
+      "FPR": 0.0,
+      "decision_boundary": 0.025685353204607964
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.2524711696869852,
+      "true_positive": 548,
+      "true_negative": 65,
+      "false_positive": 6,
+      "false_negative": 1809,
+      "recall": 0.23249893932866994,
+      "specificity": 0.9154929576175362,
+      "precision": 0.9891696750723976,
+      "balanced_accuracy": 0.5739959484731031,
+      "FPR": 0.08450704224161873,
+      "decision_boundary": 0.006046732421964407
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.2154036243822076,
+      "true_positive": 453,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 1904,
+      "recall": 0.19219346626986766,
+      "specificity": 0.9859154928188852,
+      "precision": 0.997797356806216,
+      "balanced_accuracy": 0.5890544795443764,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.006741995457559824
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.19934102141680396,
+      "true_positive": 416,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 1941,
+      "recall": 0.17649554518380783,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9928400954416983,
+      "balanced_accuracy": 0.5671210119610768,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.004039884544909
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.22075782537067545,
+      "true_positive": 468,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 1889,
+      "recall": 0.1985574883317838,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9936305732273114,
+      "balanced_accuracy": 0.5781519835350647,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.00886928103864193
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.16680395387149918,
+      "true_positive": 334,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2023,
+      "recall": 0.14170555791199957,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999999700598,
+      "balanced_accuracy": 0.5708527788855773,
+      "FPR": 0.0,
+      "decision_boundary": 0.007893156260251999
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.04406919275123559,
+      "true_positive": 36,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2321,
+      "recall": 0.015273652948598756,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999997222222,
+      "balanced_accuracy": 0.5076368264038769,
+      "FPR": 0.0,
+      "decision_boundary": 0.01468980684876442
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 4,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.30230642504118616,
+      "true_positive": 666,
+      "true_negative": 68,
+      "false_positive": 3,
+      "false_negative": 1691,
+      "recall": 0.282562579549077,
+      "specificity": 0.9577464787383456,
+      "precision": 0.9955156950523839,
+      "balanced_accuracy": 0.6201545291437113,
+      "FPR": 0.042253521120809365,
+      "decision_boundary": 0.0035297584254294634
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.04983525535420099,
+      "true_positive": 50,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2307,
+      "recall": 0.021213406873053828,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999998,
+      "balanced_accuracy": 0.5106067033661044,
+      "FPR": 0.0,
+      "decision_boundary": 0.02792126126587391
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.03500823723228995,
+      "true_positive": 14,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2343,
+      "recall": 0.005939753924455071,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999992857143,
+      "balanced_accuracy": 0.5029698768918051,
+      "FPR": 0.0,
+      "decision_boundary": 0.06546054780483246
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.25617792421746294,
+      "true_positive": 555,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 1802,
+      "recall": 0.23546881629089747,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9928443649196271,
+      "balanced_accuracy": 0.5895653939944867,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.014951699413359165
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.07084019769357495,
+      "true_positive": 105,
+      "true_negative": 67,
+      "false_positive": 4,
+      "false_negative": 2252,
+      "recall": 0.044548154433413034,
+      "specificity": 0.9436619716980759,
+      "precision": 0.9633027522052017,
+      "balanced_accuracy": 0.4941050630657444,
+      "FPR": 0.056338028161079155,
+      "decision_boundary": 0.028313960880041122
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.16680395387149918,
+      "true_positive": 335,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2022,
+      "recall": 0.14212982604946064,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9970238094941362,
+      "balanced_accuracy": 0.564022659434173,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.015769846737384796
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.1,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.13179571663920922,
+      "true_positive": 251,
+      "true_negative": 69,
+      "false_positive": 2,
+      "false_negative": 2106,
+      "recall": 0.1064913025027302,
+      "specificity": 0.9718309857786155,
+      "precision": 0.9920948616208658,
+      "balanced_accuracy": 0.5391611441406728,
+      "FPR": 0.028169014080539578,
+      "decision_boundary": 0.018404405564069748
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.5,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.039538714991762765,
+      "true_positive": 25,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2332,
+      "recall": 0.010606703436526914,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999996,
+      "balanced_accuracy": 0.5053033516478409,
+      "FPR": 0.0,
+      "decision_boundary": 0.02226400189101696
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.01,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.13673805601317957,
+      "true_positive": 262,
+      "true_negative": 70,
+      "false_positive": 1,
+      "false_negative": 2095,
+      "recall": 0.11115825201480205,
+      "specificity": 0.9859154928188852,
+      "precision": 0.9961977185933004,
+      "balanced_accuracy": 0.5485368724168437,
+      "FPR": 0.014084507040269789,
+      "decision_boundary": 0.018363606184720993
+    }
+  },
+  {
+    "model_config": {
+      "hidden_dim": 128,
+      "num_layers": 5,
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "Cora",
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_node_defined_loss_constrains"
+      },
+      "is_logical": true,
+      "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+      "constrains_handler": "NLRuleBasedHandler",
+      "l_factor": 0.001,
+      "save_logs": false
+    },
+    "model_results": {
+      "test_rate": 0.04365733113673806,
+      "true_positive": 35,
+      "true_negative": 71,
+      "false_positive": 0,
+      "false_negative": 2322,
+      "recall": 0.014849384811137678,
+      "specificity": 0.999999999859155,
+      "precision": 0.9999999997142857,
+      "balanced_accuracy": 0.5074246923351463,
+      "FPR": 0.0,
+      "decision_boundary": 0.020376045256853104
+    }
+  }
+]

@@ -65,17 +65,17 @@ def run_bunch_experiments():
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
-    hidden_dim_l = [128, 256]
-    num_layers_l = [3, 4, 5]#  = 4 is till now optimal
+    hidden_dim_l = [128]
+    num_layers_l = [2, 3, 4, 5]#  = 4 is till now optimal
     l_factor_l = [0.1, 0.5, 0.01, 0.001]
     TRAIN_NORMAL = True
-    TRAIN_ANORMAL = False
+    TRAIN_ANORMAL = True
     
     constrains_l = [
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "nl_finding_best_for_cora.json"
+    file_full_path = FILEPATH + "nl_presentation_node_specific_take_0.json"
     
     results_l = []
 

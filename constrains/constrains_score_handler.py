@@ -21,7 +21,7 @@ class ConstraintScoreBasedHandler:
     
     def _load_anomaly_rules(self):
         for rule in self.json_rules["constrains"]:
-            if rule["predicted_class"] != self.normal_label:
+            if rule["predicted_class"] == self.normal_label:
                 self.anomaly_rules.append(rule)
             else:
                 self.normality_rules.append(rule)

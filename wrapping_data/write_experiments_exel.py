@@ -8,12 +8,12 @@ from pathlib import Path
 # =========================
 
 
-JSON_NAME = "first_better_try" # without.json
+JSON_NAME = "nl_presentation_node_specific_take_0" # without.json
 
 JSON_PATH = f"experiments/node_level/bunch_json_results/{JSON_NAME}.json"
 OUTPUT_EXCEL = f"wrapping_data/exel/model_results_{JSON_NAME}.xlsx"
 
-METRIC_NAME = "test_rate"
+METRIC_NAME = "balanced_accuracy"
 VARYING_PARAMS_ALL = {"hidden_dim", "num_layers"}
 VARYING_PARAMS_CONSTRAINS = {"constrains_filepath", "l_factor"}
 SHEET_PARAM = "num_layers"
