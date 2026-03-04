@@ -1,0 +1,171 @@
+\section{OCGIN Forward Pass}
+
+\subsection{1. GIN Layer}
+For a graph $G = (V, E)$ with node features $X \in \mathbb{R}^{|V| \times d_{in}}$:
+
+\[
+h_v^{(k+1)} = \text{MLP}^{(k)}\left( (1 + \epsilon) \cdot h_v^{(k)} + \sum_{u \in \mathcal{N}(v)} h_u^{(k)} \right)
+\]
+
+where $\epsilon$ is a learnable parameter and MLP consists of Linear $\rightarrow$ ReLU $\rightarrow$ Linear.
+
+\subsection{2. Graph-Level Pooling}
+\[
+z_i = \frac{1}{|V_i|} \sum_{v \in V_i} h_v^{(L)}
+\]
+Global mean pooling aggregates node embeddings into a graph embedding $z_i \in \mathbb{R}^{d_{hidden}}$.
+
+\subsection{3. Deep SVDD Loss}
+\[
+L_{OCGIN} = \frac{1}{n} \sum_{i=1}^{n} \| z_i - c \|^2
+\]
+where $c$ is the learned center (initialized as mean of normal data embeddings).
+
+\subsection{4. Anomaly Score}
+\[
+s_i = \| z_i - c \|^2 = \sum_{j=1}^{d_{hidden}} (z_{i,j} - c_j)^2
+\]
+Higher score $\rightarrow$ more anomalous.
+
+%==============================================================================
+
+\section{OCGTL: One-Class Graph Transformation Learning}
+
+\subsection{Differences: OCGIN vs OCGTL}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|l|l}
+Feature & OCGIN & OCGTL \\ \hline
+Encoder & Single GIN & Multiple GINs (one per transformation) \\
+Transformations & None & $K$ graph augmentations \\
+Embedding & $z \in \mathbb{R}^{d}$ & $z \in \mathbb{R}^{K \times d}$ \\
+Center & Fixed (mean of training data) & Learnable parameter $c$ \\
+Contrastive & No & Yes (InfoNCE-style) \\
+Loss & Deep SVDD only & SVDD + Contrastive
+\end{tabular}
+\end{table}
+
+OCGTL builds upon OCGIN by adding:
+\begin{itemize}
+    \item \textbf{Graph Transformations}: Multiple augmentations (edge perturbation, node dropping, attribute masking, random walk sampling)
+    \item \textbf{Transformation Learning}: Learn representations invariant to benign transformations but sensitive to anomalous ones
+    \item \textbf{Contrastive Loss}: Pull original graph close to transformed versions, push apart different transformations
+\end{itemize}
+
+\subsection{1. Graph Transformations}
+OCGTL applies $K$ different augmentations to the input graph:
+\begin{itemize}
+    \item \textbf{Edge perturbation}: Randomly add/drop edges
+    \item \textbf{Node dropout}: Randomly remove subgraphs
+    \item \textbf{Attribute masking}: Mask node features with Gaussian noise
+    \item \textbf{Random walk sampling}: Sample subgraphs via random walks
+    \item \textbf{Uniform sampling}: Drop random nodes
+\end{itemize}
+
+Let $G$ be the original graph and $\{T_1(G), T_2(G), \dots, T_{K-1}(G)\}$ the transformed views.
+
+\subsection{2. Multi-View Encoding}
+Each transformed graph is encoded through a separate GIN:
+\[
+z^{(k)} = \text{GIN}_k(G_k), \quad k = 0, 1, \dots, K-1
+\]
+where $G_0 = G$ is the original graph. All embeddings are concatenated:
+\[
+z = \text{concat}(z^{(0)}, z^{(1)}, \dots, z^{(K-1)}) \in \mathbb{R}^{K \times d_{hidden}}
+\]
+
+The center $c \in \mathbb{R}^{K \times d_{hidden}}$ is a learnable parameter (not fixed).
+
+\subsection{3. OCGTL Loss}
+\[
+L_{OCGTL} = \underbrace{\| (z - c)_{norm} \|^2}_{\text{SVDD term}} + \underbrace{\mathcal{L}_{contrastive}}_{\text{Contrastive term}}
+\]
+
+\textbf{SVDD term}:
+\[
+\| (z - c)_{norm} \|^2 = \sum_{k=1}^{K-1} \| z^{(k)} - c^{(k)} \|^2
+\]
+
+\textbf{Contrastive term} (InfoNCE-style):
+\[
+\mathcal{L}_{contrastive} = \frac{1}{K-1} \sum_{k=1}^{K-1} \left( \log \frac{\exp(\text{sim}(z^{(0)}, z^{(k)})/\tau)}{\sum_{j=0}^{K-1} \exp(\text{sim}(z^{(j)}, z^{(k)})/\tau)} \right)
+\]
+where $\sim$ is temperature and $\text{sim}(a,b) = \frac{a \cdot b}{\|a\|\|b\|}$.
+
+\subsection{4. Anomaly Score}
+\[
+s_i = \| (z_i - c)_{norm} \|^2 + \mathcal{L}_{contrastive}
+\]
+Higher score indicates more anomalous graphs.
+
+%==============================================================================
+
+\section{Score-Based Constraint Handler}
+
+This is an alternative constraint evaluation method from \texttt{constrains\_score\_handler.py} that uses distance-based scoring instead of soft logic.
+
+\subsection{Rule Separation}
+Rules are divided into two groups:
+\begin{itemize}
+    \item \textbf{Normality rules}: rules where \texttt{predicted\_class == normal\_label}
+    \item \textbf{Anomaly rules}: rules where \texttt{predicted\_class != normal\_label}
+\end{itemize}
+
+\subsection{Distance to Decision Boundary}
+For a sample $x \in \mathbb{R}^d$ and a constraint with conditions, the distance to the boundary is:
+
+\[
+d(x, \text{constraint}) = \min_{c \in \text{conditions}} \left( x_{c.f} - c.\text{threshold} \right)
+\]
+
+where $c.f$ is the feature index and $c.\text{threshold}$ is the threshold from the condition.
+
+\subsection{Weighted Group Distance}
+For a group of rules (normality or anomaly):
+\[
+\text{group\_dist}(x, G) = \frac{\lambda}{|G|} \sum_{r \in G} d(x, r)
+\]
+where $\lambda$ is the scaling factor and $|G|$ is the number of rules in the group.
+
+\subsection{Rule Satisfaction (Hard Check)}
+\[
+\text{satisfies}(x, r) = \begin{cases}
+\text{True} & \text{if } x \text{ satisfies ALL conditions in } r \\
+\text{False} & \text{otherwise}
+\end{cases}
+\]
+
+\subsection{Constraint Score Calculation}
+The main scoring function \texttt{get\_constraint\_score} computes:
+
+\[
+\text{group\_diff} = \text{group\_dist}(x, \text{normality}) - \text{group\_dist}(x, \text{anomaly})
+\]
+
+Then three cases are handled:
+
+\begin{enumerate}
+    \item \textbf{$x$ in normal region} (satisfies a normality rule):
+    \[
+    \text{score} = -d_{\text{norm}} \cdot d_{\text{min,anom}} + \text{group\_diff}
+    \]
+    where $d_{\text{norm}}$ is distance to normality boundary, $d_{\text{min,anom}}$ is min distance to anomaly rules.
+    
+    \item \textbf{$x$ in anomaly region} (satisfies an anomaly rule):
+    \[
+    \text{score} = d_{\text{anom}} \cdot d_{\text{min,norm}} + \text{group\_diff}
+    \]
+    
+    \item \textbf{$x$ in grey zone} (satisfies neither):
+    \[
+    \text{score} = \text{group\_diff}
+    \]
+\end{enumerate}
+
+Finally, sigmoid is applied to get the final score:
+\[
+\text{final\_score} = \frac{1}{1 + e^{\text{score}}}
+\]
+
+Higher score $\rightarrow$ more likely to be anomalous.

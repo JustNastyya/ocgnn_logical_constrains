@@ -484,3 +484,50 @@ THREE. enjoy sleep deprevation.
 
 FOUR:
 - do a triangler form for the first layer 
+
+# cool stuff from tim to try
+
+https://dimitris-floros.com/pyfglt/ - can work with graph data and like count stuff
+
+# expose
+
+AAAAH
+
+so what i wanna tell:
+
+beginning blabla
+
+// section start
+
+slide 1: graph ad is important (Anomaly detection (AD) is an important tool for scanning systems for unknown threats)
+slide 2: giving people understandable data to the model is important
+
+// section graph ad
+slide 3: types of graph ad
+slide 4: what all models do
+slide 5-6: OCGIN and its nachteile
+slide 7: OCGTL
+
+// section logical constrains
+slide 8: what they look like
+slide 9: soft logic / hard logic
+slide 10: is it better with constrains
+
+// section my data
+
+slide 11: datasets
+slide 12: my constrains generation
+slide 13: my constrains
+
+// section my approach
+
+slide 14: soft logic driven constrains
+slide 15: ...
+
+// section what do i want to do.
+
+slide ...: OCGTL + whatever
+
+ opencode-cli -s ses_35b696682ffeZM3Vl02jcDqceO
+ from writing latex folien
+
