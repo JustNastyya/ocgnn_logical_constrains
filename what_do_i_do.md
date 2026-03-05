@@ -545,3 +545,12 @@ also:
 AUC = probability that a random anomaly gets a higher score than a random normal sample.
 
 so 0.5 would be random
+
+# A BIG TODO
+
+for trainign a decision tree its own dataset
+
+and like do a big pipeline
+
+and a huuuge thing is:
+why are all of the scores the same.. 
