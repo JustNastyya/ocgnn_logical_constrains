@@ -51,7 +51,7 @@ class NodeOCGINLossConstrains(nn.Module):
         data = data.to(self.device)
         z = self.forward(data)
         center = z[train_mask].sum(dim=0)
-        n_samples = z.size(0)
+        n_samples = train_mask.sum()
 
         self.center.copy_(center / n_samples)
 
