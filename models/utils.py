@@ -1,5 +1,7 @@
 import torch
 from loguru import logger
+from sklearn.metrics import roc_auc_score
+
 
 
 # ------------------- anomaly scores -------------------
@@ -28,7 +30,7 @@ def compute_anomaly_scores_node_level(model, data, mask_ind):
 
 # ------------------- ratiooos -------------------
 
-def get_ratios(pred, y):
+def get_ratios(pred, y, test_scores, compute_auc_roc=True):
     result = {}
     # test rate
     compare = pred == y
@@ -60,6 +62,9 @@ def get_ratios(pred, y):
     result["precision"] = precision
     result["balanced_accuracy"] = balanced_accuracy
     result["FPR"] = FPR
+    if compute_auc_roc:
+        result["ROC_AUC"] = roc_auc_score(y, test_scores)
+
     return result
 
 
@@ -67,7 +72,7 @@ def get_ratios_nl(data, test_mask, test_scores, R):
     pred = (test_scores > R).int()
     y = (data.y[test_mask] > 0).int()
     
-    return get_ratios(pred, y)
+    return get_ratios(pred, y, test_scores)
 
 
 def get_ratios_gl(test_loader, test_scores, R):
@@ -78,7 +83,7 @@ def get_ratios_gl(test_loader, test_scores, R):
     
     y_vec = torch.cat(y, dim=0)
     
-    return get_ratios(pred, y_vec)
+    return get_ratios(pred, y_vec, test_scores)
 
 
 # ------------------- decision boundary -------------------
@@ -91,7 +96,7 @@ def get_decision_boundary(y, test_scores):
 
     for R in thresholds:
         pred = (test_scores > R).int()
-        res = get_ratios(pred, y)
+        res = get_ratios(pred, y, test_scores, compute_auc_roc=False)
         J = res["recall"] - res["FPR"] # youdens y
 
         if J > best_J:

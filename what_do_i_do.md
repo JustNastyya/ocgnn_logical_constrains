@@ -531,3 +531,17 @@ slide ...: OCGTL + whatever
  opencode-cli -s ses_35b696682ffeZM3Vl02jcDqceO
  from writing latex folien
 
+## AUC ROC
+
+ROC (Receiver Operating Characteristic)
+ROC - How recall increases as you allow more false positives.
+AUC - area under curve
+
+the roc curve shows how classifies behaves for all possible thresholds
+
+for every threshold do: TPR, FPR and plot thm agains each other
+
+also:
+AUC = probability that a random anomaly gets a higher score than a random normal sample.
+
+so 0.5 would be random
