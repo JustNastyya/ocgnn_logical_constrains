@@ -33,7 +33,7 @@ def train_and_print(attribute_list, max_depth, dataset_name, save=True):
 if __name__ == "__main__":
     attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
     max_depth = 3
-    dataset_name = "Cora"
+    dataset_name = "Physics"
     save = True
     
     train_and_print(

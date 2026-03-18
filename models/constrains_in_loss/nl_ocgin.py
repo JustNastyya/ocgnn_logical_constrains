@@ -41,8 +41,11 @@ class NodeOCGINLossConstrains(nn.Module):
     def loss_add_constrain(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
-    def loss_node_defined_constraint(self, z, constrain_L):
-        return torch.mean(torch.sum((z - self.center) ** 2, dim=1) + constrain_L)
+    def loss_node_weighting(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
+
+    def loss_node_irnoring_sus(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     @torch.no_grad()
     def init_center(self, data, train_mask):
@@ -64,9 +67,12 @@ def train_node_ocgin_add_loss_constrains(model, data, train_mask, test_mask, epo
     train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add")
 
 # wrapper    
-def train_node_ocgin_node_defined_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
-    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_certain")
+def train_node_ocgin_weighting(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_weighting")
 
+# wrapper    
+def train_node_ocgin_irnoring_sus(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_irnoring_sus")
 
 def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add"):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
@@ -74,6 +80,10 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
     model.init_center(data, train_mask)
 
     L_constrains = constrains_obj.get_constraint_value(data)
+    
+    print(L_constrains.max())
+    print(L_constrains.min())
+
     for epoch in range(epochs):
         model.train()
         total_loss = 0
@@ -82,9 +92,10 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
         z = model(data)
         if loss_type == "add":
             loss = model.loss_add_constrain(z[train_mask], L_constrains[train_mask])
-        elif loss_type == "node_certain":
-            loss = model.loss_node_defined_constraint(z[train_mask], L_constrains[train_mask])
-            
+        elif loss_type == "node_weighting":
+            loss = model.loss_node_weighting(z[train_mask], L_constrains[train_mask])
+        elif loss_type == "node_irnoring_sus":
+            loss = model.loss_node_irnoring_sus(z[train_mask], L_constrains[train_mask])            
         
         optimizer.zero_grad()
         loss.backward()
