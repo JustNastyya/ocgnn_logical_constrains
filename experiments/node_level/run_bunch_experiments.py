@@ -75,12 +75,12 @@ def run_bunch_experiments():
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    model_train = [
+    model_train_list = [
         model_reference["logic_add_nl_ocgin"],
         model_reference["logic_weight_nl_ocgin"],
         model_reference["logic_ignore_sus_nl_ocgin"]
     ]
-    file_full_path = FILEPATH + "nl_presentation.json"
+    file_full_path = FILEPATH + "nl_after_l_factor_fix.json"
     
     results_l = []
 
@@ -100,7 +100,7 @@ def run_bunch_experiments():
             for constraint_path, l_factor, model_train in product(
                     constrains_l,
                     l_factor_l,
-                    model_train
+                    model_train_list
                 ):
                 results_l.append(experiment_wrapper(
                     hidden_dim=hidden_dim,
@@ -110,7 +110,7 @@ def run_bunch_experiments():
                     constrains_filepath=constraint_path,
                     model_train=model_train
                 ))
-            
+                
         json_dump(results_l, file_full_path)
 
 

@@ -3,8 +3,17 @@ import torch
 from loguru import logger
 
 
+def vektor_metrics(vek):
+    print(vek.max())
+    print(vek.min())
+    print(vek)
+
 class RuleBasedHandler:
     def __init__(self, filename, l_factor, normal_label):
+        """
+        TODO constrains to use: would be a value either 1 or 0 would have automatically 
+        detect which classes are anormal and so on
+        """
         self.filename = filename
         self.json_rules = self._load_rules(filename)
         self.l_factor = l_factor
@@ -18,14 +27,14 @@ class RuleBasedHandler:
     
     def _load_anomaly_rules(self):
         for rule in self.json_rules["constrains"]:
-            if rule["predicted_class"] != self.normal_label:
+            if rule["predicted_class"] == self.normal_label:
                 self.anomaly_rules.append(rule)
     
     def soft_leq(self, x, threshold):
-        return torch.sigmoid(self.l_factor * (threshold - x))
+        return torch.sigmoid(threshold - x)
 
     def soft_gt(self, x, threshold):
-        return torch.sigmoid(self.l_factor * (x - threshold))
+        return torch.sigmoid(x - threshold)
 
     def soft_and(self, values):
         return torch.prod(values, dim=0)

@@ -554,3 +554,28 @@ and like do a big pipeline
 
 and a huuuge thing is:
 why are all of the scores the same.. 
+
+Debugging results for cora:
+- the feature vectors used in constrains are binary
+- `torch.sigmoid(self.l_factor * (threshold - x))`. since l_factor is like really small all the vlues are about 0, so thats how we get 0.5 after a sigmoid
+- since sigmoid of -1 is like -0.25 and of 1 is like 0.75 after a couple of sigmoid the value will converge to 0.5. so that makes sence
+
+### solution nr. 1: fuck the l_factor.
+results: now i have actually values from 0 to 1 buut
+
+for anormal constrains most of values are: 
+ 0.33 or 2.88.
+but a bunch of them are somewhere else!
+
+for normal constrains:
+a bit better but most of them are 0.5 and around that
+
+after plotting a hist for the constrains values i see that the differences for normal and anormal classes are in the constrains minimal. FUCK
+
+### solution nr. 2: i do have to use the l_factor somewhere
+
+but the constrains value cant be too small and i cant to it before the sigmoid. soo lets use it right before the end game and dont use too of a small l_factor form now like 0.001.
+
+### solution nr.3: fuck cora.
+
+seems to me like its a dead end. for binary vectors the hol thing looses its idea.
