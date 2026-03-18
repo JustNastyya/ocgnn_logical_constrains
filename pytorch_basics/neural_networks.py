@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-
+import torch
 
 class MyModel(nn.Module):
     def __init__(self, dim_input, dim_hidden, dim_output):
@@ -30,5 +30,7 @@ def train(model, X, y):
 
 model = MyModel(10, 32, 1)
 X = torch.randn(100, 10)
+print(X)
 y = torch.randn(100, 1)
+print(y)
 train(model, X, y)
