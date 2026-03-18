@@ -7,8 +7,9 @@ from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
-
+from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
+
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -83,37 +84,20 @@ def run_experiment(config):
     return results 
 
 if __name__ == "__main__":
-    """
     config = {
-        "hidden_dim": 64,
-        "num_layers": 3,
+        "hidden_dim": 32,
+        "num_layers": 2,
         "device": "cuda" if torch.cuda.is_available() else "cpu",
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["simple_node_ocgin"],
-        "is_logical": False,
-    }
-
-    experiment_logging_wrapper(config=config)
-    
-    """
-    
-    config = {
-        "hidden_dim": 64,
-        "num_layers": 3,
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
-        "lr": 1e-3,
-        "epochs": 50,
-        "batch_size": 32,
-        "dataset": "Cora",
-        "model_train": model_reference["node_loss_logic_rule_based"],
+        "model_train": model_reference["logic_add_nl_ocgin"],
         "is_logical": True,
-        "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
-        "constrains_handler": NLRuleBasedHandler,
+        "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+        "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
         "l_factor": 0.1,
-        "save_logs": True,
+        "save_logs": False,
     }
 
     experiment_logging_wrapper(config=config)

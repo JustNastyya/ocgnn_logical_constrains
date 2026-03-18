@@ -32,7 +32,7 @@ def experiment_wrapper(*args, **kwargs):
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["node_loss_logic_rule_based"],
+        "model_train": model_reference["logic_add_nl_ocgin"],
         "is_logical": True,
         "constrains_filepath": "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains_handler": NLRuleBasedHandler,
@@ -65,7 +65,7 @@ def run_bunch_experiments():
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
-    hidden_dim_l = [128]
+    hidden_dim_l = [32]
     num_layers_l = [2, 3, 4, 5]#  = 4 is till now optimal
     l_factor_l = [0.1, 0.5, 0.01, 0.001]
     TRAIN_NORMAL = True
@@ -75,13 +75,18 @@ def run_bunch_experiments():
         "constrains/data/Cora_auto_generated_2_101_102_103.json",
         "constrains/data/Cora_auto_generated_3_101_102_103.json"
     ]
-    file_full_path = FILEPATH + "nl_presentation_node_specific_take_0.json"
+    model_train = [
+        model_reference["logic_add_nl_ocgin"],
+        model_reference["logic_weight_nl_ocgin"],
+        model_reference["logic_ignore_sus_nl_ocgin"]
+    ]
+    file_full_path = FILEPATH + "nl_presentation.json"
     
     results_l = []
 
     for hidden_dim, num_layers in product(
         hidden_dim_l,
-        num_layers_l
+        num_layers_l,
     ):
         if TRAIN_NORMAL:
             results_l.append(experiment_wrapper(
@@ -92,16 +97,18 @@ def run_bunch_experiments():
             ))
         
         if TRAIN_ANORMAL:
-            for constraint_path, l_factor in product(
+            for constraint_path, l_factor, model_train in product(
                     constrains_l,
-                    l_factor_l
+                    l_factor_l,
+                    model_train
                 ):
                 results_l.append(experiment_wrapper(
                     hidden_dim=hidden_dim,
                     num_layers=num_layers,
                     l_factor=l_factor,
                     is_logical=True,
-                    constrains_filepath=constraint_path
+                    constrains_filepath=constraint_path,
+                    model_train=model_train
                 ))
             
         json_dump(results_l, file_full_path)

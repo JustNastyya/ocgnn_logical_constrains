@@ -1,0 +1,47 @@
+2026-03-05 20:26:23.959 CET | INFO     | Line   28 (run_experiment_nl.py): ##################### Loading config parameters
+2026-03-05 20:26:23.959 CET | INFO     | Line   20 (logging_utils.py): Config parameters:
+2026-03-05 20:26:23.959 CET | INFO     | Line   21 (logging_utils.py): 
+2026-03-05 20:26:23.959 CET | INFO     | Line   27 (logging_utils.py): hidden_dim: 32
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): num_layers: 2
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): device: cpu
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): lr: 0.001
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): epochs: 50
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): batch_size: 32
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): dataset: Cora
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): is_logical: True
+2026-03-05 20:26:23.960 CET | INFO     | Line   27 (logging_utils.py): constrains_filepath: constrains/data/Cora_auto_generated_2_101_102_103.json
+2026-03-05 20:26:23.961 CET | INFO     | Line   25 (logging_utils.py): constrains_handler: NLRuleBasedHandler
+2026-03-05 20:26:23.961 CET | INFO     | Line   27 (logging_utils.py): l_factor: 0.5
+2026-03-05 20:26:23.961 CET | INFO     | Line   27 (logging_utils.py): save_logs: True
+2026-03-05 20:26:23.961 CET | INFO     | Line   29 (logging_utils.py): 
+2026-03-05 20:26:23.961 CET | INFO     | Line   30 (logging_utils.py): Training on model: NodeOCGINLossConstrains
+2026-03-05 20:26:23.961 CET | INFO     | Line   31 (logging_utils.py): 
+2026-03-05 20:26:23.961 CET | INFO     | Line   41 (run_experiment_nl.py): ##################### Loading data
+2026-03-05 20:26:23.988 CET | INFO     | Line   45 (run_experiment_nl.py): ##################### creating model
+2026-03-05 20:26:23.988 CET | INFO     | Line   49 (run_experiment_nl.py): dim features: 1433
+2026-03-05 20:26:24.047 CET | INFO     | Line   52 (run_experiment_nl.py): ##################### staring training
+2026-03-05 20:26:24.047 CET | INFO     | Line   55 (run_experiment_nl.py): setting up the logical constrains
+2026-03-05 20:26:24.346 CET | DEBUG    | Line   95 (nl_ocgin.py): Epoch 000 | Loss 0.049976
+2026-03-05 20:26:25.258 CET | DEBUG    | Line   95 (nl_ocgin.py): Epoch 010 | Loss 0.040258
+2026-03-05 20:26:26.118 CET | DEBUG    | Line   95 (nl_ocgin.py): Epoch 020 | Loss 0.037986
+2026-03-05 20:26:26.962 CET | DEBUG    | Line   95 (nl_ocgin.py): Epoch 030 | Loss 0.037112
+2026-03-05 20:26:27.814 CET | DEBUG    | Line   95 (nl_ocgin.py): Epoch 040 | Loss 0.036651
+2026-03-05 20:26:28.554 CET | INFO     | Line   66 (run_experiment_nl.py): ##################### computing scores
+2026-03-05 20:26:28.713 CET | INFO     | Line   70 (run_experiment_nl.py): computed decision boundary on anomaly scores as 95% quantile:
+2026-03-05 20:26:28.791 CET | INFO     | Line   73 (run_experiment_nl.py): Test anomaly scores:
+2026-03-05 20:26:28.791 CET | INFO     | Line   74 (run_experiment_nl.py): tensor([0.0011, 0.0020, 0.0034, 0.0060, 0.0015, 0.0166, 0.0011, 0.0047, 0.0017,
+        0.0081])
+2026-03-05 20:26:28.793 CET | INFO     | Line   76 (run_experiment_nl.py): 
+2026-03-05 20:26:28.794 CET | INFO     | Line   77 (run_experiment_nl.py): ##################### testing: 
+2026-03-05 20:26:28.798 CET | INFO     | Line   83 (run_experiment_nl.py): test_rate: 0.105
+2026-03-05 20:26:28.798 CET | INFO     | Line   83 (run_experiment_nl.py): true_positive: 188
+2026-03-05 20:26:28.798 CET | INFO     | Line   83 (run_experiment_nl.py): true_negative: 67
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): false_positive: 4
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): false_negative: 2169
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): recall: 0.08
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): specificity: 0.944
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): precision: 0.979
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): balanced_accuracy: 0.512
+2026-03-05 20:26:28.799 CET | INFO     | Line   83 (run_experiment_nl.py): FPR: 0.056
+2026-03-05 20:26:28.800 CET | INFO     | Line   83 (run_experiment_nl.py): ROC_AUC: 0.651
+2026-03-05 20:26:28.800 CET | INFO     | Line   83 (run_experiment_nl.py): decision_boundary: 0.05

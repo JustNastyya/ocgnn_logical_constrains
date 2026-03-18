@@ -7,13 +7,15 @@ from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtrac
 
 
 class ConstraintScoreBasedHandler:
-    def __init__(self, filename, l_factor, normal_label):
+    def __init__(self, filename, l_factor, normal_label, device="cpu"):
         self.filename = filename
         self.json_rules = self._load_rules(filename)
         self.l_factor = l_factor
         self.normal_label = normal_label
         self.anomaly_rules = []
         self.normality_rules = []
+        self.device = device
+        self._load_anomaly_rules()
 
     def _load_rules(self, filename):
         with open(filename, "r") as f:
@@ -25,7 +27,7 @@ class ConstraintScoreBasedHandler:
                 self.anomaly_rules.append(rule)
             else:
                 self.normality_rules.append(rule)
-    
+
     def _get_distance(self, x, constraint):
         """x - vector and condition taken from json"""
         distances = []
@@ -120,7 +122,9 @@ class GLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         
         # apply sigmoid
         scores_st = 1 / (1 + np.exp(np.array(scores)))
-        return scores_st
+        L_constrains = torch.tensor(scores_st, dtype=torch.float32, device=self.device)
+        
+        return L_constrains
 
 
 class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
@@ -141,4 +145,6 @@ class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         
         # apply sigmoid
         scores_st = 1 / (1 + np.exp(np.array(scores)))
-        return scores_st
+        L_constrains = torch.tensor(scores_st, dtype=torch.float32, device=self.device)
+        
+        return L_constrains

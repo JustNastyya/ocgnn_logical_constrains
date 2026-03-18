@@ -2,15 +2,26 @@ import torch
 from torch_geometric.datasets import TUDataset
 from torch_geometric.loader import DataLoader
 from torch_geometric.datasets import Planetoid
-
+from torch_geometric.datasets import Planetoid, Coauthor, Amazon, WebKB
 from torch.utils.data import random_split
+
+DATASET_REFERENCE = {
+    "Cora": Planetoid,
+    "CiteSeer": Planetoid,
+    "PubMed": Planetoid,
+    "CS": Coauthor,
+    "Physics": Coauthor,
+    "Computers": Amazon,
+    "Photo": Amazon,
+    "Texas": WebKB,
+    "Cornell": WebKB,
+    "Wisconsin": WebKB,
+}
+
 
 
 TUDATASETS = ["MUTAG", "REDDIT-BINARY"]
 NORMAL_LABEL = 0
-DATASET_REFERENCE = {
-    "Cora": Planetoid
-}
 
 def get_data(dataset_name, batch_size):
     if dataset_name in TUDATASETS:

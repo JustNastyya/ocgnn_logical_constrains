@@ -1,0 +1,85 @@
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 3703,
+          "op": "<=",
+          "threshold": 2.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "165 v.s. 159"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 3703,
+          "op": ">",
+          "threshold": 2.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "41 v.s. 100"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2198,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "58 v.s. 3"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2198,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    }
+  ],
+  "additional_attributes": {
+    "0:3703": "node_features",
+    "3703": "node_degree",
+    "3704": "clustering_coefficient"
+  }
+}

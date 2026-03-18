@@ -1,0 +1,172 @@
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1797,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 3703,
+          "op": "<=",
+          "threshold": 2.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "128 v.s. 136"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1797,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 3703,
+          "op": ">",
+          "threshold": 2.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "20 v.s. 87"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1797,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1351,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "58 v.s. 21"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1797,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1351,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 511,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2185,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "57 v.s. 8"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 511,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2185,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "1 v.s. 5"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2786,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 511,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    }
+  ],
+  "additional_attributes": {
+    "0:3703": "node_features",
+    "3703": "node_degree",
+    "3704": "clustering_coefficient"
+  }
+}
