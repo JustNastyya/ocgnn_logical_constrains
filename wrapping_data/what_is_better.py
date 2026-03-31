@@ -15,7 +15,7 @@ import plotly.express as px
 # =========================
 
 # gl_compare_simple_OCGIN_vs_loss_constrains
-JSON_NAME = "nl_after_l_factor_fix" # without.json
+JSON_NAME = "test_nl_all" # without.json
 
 JSON_PATH = f"experiments/node_level/bunch_json_results/{JSON_NAME}.json"
 
@@ -121,4 +121,4 @@ fig.update_layout(
     legend_title="Model"
 )
 
-fig.write_image("wrapping_data/plots/results_after_l_factor_fix.pdf", width=1000, height=500)
+fig.write_image("wrapping_data/plots/test_nl_all.pdf", width=1000, height=500)

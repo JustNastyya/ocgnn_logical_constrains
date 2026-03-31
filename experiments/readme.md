@@ -42,7 +42,7 @@ after adding a new constrains file in `constrains/data` you need to specialize t
 
 - add dataset in experiments/data_loader
 
-# running bunch of experiments
+# running bunch of experiments with different parameters for one dataset
 
 if you want to iterate through config parameters change stuff in the tun_bunch_experiments and run it. you can change:
 - list of hidden dims
@@ -56,3 +56,7 @@ TODO:
 - config as class in order not to fuck with strings
 - from torch_geometric.loader import NeighborLoader for big datasets for node level
 - gl: not just TUDatasets
+
+# running through multiple datasets
+
+is made in the pipeline. is called in order to test a new model from one click on everything i got
