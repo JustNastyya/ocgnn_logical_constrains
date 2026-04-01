@@ -21,7 +21,7 @@ def debug(config):
     
     logger.info("##################### Loading data") 
     dataset, _ = get_data(dataset_name, batch_size)
-    data, train_mask, val_mask, test_mask = split_train_val_test(dataset)
+    data, train_mask, val_mask, test_mask, tree_mask = split_train_val_test(dataset)
     
     logger.info("##################### creating model")
 
@@ -36,8 +36,8 @@ def debug(config):
 
     L_constrains = constrains_handler_obj.get_constraint_value(data)
     
-    vektor_metrics(L_constrains)
-    print(data.y)
+    # vektor_metrics(L_constrains)
+    # print(data.y)
     fig = px.histogram(L_constrains[train_mask])
     fig.show()
     
@@ -60,10 +60,10 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "Cora",
+        "dataset": "CiteSeer",
         "model_train": model_reference["logic_add_nl_ocgin"],
         "is_logical": True,
-        "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
+        "constrains_filepath": "constrains/data/CiteSeer_auto_generated_3_101_102_103.json",
         "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
         "l_factor": 0.1,
         "save_logs": False,

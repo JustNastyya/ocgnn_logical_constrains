@@ -10,6 +10,7 @@ from constrains.nl_rules_based_handler import NLRuleBasedHandler
 from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
+from models.graph_decision_trees.node_level.train_and_print import train_for_model
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -40,8 +41,8 @@ def run_experiment(config):
     
     logger.info("##################### Loading data") 
     dataset, _ = get_data(dataset_name, batch_size)
-    data, train_mask, val_mask, test_mask = split_train_val_test(dataset)
-    data.x    
+    data, train_mask, val_mask, test_mask, tree_mask = split_train_val_test(dataset)
+
     logger.info("##################### creating model")
 
     
@@ -52,11 +53,22 @@ def run_experiment(config):
     logger.info("##################### staring training")
 
     if config["is_logical"]:
-        logger.info("setting up the logical constrains")
-
+        logger.info("##################### training a descision tree")
+        
+        decision_tree_att_list = config["decision_tree"]["attribute_list"]
+        decision_tree_max_depth = config["decision_tree"]["max_depth"]
         ConstrainHandler = config["constrains_handler"]
-        constrains_filepath = config["constrains_filepath"]
         l_factor = config["l_factor"]
+        
+        constrains_filepath = train_for_model(
+            data,
+            tree_mask,
+            decision_tree_att_list, 
+            decision_tree_max_depth, 
+            dataset_name
+        )
+
+        logger.info("setting up the logical constrains")
         constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
     
         train_loop_func(model, data, train_mask, test_mask, epochs, lr, constrains_handler_obj)
@@ -92,12 +104,15 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["logic_add_nl_ocgin"],
+        "model_train": model_reference["logic_add_nl_ocgin"], # constrains_attribute_nl_ocgin
         "is_logical": True,
-        "constrains_filepath": "constrains/data/Cora_auto_generated_3_101_102_103.json",
         "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
         "l_factor": 0.1,
         "save_logs": False,
+        "decision_tree": {
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
+            "max_depth": 3
+        }
     }
 
     experiment_logging_wrapper(config=config)

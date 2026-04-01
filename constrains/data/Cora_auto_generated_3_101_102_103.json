@@ -13,7 +13,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 205,
+          "feature_index": 814,
           "op": "<=",
           "threshold": 0.0
         }
@@ -21,7 +21,7 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "93 v.s. 160"
+        "y_label_number": "21 v.s. 38"
       }
     },
     {
@@ -37,7 +37,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 205,
+          "feature_index": 814,
           "op": ">",
           "threshold": 0.0
         }
@@ -45,7 +45,7 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "32 v.s. 6"
+        "y_label_number": "all the same"
       }
     },
     {
@@ -61,7 +61,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 581,
+          "feature_index": 1249,
           "op": "<=",
           "threshold": 0.0
         }
@@ -69,7 +69,7 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "213 v.s. 71"
+        "y_label_number": "40 v.s. 10"
       }
     },
     {
@@ -85,7 +85,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 581,
+          "feature_index": 1249,
           "op": ">",
           "threshold": 0.0
         }
@@ -93,7 +93,7 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "1 v.s. 18"
+        "y_label_number": "all the same"
       }
     },
     {
@@ -109,7 +109,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 729,
+          "feature_index": 1292,
           "op": "<=",
           "threshold": 0.0
         }
@@ -117,7 +117,7 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "6 v.s. 92"
+        "y_label_number": "all the same"
       }
     },
     {
@@ -133,7 +133,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 729,
+          "feature_index": 1292,
           "op": ">",
           "threshold": 0.0
         }
@@ -141,7 +141,7 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "4 v.s. 4"
+        "y_label_number": "2 v.s. 1"
       }
     },
     {

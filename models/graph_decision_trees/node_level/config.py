@@ -12,10 +12,10 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     
     def get_data(self, dataset_name):
         dataset, _ = get_data(dataset_name, batch_size=32)
-        data, _, _, _ = split_train_val_test(dataset)
+        data, _, _, _, _ = split_train_val_test(dataset)
         return data
     
-    def extract_features(self, data, balance=False):
+    def extract_features(self, data, mask=None, balance=False):
         xs = []
 
         for feature_name in self.attribute_list:
@@ -42,6 +42,11 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
             X = X.unsqueeze(1)  
         
         y = (data.y > 0).int()
+        
+        if mask is not None:
+            X = X[mask]
+            y = y[mask]
+            return X, y
         if balance:
             return self.balance(X, y)
         return X, y
