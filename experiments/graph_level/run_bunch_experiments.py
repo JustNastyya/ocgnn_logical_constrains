@@ -35,10 +35,10 @@ def experiment_wrapper(*args, **kwargs):
         "dataset": "MUTAG",
         "model_train": model_reference["loss_specific_logic_graph_ocgin"],
         "is_logical": True,
-        "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
         "constrains_handler": GLRuleBasedHandler,
         "l_factor": 0.1,
         "save_logs": False,
+        # TODO decision tree params
     }
     
     for config_key in kwargs.keys():

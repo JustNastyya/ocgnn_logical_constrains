@@ -8,6 +8,8 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.gl_rules_based_handler import GLRuleBasedHandler
 
+from models.graph_decision_trees.graph_level.train_and_print import train_for_model
+
 from models.utils import (
     compute_anomaly_scores_graph_level,
     get_ratios_gl,
@@ -43,7 +45,7 @@ def run_experiment(config):
     
     logger.info("##################### Loading data") 
     dataset, _ = get_data(dataset_name, batch_size)
-    train_loader, val_loader, test_loader = split_train_val_test(dataset, batch_size)
+    train_loader, val_loader, test_loader, tree_loader = split_train_val_test(dataset, batch_size)
     
     logger.info("##################### creating model")
 
@@ -53,10 +55,22 @@ def run_experiment(config):
 
     logger.info("##################### staring training")
     if config["is_logical"]:
+        logger.info("##################### training a descision tree")
+        
+        decision_tree_att_list = config["decision_tree"]["attribute_list"]
+        decision_tree_max_depth = config["decision_tree"]["max_depth"]
+        ConstrainHandler = config["constrains_handler"]
+        l_factor = config["l_factor"]
+        
+        constrains_filepath = train_for_model(
+            tree_loader,
+            decision_tree_att_list, 
+            decision_tree_max_depth, 
+            dataset_name
+        )
         logger.info("setting up the logical constrains")
 
         ConstrainHandler = config["constrains_handler"]
-        constrains_filepath = config["constrains_filepath"]
         l_factor = config["l_factor"]
         constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
     
@@ -100,10 +114,13 @@ if __name__ == "__main__":
         "dataset": "MUTAG",
         "model_train": model_reference["loss_specific_logic_graph_ocgin"],
         "is_logical": True,
-        "constrains_filepath": "constrains/data/MUTAG_auto_generated_2_101_102.json",
         "constrains_handler": GLRuleBasedHandler,
         "l_factor": 0.1,
-        "save_logs": True,
+        "save_logs": False,
+        "decision_tree": {
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "max_depth": 2,
+        }
     }
 
     experiment_logging_wrapper(config)
