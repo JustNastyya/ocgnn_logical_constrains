@@ -555,7 +555,7 @@ and like do a big pipeline
 and a huuuge thing is:
 why are all of the scores the same.. 
 
-Debugging results for cora:
+## Debugging results for cora, Rulehandler:
 - the feature vectors used in constrains are binary
 - `torch.sigmoid(self.l_factor * (threshold - x))`. since l_factor is like really small all the vlues are about 0, so thats how we get 0.5 after a sigmoid
 - since sigmoid of -1 is like -0.25 and of 1 is like 0.75 after a couple of sigmoid the value will converge to 0.5. so that makes sence
@@ -579,3 +579,36 @@ but the constrains value cant be too small and i cant to it before the sigmoid. 
 ### solution nr.3: fuck cora.
 
 seems to me like its a dead end. for binary vectors the hol thing looses its idea.
+
+
+## Debugging results for cora, ScoreHandler:
+
+- the distances to all zones are somehow zero, the first 5 points are in grey zones -> the diff is 0, the sigmoid gives 0.5
+- again because of binary representations i get all the time distances to everything 0 so the score is 0.5
+
+### solution nr.1: fuck the data
+
+if my constrains handler is distance based and it doesnt work on binary data then... well i dont have to make it work on binary data. try another data
+
+# TODOs for the end of the week
+
+- make a pipeline for a model comparison
+- dont forget about deviding the datasets
+- try my score/soft logic as:
+- - a node/graph attribute
+- - as a part of message passing
+- wrap up
+
+## Data to have fun with
+
+### node level
+
+- 
+
+TODO FOR TOMORROW: YOU STARTED INTEGRATING A DECISION TREE
+INTO THE TRAINING AND STOPPED AT THE DATA LOADER
+DONT FORGET THAT YOU CHANGED THE STRUCTURE OF THE CONFIG FOR NL
+AND THE SPLIT TEST AND TRAIN
+AND DO THE SAME FOR GL
+
+

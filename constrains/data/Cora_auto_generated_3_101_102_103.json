@@ -3,17 +3,17 @@
     {
       "conditions": [
         {
-          "feature_index": 19,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
           "feature_index": 1263,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 814,
+          "feature_index": 754,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 41,
           "op": "<=",
           "threshold": 0.0
         }
@@ -21,23 +21,23 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "21 v.s. 38"
+        "y_label_number": "15 v.s. 51"
       }
     },
     {
       "conditions": [
-        {
-          "feature_index": 19,
-          "op": "<=",
-          "threshold": 0.0
-        },
         {
           "feature_index": 1263,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 814,
+          "feature_index": 754,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 41,
           "op": ">",
           "threshold": 0.0
         }
@@ -51,17 +51,36 @@
     {
       "conditions": [
         {
-          "feature_index": 19,
+          "feature_index": 1263,
           "op": "<=",
           "threshold": 0.0
         },
+        {
+          "feature_index": 754,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
         {
           "feature_index": 1263,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 1249,
+          "feature_index": 1,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1066,
           "op": "<=",
           "threshold": 0.0
         }
@@ -69,23 +88,23 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "40 v.s. 10"
+        "y_label_number": "46 v.s. 13"
       }
     },
     {
       "conditions": [
-        {
-          "feature_index": 19,
-          "op": "<=",
-          "threshold": 0.0
-        },
         {
           "feature_index": 1263,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 1249,
+          "feature_index": 1,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1066,
           "op": ">",
           "threshold": 0.0
         }
@@ -99,65 +118,17 @@
     {
       "conditions": [
         {
-          "feature_index": 19,
+          "feature_index": 1263,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 1014,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1292,
-          "op": "<=",
+          "feature_index": 1,
+          "op": ">",
           "threshold": 0.0
         }
       ],
       "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "all the same"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 19,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1014,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1292,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 0,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "2 v.s. 1"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 19,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1014,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 0,
       "meta": {
         "depth": 2,
         "y_label_number": "all the same"

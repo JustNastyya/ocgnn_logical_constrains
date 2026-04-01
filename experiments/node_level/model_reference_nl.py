@@ -7,6 +7,8 @@ from models.constrains_in_loss.nl_ocgin import (
     train_node_ocgin_weighting,
     train_node_ocgin_irnoring_sus
 )
+from models.constrains_in_model.constrains_attribute_nl import train_node_ocgin_constrains_attribute, NodeOCGINAdditionalArgument
+
 model_reference = {
     "simple_node_ocgin": {
         "model": NodeOCGIN,
@@ -23,5 +25,9 @@ model_reference = {
     "logic_ignore_sus_nl_ocgin": {
         "model": NodeOCGINLossConstrains,
         "train_loop": train_node_ocgin_irnoring_sus
+    },
+    "constrains_attribute_nl_ocgin": {
+        "model": NodeOCGINAdditionalArgument,
+        "train_loop": train_node_ocgin_constrains_attribute
     }
 }

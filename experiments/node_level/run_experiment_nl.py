@@ -104,7 +104,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["logic_add_nl_ocgin"], # constrains_attribute_nl_ocgin
+        "model_train": model_reference["constrains_attribute_nl_ocgin"], # constrains_attribute_nl_ocgin
         "is_logical": True,
         "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
         "l_factor": 0.1,
