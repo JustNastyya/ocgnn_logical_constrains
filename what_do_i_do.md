@@ -596,19 +596,23 @@ if my constrains handler is distance based and it doesnt work on binary data the
 - dont forget about deviding the datasets
 - try my score/soft logic as:
 - - a node/graph attribute
-- - as a part of message passing
 - wrap up
 
-## Data to have fun with
+### just to carify for gl:
 
-### node level
+an additional attribute for the hole graph doess not work cuz.. well, its one number for the hole graph. that was dumb.
 
-- 
-
-TODO FOR TOMORROW: YOU STARTED INTEGRATING A DECISION TREE
-INTO THE TRAINING AND STOPPED AT THE DATA LOADER
-DONT FORGET THAT YOU CHANGED THE STRUCTURE OF THE CONFIG FOR NL
-AND THE SPLIT TEST AND TRAIN
-AND DO THE SAME FOR GL
+an idea: consider graph level constrains just like node level and integrate them just like that
 
 
+-- the stuff from jacobs laptop:
+exit
+cd oc...
+
+git pull
+cd ..
+torch
+cd volume
+bash torch_deps
+cd ocgnn..
+and pythoooooon

@@ -5,18 +5,18 @@
         {
           "feature_index": 7,
           "op": "<=",
-          "threshold": 2.1666667461395264
+          "threshold": 2.153846263885498
         },
         {
           "feature_index": 2,
           "op": "<=",
-          "threshold": 0.3076923191547394
+          "threshold": 0.1818181872367859
         }
       ],
       "predicted_class": 0,
       "meta": {
         "depth": 2,
-        "y_label_number": "12 v.s. 1"
+        "y_label_number": "10 v.s. 1"
       }
     },
     {
@@ -24,18 +24,18 @@
         {
           "feature_index": 7,
           "op": "<=",
-          "threshold": 2.1666667461395264
+          "threshold": 2.153846263885498
         },
         {
           "feature_index": 2,
           "op": ">",
-          "threshold": 0.3076923191547394
+          "threshold": 0.1818181872367859
         }
       ],
       "predicted_class": 1,
       "meta": {
         "depth": 2,
-        "y_label_number": "all the same"
+        "y_label_number": "2 v.s. 3"
       }
     },
     {
@@ -43,7 +43,7 @@
         {
           "feature_index": 7,
           "op": ">",
-          "threshold": 2.1666667461395264
+          "threshold": 2.153846263885498
         }
       ],
       "predicted_class": 1,

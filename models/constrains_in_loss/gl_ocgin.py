@@ -40,12 +40,15 @@ class GraphOCGINLossConstrains(nn.Module):
         z = global_mean_pool(x, batch)
 
         return z
-
+    
     def loss_add_constrain(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
-    def loss_graph_defined_constraint(self, z, constrain_L):
-        return torch.mean(torch.sum((z - self.center) ** 2, dim=1) + constrain_L)
+    def loss_graph_weighting(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
+
+    def loss_graph_irnoring_sus(self, z, constrain_L):
+        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     @torch.no_grad()
     def init_center(self, loader):
@@ -64,13 +67,17 @@ class GraphOCGINLossConstrains(nn.Module):
     def anomaly_score(self, z):
         return torch.sum((z - self.center) ** 2, dim=1)
 
-
+# wrapper
 def train_graph_ocgin_add_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
     train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add")
 
 # wrapper    
-def train_graph_ocgin_graph_defined_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
-    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="graph_certain")
+def train_graph_ocgin_weighting(model, loader, epochs, lr, constrains_obj, dataset):
+    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_weighting")
+
+# wrapper    
+def train_graph_ocgin_irnoring_sus(model, loader, epochs, lr, constrains_obj, dataset):
+    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_irnoring_sus")
 
 
 def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add"):
@@ -89,10 +96,13 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
             
             batch_idx = data.idx
             batch_constraints = L_constrains[batch_idx].to(model.device)
+            
             if loss_type == "add":
                 loss = model.loss_add_constrain(z, batch_constraints)
-            elif loss_type == "graph_certain":
-                loss = model.loss_graph_defined_constraint(z, batch_constraints)
+            elif loss_type == "node_weighting":
+                loss = model.loss_graph_weighting(z, batch_constraints)
+            elif loss_type == "node_irnoring_sus":
+                loss = model.loss_graph_irnoring_sus(z, batch_constraints)            
             
             optimizer.zero_grad()
             loss.backward()

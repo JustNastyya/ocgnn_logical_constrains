@@ -45,7 +45,7 @@ class NodeOCGINLossConstrains(nn.Module):
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     def loss_node_irnoring_sus(self, z, constrain_L):
-        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
+        return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 - constrain_L))
 
     @torch.no_grad()
     def init_center(self, data, train_mask):
