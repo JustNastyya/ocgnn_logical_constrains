@@ -35,7 +35,7 @@ def get_data(dataset_name, batch_size):
 
 
 def split_train_val_test(dataset, train_ratio=0.5, val_ratio=0.1, tree_ratio=0.2):
-    data = dataset[0]
+    data = dataset[0].to("cuda")
 
     normal_mask = (data.y == NORMAL_LABEL)
     anomaly_mask = ~normal_mask
