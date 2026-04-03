@@ -31,6 +31,8 @@ def compute_anomaly_scores_node_level(model, data, mask_ind):
 # ------------------- ratiooos -------------------
 
 def get_ratios(pred, y, test_scores, compute_auc_roc=True):
+    pred = pred.to("cpu")
+    y = y.to("cpu")
     result = {}
     # test rate
     compare = pred == y
