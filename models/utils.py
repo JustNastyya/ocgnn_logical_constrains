@@ -24,7 +24,7 @@ def compute_anomaly_scores_node_level(model, data, mask_ind):
     with torch.no_grad():
         data = data.to(model.device)
         z = model(data)
-        scores = model.anomaly_score(z[mask_ind]).cpu()
+        scores = model.anomaly_score(z[mask_ind]).cuda()
 
     return scores
 
