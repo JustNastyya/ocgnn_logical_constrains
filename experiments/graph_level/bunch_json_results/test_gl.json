@@ -1,0 +1,1833 @@
+[
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGIN",
+        "train_loop": "train_graph_ocgin"
+      },
+      "is_logical": false
+    },
+    "model_results": {
+      "test_rate": 0.09917355371900827,
+      "true_positive": 0,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.8571428565306122,
+      "precision": 0.0,
+      "balanced_accuracy": 0.4285714282653061,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.16889185580774363,
+      "decision_boundary": 2.603201210149564e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5867768595041323,
+      "true_positive": 57,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 50,
+      "recall": 0.5327102803240458,
+      "specificity": 0.9999999992857143,
+      "precision": 0.9999999998245613,
+      "balanced_accuracy": 0.76635513980488,
+      "FPR": 0.0,
+      "ROC_AUC": 0.7740320427236315,
+      "decision_boundary": 0.0010015737498179078
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7933884297520661,
+      "true_positive": 86,
+      "true_negative": 10,
+      "false_positive": 4,
+      "false_negative": 21,
+      "recall": 0.8037383176818936,
+      "specificity": 0.7142857137755102,
+      "precision": 0.9555555554493828,
+      "balanced_accuracy": 0.7590120157287019,
+      "FPR": 0.28571428551020406,
+      "ROC_AUC": 0.828437917222964,
+      "decision_boundary": 4.1057137423194945e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8925619834710744,
+      "true_positive": 102,
+      "true_negative": 6,
+      "false_positive": 8,
+      "false_negative": 5,
+      "recall": 0.9532710279482924,
+      "specificity": 0.4285714282653061,
+      "precision": 0.9272727271884298,
+      "balanced_accuracy": 0.6909212281067992,
+      "FPR": 0.5714285710204081,
+      "ROC_AUC": 0.6281708945260347,
+      "decision_boundary": 2.0600948573701316e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8925619834710744,
+      "true_positive": 100,
+      "true_negative": 8,
+      "false_positive": 6,
+      "false_negative": 7,
+      "recall": 0.9345794391649926,
+      "specificity": 0.5714285710204081,
+      "precision": 0.9433962263260948,
+      "balanced_accuracy": 0.7530040050927004,
+      "FPR": 0.4285714282653061,
+      "ROC_AUC": 0.9425901201602137,
+      "decision_boundary": 6.163313082652166e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.2843791722296395,
+      "decision_boundary": 2.5880178000647902e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6776859504132231,
+      "true_positive": 72,
+      "true_negative": 10,
+      "false_positive": 4,
+      "false_negative": 35,
+      "recall": 0.6728971961987947,
+      "specificity": 0.7142857137755102,
+      "precision": 0.9473684209279779,
+      "balanced_accuracy": 0.6935914549871525,
+      "FPR": 0.28571428551020406,
+      "ROC_AUC": 0.7656875834445926,
+      "decision_boundary": 8.997883560368791e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 0.0
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.06611570247933884,
+      "true_positive": 0,
+      "true_negative": 8,
+      "false_positive": 6,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.5714285710204081,
+      "precision": 0.0,
+      "balanced_accuracy": 0.28571428551020406,
+      "FPR": 0.4285714282653061,
+      "ROC_AUC": 0.1034712950600801,
+      "decision_boundary": 7.58507123777008e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6942148760330579,
+      "true_positive": 79,
+      "true_negative": 5,
+      "false_positive": 9,
+      "false_negative": 28,
+      "recall": 0.7383177569403442,
+      "specificity": 0.3571428568877551,
+      "precision": 0.8977272726252583,
+      "balanced_accuracy": 0.5477303069140497,
+      "FPR": 0.6428571423979591,
+      "ROC_AUC": 0.585781041388518,
+      "decision_boundary": 8.507323059347982e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 0.0
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.859504132231405,
+      "true_positive": 90,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 17,
+      "recall": 0.8411214952484933,
+      "specificity": 0.9999999992857143,
+      "precision": 0.999999999888889,
+      "balanced_accuracy": 0.9205607472671038,
+      "FPR": 0.0,
+      "ROC_AUC": 0.8955273698264352,
+      "decision_boundary": 5.222741310717538e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 0.0
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7851239669421488,
+      "true_positive": 84,
+      "true_negative": 11,
+      "false_positive": 3,
+      "false_negative": 23,
+      "recall": 0.7850467288985938,
+      "specificity": 0.7857142851530612,
+      "precision": 0.9655172412683314,
+      "balanced_accuracy": 0.7853805070258275,
+      "FPR": 0.21428571413265304,
+      "ROC_AUC": 0.8768357810413885,
+      "decision_boundary": 4.172713374828163e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.371900826446281,
+      "true_positive": 37,
+      "true_negative": 8,
+      "false_positive": 6,
+      "false_negative": 70,
+      "recall": 0.34579439249104726,
+      "specificity": 0.5714285710204081,
+      "precision": 0.8604651160789616,
+      "balanced_accuracy": 0.4586114817557277,
+      "FPR": 0.4285714282653061,
+      "ROC_AUC": 0.4112149532710281,
+      "decision_boundary": 0.00015434583474416286
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8347107438016529,
+      "true_positive": 97,
+      "true_negative": 4,
+      "false_positive": 10,
+      "false_negative": 10,
+      "recall": 0.9065420559900429,
+      "specificity": 0.28571428551020406,
+      "precision": 0.9065420559900429,
+      "balanced_accuracy": 0.5961281707501235,
+      "FPR": 0.7142857137755102,
+      "ROC_AUC": 0.8631508678237649,
+      "decision_boundary": 7.286141772055998e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7024793388429752,
+      "true_positive": 73,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 34,
+      "recall": 0.6822429905904446,
+      "specificity": 0.8571428565306122,
+      "precision": 0.9733333332035556,
+      "balanced_accuracy": 0.7696929235605283,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.8000667556742322,
+      "decision_boundary": 1.7968556420555615e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8429752066115702,
+      "true_positive": 92,
+      "true_negative": 10,
+      "false_positive": 4,
+      "false_negative": 15,
+      "recall": 0.8598130840317932,
+      "specificity": 0.7142857137755102,
+      "precision": 0.958333333233507,
+      "balanced_accuracy": 0.7870493989036518,
+      "FPR": 0.28571428551020406,
+      "ROC_AUC": 0.9058744993324432,
+      "decision_boundary": 3.091958205914125e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7851239669421488,
+      "true_positive": 91,
+      "true_negative": 4,
+      "false_positive": 10,
+      "false_negative": 16,
+      "recall": 0.8504672896401433,
+      "specificity": 0.28571428551020406,
+      "precision": 0.9009900989206941,
+      "balanced_accuracy": 0.5680907875751737,
+      "FPR": 0.7142857137755102,
+      "ROC_AUC": 0.520694259012016,
+      "decision_boundary": 3.597792499476782e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7768595041322314,
+      "true_positive": 83,
+      "true_negative": 11,
+      "false_positive": 3,
+      "false_negative": 24,
+      "recall": 0.7757009345069439,
+      "specificity": 0.7857142851530612,
+      "precision": 0.9651162789575447,
+      "balanced_accuracy": 0.7807076098300025,
+      "FPR": 0.21428571413265304,
+      "ROC_AUC": 0.822429906542056,
+      "decision_boundary": 1.2368619536573533e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7107438016528925,
+      "true_positive": 74,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 33,
+      "recall": 0.6915887849820945,
+      "specificity": 0.8571428565306122,
+      "precision": 0.9736842103981995,
+      "balanced_accuracy": 0.7743658207563533,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.8094125500667556,
+      "decision_boundary": 1.6608979422017e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6942148760330579,
+      "true_positive": 73,
+      "true_negative": 11,
+      "false_positive": 3,
+      "false_negative": 34,
+      "recall": 0.6822429905904446,
+      "specificity": 0.7857142851530612,
+      "precision": 0.9605263156630888,
+      "balanced_accuracy": 0.7339786378717529,
+      "FPR": 0.21428571413265304,
+      "ROC_AUC": 0.811415220293725,
+      "decision_boundary": 0.0005094865337014198
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8512396694214877,
+      "true_positive": 103,
+      "true_negative": 0,
+      "false_positive": 14,
+      "false_negative": 4,
+      "recall": 0.9626168223399424,
+      "specificity": 0.0,
+      "precision": 0.8803418802666375,
+      "balanced_accuracy": 0.4813084111699712,
+      "FPR": 0.9999999992857143,
+      "ROC_AUC": 0.6528704939919893,
+      "decision_boundary": 5.138010601513088e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8925619834710744,
+      "true_positive": 99,
+      "true_negative": 9,
+      "false_positive": 5,
+      "false_negative": 8,
+      "recall": 0.9252336447733427,
+      "specificity": 0.6428571423979591,
+      "precision": 0.9519230768315459,
+      "balanced_accuracy": 0.7840453935856508,
+      "FPR": 0.3571428568877551,
+      "ROC_AUC": 0.842456608811749,
+      "decision_boundary": 1.0960915233226842e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8677685950413223,
+      "true_positive": 93,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 14,
+      "recall": 0.8691588784234432,
+      "specificity": 0.8571428565306122,
+      "precision": 0.9789473683180056,
+      "balanced_accuracy": 0.8631508674770276,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.8871829105473965,
+      "decision_boundary": 7.349931547651067e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.39669421487603307,
+      "true_positive": 42,
+      "true_negative": 6,
+      "false_positive": 8,
+      "false_negative": 65,
+      "recall": 0.3925233644492969,
+      "specificity": 0.4285714282653061,
+      "precision": 0.839999999832,
+      "balanced_accuracy": 0.41054739635730153,
+      "FPR": 0.5714285710204081,
+      "ROC_AUC": 0.38317757009345793,
+      "decision_boundary": 2.9918118116256665e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5867768595041323,
+      "true_positive": 63,
+      "true_negative": 8,
+      "false_positive": 6,
+      "false_negative": 44,
+      "recall": 0.5887850466739454,
+      "specificity": 0.5714285710204081,
+      "precision": 0.9130434781285445,
+      "balanced_accuracy": 0.5801068088471768,
+      "FPR": 0.4285714282653061,
+      "ROC_AUC": 0.5817757009345794,
+      "decision_boundary": 5.352110747480765e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6694214876033058,
+      "true_positive": 69,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 38,
+      "recall": 0.6448598130238449,
+      "specificity": 0.8571428565306122,
+      "precision": 0.9718309857786155,
+      "balanced_accuracy": 0.7510013347772285,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.7656875834445929,
+      "decision_boundary": 4.1569230234017596e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6611570247933884,
+      "true_positive": 67,
+      "true_negative": 13,
+      "false_positive": 1,
+      "false_negative": 40,
+      "recall": 0.6261682242405451,
+      "specificity": 0.9285714279081632,
+      "precision": 0.9852941175021627,
+      "balanced_accuracy": 0.7773698260743541,
+      "FPR": 0.07142857137755101,
+      "ROC_AUC": 0.767690253671562,
+      "decision_boundary": 0.000366055202903226
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.743801652892562,
+      "true_positive": 79,
+      "true_negative": 11,
+      "false_positive": 3,
+      "false_negative": 28,
+      "recall": 0.7383177569403442,
+      "specificity": 0.7857142851530612,
+      "precision": 0.963414634028852,
+      "balanced_accuracy": 0.7620160210467026,
+      "FPR": 0.21428571413265304,
+      "ROC_AUC": 0.815086782376502,
+      "decision_boundary": 6.223453965503722e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8925619834710744,
+      "true_positive": 103,
+      "true_negative": 5,
+      "false_positive": 9,
+      "false_negative": 4,
+      "recall": 0.9626168223399424,
+      "specificity": 0.3571428568877551,
+      "precision": 0.9196428570607462,
+      "balanced_accuracy": 0.6598798396138488,
+      "FPR": 0.6428571423979591,
+      "ROC_AUC": 0.921562082777036,
+      "decision_boundary": 3.096590444329195e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5206611570247934,
+      "true_positive": 59,
+      "true_negative": 4,
+      "false_positive": 10,
+      "false_negative": 48,
+      "recall": 0.5514018691073457,
+      "specificity": 0.28571428551020406,
+      "precision": 0.8550724636441924,
+      "balanced_accuracy": 0.41855807730877487,
+      "FPR": 0.7142857137755102,
+      "ROC_AUC": 0.3845126835781041,
+      "decision_boundary": 2.910798866651021e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7851239669421488,
+      "true_positive": 90,
+      "true_negative": 5,
+      "false_positive": 9,
+      "false_negative": 17,
+      "recall": 0.8411214952484933,
+      "specificity": 0.3571428568877551,
+      "precision": 0.9090909089990817,
+      "balanced_accuracy": 0.5991321760681242,
+      "FPR": 0.6428571423979591,
+      "ROC_AUC": 0.7777036048064085,
+      "decision_boundary": 0.0007549801375716925
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6694214876033058,
+      "true_positive": 68,
+      "true_negative": 13,
+      "false_positive": 1,
+      "false_negative": 39,
+      "recall": 0.635514018632195,
+      "specificity": 0.9285714279081632,
+      "precision": 0.9855072462339846,
+      "balanced_accuracy": 0.7820427232701791,
+      "FPR": 0.07142857137755101,
+      "ROC_AUC": 0.836448598130841,
+      "decision_boundary": 3.785814988077618e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 0.0
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6776859504132231,
+      "true_positive": 76,
+      "true_negative": 6,
+      "false_positive": 8,
+      "false_negative": 31,
+      "recall": 0.7102803737653944,
+      "specificity": 0.4285714282653061,
+      "precision": 0.904761904654195,
+      "balanced_accuracy": 0.5694259010153503,
+      "FPR": 0.5714285710204081,
+      "ROC_AUC": 0.47162883845126835,
+      "decision_boundary": 5.862181296834024e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7355371900826446,
+      "true_positive": 77,
+      "true_negative": 12,
+      "false_positive": 2,
+      "false_negative": 30,
+      "recall": 0.7196261681570443,
+      "specificity": 0.8571428565306122,
+      "precision": 0.9746835441804199,
+      "balanced_accuracy": 0.7883845123438282,
+      "FPR": 0.14285714275510203,
+      "ROC_AUC": 0.8384512683578105,
+      "decision_boundary": 7.604269740113523e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.628099173553719,
+      "true_positive": 62,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 45,
+      "recall": 0.5794392522822954,
+      "specificity": 0.9999999992857143,
+      "precision": 0.9999999998387097,
+      "balanced_accuracy": 0.7897196257840049,
+      "FPR": 0.0,
+      "ROC_AUC": 0.8094125500667555,
+      "decision_boundary": 1.4048019920664956e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5454545454545454,
+      "true_positive": 52,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 55,
+      "recall": 0.48598130836579617,
+      "specificity": 0.9999999992857143,
+      "precision": 0.9999999998076923,
+      "balanced_accuracy": 0.7429906538257552,
+      "FPR": 0.0,
+      "ROC_AUC": 0.8614819759679572,
+      "decision_boundary": 0.00012060005246894434
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.11570247933884298,
+      "true_positive": 0,
+      "true_negative": 14,
+      "false_positive": 0,
+      "false_negative": 107,
+      "recall": 0.0,
+      "specificity": 0.9999999992857143,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999964285713,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 9.630141302452433e-12
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.768595041322314,
+      "true_positive": 88,
+      "true_negative": 5,
+      "false_positive": 9,
+      "false_negative": 19,
+      "recall": 0.8224299064651935,
+      "specificity": 0.3571428568877551,
+      "precision": 0.9072164947518334,
+      "balanced_accuracy": 0.5897863816764743,
+      "FPR": 0.6428571423979591,
+      "ROC_AUC": 0.7493324432576769,
+      "decision_boundary": 4.4137766963103786e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8429752066115702,
+      "true_positive": 101,
+      "true_negative": 1,
+      "false_positive": 13,
+      "false_negative": 6,
+      "recall": 0.9439252335566426,
+      "specificity": 0.07142857137755101,
+      "precision": 0.8859649122029856,
+      "balanced_accuracy": 0.5076769024670968,
+      "FPR": 0.9285714279081632,
+      "ROC_AUC": 0.3871829105473965,
+      "decision_boundary": 3.049373376029507e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8099173553719008,
+      "true_positive": 88,
+      "true_negative": 10,
+      "false_positive": 4,
+      "false_negative": 19,
+      "recall": 0.8224299064651935,
+      "specificity": 0.7142857137755102,
+      "precision": 0.9565217390264651,
+      "balanced_accuracy": 0.7683578101203519,
+      "FPR": 0.28571428551020406,
+      "ROC_AUC": 0.8588117489986649,
+      "decision_boundary": 0.0001594234345247969
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.743801652892562,
+      "true_positive": 85,
+      "true_negative": 5,
+      "false_positive": 9,
+      "false_negative": 22,
+      "recall": 0.7943925232902438,
+      "specificity": 0.3571428568877551,
+      "precision": 0.9042553190527388,
+      "balanced_accuracy": 0.5757676900889994,
+      "FPR": 0.6428571423979591,
+      "ROC_AUC": 0.4132176234979973,
+      "decision_boundary": 1.9341912320669508e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5537190082644629,
+      "true_positive": 58,
+      "true_negative": 9,
+      "false_positive": 5,
+      "false_negative": 49,
+      "recall": 0.5420560747156957,
+      "specificity": 0.6428571423979591,
+      "precision": 0.9206349204887881,
+      "balanced_accuracy": 0.5924566085568275,
+      "FPR": 0.3571428568877551,
+      "ROC_AUC": 0.571762349799733,
+      "decision_boundary": 1.36724693220458e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "save_logs": false,
+      "dataset": "MUTAG",
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "GraphOCGINLossConstrains",
+        "train_loop": "train_graph_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "mean_node_features",
+          "mean_node_degree"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "GLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7768595041322314,
+      "true_positive": 87,
+      "true_negative": 7,
+      "false_positive": 7,
+      "false_negative": 20,
+      "recall": 0.8130841120735436,
+      "specificity": 0.49999999964285713,
+      "precision": 0.9255319147951563,
+      "balanced_accuracy": 0.6565420558582004,
+      "FPR": 0.49999999964285713,
+      "ROC_AUC": 0.8444592790387183,
+      "decision_boundary": 4.5417051296681166e-05
+    }
+  }
+]

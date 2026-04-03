@@ -2,11 +2,17 @@ from loguru import logger
 
 import torch
 from experiments.node_level.model_reference_nl import model_reference
-from experiments.node_level.run_bunch_experiments import run_bunch_experiments
+from experiments.node_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_nl
 from experiments.node_level.data_loader_nl import DATASET_REFERENCE
+
+from experiments.graph_level.model_reference_gl import model_reference
+from experiments.graph_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_gl
+from experiments.graph_level.data_loader_gl import TUDATASETS
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
 from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
+from constrains.gl_rules_based_handler import GLRuleBasedHandler
+from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
 
 def the_pipeline():
     
@@ -48,7 +54,7 @@ def the_pipeline():
     for dataset_name in datasets:
         result_name = f"all_loss_nl_{dataset_name}.json"
         default_config["dataset"] = dataset_name
-        run_bunch_experiments(
+        run_bunch_experiments_nl(
             default_config, 
             baseline_var_pars, 
             const_var_pars,
@@ -63,7 +69,6 @@ def the_pipeline_gl():
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "Cora",
         "save_logs": False,
     }
     
@@ -74,29 +79,29 @@ def the_pipeline_gl():
     const_var_pars = {
         "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
         "decision_tree": [{
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
             "max_depth": 3,
         },
         {
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_add_nl_ocgin"],
-            model_reference["logic_weight_nl_ocgin"],
-            model_reference["logic_ignore_sus_nl_ocgin"]
+            model_reference["logic_add_gl_ocgin"],
+            model_reference["logic_weighting_gl_ocgin"],
+            model_reference["logic_ignore_sus_gl_ocgin"]
         ],
-        "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
+        "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
     }
-    baseline_model="simple_node_ocgin"
+    baseline_model="simple_graph_ocgin"
     
     # the actual datasets
-    datasets = DATASET_REFERENCE.keys()
+    datasets = TUDATASETS
     
     for dataset_name in datasets:
-        result_name = f"all_loss_nl_{dataset_name}.json"
+        result_name = f"all_loss_gl_{dataset_name}.json"
         default_config["dataset"] = dataset_name
-        run_bunch_experiments(
+        run_bunch_experiments_gl(
             default_config, 
             baseline_var_pars, 
             const_var_pars,
@@ -105,4 +110,5 @@ def the_pipeline_gl():
             )
 
 if __name__ == "__main__":
-    the_pipeline()
+    # the_pipeline()
+    the_pipeline_gl()

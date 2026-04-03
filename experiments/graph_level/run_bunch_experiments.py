@@ -10,8 +10,11 @@ from experiments.graph_level.model_reference_gl import model_reference
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
 from constrains.gl_rules_based_handler import GLRuleBasedHandler
+from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
 
 FILEPATH = "experiments/graph_level/bunch_json_results/"
+TRAIN_NORMAL = True
+TRAIN_ANORMAL = True
 
 
 def json_dump(data, path):
@@ -24,84 +27,113 @@ def json_dump(data, path):
     os.replace(tmp_path, path)
 
 
-def experiment_wrapper(*args, **kwargs):
-    config = {
-        "hidden_dim": 64,
-        "num_layers": 3,
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
-        "lr": 1e-3,
-        "epochs": 50,
-        "batch_size": 32,
-        "dataset": "MUTAG",
-        "model_train": model_reference["loss_specific_logic_graph_ocgin"],
-        "is_logical": True,
-        "constrains_handler": GLRuleBasedHandler,
-        "l_factor": 0.1,
-        "save_logs": False,
-        # TODO decision tree params
-    }
+def experiment_wrapper(
+    default_config,
+    config_updates,
+    is_logical,
+    ):
     
-    for config_key in kwargs.keys():
-        config[config_key] = kwargs[config_key]
+    for config_key in config_updates.keys():
+        default_config[config_key] = config_updates[config_key]
+    default_config["is_logical"] = is_logical
 
-    model_results = experiment_logging_wrapper(config=config)
+    model_results = experiment_logging_wrapper(config=default_config)
     
     results = {
         "model_config": {
-            **config,
+            **default_config,
             "model_train": {
-                "model": config["model_train"]["model"].__name__,
-                "train_loop": config["model_train"]["train_loop"].__name__,
+                "model": default_config["model_train"]["model"].__name__,
+                "train_loop": default_config["model_train"]["train_loop"].__name__,
             },
-            "constrains_handler": config["constrains_handler"].__name__,
         },
         "model_results": model_results
     }
+    if default_config["is_logical"]:
+        results["model_config"]["constrains_handler"] = default_config["constrains_handler"].__name__
     
     return results
 
 
-def run_bunch_experiments():
+def run_bunch_experiments(
+        default_config: dict, 
+        baseline_var_pars: dict,
+        const_var_pars: dict,
+        baseline_model: str,
+        filepath: str
+    ):
     # gonna iterate over a bunch of settings and train
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
-    hidden_dim_l = [16, 32, 64, 128, 256]
-    num_layers_l = [2, 3, 4, 5]
-    l_factor_l = [0.1, 0.01, 0.005, 0.001]
-    
-    constrains_l = [
-        "constrains/data/MUTAG_auto_generated_2_101_102.json",
-        "constrains/data/MUTAG_auto_generated_3_101_102.json"
-    ]
-    file_full_path = FILEPATH + "gl_compare_simple_OCGIN_vs_loss_specific_constrains.json"
+    file_full_path = FILEPATH + filepath
     
     results_l = []
-
-    for hidden_dim, num_layers in product(
-        hidden_dim_l,
-        num_layers_l
-    ):
-        results_l.append(experiment_wrapper(
-            hidden_dim=hidden_dim,
-            num_layers=num_layers,
-            is_logical=False,
-            model_train=model_reference["simple_graph_ocgin"]
-        ))
-        for constraint_path, l_factor in product(
-                constrains_l,
-                l_factor_l
-            ):
+    
+    for combo in product(*baseline_var_pars.values()):
+        config_updates = dict(zip(baseline_var_pars.keys(), combo))
+        config_updates["model_train"] = model_reference[baseline_model]
+        print(config_updates)
+        if TRAIN_NORMAL:
             results_l.append(experiment_wrapper(
-                hidden_dim=hidden_dim,
-                num_layers=num_layers,
-                l_factor=l_factor,
-                is_logical=True,
-                constrains_filepath=constraint_path
+                default_config=default_config,
+                config_updates=config_updates,
+                is_logical=False,
             ))
+        if not(TRAIN_ANORMAL):
+            continue
         
-        json_dump(results_l, file_full_path)
+        for const_combo in product(*const_var_pars.values()):
+            config_updates_const = dict(zip(const_var_pars.keys(), const_combo))
+            config_update = config_updates | config_updates_const
+
+            results_l.append(experiment_wrapper(
+                default_config=default_config,
+                config_updates=config_update,
+                is_logical=True,
+                ))
+            
+            json_dump(results_l, file_full_path)
+
 
 
 if __name__ == "__main__":
-    run_bunch_experiments()
+    default_config = {
+        "device": "cuda" if torch.cuda.is_available() else "cpu",
+        "lr": 1e-3,
+        "epochs": 50,
+        "batch_size": 32,
+        "save_logs": False,
+    }
+    
+    baseline_var_pars = {
+        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
+        "num_layers": [2, 3, 4, 5]
+    }
+    const_var_pars = {
+        "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
+        "decision_tree": [{
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "max_depth": 3,
+        },
+        {
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "max_depth": 2,
+        }],
+        "model_train": [
+            model_reference["logic_add_gl_ocgin"],
+            model_reference["logic_weighting_gl_ocgin"],
+            model_reference["logic_ignore_sus_gl_ocgin"]
+        ],
+        "constrains_handler": [GLConstraintScoreBasedHandler, GLRuleBasedHandler]
+    }
+    baseline_model="simple_graph_ocgin"
+    default_config["dataset"] = "MUTAG"
+    result_name = "test_gl.json"
+    run_bunch_experiments(
+            default_config, 
+            baseline_var_pars, 
+            const_var_pars,
+            baseline_model,
+            result_name
+            )
