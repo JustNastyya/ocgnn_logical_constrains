@@ -37,7 +37,6 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
                     xs.append(feature_l)
                     self.index_mapping[str(feature_new_ind)] = feature_name
         
-        xs = xs.to("cuda")
         X = torch.stack(xs, dim=1)
         if len(X.shape) == 1:
             X = X.unsqueeze(1)  

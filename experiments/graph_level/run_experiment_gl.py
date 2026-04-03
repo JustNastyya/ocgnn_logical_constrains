@@ -112,7 +112,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "MUTAG",
-        "model_train": model_reference["loss_specific_logic_graph_ocgin"],
+        "model_train": model_reference["constraint_additional_attribute"],
         "is_logical": True,
         "constrains_handler": GLRuleBasedHandler,
         "l_factor": 0.1,
