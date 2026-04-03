@@ -1,0 +1,84 @@
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 38,
+          "op": "<=",
+          "threshold": 2.0
+        },
+        {
+          "feature_index": 3,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "3 v.s. 53"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 38,
+          "op": "<=",
+          "threshold": 2.0
+        },
+        {
+          "feature_index": 3,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "4 v.s. 4"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 38,
+          "op": ">",
+          "threshold": 2.0
+        },
+        {
+          "feature_index": 38,
+          "op": "<=",
+          "threshold": 2.1600000858306885
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 38,
+          "op": ">",
+          "threshold": 2.0
+        },
+        {
+          "feature_index": 38,
+          "op": ">",
+          "threshold": 2.1600000858306885
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "23 v.s. 23"
+      }
+    }
+  ],
+  "additional_attributes": {
+    "0:38": "mean_node_features",
+    "38": "mean_node_degree"
+  }
+}

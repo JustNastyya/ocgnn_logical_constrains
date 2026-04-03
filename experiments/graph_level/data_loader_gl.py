@@ -8,7 +8,13 @@ from torch_geometric.data import Dataset
 from torch.utils.data import random_split
 
 
-TUDATASETS = ["MUTAG", "REDDIT-BINARY"]
+TUDATASETS = [
+    "MUTAG", "AIDS", "DHFR", "malonaldehyde", "naphthalene", "PC-3H", "YeastH", # small molucles
+    "DD", "ENZYMES", "PROTEINS",                                                # bioinformatics
+    "FIRSTMM_DB", "COIL-RAG", "MSRC_21",                                        # computer vision
+    "REDDIT-BINARY", "github_stargazers", "highschool_ct1", "tumblr_ct2",       # social networks
+    ]
+
 NORMAL_LABEL = 0
 
 class IndexedDataset(Dataset):

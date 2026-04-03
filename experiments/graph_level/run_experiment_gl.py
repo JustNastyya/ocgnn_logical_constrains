@@ -111,7 +111,7 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "MUTAG",
+        "dataset": "AIDS",
         "model_train": model_reference["logic_ignore_sus_gl_ocgin"],
         "is_logical": True,
         "constrains_handler": GLRuleBasedHandler,
