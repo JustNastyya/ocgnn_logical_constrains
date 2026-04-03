@@ -13,7 +13,7 @@ def compute_anomaly_scores_graph_level(model, loader):
         for data in loader:
             data = data.to(model.device)
             z = model(data)
-            scores.append(model.anomaly_score(z).cpu())
+            scores.append(model.anomaly_score(z).cuda())
 
     return torch.cat(scores, dim=0)
 
@@ -63,6 +63,8 @@ def get_ratios(pred, y, test_scores, compute_auc_roc=True):
     result["balanced_accuracy"] = balanced_accuracy
     result["FPR"] = FPR
     if compute_auc_roc:
+        y = y.to("cpu")
+        test_scores = test_scores.to("cpu")
         result["ROC_AUC"] = roc_auc_score(y, test_scores)
 
     return result
