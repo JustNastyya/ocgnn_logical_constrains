@@ -26,7 +26,7 @@ def the_pipeline():
     }
     
     baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256],
+        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
         "num_layers": [2, 3, 4, 5]
     }
     const_var_pars = {

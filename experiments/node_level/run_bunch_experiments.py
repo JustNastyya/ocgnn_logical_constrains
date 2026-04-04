@@ -50,7 +50,9 @@ def experiment_wrapper(
     }
     if default_config["is_logical"]:
         results["model_config"]["constrains_handler"] = default_config["constrains_handler"].__name__
-    
+    else:
+        results["model_config"]["constrains_handler"]
+
     return results
 
 
