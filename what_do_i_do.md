@@ -590,14 +590,6 @@ seems to me like its a dead end. for binary vectors the hol thing looses its ide
 
 if my constrains handler is distance based and it doesnt work on binary data then... well i dont have to make it work on binary data. try another data
 
-# TODOs for the end of the week
-
-- make a pipeline for a model comparison
-- dont forget about deviding the datasets
-- try my score/soft logic as:
-- - a node/graph attribute
-- wrap up
-
 ### just to carify for gl:
 
 an additional attribute for the hole graph doess not work cuz.. well, its one number for the hole graph. that was dumb.
@@ -616,3 +608,9 @@ cd volume
 bash torch_deps
 cd ocgnn..
 and pythoooooon
+
+
+## nicht vergessen as soon as my pipleline for nl constrains in loss ready ist:
+
+now run it just for nl: additional attribute and gl all
+

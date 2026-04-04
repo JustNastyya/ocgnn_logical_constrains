@@ -17,7 +17,7 @@ class NodeLevelFeatureExtractor(TemplateFeatureExtractor):
     
     def extract_features(self, data, mask=None, balance=False):
         xs = []
-
+        data = data.to("cpu")
         for feature_name in self.attribute_list:
             
             feature_l = self.translator[feature_name](data)
