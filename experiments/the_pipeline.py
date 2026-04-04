@@ -1,11 +1,11 @@
 from loguru import logger
 
 import torch
-from experiments.node_level.model_reference_nl import model_reference
+from experiments.node_level.model_reference_nl import model_reference as model_reference_nl
 from experiments.node_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_nl
 from experiments.node_level.data_loader_nl import DATASET_REFERENCE
 
-from experiments.graph_level.model_reference_gl import model_reference
+from experiments.graph_level.model_reference_gl import model_reference as model_reference_gl
 from experiments.graph_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_gl
 from experiments.graph_level.data_loader_gl import TUDATASETS
 
@@ -26,7 +26,7 @@ def the_pipeline():
     }
     
     baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
+        "hidden_dim": [4, 8, 16, 32, 64, 128, 256],
         "num_layers": [2, 3, 4, 5]
     }
     const_var_pars = {
@@ -40,9 +40,9 @@ def the_pipeline():
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_add_nl_ocgin"],
-            model_reference["logic_weight_nl_ocgin"],
-            model_reference["logic_ignore_sus_nl_ocgin"]
+            model_reference_nl["logic_add_nl_ocgin"],
+            model_reference_nl["logic_weight_nl_ocgin"],
+            model_reference_nl["logic_ignore_sus_nl_ocgin"]
         ],
         "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
     }
@@ -87,9 +87,9 @@ def the_pipeline_gl():
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_add_gl_ocgin"],
-            model_reference["logic_weighting_gl_ocgin"],
-            model_reference["logic_ignore_sus_gl_ocgin"]
+            model_reference_gl["logic_add_gl_ocgin"],
+            model_reference_gl["logic_weighting_gl_ocgin"],
+            model_reference_gl["logic_ignore_sus_gl_ocgin"]
         ],
         "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
     }
@@ -110,5 +110,5 @@ def the_pipeline_gl():
             )
 
 if __name__ == "__main__":
-    # the_pipeline()
+    the_pipeline()
     the_pipeline_gl()

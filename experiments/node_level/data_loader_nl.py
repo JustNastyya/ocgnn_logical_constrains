@@ -5,12 +5,15 @@ from torch_geometric.datasets import Planetoid
 from torch_geometric.datasets import Planetoid, Coauthor, Amazon, WebKB
 from torch.utils.data import random_split
 
-DATASET_REFERENCE = {
+"""
     "Cora": Planetoid,
     "CiteSeer": Planetoid,
     "PubMed": Planetoid,
     "CS": Coauthor,
     "Physics": Coauthor,
+"""
+
+DATASET_REFERENCE = {
     "Computers": Amazon,
     "Photo": Amazon,
     "Texas": WebKB,

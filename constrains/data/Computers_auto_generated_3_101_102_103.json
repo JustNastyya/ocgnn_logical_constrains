@@ -1,0 +1,201 @@
+{
+  "constrains": [
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 240,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 381,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "5 v.s. 24"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 240,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 381,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "15 v.s. 6"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 240,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 217,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 240,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 217,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "1 v.s. 4"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 688,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 147,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "46 v.s. 1"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 688,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 147,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "17 v.s. 11"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 688,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 340,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 688,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 2,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "1 v.s. 11"
+      }
+    }
+  ],
+  "additional_attributes": {
+    "0:767": "node_features",
+    "767": "node_degree",
+    "768": "clustering_coefficient"
+  }
+}
