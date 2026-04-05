@@ -11,10 +11,11 @@ from torch.utils.data import random_split
     "PubMed": Planetoid,
     "CS": Coauthor,
     "Physics": Coauthor,
+    "Computers": Amazon,
+    
 """
 
 DATASET_REFERENCE = {
-    "Computers": Amazon,
     "Photo": Amazon,
     "Texas": WebKB,
     "Cornell": WebKB,

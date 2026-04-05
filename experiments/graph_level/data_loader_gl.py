@@ -9,7 +9,9 @@ from torch.utils.data import random_split
 
 
 TUDATASETS = [
-    "MUTAG", "AIDS", "DHFR", "malonaldehyde", "naphthalene", "PC-3H", "YeastH", # small molucles
+    # "MUTAG", "AIDS", "DHFR", 
+    # "PC-3H" - till 32 hidden dim
+    "YeastH", # small molucles
     "DD", "ENZYMES", "PROTEINS",                                                # bioinformatics
     "FIRSTMM_DB", "COIL-RAG", "MSRC_21",                                        # computer vision
     "REDDIT-BINARY", "github_stargazers", "highschool_ct1", "tumblr_ct2",       # social networks
@@ -51,26 +53,30 @@ def split_train_val_test(dataset, batch_size, train_ratio=0.5, val_ratio=0.1, tr
     random.shuffle(anomaly_indices)
 
     n_normal = len(normal_indices)
+    n_anomal = len(anomaly_indices)
 
     n_train = int(train_ratio * n_normal)
     n_val = int(val_ratio * n_normal)
     n_tree = int(tree_ratio * n_normal)
-
+    
+    n_val_anormal = int(val_ratio * n_anomal)
+    n_tree_anormal = int(tree_ratio * n_anomal)
+    
     # splitting
     train_idx = normal_indices[:n_train]
 
     val_normal_idx = normal_indices[n_train:n_train + n_val]
-    val_anomaly_idx = anomaly_indices[:n_val]
+    val_anomaly_idx = anomaly_indices[:n_val_anormal]
     val_idx = val_normal_idx + val_anomaly_idx
-
+    
     tree_normal_idx = normal_indices[n_train + n_val:n_train + n_val + n_tree]
-    tree_anomaly_idx = anomaly_indices[n_val:n_val + n_tree]
-
+    tree_anomaly_idx = anomaly_indices[n_val_anormal:n_val_anormal + n_tree_anormal]
+    
     min_tree = min(len(tree_normal_idx), len(tree_anomaly_idx))
     tree_idx = tree_normal_idx[:min_tree] + tree_anomaly_idx[:min_tree]
-
+    
     used_normal = n_train + n_val + n_tree
-    used_anomaly = n_val + n_tree
+    used_anomaly = n_val_anormal + n_tree_anormal
 
     test_normal_idx = normal_indices[used_normal:]
     test_anomaly_idx = anomaly_indices[used_anomaly:]

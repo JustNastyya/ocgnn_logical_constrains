@@ -73,7 +73,7 @@ def the_pipeline_gl():
     }
     
     baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
+        "hidden_dim": [4, 8, 16, 32, 64, 128, 256],
         "num_layers": [2, 3, 4, 5]
     }
     const_var_pars = {
@@ -110,5 +110,4 @@ def the_pipeline_gl():
             )
 
 if __name__ == "__main__":
-    the_pipeline()
     the_pipeline_gl()
