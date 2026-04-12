@@ -69,6 +69,61 @@ print(sum(diff_test_rates) / len(diff_test_rates))
 
 
 
+def scatter_plot(df, level, output_dir):
+    datasets = df["dataset"].unique()
+    for dataset in datasets:
+        this_data = df[df["dataset"] == dataset]
+        logical_df = this_data[this_data["is_logical"]].copy()
+        baseline_df = this_data[this_data["is_logical"] == False]
+
+        for metric in METRICS:
+            logical_df["model"] = logical_df["train_loop"].map(MODEL_LABELS)
+
+            fig = px.scatter(
+                logical_df,
+                x="l_factor",
+                y=metric,
+                color="model",
+                symbol="handler_short",
+                facet_col="num_layers",
+                log_x=True,
+                title=f"Effect of λ on {metric} - {dataset}",
+            )
+
+            layers = sorted(this_data["num_layers"].unique())
+
+            for i, layer in enumerate(layers):
+                baseline_val = baseline_df.loc[
+                    baseline_df["num_layers"] == layer, metric
+                ].mean()
+
+                fig.add_hline(
+                    y=baseline_val,
+                    line_dash="dash",
+                    line_color="black",
+                    annotation_text="Baseline",
+                    row=1,
+                    col=i + 1
+                )
+
+            fig.update_traces(marker=dict(size=10))
+
+            fig.for_each_xaxis(lambda axis: axis.update(title="λ"))
+
+            fig.update_layout(
+                xaxis_title="λ",
+                yaxis_title=metric,
+                legend_title="Model (Handler)"
+            )
+
+            fig.write_image(output_dir / f"{level}_{metric.lower()}_{dataset}_l_factor.png", width=1200, height=600)
+            plt.close()
+
+    print(f"Saved scatter plots for {level}")
+
+
+
+
 import plotly.express as px
 
 logical_df = df[df["is_logical"]]
