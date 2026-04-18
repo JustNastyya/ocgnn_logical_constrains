@@ -13,7 +13,12 @@ def compute_anomaly_scores_graph_level(model, loader):
         for data in loader:
             data = data.to(model.device)
             z = model(data)
-            scores.append(model.anomaly_score(z).to("cpu"))
+            # Check if model is a forecasting model (has set_constrains_params method)
+            if hasattr(model, 'set_constrains_params'):
+                batch_idx = data.idx
+                scores.append(model.anomaly_score(z, batch_idx).to("cpu"))
+            else:
+                scores.append(model.anomaly_score(z).to("cpu"))
 
     return torch.cat(scores, dim=0)
 
@@ -24,7 +29,11 @@ def compute_anomaly_scores_node_level(model, data, mask_ind):
     with torch.no_grad():
         data = data.to(model.device)
         z = model(data)
-        scores = model.anomaly_score(z[mask_ind])
+        # Check if model is a forecasting model (has set_constrains_params method)
+        if hasattr(model, 'set_constrains_params'):
+            scores = model.anomaly_score(z[mask_ind], data, mask_ind)
+        else:
+            scores = model.anomaly_score(z[mask_ind])
 
     return scores.to("cpu")
 

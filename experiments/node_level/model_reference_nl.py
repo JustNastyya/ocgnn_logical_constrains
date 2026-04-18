@@ -7,6 +7,12 @@ from models.constrains_in_loss.nl_ocgin import (
     train_node_ocgin_weighting,
     train_node_ocgin_irnoring_sus
 )
+from models.constrains_loss_forecasting.nl_ocgin import (
+    NodeOCGINLossConstrains as NLNodeOCGINForecasting,
+    train_node_ocgin_add_loss_constrains as nl_train_add,
+    train_node_ocgin_weighting as nl_train_weight,
+    train_node_ocgin_irnoring_sus as nl_train_ignore
+)
 from models.constrains_in_model.constrains_attribute_nl import train_node_ocgin_constrains_attribute, NodeOCGINAdditionalArgument
 
 model_reference = {
@@ -29,5 +35,17 @@ model_reference = {
     "constrains_attribute_nl_ocgin": {
         "model": NodeOCGINAdditionalArgument,
         "train_loop": train_node_ocgin_constrains_attribute
+    },
+    "logic_forecast_add_nl_ocgin": {
+        "model": NLNodeOCGINForecasting,
+        "train_loop": nl_train_add
+    },
+    "logic_forecast_weight_nl_ocgin": {
+        "model": NLNodeOCGINForecasting,
+        "train_loop": nl_train_weight
+    },
+    "logic_forecast_ignore_sus_nl_ocgin": {
+        "model": NLNodeOCGINForecasting,
+        "train_loop": nl_train_ignore
     }
 }

@@ -122,9 +122,9 @@ if __name__ == "__main__":
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_add_nl_ocgin"],
-            model_reference["logic_weight_nl_ocgin"],
-            model_reference["logic_ignore_sus_nl_ocgin"]
+            model_reference["logic_forecast_add_nl_ocgin"],
+            model_reference["logic_forecast_weight_nl_ocgin"],
+            model_reference["logic_forecast_ignore_sus_nl_ocgin"]
         ],
         "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
     }
@@ -135,5 +135,5 @@ if __name__ == "__main__":
         baseline_var_pars, 
         const_var_pars,
         baseline_model,
-        "test_nl_all.json"
+        "first_test_logic_forecast_Cora.json"
         )

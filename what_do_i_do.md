@@ -597,20 +597,16 @@ an additional attribute for the hole graph doess not work cuz.. well, its one nu
 an idea: consider graph level constrains just like node level and integrate them just like that
 
 
--- the stuff from jacobs laptop:
-exit
-cd oc...
+# after the first big round of experiments
 
-git pull
-cd ..
-torch
-cd volume
-bash torch_deps
-cd ocgnn..
-and pythoooooon
+well that didnt work. one big idea would be to add the constrained loss into the prediction process itself
 
+### and the inside from klara:
 
-## nicht vergessen as soon as my pipleline for nl constrains in loss ready ist:
+about the moleclule datasets. most important part of classifying a molecule would be existance/ or not existance of certain elements in a chain either by itself or in a combination. which means, my constrains based on mean values are useless here. 
 
-now run it just for nl: additional attribute and gl all
+question: if i want to be able generate constrains of the type: if a feature nr 1 is that exact value and ... then how many features would that be for generating the tree? is it even possible or shall i go deeper into the nature of every dataset?
+
+first idea would be: generation of "if nr.3 == x" for categorical features especially for graph level data. that addition will have to include changes to both constrains handlers
+
 
