@@ -6,7 +6,7 @@ import os
 import tempfile
 from itertools import product
 
-from experiments.node_level.model_reference_nl import model_reference
+from experiments.model_registry import NodeModels
 from experiments.node_level.run_experiment_nl import experiment_logging_wrapper
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
@@ -42,8 +42,8 @@ def experiment_wrapper(
         "model_config": {
             **default_config,
             "model_train": {
-                "model": default_config["model_train"]["model"].__name__,
-                "train_loop": default_config["model_train"]["train_loop"].__name__,
+                "model": default_config["model_train"].value.model_class.__name__,
+                "train_loop": default_config["model_train"].value.train_loop.__name__,
             },
         },
         "model_results": model_results
@@ -73,7 +73,7 @@ def run_bunch_experiments(
     
     for combo in product(*baseline_var_pars.values()):
         config_updates = dict(zip(baseline_var_pars.keys(), combo))
-        config_updates["model_train"] = model_reference[baseline_model]
+        config_updates["model_train"] = baseline_model
         print(config_updates)
         if TRAIN_NORMAL:
             results_l.append(experiment_wrapper(
@@ -122,13 +122,13 @@ if __name__ == "__main__":
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_forecast_add_nl_ocgin"],
-            model_reference["logic_forecast_weight_nl_ocgin"],
-            model_reference["logic_forecast_ignore_sus_nl_ocgin"]
+            NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN,
+            NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
+            NodeModels.LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN
         ],
         "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
     }
-    baseline_model="simple_node_ocgin"
+    baseline_model=NodeModels.SIMPLE_NODE_OCGIN
     
     run_bunch_experiments(
         default_config, 

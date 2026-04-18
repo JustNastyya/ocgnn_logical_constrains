@@ -27,7 +27,7 @@ def print_config_params(config):
             logger.info(f"{param}: {config[param]}")
         
     logger.info("")
-    logger.info(f"Training on model: {config["model_train"]["model"].__name__}")
+    logger.info(f"Training on model: {config["model_train"].value.name}")
     logger.info("")
 
 

@@ -2,7 +2,7 @@ from loguru import logger
 
 import torch
 import plotly.express as px
-from experiments.node_level.model_reference_nl import model_reference
+from experiments.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "CiteSeer",
-        "model_train": model_reference["logic_add_nl_ocgin"],
+        "model_train": NodeModels.LOGIC_ADD_NL_OCGIN,
         "is_logical": True,
         "constrains_filepath": "constrains/data/CiteSeer_auto_generated_3_101_102_103.json",
         "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,

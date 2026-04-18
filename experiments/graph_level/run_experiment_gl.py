@@ -2,7 +2,7 @@ from loguru import logger
 
 import torch
 
-from experiments.graph_level.model_reference_gl import model_reference
+from experiments.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
@@ -31,8 +31,9 @@ def experiment_logging_wrapper(config):
 
 def run_experiment(config):
     logger.info("##################### Loading config parameters")
-    ModelClass = config["model_train"]["model"] 
-    train_loop_func = config["model_train"]["train_loop"]
+    model_ref = config["model_train"]
+    ModelClass = model_ref.value.model_class
+    train_loop_func = model_ref.value.train_loop
     dataset_name = config["dataset"]
     batch_size = config["batch_size"]
     hidden_dim = config["hidden_dim"]
@@ -112,7 +113,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "AIDS",
-        "model_train": model_reference["logic_ignore_sus_gl_ocgin"],
+        "model_train": GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
         "is_logical": True,
         "constrains_handler": GLRuleBasedHandler,
         "l_factor": 0.1,

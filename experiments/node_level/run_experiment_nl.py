@@ -2,7 +2,7 @@ from loguru import logger
 
 import torch
 
-from experiments.node_level.model_reference_nl import model_reference
+from experiments.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
@@ -27,8 +27,9 @@ def experiment_logging_wrapper(config):
 
 def run_experiment(config):
     logger.info("##################### Loading config parameters")
-    ModelClass = config["model_train"]["model"] 
-    train_loop_func = config["model_train"]["train_loop"]
+    model_ref = config["model_train"]
+    ModelClass = model_ref.value.model_class
+    train_loop_func = model_ref.value.train_loop
     dataset_name = config["dataset"]
     batch_size = config["batch_size"]
     hidden_dim = config["hidden_dim"]
@@ -104,7 +105,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "Cora",
-        "model_train": model_reference["logic_forecast_add_nl_ocgin"], # constrains_attribute_nl_ocgin
+        "model_train": NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN, # constrains_attribute_nl_ocgin
         "is_logical": True,
         "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
         "l_factor": 0.1,

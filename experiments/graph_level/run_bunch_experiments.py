@@ -6,7 +6,7 @@ import os
 import tempfile
 from itertools import product
 
-from experiments.graph_level.model_reference_gl import model_reference
+from experiments.model_registry import GraphModels
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
 from constrains.gl_rules_based_handler import GLRuleBasedHandler
@@ -43,8 +43,8 @@ def experiment_wrapper(
         "model_config": {
             **default_config,
             "model_train": {
-                "model": default_config["model_train"]["model"].__name__,
-                "train_loop": default_config["model_train"]["train_loop"].__name__,
+                "model": default_config["model_train"].value.model_class.__name__,
+                "train_loop": default_config["model_train"].value.train_loop.__name__,
             },
         },
         "model_results": model_results
@@ -73,7 +73,7 @@ def run_bunch_experiments(
     
     for combo in product(*baseline_var_pars.values()):
         config_updates = dict(zip(baseline_var_pars.keys(), combo))
-        config_updates["model_train"] = model_reference[baseline_model]
+        config_updates["model_train"] = baseline_model
         print(config_updates)
         if TRAIN_NORMAL:
             results_l.append(experiment_wrapper(
@@ -122,13 +122,13 @@ if __name__ == "__main__":
             "max_depth": 2,
         }],
         "model_train": [
-            model_reference["logic_add_gl_ocgin"],
-            model_reference["logic_weighting_gl_ocgin"],
-            model_reference["logic_ignore_sus_gl_ocgin"]
+            GraphModels.LOGIC_ADD_GL_OCGIN,
+            GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
+            GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN
         ],
         "constrains_handler": [GLConstraintScoreBasedHandler, GLRuleBasedHandler]
     }
-    baseline_model="simple_graph_ocgin"
+    baseline_model=GraphModels.SIMPLE_GRAPH_OCGIN
     default_config["dataset"] = "MUTAG"
     result_name = "test_gl.json"
     run_bunch_experiments(
