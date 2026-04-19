@@ -1,0 +1,3159 @@
+[
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": null
+    },
+    "model_results": {
+      "test_rate": 0.054057608838616336,
+      "true_positive": 0,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9999999999878345,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999999391725,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 1.3243500234239036e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.931934762593713,
+      "true_positive": 14169,
+      "true_negative": 2,
+      "false_positive": 820,
+      "false_negative": 215,
+      "recall": 0.9850528364842984,
+      "specificity": 0.0024330900243013007,
+      "precision": 0.9452932150237204,
+      "balanced_accuracy": 0.49374296325429984,
+      "FPR": 0.9975669099635333,
+      "ROC_AUC": 0.097950099664672,
+      "decision_boundary": 0.40234631299972534
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9310798369064843,
+      "true_positive": 13862,
+      "true_negative": 296,
+      "false_positive": 526,
+      "false_negative": 522,
+      "recall": 0.9637096774186849,
+      "specificity": 0.36009732359659247,
+      "precision": 0.963441757019069,
+      "balanced_accuracy": 0.6619035005076387,
+      "FPR": 0.6399026763912421,
+      "ROC_AUC": 0.705551577651838,
+      "decision_boundary": 0.494403213262558
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9411416546100223,
+      "true_positive": 14309,
+      "true_negative": 2,
+      "false_positive": 820,
+      "false_negative": 75,
+      "recall": 0.9947858731917444,
+      "specificity": 0.0024330900243013007,
+      "precision": 0.9457994579939547,
+      "balanced_accuracy": 0.4986094816080228,
+      "FPR": 0.9975669099635333,
+      "ROC_AUC": 0.2117620551626706,
+      "decision_boundary": 4.4894637539982796e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.5993029067473366,
+      "true_positive": 8367,
+      "true_negative": 746,
+      "false_positive": 76,
+      "false_negative": 6017,
+      "recall": 0.581687986651431,
+      "specificity": 0.9075425790643851,
+      "precision": 0.9909984602617659,
+      "balanced_accuracy": 0.744615282857908,
+      "FPR": 0.09245742092344943,
+      "ROC_AUC": 0.767184248042567,
+      "decision_boundary": 2.1402552619065318e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6212679205576745,
+      "true_positive": 8907,
+      "true_negative": 540,
+      "false_positive": 282,
+      "false_negative": 5477,
+      "recall": 0.6192296996658654,
+      "specificity": 0.6569343065613512,
+      "precision": 0.9693111328752102,
+      "balanced_accuracy": 0.6380820031136083,
+      "FPR": 0.3430656934264834,
+      "ROC_AUC": 0.6527001226694165,
+      "decision_boundary": 0.0006073020631447434
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.15553071156122583,
+      "true_positive": 1594,
+      "true_negative": 771,
+      "false_positive": 51,
+      "false_negative": 12790,
+      "recall": 0.11081757508334898,
+      "specificity": 0.9379562043681514,
+      "precision": 0.9689969604804317,
+      "balanced_accuracy": 0.5243868897257502,
+      "FPR": 0.062043795619683165,
+      "ROC_AUC": 0.5246778320870175,
+      "decision_boundary": 5.147064108257382e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05392608180981192,
+      "true_positive": 0,
+      "true_negative": 820,
+      "false_positive": 2,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9975669099635333,
+      "precision": 0.0,
+      "balanced_accuracy": 0.4987834549817666,
+      "FPR": 0.0024330900243013007,
+      "ROC_AUC": 0.10595714622086179,
+      "decision_boundary": 0.6053217053413391
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05412337235301855,
+      "true_positive": 1,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14383,
+      "recall": 6.952169076747112e-05,
+      "specificity": 0.9999999999878345,
+      "precision": 0.9999999900000002,
+      "balanced_accuracy": 0.500034760839301,
+      "FPR": 0.0,
+      "ROC_AUC": 0.49418517026217285,
+      "decision_boundary": 0.5000013113021851
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.35979218729448903,
+      "true_positive": 4884,
+      "true_negative": 587,
+      "false_positive": 235,
+      "false_negative": 9500,
+      "recall": 0.33954393770832897,
+      "specificity": 0.7141119221324317,
+      "precision": 0.9540925962083335,
+      "balanced_accuracy": 0.5268279299203803,
+      "FPR": 0.2858880778554028,
+      "ROC_AUC": 0.45647117539358417,
+      "decision_boundary": 1.8331670617044438e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.1404051032487176,
+      "true_positive": 1332,
+      "true_negative": 803,
+      "false_positive": 19,
+      "false_negative": 13052,
+      "recall": 0.09260289210227154,
+      "specificity": 0.9768856447569721,
+      "precision": 0.9859363434419991,
+      "balanced_accuracy": 0.5347442684296219,
+      "FPR": 0.023114355230862357,
+      "ROC_AUC": 0.7267748921483453,
+      "decision_boundary": 0.002318552229553461
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.17729843482835722,
+      "true_positive": 1978,
+      "true_negative": 718,
+      "false_positive": 104,
+      "false_negative": 12406,
+      "recall": 0.1375139043380579,
+      "specificity": 0.873479318724167,
+      "precision": 0.9500480307351102,
+      "balanced_accuracy": 0.5054966115311125,
+      "FPR": 0.12652068126366764,
+      "ROC_AUC": 0.7699076461004253,
+      "decision_boundary": 1.0046882152892067e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.054057608838616336,
+      "true_positive": 0,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9999999999878345,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999999391725,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 6.003639896334789e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9096409312113639,
+      "true_positive": 13806,
+      "true_negative": 26,
+      "false_positive": 796,
+      "false_negative": 578,
+      "recall": 0.9598164627357064,
+      "specificity": 0.03163017031591691,
+      "precision": 0.9454869195994072,
+      "balanced_accuracy": 0.49572331652581164,
+      "FPR": 0.9683698296719176,
+      "ROC_AUC": 0.09703092480425668,
+      "decision_boundary": 0.048489633947610855
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8726160726029198,
+      "true_positive": 12942,
+      "true_negative": 327,
+      "false_positive": 495,
+      "false_negative": 1442,
+      "recall": 0.8997497219126114,
+      "specificity": 0.39781021897326263,
+      "precision": 0.9631614199590957,
+      "balanced_accuracy": 0.648779970442937,
+      "FPR": 0.6021897810145719,
+      "ROC_AUC": 0.6570364746988407,
+      "decision_boundary": 0.49998924136161804
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.08161252137314218,
+      "true_positive": 431,
+      "true_negative": 810,
+      "false_positive": 12,
+      "false_negative": 13953,
+      "recall": 0.02996384872078006,
+      "specificity": 0.9854014598420268,
+      "precision": 0.9729119638606566,
+      "balanced_accuracy": 0.5076826542814034,
+      "FPR": 0.014598540145807803,
+      "ROC_AUC": 0.20480438862861955,
+      "decision_boundary": 2.644435880938545e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.14073392082072866,
+      "true_positive": 1344,
+      "true_negative": 796,
+      "false_positive": 26,
+      "false_negative": 13040,
+      "recall": 0.0934371523914812,
+      "specificity": 0.9683698296719176,
+      "precision": 0.9810218978030583,
+      "balanced_accuracy": 0.5309034910316994,
+      "FPR": 0.03163017031591691,
+      "ROC_AUC": 0.4597485057065298,
+      "decision_boundary": 4.977537173544988e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9103643298697882,
+      "true_positive": 13530,
+      "true_negative": 313,
+      "false_positive": 509,
+      "false_negative": 854,
+      "recall": 0.9406284760838843,
+      "specificity": 0.3807785888031535,
+      "precision": 0.963743856399342,
+      "balanced_accuracy": 0.6607035324435189,
+      "FPR": 0.619221411184681,
+      "ROC_AUC": 0.7176237401519396,
+      "decision_boundary": 1.0766783816507086e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8520978561094305,
+      "true_positive": 12886,
+      "true_negative": 71,
+      "false_positive": 751,
+      "false_negative": 1498,
+      "recall": 0.895856507229633,
+      "specificity": 0.08637469586269617,
+      "precision": 0.9449292366349307,
+      "balanced_accuracy": 0.49111560154616457,
+      "FPR": 0.9136253041251383,
+      "ROC_AUC": 0.4910181274002745,
+      "decision_boundary": 1.8032590105576674e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05412337235301855,
+      "true_positive": 1,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14383,
+      "recall": 6.952169076747112e-05,
+      "specificity": 0.9999999999878345,
+      "precision": 0.9999999900000002,
+      "balanced_accuracy": 0.500034760839301,
+      "FPR": 0.0,
+      "ROC_AUC": 0.18465134449198758,
+      "decision_boundary": 0.04822174087166786
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.930685255820071,
+      "true_positive": 14137,
+      "true_negative": 15,
+      "false_positive": 807,
+      "false_negative": 247,
+      "recall": 0.9828281423797394,
+      "specificity": 0.018248175182259754,
+      "precision": 0.9459983940036496,
+      "balanced_accuracy": 0.5005381587809996,
+      "FPR": 0.9817518248055748,
+      "ROC_AUC": 0.49717549101597075,
+      "decision_boundary": 0.5000001192092896
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.053991845324214124,
+      "true_positive": 0,
+      "true_negative": 821,
+      "false_positive": 1,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9987834549756839,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49939172748784194,
+      "FPR": 0.0012165450121506504,
+      "ROC_AUC": 0.1175103064637919,
+      "decision_boundary": 1.3101964214001782e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6235696435617519,
+      "true_positive": 8922,
+      "true_negative": 560,
+      "false_positive": 262,
+      "false_negative": 5462,
+      "recall": 0.6202725250273774,
+      "specificity": 0.6812652068043642,
+      "precision": 0.9714721254344822,
+      "balanced_accuracy": 0.6507688659158708,
+      "FPR": 0.31873479318347037,
+      "ROC_AUC": 0.6825600694472637,
+      "decision_boundary": 0.00018063340394292027
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8636064711298171,
+      "true_positive": 12355,
+      "true_negative": 777,
+      "false_positive": 45,
+      "false_negative": 2029,
+      "recall": 0.8589404894321058,
+      "specificity": 0.9452554744410553,
+      "precision": 0.9963709677411319,
+      "balanced_accuracy": 0.9020979819365805,
+      "FPR": 0.05474452554677926,
+      "ROC_AUC": 0.8922610432922226,
+      "decision_boundary": 2.076833149899926e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.2716690779955281,
+      "true_positive": 3395,
+      "true_negative": 736,
+      "false_positive": 86,
+      "false_negative": 10989,
+      "recall": 0.23602614015556447,
+      "specificity": 0.8953771289428786,
+      "precision": 0.9752944556134006,
+      "balanced_accuracy": 0.5657016345492215,
+      "FPR": 0.10462287104495592,
+      "ROC_AUC": 0.5396015256881801,
+      "decision_boundary": 7.143216151916931e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8071156122583191,
+      "true_positive": 12058,
+      "true_negative": 215,
+      "false_positive": 607,
+      "false_negative": 2326,
+      "recall": 0.8382925472741669,
+      "specificity": 0.26155717761238984,
+      "precision": 0.9520726411362399,
+      "balanced_accuracy": 0.5499248624432784,
+      "FPR": 0.7384428223754447,
+      "ROC_AUC": 0.2772291597314129,
+      "decision_boundary": 0.21202313899993896
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05484677101144285,
+      "true_positive": 12,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14372,
+      "recall": 0.0008342602892096536,
+      "specificity": 0.9999999999878345,
+      "precision": 0.9999999991666666,
+      "balanced_accuracy": 0.5004171301385221,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5009553735023236,
+      "decision_boundary": 0.5000000596046448
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9302906747336578,
+      "true_positive": 14129,
+      "true_negative": 17,
+      "false_positive": 805,
+      "false_negative": 255,
+      "recall": 0.9822719688535996,
+      "specificity": 0.020681265206561054,
+      "precision": 0.9460961564209548,
+      "balanced_accuracy": 0.5014766170300803,
+      "FPR": 0.9793187347812735,
+      "ROC_AUC": 0.14189711161901977,
+      "decision_boundary": 6.773844152263564e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.19380507694331184,
+      "true_positive": 2171,
+      "true_negative": 776,
+      "false_positive": 46,
+      "false_negative": 12213,
+      "recall": 0.1509315906561798,
+      "specificity": 0.9440389294289047,
+      "precision": 0.9792512404105582,
+      "balanced_accuracy": 0.5474852600425423,
+      "FPR": 0.05596107055892991,
+      "ROC_AUC": 0.6062241957812005,
+      "decision_boundary": 1.20234626592719e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.13994475864790215,
+      "true_positive": 1326,
+      "true_negative": 802,
+      "false_positive": 20,
+      "false_negative": 13058,
+      "recall": 0.09218576195766671,
+      "specificity": 0.9756690997448215,
+      "precision": 0.9851411589822798,
+      "balanced_accuracy": 0.5339274308512442,
+      "FPR": 0.024330900243013005,
+      "ROC_AUC": 0.6155595971733935,
+      "decision_boundary": 1.424597115828874e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.40681310009206895,
+      "true_positive": 5619,
+      "true_negative": 567,
+      "false_positive": 255,
+      "false_negative": 8765,
+      "recall": 0.3906423804224203,
+      "specificity": 0.6897810218894187,
+      "precision": 0.9565883554631315,
+      "balanced_accuracy": 0.5402117011559195,
+      "FPR": 0.3102189780984158,
+      "ROC_AUC": 0.5507050362121741,
+      "decision_boundary": 4.923284905089531e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9310140733920821,
+      "true_positive": 14155,
+      "true_negative": 2,
+      "false_positive": 820,
+      "false_negative": 229,
+      "recall": 0.9840795328135539,
+      "specificity": 0.0024330900243013007,
+      "precision": 0.9452420701162302,
+      "balanced_accuracy": 0.49325631141892756,
+      "FPR": 0.9975669099635333,
+      "ROC_AUC": 0.1505217763587008,
+      "decision_boundary": 0.2155851274728775
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.868275680652374,
+      "true_positive": 13017,
+      "true_negative": 186,
+      "false_positive": 636,
+      "false_negative": 1367,
+      "recall": 0.9049638487201717,
+      "specificity": 0.22627737226002095,
+      "precision": 0.9534168314649136,
+      "balanced_accuracy": 0.5656206104900963,
+      "FPR": 0.7737226277278136,
+      "ROC_AUC": 0.27933866096149007,
+      "decision_boundary": 0.5003990530967712
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7686439563330264,
+      "true_positive": 11487,
+      "true_negative": 201,
+      "false_positive": 621,
+      "false_negative": 2897,
+      "recall": 0.7985956618459409,
+      "specificity": 0.24452554744228072,
+      "precision": 0.9487115956384632,
+      "balanced_accuracy": 0.5215606046441108,
+      "FPR": 0.7554744525455538,
+      "ROC_AUC": 0.3458416556379216,
+      "decision_boundary": 7.650211131249307e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.4161515191371827,
+      "true_positive": 5693,
+      "true_negative": 635,
+      "false_positive": 187,
+      "false_negative": 8691,
+      "recall": 0.39578698553921315,
+      "specificity": 0.7725060827156629,
+      "precision": 0.968197278909918,
+      "balanced_accuracy": 0.584146534127438,
+      "FPR": 0.2274939172721716,
+      "ROC_AUC": 0.6162759158594708,
+      "decision_boundary": 6.789541657781228e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8082993555175588,
+      "true_positive": 12145,
+      "true_negative": 146,
+      "false_positive": 676,
+      "false_negative": 2239,
+      "recall": 0.8443409343709368,
+      "specificity": 0.17761557177399495,
+      "precision": 0.9472740035871248,
+      "balanced_accuracy": 0.5109782530724659,
+      "FPR": 0.8223844282138396,
+      "ROC_AUC": 0.6304144034057848,
+      "decision_boundary": 9.36954438657267e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.5,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.2940944364066816,
+      "true_positive": 3821,
+      "true_negative": 651,
+      "false_positive": 171,
+      "false_negative": 10563,
+      "recall": 0.2656423804225072,
+      "specificity": 0.7919708029100734,
+      "precision": 0.957164328654917,
+      "balanced_accuracy": 0.5288065916662903,
+      "FPR": 0.2080291970777612,
+      "ROC_AUC": 0.608298936165894,
+      "decision_boundary": 3.8590656004089396e-07
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05918716296198869,
+      "true_positive": 79,
+      "true_negative": 821,
+      "false_positive": 1,
+      "false_negative": 14305,
+      "recall": 0.005492213570630219,
+      "specificity": 0.9987834549756839,
+      "precision": 0.9874999998765626,
+      "balanced_accuracy": 0.5021378342731571,
+      "FPR": 0.0012165450121506504,
+      "ROC_AUC": 0.13693066640684837,
+      "decision_boundary": 0.0056333052925765514
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.61041694068131,
+      "true_positive": 8524,
+      "true_negative": 758,
+      "false_positive": 64,
+      "false_negative": 5860,
+      "recall": 0.592602892101924,
+      "specificity": 0.9221411192101929,
+      "precision": 0.9925477410328452,
+      "balanced_accuracy": 0.7573720056560584,
+      "FPR": 0.07785888077764162,
+      "ROC_AUC": 0.7557346091493928,
+      "decision_boundary": 0.5000102519989014
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.10949625147967908,
+      "true_positive": 863,
+      "true_negative": 802,
+      "false_positive": 20,
+      "false_negative": 13521,
+      "recall": 0.059997219132327584,
+      "specificity": 0.9756690997448215,
+      "precision": 0.9773499433637899,
+      "balanced_accuracy": 0.5178331594385746,
+      "FPR": 0.024330900243013005,
+      "ROC_AUC": 0.35232358067493214,
+      "decision_boundary": 4.869085046266264e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05563593318426937,
+      "true_positive": 25,
+      "true_negative": 821,
+      "false_positive": 1,
+      "false_negative": 14359,
+      "recall": 0.0017380422691867783,
+      "specificity": 0.9987834549756839,
+      "precision": 0.9615384611686391,
+      "balanced_accuracy": 0.5002607486224353,
+      "FPR": 0.0012165450121506504,
+      "ROC_AUC": 0.3633379055262809,
+      "decision_boundary": 2.831699384842068e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.0974615283440747,
+      "true_positive": 686,
+      "true_negative": 796,
+      "false_positive": 26,
+      "false_negative": 13698,
+      "recall": 0.047691879866485196,
+      "specificity": 0.9683698296719176,
+      "precision": 0.9634831460538836,
+      "balanced_accuracy": 0.5080308547692014,
+      "FPR": 0.03163017031591691,
+      "ROC_AUC": 0.5443587715060529,
+      "decision_boundary": 4.886695387540385e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.08818887281336314,
+      "true_positive": 534,
+      "true_negative": 807,
+      "false_positive": 15,
+      "false_negative": 13850,
+      "recall": 0.03712458286982959,
+      "specificity": 0.9817518248055748,
+      "precision": 0.972677595610698,
+      "balanced_accuracy": 0.5094382038377022,
+      "FPR": 0.018248175182259754,
+      "ROC_AUC": 0.42409702995217724,
+      "decision_boundary": 3.770972034544684e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05418913586742075,
+      "true_positive": 2,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14382,
+      "recall": 0.00013904338153494225,
+      "specificity": 0.9999999999878345,
+      "precision": 0.999999995,
+      "balanced_accuracy": 0.5000695216846848,
+      "FPR": 0.0,
+      "ROC_AUC": 0.11424781928555383,
+      "decision_boundary": 0.007575413212180138
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9571221886097593,
+      "true_positive": 13990,
+      "true_negative": 564,
+      "false_positive": 258,
+      "false_negative": 394,
+      "recall": 0.9726084538369211,
+      "specificity": 0.6861313868529668,
+      "precision": 0.9818921953951558,
+      "balanced_accuracy": 0.829369920344944,
+      "FPR": 0.3138686131348678,
+      "ROC_AUC": 0.8061334792781382,
+      "decision_boundary": 0.4999997615814209
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.061423122451663814,
+      "true_positive": 114,
+      "true_negative": 820,
+      "false_positive": 2,
+      "false_negative": 14270,
+      "recall": 0.007925472747491709,
+      "specificity": 0.9975669099635333,
+      "precision": 0.9827586206049347,
+      "balanced_accuracy": 0.5027461913555125,
+      "FPR": 0.0024330900243013007,
+      "ROC_AUC": 0.18076430387643475,
+      "decision_boundary": 5.363368927646661e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9443640668157306,
+      "true_positive": 14357,
+      "true_negative": 3,
+      "false_positive": 819,
+      "false_negative": 27,
+      "recall": 0.998122914348583,
+      "specificity": 0.003649635036451951,
+      "precision": 0.9460332103314799,
+      "balanced_accuracy": 0.5008862746925175,
+      "FPR": 0.9963503649513826,
+      "ROC_AUC": 0.7468209473083096,
+      "decision_boundary": 3.3500177778478246e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9422596343548599,
+      "true_positive": 14322,
+      "true_negative": 6,
+      "false_positive": 816,
+      "false_negative": 62,
+      "recall": 0.9956896551717215,
+      "specificity": 0.007299270072903902,
+      "precision": 0.9460959175578371,
+      "balanced_accuracy": 0.5014944626223127,
+      "FPR": 0.9927007299149306,
+      "ROC_AUC": 0.8859454374825773,
+      "decision_boundary": 1.3372890350638045e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.01,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7556885439957911,
+      "true_positive": 11207,
+      "true_negative": 284,
+      "false_positive": 538,
+      "false_negative": 3177,
+      "recall": 0.779129588431049,
+      "specificity": 0.34549878345078466,
+      "precision": 0.9541932737326911,
+      "balanced_accuracy": 0.5623141859409169,
+      "FPR": 0.6545012165370498,
+      "ROC_AUC": 0.5581461829716176,
+      "decision_boundary": 2.4447979640740414e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6505326844666579,
+      "true_positive": 9544,
+      "true_negative": 348,
+      "false_positive": 474,
+      "false_negative": 4840,
+      "recall": 0.6635150166847444,
+      "specificity": 0.4233576642284263,
+      "precision": 0.9526851666989891,
+      "balanced_accuracy": 0.5434363404565854,
+      "FPR": 0.5766423357594083,
+      "ROC_AUC": 0.5451817408637334,
+      "decision_boundary": 0.0004823755007237196
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8330922004471919,
+      "true_positive": 12372,
+      "true_negative": 296,
+      "false_positive": 526,
+      "false_negative": 2012,
+      "recall": 0.8601223581751528,
+      "specificity": 0.36009732359659247,
+      "precision": 0.959218483485068,
+      "balanced_accuracy": 0.6101098408858726,
+      "FPR": 0.6399026763912421,
+      "ROC_AUC": 0.46512662589414033,
+      "decision_boundary": 0.4999936819076538
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.7390503748520321,
+      "true_positive": 10948,
+      "true_negative": 290,
+      "false_positive": 532,
+      "false_negative": 3436,
+      "recall": 0.7611234705222739,
+      "specificity": 0.3527980535236886,
+      "precision": 0.953658536584535,
+      "balanced_accuracy": 0.5569607620229813,
+      "FPR": 0.647201946464146,
+      "ROC_AUC": 0.5855406893033351,
+      "decision_boundary": 1.9132889065076597e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.0674733657766671,
+      "true_positive": 205,
+      "true_negative": 821,
+      "false_positive": 1,
+      "false_negative": 14179,
+      "recall": 0.014251946607331582,
+      "specificity": 0.9987834549756839,
+      "precision": 0.995145631019653,
+      "balanced_accuracy": 0.5065177007915077,
+      "FPR": 0.0012165450121506504,
+      "ROC_AUC": 0.6871886747643366,
+      "decision_boundary": 8.8084872729155e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.8101407339208208,
+      "true_positive": 12094,
+      "true_negative": 225,
+      "false_positive": 597,
+      "false_negative": 2290,
+      "recall": 0.8407953281417958,
+      "specificity": 0.27372262773389633,
+      "precision": 0.9529587896927326,
+      "balanced_accuracy": 0.5572589779378461,
+      "FPR": 0.7262773722539382,
+      "ROC_AUC": 0.7440151296790973,
+      "decision_boundary": 1.6593916143392562e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.2759437064316717,
+      "true_positive": 3492,
+      "true_negative": 704,
+      "false_positive": 118,
+      "false_negative": 10892,
+      "recall": 0.24276974416000918,
+      "specificity": 0.8564476885540578,
+      "precision": 0.9673130193879023,
+      "balanced_accuracy": 0.5496087163570336,
+      "FPR": 0.14355231143377672,
+      "ROC_AUC": 0.5539533568658338,
+      "decision_boundary": 1.8397747680864995e-06
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.2260291990003946,
+      "true_positive": 2715,
+      "true_negative": 722,
+      "false_positive": 100,
+      "false_negative": 11669,
+      "recall": 0.1887513904336841,
+      "specificity": 0.8783454987727695,
+      "precision": 0.964476021310961,
+      "balanced_accuracy": 0.5335484446032268,
+      "FPR": 0.12165450121506503,
+      "ROC_AUC": 0.524036617125273,
+      "decision_boundary": 0.0011396922636777163
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.12008417729843483,
+      "true_positive": 1083,
+      "true_negative": 743,
+      "false_positive": 79,
+      "false_negative": 13301,
+      "recall": 0.07529199110117123,
+      "specificity": 0.9038929440279332,
+      "precision": 0.9320137693551462,
+      "balanced_accuracy": 0.4895924675645522,
+      "FPR": 0.09610705595990138,
+      "ROC_AUC": 0.49582582296090016,
+      "decision_boundary": 0.5000039935112
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05392608180981192,
+      "true_positive": 0,
+      "true_negative": 820,
+      "false_positive": 2,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9975669099635333,
+      "precision": 0.0,
+      "balanced_accuracy": 0.4987834549817666,
+      "FPR": 0.0024330900243013007,
+      "ROC_AUC": 0.14027565773270653,
+      "decision_boundary": 8.396927296416834e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.06365908194133894,
+      "true_positive": 156,
+      "true_negative": 812,
+      "false_positive": 10,
+      "false_negative": 14228,
+      "recall": 0.010845383759725496,
+      "specificity": 0.987834549866328,
+      "precision": 0.9397590360879663,
+      "balanced_accuracy": 0.4993399668130268,
+      "FPR": 0.012165450121506502,
+      "ROC_AUC": 0.45867705127892844,
+      "decision_boundary": 6.006097828503698e-05
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.07273444692884387,
+      "true_positive": 287,
+      "true_negative": 819,
+      "false_positive": 3,
+      "false_negative": 14097,
+      "recall": 0.019952725250264213,
+      "specificity": 0.9963503649513826,
+      "precision": 0.989655172379667,
+      "balanced_accuracy": 0.5081515451008234,
+      "FPR": 0.003649635036451951,
+      "ROC_AUC": 0.8401105986917066,
+      "decision_boundary": 5.770364097656966e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 2,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.06010785216361962,
+      "true_positive": 102,
+      "true_negative": 812,
+      "false_positive": 10,
+      "false_negative": 14282,
+      "recall": 0.007091212458282055,
+      "specificity": 0.987834549866328,
+      "precision": 0.910714285632972,
+      "balanced_accuracy": 0.497462881162305,
+      "FPR": 0.012165450121506502,
+      "ROC_AUC": 0.48568817339623105,
+      "decision_boundary": 0.00023647185298614204
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGIN",
+        "train_loop": "train_node_ocgin"
+      },
+      "is_logical": false,
+      "l_factor": 0.001,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": null
+    },
+    "model_results": {
+      "test_rate": 0.05734578455872682,
+      "true_positive": 56,
+      "true_negative": 816,
+      "false_positive": 6,
+      "false_negative": 14328,
+      "recall": 0.0038932146829783834,
+      "specificity": 0.9927007299149306,
+      "precision": 0.9032258063059313,
+      "balanced_accuracy": 0.49829697229895453,
+      "FPR": 0.007299270072903902,
+      "ROC_AUC": 0.4982969723049942,
+      "decision_boundary": 0.017902761697769165
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9401552018939893,
+      "true_positive": 14293,
+      "true_negative": 3,
+      "false_positive": 819,
+      "false_negative": 91,
+      "recall": 0.9936735261394648,
+      "specificity": 0.003649635036451951,
+      "precision": 0.9458046585488712,
+      "balanced_accuracy": 0.4986615805879584,
+      "FPR": 0.9963503649513826,
+      "ROC_AUC": 0.13155461833775833,
+      "decision_boundary": 0.4778903126716614
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.647112981717743,
+      "true_positive": 9123,
+      "true_negative": 717,
+      "false_positive": 105,
+      "false_negative": 5261,
+      "recall": 0.6342463848716391,
+      "specificity": 0.8722627737120162,
+      "precision": 0.9886215864748714,
+      "balanced_accuracy": 0.7532545792918277,
+      "FPR": 0.1277372262758183,
+      "ROC_AUC": 0.7665050160491922,
+      "decision_boundary": 0.500583827495575
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.14415362356964356,
+      "true_positive": 1397,
+      "true_negative": 795,
+      "false_positive": 27,
+      "false_negative": 12987,
+      "recall": 0.09712180200215717,
+      "specificity": 0.967153284659767,
+      "precision": 0.9810393258358073,
+      "balanced_accuracy": 0.5321375433309621,
+      "FPR": 0.03284671532806756,
+      "ROC_AUC": 0.47150287288660825,
+      "decision_boundary": 0.00010791239037644118
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.3232276732868605,
+      "true_positive": 4236,
+      "true_negative": 679,
+      "false_positive": 143,
+      "false_negative": 10148,
+      "recall": 0.2944938820910077,
+      "specificity": 0.8260340632502915,
+      "precision": 0.9673441424960783,
+      "balanced_accuracy": 0.5602639726706495,
+      "FPR": 0.173965936737543,
+      "ROC_AUC": 0.522505575267464,
+      "decision_boundary": 0.13651852309703827
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.43127712744969093,
+      "true_positive": 5964,
+      "true_negative": 594,
+      "false_positive": 228,
+      "false_negative": 8420,
+      "recall": 0.41462736373719783,
+      "specificity": 0.7226277372174863,
+      "precision": 0.9631782945720879,
+      "balanced_accuracy": 0.568627550477342,
+      "FPR": 0.27737226277034827,
+      "ROC_AUC": 0.5514045242212894,
+      "decision_boundary": 0.0003327316662762314
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.49342364855977905,
+      "true_positive": 7018,
+      "true_negative": 485,
+      "false_positive": 337,
+      "false_negative": 7366,
+      "recall": 0.4879032258061124,
+      "specificity": 0.5900243308930654,
+      "precision": 0.9541808293664797,
+      "balanced_accuracy": 0.5389637783495889,
+      "FPR": 0.4099756690947691,
+      "ROC_AUC": 0.5382046640766031,
+      "decision_boundary": 0.0016561280936002731
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.05412337235301855,
+      "true_positive": 6,
+      "true_negative": 817,
+      "false_positive": 5,
+      "false_negative": 14378,
+      "recall": 0.0004171301446048268,
+      "specificity": 0.9939172749270813,
+      "precision": 0.5454545449586776,
+      "balanced_accuracy": 0.49716720253584307,
+      "FPR": 0.006082725060753251,
+      "ROC_AUC": 0.11711009157241489,
+      "decision_boundary": 0.6028645038604736
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.6136393528870183,
+      "true_positive": 8564,
+      "true_negative": 767,
+      "false_positive": 55,
+      "false_negative": 5820,
+      "recall": 0.5953837597326228,
+      "specificity": 0.9330900243195488,
+      "precision": 0.993618749273705,
+      "balanced_accuracy": 0.7642368920260858,
+      "FPR": 0.06690997566828577,
+      "ROC_AUC": 0.7590322377662124,
+      "decision_boundary": 0.502356767654419
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.26614494278574247,
+      "true_positive": 3331,
+      "true_negative": 716,
+      "false_positive": 106,
+      "false_negative": 11053,
+      "recall": 0.23157675194644634,
+      "specificity": 0.8710462286998656,
+      "precision": 0.9691591504190598,
+      "balanced_accuracy": 0.551311490323156,
+      "FPR": 0.12895377128796892,
+      "ROC_AUC": 0.5172260287180404,
+      "decision_boundary": 0.00035993277560919523
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.054057608838616336,
+      "true_positive": 0,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9999999999878345,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999999391725,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 4.365647843229681e-09
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.2091937393134289,
+      "true_positive": 2422,
+      "true_negative": 759,
+      "false_positive": 63,
+      "false_negative": 11962,
+      "recall": 0.1683815350388151,
+      "specificity": 0.9233576642223436,
+      "precision": 0.9746478873200216,
+      "balanced_accuracy": 0.5458695996305793,
+      "FPR": 0.07664233576549097,
+      "ROC_AUC": 0.569314986373072,
+      "decision_boundary": 8.651430505324242e-08
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_irnoring_sus"
+      },
+      "is_logical": true,
+      "l_factor": 1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 2
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.054057608838616336,
+      "true_positive": 0,
+      "true_negative": 822,
+      "false_positive": 0,
+      "false_negative": 14384,
+      "recall": 0.0,
+      "specificity": 0.9999999999878345,
+      "precision": 0.0,
+      "balanced_accuracy": 0.49999999999391725,
+      "FPR": 0.0,
+      "ROC_AUC": 0.5,
+      "decision_boundary": 0.0
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.9383795870051296,
+      "true_positive": 14266,
+      "true_negative": 3,
+      "false_positive": 819,
+      "false_negative": 118,
+      "recall": 0.9917964404887432,
+      "specificity": 0.003649635036451951,
+      "precision": 0.945707656611902,
+      "balanced_accuracy": 0.4977230377625976,
+      "FPR": 0.9963503649513826,
+      "ROC_AUC": 0.158653065449851,
+      "decision_boundary": 0.047390829771757126
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_add_loss_constrains"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLConstraintScoreBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.28791266605287386,
+      "true_positive": 3760,
+      "true_negative": 618,
+      "false_positive": 204,
+      "false_negative": 10624,
+      "recall": 0.2614015572856914,
+      "specificity": 0.7518248175091019,
+      "precision": 0.9485368314809572,
+      "balanced_accuracy": 0.5066131873973967,
+      "FPR": 0.24817518247873266,
+      "ROC_AUC": 0.5040850336545879,
+      "decision_boundary": 0.5097736716270447
+    }
+  },
+  {
+    "model_config": {
+      "device": "cpu",
+      "lr": 0.001,
+      "epochs": 50,
+      "batch_size": 32,
+      "dataset": "PubMed",
+      "save_logs": false,
+      "hidden_dim": 4,
+      "num_layers": 3,
+      "model_train": {
+        "model": "NodeOCGINLossConstrains",
+        "train_loop": "train_node_ocgin_weighting"
+      },
+      "is_logical": true,
+      "l_factor": 0.1,
+      "decision_tree": {
+        "attribute_list": [
+          "node_features",
+          "node_degree",
+          "clustering_coefficient"
+        ],
+        "max_depth": 3
+      },
+      "constrains_handler": "NLRuleBasedHandler"
+    },
+    "model_results": {
+      "test_rate": 0.22109693542022885,
+      "true_positive": 2685,
+      "true_negative": 677,
+      "false_positive": 145,
+      "false_negative": 11699,
+      "recall": 0.18666573971065997,
+      "specificity": 0.8236009732259902,
+      "precision": 0.9487632508800398,
+      "balanced_accuracy": 0.5051333564683251,
+      "FPR": 0.1763990267618443,
+      "ROC_AUC": 0.5048379315757708,
+      "decision_boundary": 0.006385320331901312
+    }
+  }
+]

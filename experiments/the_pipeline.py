@@ -46,8 +46,8 @@ def the_pipeline_nl():
         ],
         "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
     }
-    # the actual datasets
-    datasets = ["Cora", "PubMed"]
+
+    datasets = ["CiteSeer", "Cornell"]
     
     for dataset_name in datasets:
         result_name = f"loss_forecasting_{dataset_name}.json"
