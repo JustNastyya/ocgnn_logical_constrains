@@ -66,18 +66,23 @@ def generate_csv(
 if __name__ == "__main__":
     
     # ------------- TO MODIFY if needed
+    """
     node_datasets = [
         "CiteSeer", "Computers", "Cora", "Cornell", "CS",
         "Photo", "PubMed", "Texas", "Wisconsin",
     ]
-
+    """
+    """
     graph_datasets = [
         "AIDS", "COIL-RAG", "DD", "DHFR", "ENZYMES",
         "MSRC_21", "MUTAG", "PC-3H", "PROTEINS", "YeastH",
     ]
+    """
+    graph_datasets = []
+    node_datasets = ["Cora", "CiteSeer", "Cornell", "PubMed"]
     
-    input_path = "wrapping_data/experimental_results/pure_loss_based/"
-    input_file = "all_loss"
+    input_path = "wrapping_data/experimental_results/constrains_forecasting/"
+    input_file = "loss_forecasting"
     
     # --------------- end
     

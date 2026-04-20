@@ -610,3 +610,12 @@ question: if i want to be able generate constrains of the type: if a feature nr 
 first idea would be: generation of "if nr.3 == x" for categorical features especially for graph level data. that addition will have to include changes to both constrains handlers
 
 
+# big ideas:
+
+- other data/ other features to constrain generation, especially with graph level
+- applying node level methods for constrains to graph level (generating node level constrains)
+- adding constrains as additional node attributes
+- perhaps, my l_factor is too small?
+- also loss: can i kinda ignore anormal nodes while training?
+
+not to forget: most of my models have a freaking high rate of not addressing the anomaly as it is
