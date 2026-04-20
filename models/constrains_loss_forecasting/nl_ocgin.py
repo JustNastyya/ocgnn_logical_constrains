@@ -69,7 +69,8 @@ class NodeOCGINLossConstrains(nn.Module):
             constrain_L = self.constrains_obj.get_constraint_value(data)[mask]
         else:
             constrain_L = self.constrains_obj.get_constraint_value(data)
-
+        constrain_L = constrain_L.to(z.device)
+        
         if self.loss_type == "add":
             return base_score + constrain_L
         elif self.loss_type == "node_weighting":
