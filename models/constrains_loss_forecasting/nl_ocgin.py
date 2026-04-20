@@ -43,12 +43,15 @@ class NodeOCGINLossConstrains(nn.Module):
         return x
 
     def loss_add_constrain(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
     def loss_node_weighting(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     def loss_node_irnoring_sus(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 - constrain_L))
 
     @torch.no_grad()
