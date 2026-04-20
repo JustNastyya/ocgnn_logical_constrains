@@ -3,65 +3,17 @@
     {
       "conditions": [
         {
-          "feature_index": 2786,
+          "feature_index": 168,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1797,
+          "feature_index": 731,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 3703,
-          "op": "<=",
-          "threshold": 2.0
-        }
-      ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "128 v.s. 136"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 2786,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1797,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 3703,
-          "op": ">",
-          "threshold": 2.0
-        }
-      ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "20 v.s. 87"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 2786,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1797,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1351,
+          "feature_index": 3472,
           "op": "<=",
           "threshold": 0.0
         }
@@ -69,24 +21,67 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "58 v.s. 21"
+        "y_label_number": "49 v.s. 27"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 2786,
+          "feature_index": 168,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1797,
+          "feature_index": 731,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 3472,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "1 v.s. 6"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 168,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 731,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 2,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 168,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 1351,
-          "op": ">",
+          "feature_index": 18,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 166,
+          "op": "<=",
           "threshold": 0.0
         }
       ],
@@ -99,65 +94,41 @@
     {
       "conditions": [
         {
-          "feature_index": 2786,
+          "feature_index": 168,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 511,
+          "feature_index": 18,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 2185,
-          "op": "<=",
+          "feature_index": 166,
+          "op": ">",
           "threshold": 0.0
         }
       ],
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "57 v.s. 8"
+        "y_label_number": "all the same"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 2786,
+          "feature_index": 168,
           "op": ">",
           "threshold": 0.0
         },
         {
-          "feature_index": 511,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 2185,
+          "feature_index": 18,
           "op": ">",
           "threshold": 0.0
         }
       ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "1 v.s. 5"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 2786,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 511,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 1,
+      "predicted_class": 0,
       "meta": {
         "depth": 2,
         "y_label_number": "all the same"
