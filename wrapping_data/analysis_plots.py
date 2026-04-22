@@ -219,7 +219,7 @@ def main():
     for level, out_dir in [("node", node_dir), ("graph", graph_dir)]:
         plot_comparison_boxplots(df, level, out_dir)
         plot_lfactor_effect(df, level, out_dir)
-        # scatter_plot(df, level, out_dir)
+        scatter_plot(df, level, out_dir)
 
     plot_architecture_heatmap(df, OUTPUT_DIR)
     plot_handler_comparison_overall(df, OUTPUT_DIR)

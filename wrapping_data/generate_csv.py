@@ -81,7 +81,7 @@ if __name__ == "__main__":
     graph_datasets = []
     node_datasets = ["Cora", "CiteSeer", "Cornell", "PubMed"]
     
-    input_path = "wrapping_data/experimental_results/constrains_forecasting/"
+    input_path = "wrapping_data/constrains_forecasting/"
     input_file = "loss_forecasting"
     
     # --------------- end
