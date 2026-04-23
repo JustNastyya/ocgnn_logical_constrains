@@ -16,6 +16,7 @@ from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
 
 def the_pipeline_nl():
     
+    # ------------- datasets for the logic in forecasting
     default_config = {
         "device": "cuda" if torch.cuda.is_available() else "cpu",
         "lr": 1e-3,
@@ -47,7 +48,7 @@ def the_pipeline_nl():
         "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
     }
 
-    datasets = ["CiteSeer", "Cornell"]
+    datasets = ["CS", "Photo", "Texas", "Wisconsin"]
     
     for dataset_name in datasets:
         result_name = f"loss_forecasting_{dataset_name}.json"
@@ -59,9 +60,44 @@ def the_pipeline_nl():
             NodeModels.SIMPLE_NODE_OCGIN,
             result_name
             )
+    # -------------------- finishinf forecasting in loss
+    baseline_var_pars = {
+        "hidden_dim": [256],
+        "num_layers": [2, 3, 4, 5]
+    }
+    
+    datasets = ["CiteSeer", "Cora", "Cornell", "PubMed"]
+    for dataset_name in datasets:
+        result_name = f"loss_forecasting_to_end_{dataset_name}.json"
+        default_config["dataset"] = dataset_name
+        run_bunch_experiments_nl(
+            default_config, 
+            baseline_var_pars, 
+            const_var_pars,
+            NodeModels.SIMPLE_NODE_OCGIN,
+            result_name
+            )
+    
+    # also PubMed didnt run properly
+    baseline_var_pars = {
+        "hidden_dim": [32, 64, 128, 256],
+        "num_layers": [2, 3, 4, 5]
+    }
+    result_name = f"loss_forecasting_to_end_pubmed_{dataset_name}.json"
+    default_config["dataset"] = "PubMed"
+    run_bunch_experiments_nl(
+        default_config, 
+        baseline_var_pars, 
+        const_var_pars,
+        NodeModels.SIMPLE_NODE_OCGIN,
+        result_name
+        )
+
 
 
 def the_pipeline_gl():
+    # ------------- datasets for the logic in forecasting
+    
     default_config = {
         "device": "cuda" if torch.cuda.is_available() else "cpu",
         "lr": 1e-3,
@@ -71,7 +107,7 @@ def the_pipeline_gl():
     }
     
     baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256],
+        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
         "num_layers": [2, 3, 4, 5]
     }
     const_var_pars = {
@@ -85,9 +121,9 @@ def the_pipeline_gl():
             "max_depth": 2,
         }],
         "model_train": [
-            GraphModels.LOGIC_ADD_GL_OCGIN,
-            GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
-            GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN
+            GraphModels.LOGIC_FORECAST_WEIGHT_GL_OCGIN,
+            GraphModels.LOGIC_FORECAST_ADD_GL_OCGIN,
+            GraphModels.LOGIC_FORECAST_IGNORE_SUS_GL_OCGIN
         ],
         "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
     }
@@ -105,6 +141,47 @@ def the_pipeline_gl():
             GraphModels.SIMPLE_GRAPH_OCGIN,
             result_name
             )
+    
+    
+    # -------------------- finishinf pure loss based
+    # the ones which didnt run 512 layers
+    
+    datasets = ["AIDS", "COIL-RAG", "DHFR", "MSRC_21", "ENZYMES", "MUTAG", "PROTEINS"]
+    baseline_var_pars = {
+        "hidden_dim": [512],
+        "num_layers": [2, 3, 4, 5]
+    }
+    const_var_pars = {
+        "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
+        "decision_tree": [{
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "max_depth": 3,
+        },
+        {
+            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "max_depth": 2,
+        }],
+        "model_train": [
+            GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
+            GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
+            GraphModels.LOGIC_ADD_GL_OCGIN
+        ],
+        "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
+    }
+    for dataset_name in datasets:
+        result_name = f"finishing_pure_loss_gl_{dataset_name}.json"
+        default_config["dataset"] = dataset_name
+        run_bunch_experiments_gl(
+            default_config, 
+            baseline_var_pars, 
+            const_var_pars,
+            GraphModels.SIMPLE_GRAPH_OCGIN,
+            result_name
+            )
+    
+    # for ENZYMES some others are not there
+    
 
 if __name__ == "__main__":
     the_pipeline_nl()
+    the_pipeline_gl()
