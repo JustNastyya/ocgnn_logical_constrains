@@ -618,4 +618,32 @@ first idea would be: generation of "if nr.3 == x" for categorical features espec
 - perhaps, my l_factor is too small?
 - also loss: can i kinda ignore anormal nodes while training?
 
+from tim: differentiable logic gates torchlogix!!!
+
 not to forget: most of my models have a freaking high rate of not addressing the anomaly as it is
+
+daten sind richtig
+
+Hi Ana,
+
+im Folgenden wie angekündigt ein paar Referenzen falls du dir DiffLogic als Alternative zu Decision Trees für die Constraint-Extraktion anschauen willst.
+
+Hier das ursprüngliche Paper:
+https://arxiv.org/pdf/2210.08277
+
+Das beschreibt die grundlegende Idee eigentlich schon ganz gut.
+
+Der Vollständigkeitshalber ein paar follow-up Paper zu dem aktuellen state-of-the-art Paper falls du da irgendwann auch nochmal grob draufschauen willst, beziehungsweise was dazu in der schriftlichen Ausarbeitung erwähnen willst:
+https://arxiv.org/abs/2506.07500
+https://arxiv.org/abs/2510.03250
+https://arxiv.org/pdf/2602.03527
+
+Von dem Autor vom letzten Paper ist auch die entsprechende Library die ich empfehlen würde, falls du dich entscheiden solltest, dass du DiffLogic im Projekt benutzen willst:
+https://github.com/ligerlac/torchlogix
+
+Und hier etwas Documentation dazu:
+https://ligerlac.github.io/torchlogix/guides/quickstart.html#quick-start-guide
+https://ligerlac.github.io/torchlogix/guides/concepts.html#extracting-discrete-boolean-functions
+
+Viele Grüße
+Tim

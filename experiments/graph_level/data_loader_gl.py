@@ -9,12 +9,9 @@ from torch.utils.data import random_split
 
 
 TUDATASETS = [
-    # "MUTAG", "AIDS", "DHFR", 
-    # "PC-3H" - till 32 hidden dim
-    "YeastH", # small molucles
-    "DD", "ENZYMES", "PROTEINS",                                                # bioinformatics
-    "FIRSTMM_DB", "COIL-RAG", "MSRC_21",                                        # computer vision
-    "REDDIT-BINARY", "github_stargazers", "highschool_ct1", "tumblr_ct2",       # social networks
+    "MUTAG", "AIDS", "DHFR", 
+    "ENZYMES", "PROTEINS",                                                # bioinformatics
+    "COIL-RAG", "MSRC_21",                                        # computer vision
     ]
 
 NORMAL_LABEL = 0

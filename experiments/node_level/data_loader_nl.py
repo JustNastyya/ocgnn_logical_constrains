@@ -11,28 +11,18 @@ DATASET_REFERENCE = {
     "CiteSeer": Planetoid,
     "PubMed": Planetoid,
     "CS": Coauthor,
-    "Physics": Coauthor,
-    "Computers": Amazon,
     "Photo": Amazon,
     "Texas": WebKB,
     "Cornell": WebKB,
     "Wisconsin": WebKB,
 }
 
-
-
-TUDATASETS = ["MUTAG", "REDDIT-BINARY"]
 NORMAL_LABEL = 0
 
 def get_data(dataset_name, batch_size):
-    if dataset_name in TUDATASETS:
-        dataset = TUDataset(root=f"data/{dataset_name}", name=dataset_name)    
-        loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-        return dataset, loader
-    else:
-        dataset = DATASET_REFERENCE[dataset_name](root=f'data/{dataset_name}', name=dataset_name)
-        loader = DataLoader(dataset)
-        return dataset, loader
+    dataset = DATASET_REFERENCE[dataset_name](root=f'data/{dataset_name}', name=dataset_name)
+    loader = DataLoader(dataset)
+    return dataset, loader
 
 
 def split_train_val_test(dataset, train_ratio=0.5, val_ratio=0.1, tree_ratio=0.2):
