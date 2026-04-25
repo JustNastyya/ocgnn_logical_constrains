@@ -41,6 +41,8 @@ class ConstraintScoreBasedHandler:
         for constrain in constrain_group:
             distance_sum += self._get_distance(x, constrain)
         
+        if len(constrain_group) == 0:
+            return 0
         result = distance_sum * self.l_factor / len(constrain_group)
         return result
 

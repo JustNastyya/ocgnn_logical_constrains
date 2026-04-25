@@ -47,12 +47,15 @@ class GraphOCGINLossConstrains(nn.Module):
         return z
     
     def loss_add_constrain(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
     def loss_graph_weighting(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     def loss_graph_irnoring_sus(self, z, constrain_L):
+        constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1) * (1 - constrain_L))
 
     @torch.no_grad()
@@ -72,6 +75,7 @@ class GraphOCGINLossConstrains(nn.Module):
     def anomaly_score(self, z, batch_idx):
         base_score = torch.sum((z - self.center) ** 2, dim=1)
 
+        batch_idx = batch_idx.to(self.device)
         batch_constraints = self.constrains_cache[batch_idx].to(self.device)
 
         if self.loss_type == "add":
@@ -99,6 +103,7 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
 
     model.init_center(loader)
     L_constrains = constrains_obj.get_constraint_value(dataset)
+    L_constrains = L_constrains.to(model.device)
     model.set_constrains_params(constrains_obj, loss_type, L_constrains)
     
     for epoch in range(epochs):

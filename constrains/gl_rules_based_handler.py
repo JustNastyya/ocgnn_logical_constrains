@@ -22,4 +22,6 @@ class GLRuleBasedHandler(RuleBasedHandler):
         for rule in self.anomaly_rules:
             rule_values.append(self.rule_satisfaction(rule, X))
         
+        if len(rule_values) == 0:
+            return torch.zeros(X.shape[0])
         return self.l_factor * self.soft_or_prob(torch.stack(rule_values))

@@ -85,6 +85,7 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
 
     model.init_center(loader)
     L_constrains = constrains_obj.get_constraint_value(dataset)
+    L_constrains = L_constrains.to(model.device)
     
     for epoch in range(epochs):
         model.train()

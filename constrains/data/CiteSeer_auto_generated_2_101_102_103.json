@@ -3,31 +3,31 @@
     {
       "conditions": [
         {
-          "feature_index": 3472,
+          "feature_index": 532,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 2786,
+          "feature_index": 2562,
           "op": "<=",
           "threshold": 0.0
         }
       ],
-      "predicted_class": 0,
+      "predicted_class": 1,
       "meta": {
         "depth": 2,
-        "y_label_number": "42 v.s. 39"
+        "y_label_number": "38 v.s. 52"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 3472,
+          "feature_index": 532,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 2786,
+          "feature_index": 2562,
           "op": ">",
           "threshold": 0.0
         }
@@ -41,38 +41,14 @@
     {
       "conditions": [
         {
-          "feature_index": 3472,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1,
-          "op": "<=",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 2,
-        "y_label_number": "1 v.s. 13"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 3472,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1,
+          "feature_index": 532,
           "op": ">",
           "threshold": 0.0
         }
       ],
       "predicted_class": 0,
       "meta": {
-        "depth": 2,
+        "depth": 1,
         "y_label_number": "all the same"
       }
     }
