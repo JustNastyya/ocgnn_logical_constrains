@@ -21,33 +21,39 @@ def load_cora():
     return X, y
 
 
-def binarize_features(X, threshold=0.0):
-    """Convert continuous features to binary"""
-    return (X > threshold).float()
-
-
 def load_binary_features():
     """Load Cora and binarize (for logic gates)"""
     X, y = load_cora()
-    X_bin = binarize_features(X)
+    X_bin = (X > 0.0).float()
     return X_bin, y
 
 
-def simple_logic_model(input_dim, hidden_gates=4, num_classes=7):
+def select_features(X, y, n_features=64):
+    """Select top features by variance - simple feature selection
+    
+    For torchlogix, we need: out_dim * lut_rank >= in_dim
+    With lut_rank=4, we need out_dim >= in_dim/4
+    
+    For Cora: 1433/4 = 358 hidden - still large
+    Let's reduce to 64 features -> need 16 hidden (16*4=64)
+    """
+    variances = X.var(dim=0)
+    _, indices = torch.topk(variances, n_features)
+    X_selected = X[:, indices]
+    print(f"Selected {n_features} features by variance")
+    return X_selected, indices
+
+
+def simple_logic_model(input_dim, hidden_size=16, lut_rank=4, num_classes=7):
     """Small logic network for interpretable constraints
     
-    Architecture:
-    - Input: binary features
-    - Hidden: few logic gates (readable)
-    - Output: class logits
-    
-    With hidden_gates=4, the formula will have at most 4 gates per layer,
-    making it reasonably interpretable.
+    torchlogix requirement: hidden_size * lut_rank >= input_dim
+    For input_dim=64, lut_rank=4: hidden_size >= 16
     """
     model = torch.nn.Sequential(
         FixedBinarization(thresholds=[0.0]),
-        LogicDense(input_dim, hidden_gates, num_gates=hidden_gates),
-        LogicDense(hidden_gates, num_classes),
+        LogicDense(input_dim, hidden_size, lut_rank=lut_rank),
+        LogicDense(hidden_size, num_classes, lut_rank=lut_rank),
         GroupSum(k=num_classes, tau=4)
     )
     return model
@@ -74,28 +80,25 @@ def train_model(model, X, y, epochs=50, lr=0.01):
     return model
 
 
-def extract_gate_formula(layer, feature_names=None):
-    """Extract boolean formula from a LogicDense layer
+def extract_gate_formula(layer):
+    """Extract boolean formula from a LogicDense layer"""
+    gate_types = layer.gate_types.cpu().numpy()
+    gate_params = layer.gate_params.cpu().numpy()
     
-    Args:
-        layer: LogicDense layer
-        feature_names: optional list of feature names for readable output
-    
-    Returns:
-        List of formulas, one per output class
-    """
-    gate_types = layer.gate_types.cpu().numpy()  # (output_dims, num_gates, 2)
-    gate_params = layer.gate_params.cpu().numpy()  # (output_dims, num_gates, num_params)
+    gate_names = {
+        0: "ZERO", 1: "ONE", 2: "INPUT", 3: "NOT_INPUT",
+        4: "AND", 5: "NAND", 6: "OR", 7: "NOR",
+        8: "XOR", 9: "XNOR", 10: "LESS", 11: "LEQ",
+        12: "GREATER", 13: "GEQ", 14: "CONST", 15: "PARAM"
+    }
     
     formulas = []
-    for out_idx in range(gate_types.shape[0]):
-        formulas.append(f"Output {out_idx}: ")
-        for gate_idx in range(gate_types.shape[1]):
-            gate_type = gate_types[out_idx, gate_idx]
-            # Map gate type index to name
-            gate_name = ["ZERO", "ONE", "INPUT", "NOT_INPUT", "AND", "NAND", "OR", "NOR",
-                         "XOR", "XNOR", "LESS", "LEQ", "GREATER", "GEQ", "CONST", "PARAM"][gate_type]
-            formulas.append(f"  Gate {gate_idx}: {gate_name}")
+    for out_idx in range(min(gate_types.shape[0], 3)):
+        row = []
+        for in_idx in range(min(gate_types.shape[1], 5)):
+            gate_type = int(gate_types[out_idx, in_idx])
+            row.append(gate_names.get(gate_type, f"UNK{gate_type}"))
+        formulas.append(f"Output {out_idx}: {' AND '.join(row)}")
     
     return formulas
 
@@ -104,24 +107,28 @@ def main():
     print("Loading Cora dataset...")
     X, y = load_binary_features()
     print(f"X shape: {X.shape}, y shape: {y.shape}")
-    print(f"Class distribution: {torch.bincount(y)}")
+    print(f"Class distribution: {torch.bincount(y).tolist()}")
     
-    input_dim = X.shape[1]
-    hidden_gates = 4  # Keep small for interpretability
+    # Feature selection to make model interpretable
+    n_features = 64  # Small enough for readable formulas
+    X_selected, indices = select_features(X, y, n_features)
+    
+    input_dim = X_selected.shape[1]
+    hidden_size = 16  # With lut_rank=4: 16*4=64 >= 64
     num_classes = int(y.max().item()) + 1
     
-    print(f"\nBuilding model: input={input_dim}, hidden_gates={hidden_gates}, classes={num_classes}")
-    model = simple_logic_model(input_dim, hidden_gates, num_classes)
+    print(f"\nBuilding model: input={input_dim}, hidden={hidden_size}, lut_rank=4, classes={num_classes}")
+    model = simple_logic_model(input_dim, hidden_size, num_classes=num_classes)
     
     print("\nTraining...")
-    model = train_model(model, X, y, epochs=50)
+    model = train_model(model, X_selected, y, epochs=50)
     
     print("\nExtracting formulas...")
     for i, layer in enumerate(model.modules()):
         if isinstance(layer, LogicDense):
-            print(f"\nLayer {i}: {layer}")
+            print(f"\nLayer {i}: LogicDense({layer.in_features}, {layer.out_features})")
             formulas = extract_gate_formula(layer)
-            for f in formulas[:10]:  # First 10 lines
+            for f in formulas:
                 print(f"  {f}")
 
 

@@ -609,20 +609,8 @@ question: if i want to be able generate constrains of the type: if a feature nr 
 
 first idea would be: generation of "if nr.3 == x" for categorical features especially for graph level data. that addition will have to include changes to both constrains handlers
 
-
-# big ideas:
-
-- other data/ other features to constrain generation, especially with graph level
-- applying node level methods for constrains to graph level (generating node level constrains)
-- adding constrains as additional node attributes
-- perhaps, my l_factor is too small?
-- also loss: can i kinda ignore anormal nodes while training?
-
+# logic gates
 from tim: differentiable logic gates torchlogix!!!
-
-not to forget: most of my models have a freaking high rate of not addressing the anomaly as it is
-
-daten sind richtig
 
 Hi Ana,
 
@@ -644,6 +632,13 @@ https://github.com/ligerlac/torchlogix
 Und hier etwas Documentation dazu:
 https://ligerlac.github.io/torchlogix/guides/quickstart.html#quick-start-guide
 https://ligerlac.github.io/torchlogix/guides/concepts.html#extracting-discrete-boolean-functions
+
+Viele Grüße
+Tim
+
+Kleines Follow-Up: um mit Decision Trees Constraints für entsprechend codierte kategorische Features zu lernen, ohne kombinatorische Explosion, würde ich sonst einmal im sklearn DecisionTreeClassifier splitter als "random" und max_features entweder als "log2" oder "sqrt" ausprobieren:
+
+https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
 
 Viele Grüße
 Tim
