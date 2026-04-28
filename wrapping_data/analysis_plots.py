@@ -7,8 +7,13 @@ import seaborn as sns
 import plotly.express as px
 from scipy.stats import mannwhitneyu
 
-INPUT_CSV = Path(__file__).parent / "constrains_forecasting" / "loss_forecasting_all_experiments.csv"
-OUTPUT_DIR = Path(__file__).parent / "constrains_forecasting" / "plots"
+# to edit:
+experiment_name = "pure_loss_based"
+csv_name = "pure_loss_based_final.csv"
+
+
+INPUT_CSV = Path(__file__).parent / experiment_name / csv_name
+OUTPUT_DIR = Path(__file__).parent / experiment_name / "plots"
 
 METRICS = ["ROC_AUC"]
 

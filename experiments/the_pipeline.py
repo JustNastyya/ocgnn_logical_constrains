@@ -129,8 +129,10 @@ def the_pipeline_gl():
     }
     
     # the actual datasets
-    datasets = TUDATASETS
-    
+    datasets = ["ENZYMES", "PROTEINS",
+    "COIL-RAG", "MSRC_21",                                        # computer vision
+    ]
+    """
     for dataset_name in datasets:
         result_name = f"loss_forecasting_{dataset_name}.json"
         default_config["dataset"] = dataset_name
@@ -141,7 +143,7 @@ def the_pipeline_gl():
             GraphModels.SIMPLE_GRAPH_OCGIN,
             result_name
             )
-    
+    """
     
     # -------------------- finishinf pure loss based
     # the ones which didnt run 512 layers
@@ -183,5 +185,5 @@ def the_pipeline_gl():
     
 
 if __name__ == "__main__":
-    the_pipeline_nl()
+    # the_pipeline_nl()
     the_pipeline_gl()
