@@ -28,7 +28,6 @@ from models.constrains_loss_forecasting.gl_ocgin import (
     train_graph_ocgin_weighting as gl_train_weight,
     train_graph_ocgin_irnoring_sus as gl_train_ignore
 )
-from models.constrains_in_model.constrains_attribute_nl import train_node_ocgin_constrains_attribute, NodeOCGINAdditionalArgument
 
 
 @dataclass
@@ -67,13 +66,6 @@ class NodeModels(Enum):
         model_class=NodeOCGINLossConstrains,
         train_loop=train_node_ocgin_irnoring_sus,
         description="OCGIN ignoring suspicious constraints",
-        level="node"
-    )
-    CONSTRAINS_ATTRIBUTE_NL_OCGIN = ModelReference(
-        name="constrains_attribute_nl_ocgin",
-        model_class=NodeOCGINAdditionalArgument,
-        train_loop=train_node_ocgin_constrains_attribute,
-        description="OCGIN with constraints as additional attributes",
         level="node"
     )
     LOGIC_FORECAST_ADD_NL_OCGIN = ModelReference(
