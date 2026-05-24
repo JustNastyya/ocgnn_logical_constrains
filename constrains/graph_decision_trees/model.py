@@ -126,7 +126,7 @@ class GraphDecisionTree:
             for pre, _, node in RenderTree(root_for_text_repr):
                 logger.info(f"{pre}{node.name}")
 
-    def save_tree_decisions_as_json(self, filename, additional_attributes):
+    def save_tree_decisions_as_json(self, filename, additional_attributes, return_rules=True):
         rules = []
 
         def recurse(node, path_conditions):
@@ -173,3 +173,6 @@ class GraphDecisionTree:
             json.dump(rules, f, indent=2)
 
         logger.info(f"Saved {len(rules)} rules to {filename}")
+        
+        if return_rules:
+            return rules

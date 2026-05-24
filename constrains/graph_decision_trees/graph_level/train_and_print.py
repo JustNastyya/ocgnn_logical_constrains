@@ -98,9 +98,9 @@ def train_from_node_level_features(tree_loader, attribute_list, max_depth, datas
 
     logger.info(f"Saving as JSON under {filepath}")
     additional_attributes = config.index_mapping
-    decision_tree.save_tree_decisions_as_json(filepath, additional_attributes)
+    rules = decision_tree.save_tree_decisions_as_json(filepath, additional_attributes)
 
-    return filepath
+    return filepath, rules
 
 if __name__ == "__main__":
     attribute_list = ["node_features", "node_degree", "clustering_coefficient"]
