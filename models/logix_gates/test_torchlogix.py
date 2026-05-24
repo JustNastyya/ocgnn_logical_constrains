@@ -1,13 +1,8 @@
-"""Quick test to verify torchlogix works without other dependencies"""
 import torch
 from torchlogix.layers import LogicDense, FixedBinarization, GroupSum
 
 
 def simple_test():
-    """Test torchlogix on synthetic binary data"""
-    print("Testing torchlogix installation...")
-    
-    # Synthetic binary data: 100 samples, 10 features, 2 classes
     X = torch.randint(0, 2, (100, 10)).float()
     y = torch.randint(0, 2, (100,))
     
@@ -26,7 +21,6 @@ def simple_test():
     
     print(f"Model: {model}")
     
-    # Train
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     criterion = torch.nn.CrossEntropyLoss()
     
@@ -50,9 +44,6 @@ def simple_test():
             gate_types = layer.gate_types.cpu().numpy()
             print(f"  Layer: gate_types shape = {gate_types.shape}")
             print(f"  First 3 outputs: {gate_types[:3, :4]}")  # First 3 outputs, first 4 gates
-    
-    print("\nTest complete!")
-
 
 if __name__ == "__main__":
     simple_test()

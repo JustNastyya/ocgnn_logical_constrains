@@ -5,14 +5,12 @@ from torchlogix.layers import LogicDense, FixedBinarization, GroupSum
 DATASET_REFERENCE = {
     "Cora": Planetoid,
     "CiteSeer": Planetoid,
-    "PubMed": Planetoid,
 }
 
 NORMAL_LABEL = 0
 
 
 def load_cora():
-    """Load Cora dataset - node classification (multi-class)"""
     dataset = DATASET_REFERENCE["Cora"](root='data/Cora', name='Cora')
     data = dataset[0]
     X = data.x.float()
@@ -52,8 +50,8 @@ def simple_logic_model(input_dim, hidden_size=16, lut_rank=4, num_classes=7):
     """
     model = torch.nn.Sequential(
         FixedBinarization(thresholds=[0.0]),
-        LogicDense(input_dim, hidden_size, lut_rank=lut_rank),
-        LogicDense(hidden_size, num_classes, lut_rank=lut_rank),
+        LogicDense(input_dim, hidden_size, lut_rank=lut_rank, parametrization='warp'),
+        LogicDense(hidden_size, num_classes, lut_rank=lut_rank, parametrization='warp'),
         GroupSum(k=num_classes, tau=4)
     )
     return model
@@ -82,25 +80,35 @@ def train_model(model, X, y, epochs=50, lr=0.01):
 
 def extract_gate_formula(layer):
     """Extract boolean formula from a LogicDense layer"""
-    gate_types = layer.gate_types.cpu().numpy()
-    gate_params = layer.gate_params.cpu().numpy()
-    
-    gate_names = {
-        0: "ZERO", 1: "ONE", 2: "INPUT", 3: "NOT_INPUT",
-        4: "AND", 5: "NAND", 6: "OR", 7: "NOR",
-        8: "XOR", 9: "XNOR", 10: "LESS", 11: "LEQ",
-        12: "GREATER", 13: "GEQ", 14: "CONST", 15: "PARAM"
-    }
-    
-    formulas = []
-    for out_idx in range(min(gate_types.shape[0], 3)):
-        row = []
-        for in_idx in range(min(gate_types.shape[1], 5)):
-            gate_type = int(gate_types[out_idx, in_idx])
-            row.append(gate_names.get(gate_type, f"UNK{gate_type}"))
-        formulas.append(f"Output {out_idx}: {' AND '.join(row)}")
-    
-    return formulas
+    try:
+        # Try to get gate types (works with raw parametrization)
+        gate_types = layer.gate_types.cpu().numpy()
+        
+        gate_names = {
+            0: "ZERO", 1: "ONE", 2: "INPUT", 3: "NOT_INPUT",
+            4: "AND", 5: "NAND", 6: "OR", 7: "NOR",
+            8: "XOR", 9: "XNOR", 10: "LESS", 11: "LEQ",
+            12: "GREATER", 13: "GEQ", 14: "CONST", 15: "PARAM"
+        }
+        
+        formulas = []
+        for out_idx in range(min(gate_types.shape[0], 3)):
+            row = []
+            for in_idx in range(gate_types.shape[1]):
+                gate_type = int(gate_types[out_idx, in_idx])
+                row.append(gate_names.get(gate_type, f"UNK{gate_type}"))
+            formulas.append(f"Output {out_idx}: {' AND '.join(row)}")
+        
+        return formulas
+    except AttributeError:
+        # For warp/light parametrization, show connections
+        connections = layer.connections.indices.cpu().numpy()
+        formulas = []
+        for out_idx in range(min(layer.out_dim, 3)):
+            connected = connections[out_idx]
+            parts = [f"in_{idx}" for idx in connected if idx >= 0]
+            formulas.append(f"Output {out_idx}: connected to [{', '.join(parts)}]")
+        return formulas
 
 
 def main():
@@ -126,7 +134,7 @@ def main():
     print("\nExtracting formulas...")
     for i, layer in enumerate(model.modules()):
         if isinstance(layer, LogicDense):
-            print(f"\nLayer {i}: LogicDense({layer.in_features}, {layer.out_features})")
+            print(f"\nLayer {i}: LogicDense({layer.in_dim}, {layer.out_dim})")
             formulas = extract_gate_formula(layer)
             for f in formulas:
                 print(f"  {f}")

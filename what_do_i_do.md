@@ -642,3 +642,56 @@ https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClass
 
 Viele Grüße
 Tim
+
+
+for writing the hole thing:
+
+Dehn war bei seiner Einführung der Grundlagen sehr gründlich. In deinem Fall würde ich auch definitiv GAD und Logical Constraints etwas allgemeiner / ausführlicher einführen. Wenn du aber beispielsweise als konkrete Methodik dich auf GINs fokussiert hast (und Alternativen auch nicht in einer Ablation nutzt), sind GAT / GCN z.B. denke ich nicht so wichtig (detailliert) einzuführen. Für Logical Constraints wäre es dagegen schon sinnvoller, zumindest einen groben Überblick über das Feld zu geben, insbesondere um den eigenen gewählten Ansatz zu motivieren.
+
+
+
+
+TODO:
+
+big issues found while writing:
+
+1)
+\textbf{Graph-Level Features}
+
+(TODO this might be the biggest weaknesses of the thesis, since it is literally the dummest thing one can do for things like molecules and stuff. like, this does not work. i could either argue that i wanned global representations and bla bla but to be honest i implemented the feature extraction with an idea, that i will make it better like 6 month ago and totally forgot. so i either redo experiments with a better approach or motivate this monstrocity by throwing a gallon of water in it)
+
+
+2)
+i used the same values for:
+
+sigmoid steepness
+σ(λ(x−t))
+global scaling of the final constraint
+(x)=λ⋅soft_or(⋯)
+
+3)
+in the constrains handler the distance is not defined as a |x - threshold| but just x - threshold
+
+4)
+ignore sus in in forecasting is dumm
+
+While the suppression-based (ignore suspicious) strategy reduces the influence of suspicious samples during training, its interpretation during inference differs. In this case, high constraint values attenuate the embedding-based anomaly score, reflecting the assumption that samples strongly associated with constraint violations should contribute less to the final hypersphere-based confidence estimate.
+
+(TODO thats also dumm)
+
+5)
+AUC ROC like i do from -inf to +inf and just take it from 0 and 1
+
+6) 
+related work???
+
+
+
+
+TODOs FOR THE THESIS:
+
+1) 
+die machine auf der dies gelaufen ist?
+
+2)
+batch size and training epochs mentionen
