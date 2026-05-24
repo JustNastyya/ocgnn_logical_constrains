@@ -16,13 +16,13 @@ from models.constrains_in_loss.gl_ocgin import (
     train_graph_ocgin_weighting,
     train_graph_ocgin_supression
 )
-from models.constrains_loss_forecasting.nl_ocgin import (
+from models.constrains_inference.nl_ocgin import (
     NodeOCGINLossConstrains as NLNodeOCGINForecasting,
     train_node_ocgin_add_loss_constrains as nl_train_add,
     train_node_ocgin_weighting as nl_train_weight,
     train_node_ocgin_supression as nl_train_ignore
 )
-from models.constrains_loss_forecasting.gl_ocgin import (
+from models.constrains_inference.gl_ocgin import (
     GraphOCGINLossConstrains as GLGraphOCGINForecasting,
     train_graph_ocgin_add_loss_constrains as gl_train_add,
     train_graph_ocgin_weighting as gl_train_weight,

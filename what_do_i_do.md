@@ -686,3 +686,8 @@ best Jourdans something the way i define the best threshold
 4)
 related work???
 
+5) now its for always supression
+
+6)
+graph desision trees are now kinda like node
+

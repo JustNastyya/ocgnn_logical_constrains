@@ -51,7 +51,7 @@ def the_pipeline_nl():
     datasets = ["CS", "Photo", "Texas", "Wisconsin"]
     
     for dataset_name in datasets:
-        result_name = f"loss_forecasting_{dataset_name}.json"
+        result_name = f"inference_{dataset_name}.json"
         default_config["dataset"] = dataset_name
         run_bunch_experiments_nl(
             default_config, 
@@ -101,7 +101,7 @@ def the_pipeline_gl():
     "COIL-RAG", "MSRC_21",                                        # computer vision
     ]
     for dataset_name in datasets:
-        result_name = f"loss_forecasting_{dataset_name}.json"
+        result_name = f"inference_{dataset_name}.json"
         default_config["dataset"] = dataset_name
         run_bunch_experiments_gl(
             default_config, 
