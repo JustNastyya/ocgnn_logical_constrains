@@ -9,10 +9,10 @@ from experiments.model_registry import GraphModels
 from experiments.graph_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_gl
 from experiments.graph_level.data_loader_gl import TUDATASETS
 
-from constrains.nl_rules_based_handler import NLRuleBasedHandler
-from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
-from constrains.gl_node_aggregated_handler import GLNodeAggregatedHandler
-from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
+from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.distance_handler import NLDistanceBasedHandler
+from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constrains.distance_handler import GLDistanceBasedHandler
 
 def the_pipeline_nl():
     
@@ -45,7 +45,7 @@ def the_pipeline_nl():
             NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
             NodeModels.LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN
         ],
-        "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
+        "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
     }
 
     datasets = ["CS", "Photo", "Texas", "Wisconsin"]
@@ -93,7 +93,7 @@ def the_pipeline_gl():
             GraphModels.LOGIC_FORECAST_ADD_GL_OCGIN,
             GraphModels.LOGIC_FORECAST_IGNORE_SUS_GL_OCGIN
         ],
-        "constrains_handler": [GLNodeAggregatedHandler, GLConstraintScoreBasedHandler]
+        "constrains_handler": [GLNodeFuzzyHandler, GLDistanceBasedHandler]
     }
     
     # the actual datasets

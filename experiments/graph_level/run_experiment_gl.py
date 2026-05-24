@@ -6,7 +6,7 @@ from experiments.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.gl_node_aggregated_handler import GLNodeAggregatedRuleHandler
+from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
 
 from models.graph_decision_trees.graph_level.train_and_print import train_from_node_level_features
 
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         "dataset": "AIDS",
         "model_train": GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
         "is_logical": True,
-        "constrains_handler": GLNodeAggregatedRuleHandler,
+        "constrains_handler": GLNodeFuzzyHandler,
         "l_factor": 0.1,
         "save_logs": False,
         "decision_tree": {

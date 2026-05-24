@@ -9,8 +9,8 @@ from itertools import product
 from experiments.model_registry import NodeModels
 from experiments.node_level.run_experiment_nl import experiment_logging_wrapper
 
-from constrains.nl_rules_based_handler import NLRuleBasedHandler
-from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
+from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.distance_handler import NLDistanceBasedHandler
 
 FILEPATH = "experiments/node_level/bunch_json_results/"
 TRAIN_NORMAL = True
@@ -126,7 +126,7 @@ if __name__ == "__main__":
             NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
             NodeModels.LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN
         ],
-        "constrains_handler": [NLRuleBasedHandler, NLConstraintScoreBasedHandler]
+        "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
     }
     baseline_model=NodeModels.SIMPLE_NODE_OCGIN
     

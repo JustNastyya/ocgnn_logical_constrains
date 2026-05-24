@@ -43,7 +43,7 @@ additional_attributes describe the additional attributes and their used indexes 
 
 ## handlers
 
-`NLRuleBasedHandler`
+`NLFuzzyBasedHandler`
 
 implements constrains on a given data (nodal attributes matrix)
 

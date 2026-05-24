@@ -3,9 +3,9 @@ import torch
 from loguru import logger
 
 from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
-from constrains.constrains_handler import RuleBasedHandler
+from constrains.fuzzy_handler import FuzzyBasedHandler
 
-class GLRuleBasedHandler(RuleBasedHandler):
+class GLFuzzyBasedHandler(FuzzyBasedHandler):
     def __init__(self, filename, l_factor, normal_label):
         super().__init__(filename, l_factor, normal_label)
 

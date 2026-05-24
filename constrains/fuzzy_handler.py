@@ -8,7 +8,7 @@ def vektor_metrics(vek):
     print(vek.min())
     print(vek)
 
-class RuleBasedHandler:
+class FuzzyBasedHandler:
     def __init__(self, filename, l_factor, normal_label):
         """
         TODO constrains to use: would be a value either 1 or 0 would have automatically 

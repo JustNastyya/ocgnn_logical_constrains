@@ -9,8 +9,8 @@ from itertools import product
 from experiments.model_registry import GraphModels
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
-from constrains.gl_node_aggregated_handler import GLNodeAggregatedHandler
-from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
+from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constrains.distance_handler import GLDistanceBasedHandler
 
 FILEPATH = "experiments/graph_level/bunch_json_results/"
 TRAIN_NORMAL = True
@@ -127,7 +127,7 @@ if __name__ == "__main__":
             GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
             GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN
         ],
-        "constrains_handler": [GLConstraintScoreBasedHandler, GLNodeAggregatedHandler]
+        "constrains_handler": [GLDistanceBasedHandler, GLNodeFuzzyHandler]
     }
     baseline_model=GraphModels.SIMPLE_GRAPH_OCGIN
     default_config["dataset"] = "MUTAG"

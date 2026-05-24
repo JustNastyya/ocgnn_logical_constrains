@@ -4,9 +4,9 @@ import numpy as np
 from loguru import logger
 
 from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
-from constrains.nl_rules_based_handler import RuleBasedHandler
+from constrains.nl_fuzzy_based_handler import FuzzyBasedHandler
 
-class GLNodeAggregatedRuleHandler(RuleBasedHandler):
+class GLNodeFuzzyHandler(FuzzyBasedHandler):
     def __init__(self, filename, l_factor, normal_label, aggregation='mean'):
         super().__init__(filename, l_factor, normal_label)
         self.aggregation = aggregation

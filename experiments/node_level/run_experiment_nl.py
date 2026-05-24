@@ -6,8 +6,8 @@ from experiments.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.nl_rules_based_handler import NLRuleBasedHandler
-from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
+from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.distance_handler import NLDistanceBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
 from models.graph_decision_trees.node_level.train_and_print import train_for_model
@@ -107,7 +107,7 @@ if __name__ == "__main__":
         "dataset": "Cora",
         "model_train": NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN, # constrains_attribute_nl_ocgin
         "is_logical": True,
-        "constrains_handler": NLConstraintScoreBasedHandler,# NLRuleBasedHandler,
+        "constrains_handler": NLDistanceBasedHandler,# NLFuzzyBasedHandler,
         "l_factor": 0.1,
         "save_logs": False,
         "decision_tree": {

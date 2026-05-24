@@ -6,7 +6,7 @@ from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtr
 from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
 
 
-class ConstraintScoreBasedHandler:
+class DistanceBasedHandler:
     def __init__(self, filename, l_factor, normal_label, device="cpu"):
         self.filename = filename
         self.json_rules = self._load_rules(filename)
@@ -106,7 +106,7 @@ class ConstraintScoreBasedHandler:
 
 
 
-class GLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
+class GLDistanceBasedHandler(DistanceBasedHandler):
     def __init__(self, filename, l_factor, normal_label):
         super().__init__(filename, l_factor, normal_label)
 
@@ -129,7 +129,7 @@ class GLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         return L_constrains
 
 
-class GLConstraintNodeAggScoreBasedHandler(ConstraintScoreBasedHandler):
+class GLNodeDistanceBasedHandler(DistanceBasedHandler):
     def __init__(self, filename, l_factor, normal_label, aggregation='mean'):
         super().__init__(filename, l_factor, normal_label)
         self.aggregation = aggregation
@@ -171,7 +171,7 @@ class GLConstraintNodeAggScoreBasedHandler(ConstraintScoreBasedHandler):
         return L_constrains
 
 
-class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
+class NLDistanceBasedHandler(DistanceBasedHandler):
     def __init__(self, filename, l_factor, normal_label):
         super().__init__(filename, l_factor, normal_label)
 

@@ -655,23 +655,19 @@ TODO:
 
 big issues found while writing:
 
+
 1)
-\textbf{Graph-Level Features}
-
-(TODO this might be the biggest weaknesses of the thesis, since it is literally the dummest thing one can do for things like molecules and stuff. like, this does not work. i could either argue that i wanned global representations and bla bla but to be honest i implemented the feature extraction with an idea, that i will make it better like 6 month ago and totally forgot. so i either redo experiments with a better approach or motivate this monstrocity by throwing a gallon of water in it)
-
-
-2)
 where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the signoid function TODO.
 
-4)
+2)
 ignore sus in in forecasting is dumm
 
 While the suppression-based (ignore suspicious) strategy reduces the influence of suspicious samples during training, its interpretation during inference differs. In this case, high constraint values attenuate the embedding-based anomaly score, reflecting the assumption that samples strongly associated with constraint violations should contribute less to the final hypersphere-based confidence estimate.
 
 (TODO thats also dumm)
     
-
+3)
+logix as a part of trees
 
 
 
