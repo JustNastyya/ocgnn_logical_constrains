@@ -32,7 +32,7 @@ class ConstraintScoreBasedHandler:
         """x - vector and condition taken from json"""
         distances = []
         for condition in constraint["conditions"]:
-            distances.append(x[condition["feature_index"]] - condition["threshold"])
+            distances.append(abs(x[condition["feature_index"]] - condition["threshold"]))
         return min(distances)
     
     def _get_weighted_group_distance(self, x, constrain_group):

@@ -662,12 +662,8 @@ big issues found while writing:
 
 
 2)
-i used the same values for:
 
-sigmoid steepness
-σ(λ(x−t))
-global scaling of the final constraint
-(x)=λ⋅soft_or(⋯)
+where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the signoid function TODO.
 
 3)
 in the constrains handler the distance is not defined as a |x - threshold| but just x - threshold
