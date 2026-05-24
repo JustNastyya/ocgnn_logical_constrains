@@ -44,7 +44,7 @@ class NodeOCGINLossConstrains(nn.Module):
     def loss_node_weighting(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
-    def loss_node_irnoring_sus(self, z, constrain_L):
+    def loss_node_supression(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 - constrain_L))
 
     @torch.no_grad()
@@ -71,8 +71,8 @@ def train_node_ocgin_weighting(model, data, train_mask, test_mask, epochs, lr, c
     train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_weighting")
 
 # wrapper    
-def train_node_ocgin_irnoring_sus(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
-    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_irnoring_sus")
+def train_node_ocgin_supression(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+    train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_supression")
 
 def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add"):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
@@ -94,8 +94,8 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
             loss = model.loss_add_constrain(z[train_mask], L_constrains[train_mask])
         elif loss_type == "node_weighting":
             loss = model.loss_node_weighting(z[train_mask], L_constrains[train_mask])
-        elif loss_type == "node_irnoring_sus":
-            loss = model.loss_node_irnoring_sus(z[train_mask], L_constrains[train_mask])            
+        elif loss_type == "node_supression":
+            loss = model.loss_node_supression(z[train_mask], L_constrains[train_mask])            
         
         optimizer.zero_grad()
         loss.backward()

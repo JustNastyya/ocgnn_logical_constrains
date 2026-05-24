@@ -47,7 +47,7 @@ class GraphOCGINLossConstrains(nn.Module):
     def loss_graph_weighting(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
-    def loss_graph_irnoring_sus(self, z, constrain_L):
+    def loss_graph_supression(self, z, constrain_L):
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
     @torch.no_grad()
@@ -76,8 +76,8 @@ def train_graph_ocgin_weighting(model, loader, epochs, lr, constrains_obj, datas
     train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_weighting")
 
 # wrapper    
-def train_graph_ocgin_irnoring_sus(model, loader, epochs, lr, constrains_obj, dataset):
-    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_irnoring_sus")
+def train_graph_ocgin_supression(model, loader, epochs, lr, constrains_obj, dataset):
+    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_supression")
 
 
 def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add"):
@@ -102,8 +102,8 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
                 loss = model.loss_add_constrain(z, batch_constraints)
             elif loss_type == "node_weighting":
                 loss = model.loss_graph_weighting(z, batch_constraints)
-            elif loss_type == "node_irnoring_sus":
-                loss = model.loss_graph_irnoring_sus(z, batch_constraints)            
+            elif loss_type == "node_supression":
+                loss = model.loss_graph_supression(z, batch_constraints)            
             
             optimizer.zero_grad()
             loss.backward()
