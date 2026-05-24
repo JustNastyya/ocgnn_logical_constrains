@@ -6,11 +6,11 @@ import os
 import tempfile
 from itertools import product
 
-from experiments.model_registry import GraphModels
+from models.model_registry import GraphModels
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
-from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
-from constrains.distance_handler import GLDistanceBasedHandler
+from constrains.constrains_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constrains.constrains_handlers.distance_handler import GLDistanceBasedHandler
 
 FILEPATH = "experiments/graph_level/bunch_json_results/"
 TRAIN_NORMAL = True

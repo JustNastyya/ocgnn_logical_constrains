@@ -2,7 +2,7 @@ import torch
 import random
 from collections import defaultdict
 
-from models.graph_decision_trees.graph_level.template_config import TemplateFeatureExtractor
+from constrains.graph_decision_trees.graph_level.template_config import TemplateFeatureExtractor
 from experiments.graph_level.data_loader_gl import get_data
 
 class GraphLevelFeatureExtractor(TemplateFeatureExtractor):

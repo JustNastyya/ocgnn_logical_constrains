@@ -2,8 +2,8 @@ import json
 import torch
 from loguru import logger
 
-from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
-from constrains.fuzzy_handler import FuzzyBasedHandler
+from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from constrains.constrains_handlers.fuzzy_handler import FuzzyBasedHandler
 
 class NLFuzzyBasedHandler(FuzzyBasedHandler):
     def __init__(self, filename, l_factor, normal_label):

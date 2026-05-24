@@ -2,15 +2,15 @@ from loguru import logger
 
 import torch
 
-from experiments.model_registry import NodeModels
+from models.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.distance_handler import NLDistanceBasedHandler
+from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
-from models.graph_decision_trees.node_level.train_and_print import train_for_model
+from constrains.graph_decision_trees.node_level.train_and_print import train_for_model
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):

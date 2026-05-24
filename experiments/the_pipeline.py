@@ -1,18 +1,18 @@
 from loguru import logger
 
 import torch
-from experiments.model_registry import NodeModels
+from models.model_registry import NodeModels
 from experiments.node_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_nl
 from experiments.node_level.data_loader_nl import DATASET_REFERENCE
 
-from experiments.model_registry import GraphModels
+from models.model_registry import GraphModels
 from experiments.graph_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_gl
 from experiments.graph_level.data_loader_gl import TUDATASETS
 
-from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.distance_handler import NLDistanceBasedHandler
-from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
-from constrains.distance_handler import GLDistanceBasedHandler
+from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
+from constrains.constrains_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constrains.constrains_handlers.distance_handler import GLDistanceBasedHandler
 
 def the_pipeline_nl():
     

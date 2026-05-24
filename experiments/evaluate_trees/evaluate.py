@@ -2,7 +2,7 @@ from loguru import logger
 
 import torch
 
-from models.graph_decision_trees.model import GraphDecisionTree
+from constrains.graph_decision_trees.model import GraphDecisionTree
 
 
 def compute_metrics(y_true, y_pred):
@@ -42,7 +42,7 @@ def print_metrics(name, train_metrics, test_metrics):
 
 def evaluate_node_level(dataset_name, attribute_list, max_depth):
     from experiments.node_level.data_loader_nl import get_data, split_train_val_test
-    from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+    from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
 
     logger.info(f"Loading node-level dataset '{dataset_name}'...")
     dataset, _ = get_data(dataset_name, batch_size=32)
@@ -70,7 +70,7 @@ def evaluate_node_level(dataset_name, attribute_list, max_depth):
 
 def evaluate_graph_level(dataset_name, attribute_list, max_depth, batch_size=32):
     from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
-    from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
+    from constrains.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
 
     logger.info(f"Loading graph-level dataset '{dataset_name}'...")
     dataset, _ = get_data(dataset_name, batch_size)

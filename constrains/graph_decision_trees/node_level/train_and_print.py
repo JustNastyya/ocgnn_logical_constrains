@@ -1,9 +1,9 @@
 from loguru import logger
 import torch
 
-from models.graph_decision_trees.model import GraphDecisionTree
-from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
-from models.graph_decision_trees.node_level.filename_utils import get_filename
+from constrains.graph_decision_trees.model import GraphDecisionTree
+from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from constrains.graph_decision_trees.node_level.filename_utils import get_filename
 
 
 def train_and_print(attribute_list, max_depth, dataset_name, save=True):

@@ -657,7 +657,7 @@ big issues found while writing:
 
 
 1)
-where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the signoid function TODO.
+where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the sigmoid function TODO.
 
 2)
 ignore sus in in forecasting is dumm
@@ -668,8 +668,6 @@ While the suppression-based (ignore suspicious) strategy reduces the influence o
     
 3)
 logix as a part of trees
-
-
 
 
 TODOs FOR THE THESIS:

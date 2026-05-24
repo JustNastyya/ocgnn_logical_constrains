@@ -2,12 +2,12 @@ from loguru import logger
 
 import torch
 import plotly.express as px
-from experiments.model_registry import NodeModels
+from models.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.distance_handler import NLDistanceBasedHandler
+from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
 
 NORMAL_LABEL = 0
 

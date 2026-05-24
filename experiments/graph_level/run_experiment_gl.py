@@ -2,13 +2,13 @@ from loguru import logger
 
 import torch
 
-from experiments.model_registry import GraphModels
+from models.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constrains.constrains_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
 
-from models.graph_decision_trees.graph_level.train_and_print import train_from_node_level_features
+from constrains.graph_decision_trees.graph_level.train_and_print import train_from_node_level_features
 
 from models.utils import (
     compute_anomaly_scores_graph_level,

@@ -2,8 +2,8 @@ import json
 import torch.nn
 import numpy as np
 from loguru import logger
-from models.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
-from models.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from constrains.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
+from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
 
 
 class DistanceBasedHandler:
