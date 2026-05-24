@@ -92,7 +92,7 @@ def get_ratios_gl(test_loader, test_scores, R):
     pred = (test_scores > R).int()
     y = []
     for data in test_loader:
-        y.append((data.y > 1).int())
+        y.append((data.y > 0).int())
     
     y_vec = torch.cat(y, dim=0)
     
