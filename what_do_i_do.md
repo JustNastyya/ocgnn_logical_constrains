@@ -662,11 +662,7 @@ big issues found while writing:
 
 
 2)
-
 where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the signoid function TODO.
-
-3)
-in the constrains handler the distance is not defined as a |x - threshold| but just x - threshold
 
 4)
 ignore sus in in forecasting is dumm
@@ -674,12 +670,8 @@ ignore sus in in forecasting is dumm
 While the suppression-based (ignore suspicious) strategy reduces the influence of suspicious samples during training, its interpretation during inference differs. In this case, high constraint values attenuate the embedding-based anomaly score, reflecting the assumption that samples strongly associated with constraint violations should contribute less to the final hypersphere-based confidence estimate.
 
 (TODO thats also dumm)
+    
 
-5)
-AUC ROC like i do from -inf to +inf and just take it from 0 and 1
-
-6) 
-related work???
 
 
 
@@ -691,3 +683,10 @@ die machine auf der dies gelaufen ist?
 
 2)
 batch size and training epochs mentionen
+
+3) 
+best Jourdans something the way i define the best threshold
+
+4)
+related work???
+

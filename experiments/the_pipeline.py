@@ -11,7 +11,7 @@ from experiments.graph_level.data_loader_gl import TUDATASETS
 
 from constrains.nl_rules_based_handler import NLRuleBasedHandler
 from constrains.constrains_score_handler import NLConstraintScoreBasedHandler
-from constrains.gl_rules_based_handler import GLRuleBasedHandler
+from constrains.gl_node_aggregated_handler import GLNodeAggregatedHandler
 from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
 
 def the_pipeline_nl():
@@ -60,39 +60,6 @@ def the_pipeline_nl():
             NodeModels.SIMPLE_NODE_OCGIN,
             result_name
             )
-    # -------------------- finishinf forecasting in loss
-    baseline_var_pars = {
-        "hidden_dim": [256],
-        "num_layers": [2, 3, 4, 5]
-    }
-    
-    datasets = ["CiteSeer", "Cora", "Cornell", "PubMed"]
-    for dataset_name in datasets:
-        result_name = f"loss_forecasting_to_end_{dataset_name}.json"
-        default_config["dataset"] = dataset_name
-        run_bunch_experiments_nl(
-            default_config, 
-            baseline_var_pars, 
-            const_var_pars,
-            NodeModels.SIMPLE_NODE_OCGIN,
-            result_name
-            )
-    
-    # also PubMed didnt run properly
-    baseline_var_pars = {
-        "hidden_dim": [32, 64, 128, 256],
-        "num_layers": [2, 3, 4, 5]
-    }
-    result_name = f"loss_forecasting_to_end_pubmed_{dataset_name}.json"
-    default_config["dataset"] = "PubMed"
-    run_bunch_experiments_nl(
-        default_config, 
-        baseline_var_pars, 
-        const_var_pars,
-        NodeModels.SIMPLE_NODE_OCGIN,
-        result_name
-        )
-
 
 
 def the_pipeline_gl():
@@ -104,6 +71,7 @@ def the_pipeline_gl():
         "epochs": 50,
         "batch_size": 32,
         "save_logs": False,
+        "aggregation": "mean",
     }
     
     baseline_var_pars = {
@@ -113,11 +81,11 @@ def the_pipeline_gl():
     const_var_pars = {
         "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
         "decision_tree": [{
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
             "max_depth": 3,
         },
         {
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
             "max_depth": 2,
         }],
         "model_train": [
@@ -125,14 +93,13 @@ def the_pipeline_gl():
             GraphModels.LOGIC_FORECAST_ADD_GL_OCGIN,
             GraphModels.LOGIC_FORECAST_IGNORE_SUS_GL_OCGIN
         ],
-        "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
+        "constrains_handler": [GLNodeAggregatedHandler, GLConstraintScoreBasedHandler]
     }
     
     # the actual datasets
     datasets = ["ENZYMES", "PROTEINS",
     "COIL-RAG", "MSRC_21",                                        # computer vision
     ]
-    """
     for dataset_name in datasets:
         result_name = f"loss_forecasting_{dataset_name}.json"
         default_config["dataset"] = dataset_name
@@ -143,45 +110,8 @@ def the_pipeline_gl():
             GraphModels.SIMPLE_GRAPH_OCGIN,
             result_name
             )
-    """
-    
-    # -------------------- finishinf pure loss based
-    # the ones which didnt run 512 layers
-    
-    datasets = ["AIDS", "COIL-RAG", "DHFR", "MSRC_21", "ENZYMES", "MUTAG", "PROTEINS"]
-    baseline_var_pars = {
-        "hidden_dim": [512],
-        "num_layers": [2, 3, 4, 5]
-    }
-    const_var_pars = {
-        "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
-        "decision_tree": [{
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
-            "max_depth": 3,
-        },
-        {
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
-            "max_depth": 2,
-        }],
-        "model_train": [
-            GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
-            GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
-            GraphModels.LOGIC_ADD_GL_OCGIN
-        ],
-        "constrains_handler": [GLRuleBasedHandler, GLConstraintScoreBasedHandler]
-    }
-    for dataset_name in datasets:
-        result_name = f"finishing_pure_loss_gl_{dataset_name}.json"
-        default_config["dataset"] = dataset_name
-        run_bunch_experiments_gl(
-            default_config, 
-            baseline_var_pars, 
-            const_var_pars,
-            GraphModels.SIMPLE_GRAPH_OCGIN,
-            result_name
-            )
-    
-    # for ENZYMES some others are not there
+
+
     
 
 if __name__ == "__main__":

@@ -129,6 +129,48 @@ class GLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
         return L_constrains
 
 
+class GLConstraintNodeAggScoreBasedHandler(ConstraintScoreBasedHandler):
+    def __init__(self, filename, l_factor, normal_label, aggregation='mean'):
+        super().__init__(filename, l_factor, normal_label)
+        self.aggregation = aggregation
+
+    def get_constraint_value(self, loader):
+        """returns a vector of length of number of graphs"""
+        # extend X by the additional features
+        attribute_list = self.json_rules["additional_attributes"].values()
+        config = GraphLevelFeatureExtractor(attribute_list)
+        scores = []
+        mapping_checked = False
+
+        for batch in loader:
+            if hasattr(batch, "to_data_list"):
+                data_list = batch.to_data_list()
+            else:
+                data_list = [batch]
+
+            for graph_data in data_list:
+                X, _ = config.extract_features(graph_data, balance=False)
+
+                if not mapping_checked:
+                    self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
+                    mapping_checked = True
+
+                node_constraints = self.get_constraint_score(X)
+            
+                if self.aggregation == 'mean':
+                    graph_constraint = node_constraints.mean()
+                else:
+                    graph_constraint = node_constraints.max()
+
+                scores.append(graph_constraint)
+
+        # apply sigmoid
+        scores_st = 1 / (1 + np.exp(np.array(scores)))
+        L_constrains = torch.tensor(scores_st, dtype=torch.float32, device=self.device)
+        
+        return L_constrains
+
+
 class NLConstraintScoreBasedHandler(ConstraintScoreBasedHandler):
     def __init__(self, filename, l_factor, normal_label):
         super().__init__(filename, l_factor, normal_label)

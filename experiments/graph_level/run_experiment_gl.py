@@ -6,9 +6,9 @@ from experiments.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.gl_rules_based_handler import GLRuleBasedHandler
+from constrains.gl_node_aggregated_handler import GLNodeAggregatedRuleHandler
 
-from models.graph_decision_trees.graph_level.train_and_print import train_for_model
+from models.graph_decision_trees.graph_level.train_and_print import train_from_node_level_features
 
 from models.utils import (
     compute_anomaly_scores_graph_level,
@@ -63,7 +63,7 @@ def run_experiment(config):
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
         
-        constrains_filepath = train_for_model(
+        constrains_filepath = train_from_node_level_features(
             tree_loader,
             decision_tree_att_list, 
             decision_tree_max_depth, 
@@ -73,7 +73,12 @@ def run_experiment(config):
 
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
-        constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
+        aggregation = config.get("aggregation", "mean")
+        constrains_handler_obj = ConstrainHandler(
+            constrains_filepath, l_factor,
+            normal_label=NORMAL_LABEL,
+            aggregation=aggregation
+        )
     
         train_loop_func(model, train_loader, epochs, lr, constrains_handler_obj, dataset)
     else:
@@ -115,13 +120,14 @@ if __name__ == "__main__":
         "dataset": "AIDS",
         "model_train": GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
         "is_logical": True,
-        "constrains_handler": GLRuleBasedHandler,
+        "constrains_handler": GLNodeAggregatedRuleHandler,
         "l_factor": 0.1,
         "save_logs": False,
         "decision_tree": {
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
             "max_depth": 2,
-        }
+        },
+        "aggregation": "mean"
     }
 
     experiment_logging_wrapper(config)

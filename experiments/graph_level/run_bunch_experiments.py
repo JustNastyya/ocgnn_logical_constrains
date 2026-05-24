@@ -9,7 +9,7 @@ from itertools import product
 from experiments.model_registry import GraphModels
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
-from constrains.gl_rules_based_handler import GLRuleBasedHandler
+from constrains.gl_node_aggregated_handler import GLNodeAggregatedHandler
 from constrains.constrains_score_handler import GLConstraintScoreBasedHandler
 
 FILEPATH = "experiments/graph_level/bunch_json_results/"
@@ -105,6 +105,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "save_logs": False,
+        "aggregation": "mean",
     }
     
     baseline_var_pars = {
@@ -114,11 +115,11 @@ if __name__ == "__main__":
     const_var_pars = {
         "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
         "decision_tree": [{
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
             "max_depth": 3,
         },
         {
-            "attribute_list": ["mean_node_features", "mean_node_degree"],
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
             "max_depth": 2,
         }],
         "model_train": [
@@ -126,7 +127,7 @@ if __name__ == "__main__":
             GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
             GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN
         ],
-        "constrains_handler": [GLConstraintScoreBasedHandler, GLRuleBasedHandler]
+        "constrains_handler": [GLConstraintScoreBasedHandler, GLNodeAggregatedHandler]
     }
     baseline_model=GraphModels.SIMPLE_GRAPH_OCGIN
     default_config["dataset"] = "MUTAG"
