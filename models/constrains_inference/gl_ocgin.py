@@ -54,9 +54,6 @@ class GraphOCGINLossConstrains(nn.Module):
         constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
-    def loss_graph_supression(self, z, constrain_L):
-        constrain_L = constrain_L.to(z.device)
-        return torch.mean(torch.sum((z - self.center) ** 2, dim=1) * (1 - constrain_L))
 
     @torch.no_grad()
     def init_center(self, loader):
@@ -82,8 +79,6 @@ class GraphOCGINLossConstrains(nn.Module):
             return base_score + batch_constraints
         elif self.loss_type == "node_weighting":
             return base_score * (1 + batch_constraints)
-        elif self.loss_type == "node_supression":
-            return base_score * (1 - batch_constraints)
 
 # wrapper
 def train_graph_ocgin_add_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
@@ -92,10 +87,6 @@ def train_graph_ocgin_add_loss_constrains(model, loader, epochs, lr, constrains_
 # wrapper    
 def train_graph_ocgin_weighting(model, loader, epochs, lr, constrains_obj, dataset):
     train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_weighting")
-
-# wrapper    
-def train_graph_ocgin_supression(model, loader, epochs, lr, constrains_obj, dataset):
-    train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_supression")
 
 
 def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add"):
@@ -121,9 +112,7 @@ def train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj,
                 loss = model.loss_add_constrain(z, batch_constraints)
             elif loss_type == "node_weighting":
                 loss = model.loss_graph_weighting(z, batch_constraints)
-            elif loss_type == "node_supression":
-                loss = model.loss_graph_supression(z, batch_constraints)            
-            
+
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()

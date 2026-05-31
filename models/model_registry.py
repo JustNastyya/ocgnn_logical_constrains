@@ -20,13 +20,11 @@ from models.constrains_inference.nl_ocgin import (
     NodeOCGINLossConstrains as NLNodeOCGINForecasting,
     train_node_ocgin_add_loss_constrains as nl_train_add,
     train_node_ocgin_weighting as nl_train_weight,
-    train_node_ocgin_supression as nl_train_ignore
 )
 from models.constrains_inference.gl_ocgin import (
     GraphOCGINLossConstrains as GLGraphOCGINForecasting,
     train_graph_ocgin_add_loss_constrains as gl_train_add,
     train_graph_ocgin_weighting as gl_train_weight,
-    train_graph_ocgin_supression as gl_train_ignore
 )
 
 
@@ -82,14 +80,6 @@ class NodeModels(Enum):
         description="OCGIN with loss forecasting constraints (weight)",
         level="node"
     )
-    LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN = ModelReference(
-        name="logic_forecast_ignore_sus_nl_ocgin",
-        model_class=NLNodeOCGINForecasting,
-        train_loop=nl_train_ignore,
-        description="OCGIN with loss forecasting constraints (ignore sus)",
-        level="node"
-    )
-
 
 class GraphModels(Enum):
     SIMPLE_GRAPH_OCGIN = ModelReference(
@@ -132,12 +122,5 @@ class GraphModels(Enum):
         model_class=GLGraphOCGINForecasting,
         train_loop=gl_train_weight,
         description="OCGIN with loss forecasting constraints (weight)",
-        level="graph"
-    )
-    LOGIC_FORECAST_IGNORE_SUS_GL_OCGIN = ModelReference(
-        name="logic_forecast_ignore_sus_gl_ocgin",
-        model_class=GLGraphOCGINForecasting,
-        train_loop=gl_train_ignore,
-        description="OCGIN with loss forecasting constraints (ignore sus)",
         level="graph"
     )

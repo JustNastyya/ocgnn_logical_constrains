@@ -43,7 +43,6 @@ def the_pipeline_nl():
         "model_train": [
             NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN,
             NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
-            NodeModels.LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN
         ],
         "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
     }
@@ -91,7 +90,6 @@ def the_pipeline_gl():
         "model_train": [
             GraphModels.LOGIC_FORECAST_WEIGHT_GL_OCGIN,
             GraphModels.LOGIC_FORECAST_ADD_GL_OCGIN,
-            GraphModels.LOGIC_FORECAST_IGNORE_SUS_GL_OCGIN
         ],
         "constrains_handler": [GLNodeFuzzyHandler, GLDistanceBasedHandler]
     }
