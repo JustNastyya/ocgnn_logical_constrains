@@ -61,7 +61,7 @@ def run_experiment(config):
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
         
-        constrains_filepath = train_for_model(
+        constrains_filepath, rules = train_for_model(
             data,
             tree_mask,
             decision_tree_att_list, 

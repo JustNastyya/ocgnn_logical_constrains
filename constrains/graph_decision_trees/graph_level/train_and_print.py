@@ -54,9 +54,9 @@ def train_for_model(tree_loader, attribute_list, max_depth, dataset_name):
     
     logger.info(f"Saving as JSON under {filepath}")
     additional_attributes = config.index_mapping
-    decision_tree.save_tree_decisions_as_json(filepath, additional_attributes)
+    rules = decision_tree.save_tree_decisions_as_json(filepath, additional_attributes)
 
-    return filepath
+    return filepath, rules
 
 
 def train_from_node_level_features(tree_loader, attribute_list, max_depth, dataset_name):

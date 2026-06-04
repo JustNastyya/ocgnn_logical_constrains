@@ -64,15 +64,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %$ APA Style für Bibtex  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\usepackage[style=numeric,natbib=true,backend=biber, sorting=none]{biblatex}
 
-\DefineBibliographyStrings{german}{
-  bibliography = {Literaturverzeichnis},
-}
+
 \DefineBibliographyStrings{english}{
   bibliography = {References},
 }
-\bibliography{literatur}
+\bibliography{citations.bib}
 
 % Note: The following commands need the "url" package
 \setcounter{biburlnumpenalty}{100}
@@ -206,21 +204,21 @@
 \section{Introduction and Motivation}
 \label{sec:introduction}
 
-Anomaly detection (TODO ref) is a fundamental task in data analysis, with applications ranging from fraud detection in financial networks and intrusion detection in cybersecurity to identifying unusual molecular structures in drug discovery. As data in many real-world domains is naturally represented as graphs---where entities are nodes and their relationships are edges---there is a growing need for methods that can detect anomalies in graph-structured data.
+Anomaly detection \cite{chandola2009anomaly} is a fundamental task in data analysis, with applications ranging from fraud detection in financial networks and intrusion detection in cybersecurity to identifying unusual molecular structures in drug discovery. As data in many real-world domains is naturally represented as graphs---where entities are nodes and their relationships are edges---there is a growing need for methods that can detect anomalies in graph-structured data.
 
-Graph neural networks (GNNs) (TODO ref) have emerged as a powerful class of models for learning on graphs. Among them, one-class GNNs, particularly the One-Class Graph Isomorphism Network (OCGIN) (RODO ref), have shown promise for anomaly detection. OCGIN extends the Deep SVDD framework (TODO ref) to graph data by learning to map node or graph embeddings close to a center in the embedding space, under the assumption that normal samples cluster together while anomalies lie farther away.
+Graph neural networks (GNNs) \cite{kipf2017gcn} have emerged as a powerful class of models for learning on graphs. Among them, one-class GNNs, particularly the One-Class Graph Isomorphism Network (OCGIN) \cite{ocgin}, have shown promise for anomaly detection. OCGIN extends the Deep SVDD framework \cite{ruff2018deepsvdd} to graph data by learning to map node or graph embeddings close to a center in the embedding space, under the assumption that normal samples cluster together while anomalies lie farther away.
 
-However, this one-class formulation comes with known challenges. The model may converge to a trivial solution where all embeddings collapse to the center---a phenomenon called hypersphere collapse (TODO ref). Furthermore, the standard OCGIN objective is purely data-driven and does not incorporate any prior knowledge about what constitutes normal or anomalous structure in the data.
+However, this one-class formulation comes with known challenges. The model may converge to a trivial solution where all embeddings collapse to the center---a phenomenon called hypersphere collapse \cite{ruff2018deepsvdd}. Furthermore, the standard OCGIN objective is purely data-driven and does not incorporate any prior knowledge about what constitutes normal or anomalous structure in the data.
 
-Logical constraints have recently gained attention as a way to inject domain knowledge into deep learning models (TODO ref). By formalizing prior knowledge as logical rules and making them differentiable, one can guide the learning process toward solutions that are both data-driven and logically consistent. This approach has been shown to improve performance (TODO ref), reduce data requirements (TODO ref), and enhance interpretability (TODO ref).
+Logical constraints have recently gained attention as a way to inject domain knowledge into deep learning models \cite{serafini2016ltn}. By formalizing prior knowledge as logical rules and making them differentiable, one can guide the learning process toward solutions that are both data-driven and logically consistent. This approach has been shown to improve performance, reduce data requirements, and enhance interpretability \cite{Giunchiglia_2022}, \cite{stoian2024realisticsyntheticdataconstraining} .
 
 In this thesis, we propose to combine these two lines of research by integrating logical constraints into one-class graph neural networks for anomaly detection. More specifically, we address the following research question: Can logical constraints extracted from structural graph features improve the representations learned by one-class GNNs for anomaly detection?
 
-Our approach consists of three main components. First, we extract logical rules from graph data by training a decision tree (TODO ref) on hand-crafted structural features (e.g., node degree, clustering coefficients) and converting each root-to-leaf path into a conjunctive rule. Second, we make these rules differentiable using two alternative strategies---a fuzzy logic-based evaluation (TODO ref) using sigmoid approximations (TODO ref) and t-norms (TODO ref), and a proposed in this work distance-based scoring that considers the margin of samples to decision boundaries. Third, we integrate the resulting constraint values into the OCGIN loss function through three distinct strategies: additive penalty, weighting, and suppression.
+Our approach consists of three main components. First, we extract logical rules from graph data by training a decision tree \cite{breiman1984cart} on hand-crafted structural features (e.g., node degree, clustering coefficients) and converting each root-to-leaf path into a conjunctive rule. Second, we make these rules differentiable using two alternative strategies---a fuzzy logic-based evaluation \cite{Badreddine_2022} using sigmoid approximations \cite{badreddine2022towards} and t-norms \cite{klir1995fuzzy}, and a proposed in this work distance-based scoring that considers the margin of samples to decision boundaries. Third, we integrate the resulting constraint values into the OCGIN loss function through three distinct strategies: additive penalty, weighting, and suppression.
 
 We further distinguish between two inference paradigms: in loss-only models, constraints influence only the training objective, while in constraint-aware models, they also affect the anomaly score at test time. This allows us to isolate whether the improvements come from regularized training or from direct constraint-based scoring.
 
-We evaluate our proposed methods on a diverse collection of over 13 graph datasets spanning citation networks, co-authorship graphs, molecular structures, protein graphs, and computer vision tasks, at both the node and graph levels. Through extensive hyperparameter tuning (TODO ref), we compare each logic-enhanced variant against its baseline OCGIN counterpart.
+We evaluate our proposed methods on a diverse collection of over 13 graph datasets spanning citation networks, co-authorship graphs, molecular structures, protein graphs, and computer vision tasks, at both the node and graph levels. Through extensive hyperparameter tuning, we compare each logic-enhanced variant against its baseline OCGIN counterpart.
 
 The remainder of this thesis is organized as follows. Chapter~\ref{sec:background} provides the theoretical background on graph theory, neural networks, graph anomaly detection with OCGIN, and logical constraints in deep learning. Chapter~\ref{sec:methodology} describes our methodology in detail, including the constraint generation pipeline, differentiable constraint handlers, and loss integration strategies. Chapter~\ref{sec:evaluation} presents the experimental setup, datasets, hyperparameter configuration, and results. Finally, Chapter~\ref{sec:conclusion} concludes the thesis and discusses directions for future work.
 
@@ -233,7 +231,7 @@ In this chapter, we will provide the theoretical background on anomaly detection
 
 \subsection{Graph Theory}
 
-A graph is an abstract data structure that captures entities and the relationships between them. Formally, a graph is defined as a pair
+A graph is an abstract data structure that captures entities and the relationships between them \cite{west2001graph}. Formally, a graph is defined as a pair
 \begin{equation}
 G = (V, E),
 \end{equation}
@@ -286,12 +284,12 @@ For undirected graphs, the adjacency matrix is symmetric, i.e., $A_{ij} = A_{ji}
 
 In the weighted case, the entries of the matrix store edge weights instead of binary values, i.e., $A_{ij} = w(v_i, v_j)$ if $(v_i, v_j) \in E$, and $0$ otherwise.
 
-Since the adjacency matrix requires $\mathcal{O}(|V|^2)$ memory, in many modern machine learning frameworks, graphs are commonly represented using an edge index format. This consists of a matrix of size $2 \times |E|$, where each column represents an edge by storing the indices of its two endpoints. Additional node features are stored in a matrix $X \in \mathbb{R}^{|V| \times d}$, where $d$ is the number of features per node.
+Since the adjacency matrix requires $\mathcal{O}(|V|^2)$ memory, in many modern machine learning frameworks, graphs are commonly represented using an edge index format \cite{fey2019pytorchgeometric}. This consists of a matrix of size $2 \times |E|$, where each column represents an edge by storing the indices of its two endpoints. Additional node features are stored in a matrix $X \in \mathbb{R}^{|V| \times d}$, where $d$ is the number of features per node.
 
 
 \subsection{Artificial Neural Networks}
 
-Artificial neural networks (ANNs) are a class of models (TODO klibgt scheisse) inspired by the structure and function of biological neurons in a human brain. Contemporarily, ANNs are used for a wide variety of tasks (TODO ref); however, in this chapter we will focus specifically on their application in supervised learning, since it is the main subject of this work.
+Artificial neural networks (ANNs) \cite{goodfellow2016deep} are a class of models inspired by the structure and function of biological neurons in a human brain. Contemporarily, ANNs are used for a wide variety of tasks (TODO ref); however, in this chapter we will focus specifically on their application in supervised learning, since it is the main subject of this work.
 
 Supervised learning refers to a machine learning (TODO definieren) paradigm in which the model is trained using a dataset containing input samples together with their corresponding correct output labels. During training, the model learns the relationship between the input data and the target labels in order to correctly predict the value of previously unseen samples.
 
@@ -318,9 +316,9 @@ The output of a single neuron is given by
 \alpha\left( b + \sum_{i=1}^{n} w_i x_i \right).
 \end{equation}
 
-The activation function $\alpha$ is a differentiable nonlinear function, which introduces nonlinearity into the model and enables the network to learn complex patterns (TODO ref).
+The activation function $\alpha$ is a differentiable nonlinear function, which introduces nonlinearity into the model and enables the network to learn complex patterns \cite{goodfellow2016deep}..
 
-Commonly used activation functions include the Rectified Linear Unit (ReLU) and the sigmoid function, defined as (TODO warum sind diese die "typischen", und ref)
+Commonly used activation functions include the Rectified Linear Unit \cite{nair2010relu} and the sigmoid function \cite{haykin2009neural}, defined as (TODO warum sind diese die "typischen")
 \begin{equation}
 \text{ReLU}(x) = \max(0, x),
 \end{equation}
@@ -410,8 +408,9 @@ W^{(l)} - \eta
 
 where $\eta$ represents the learning rate.
 
+Training is can also be performed iteratively over the dataset in mini-batches of size $B$. Instead of updating the parameters after processing the entire dataset, the gradients are computed for each mini-batch and used to perform intermediate parameter updates. One complete pass over all training samples is referred to as an epoch. The training procedure is repeated for a predefined number of epochs until the model converges or the optimization process is terminated.
 
-By repeatedly applying forward propagation, loss computation, backpropagation, and parameter updates over the dataset, the network gradually improves its performance and converges to a set of parameters that (locally) minimize the loss.
+By repeatedly applying forward propagation, loss computation, backpropagation, and parameter updates over multiple mini-batches and epochs, the network gradually improves its performance and converges to a set of parameters that (locally) minimize the loss.
 
 Having said that, the choice of the learning rate can be crucial to the process. By choosing a learning rate that is too high or too low, the loss may decrease too slowly or even increase. The intuition for this effect is shown in Figure \ref{fig:learning_rate}.
 
@@ -429,7 +428,7 @@ Having said that, the choice of the learning rate can be crucial to the process.
 
 \subsection{Anomaly Detection with Graph Neural Networks}
 
-Anomaly detection is a field that focuses on identifying unusual or unexpected patterns in data. Such patterns are also referred to as anomalies. With the increasing use of graph-structured data (TODO ref), it has become important to develop methods for detecting anomalies in graphs as well. In this section, we present Graph Isomorphism Networks, which are widely used for anomaly detection tasks in graph data (TODO ref).
+Anomaly detection is a field that focuses on identifying unusual or unexpected patterns in data. Such patterns are also referred to as anomalies. With the increasing use of graph-structured data \cite{wu2021gnnsurvey}, it has become important to develop methods for detecting anomalies in graphs as well. In this section, we present Graph Isomorphism Networks, which are widely used for anomaly detection tasks in graph data \cite{xu2019gin}.
 
 (TODO übergang vom letzten absatz überlegen) Graph anomaly detection problems can vary significantly depending on their objective. A model is typically trained for a specific task, which can be categorized into different levels of graph anomaly detection. The most common levels are graph-level, node-level, edge-level, and subgraph-level anomaly detection. Each of these levels defines what is considered an anomaly in a different way.
 
@@ -439,7 +438,7 @@ Going further, we will consider only node- and graph-level anomaly tasks, since 
 
 \subsubsection{Graph Isomorphism Networks}
 
-Neural networks that operate on graph data and learn embeddings (TODO embedding who) for nodes are called graph neural networks (GNNs). Their mechanism is based on exchanging information between neighbors and updating node attributes, which is particularly effective due to the clustering properties commonly observed in real-world graphs. Graph Isomorphism Networks (GIN) are GNNs which aggregate information between neighbors (also called message passing) by a sum, which was proven to have the most expressive power (TODO ref), and an MLP to learn complex patterns.
+Neural networks that operate on graph data and learn embeddings (TODO embedding who) for nodes are called graph neural networks (GNNs). Their mechanism is based on exchanging information between neighbors and updating node attributes, which is particularly effective due to the clustering properties commonly observed in real-world graphs. Graph Isomorphism Networks (GIN) are GNNs which aggregate information between neighbors (also called message passing) by a sum, which was proven to have the most expressive power \cite{xu2019gin}, and an MLP to learn complex patterns.
 
 \vspace{0.5em}
 
@@ -483,7 +482,7 @@ h_i = \frac{1}{L} \sum_{k=1}^{L} h_i^{(k)}.
 
 In order to make such aggregation possible, the input and output dimensionalities of the layers of the MLPs have to be consistent, aside from the first input layer.
 
-Since this approach used for anomaly detection in this setting is based on hypersphere learning, inspired by methods such as SVDD (TODO ref), the idea is to map the computed normal embeddings $h_i$ or $h_G$ close to a center $c \in \mathbb{R}^d$ in the embedding space, while anomalies are expected to lie further away. The formal objective can be given by:
+Since this approach used for anomaly detection in this setting is based on hypersphere learning, inspired by methods such as SVDD \cite{ruff2018deepsvdd}, the idea is to map the computed normal embeddings $h_i$ or $h_G$ close to a center $c \in \mathbb{R}^d$ in the embedding space, while anomalies are expected to lie further away. The formal objective can be given by:
 
 \begin{equation}
 \min_{\theta} \sum_{i} 
@@ -497,9 +496,9 @@ The loss function of an OCGIN is therefore the squared distance between the embe
 \mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} \| h_i - c \|^2.
 \end{equation}
 
-The objective of the model is to minimize this loss, thereby pulling normal data points closer to the center of the hypersphere (TODO hypersphere who). However, this formulation introduces a potential issue: the model may converge to a trivial solution in which all embeddings collapse to the center, effectively shrinking the hypersphere to a single point (TODO ref). This phenomenon is called hypersphere collapse.
+The objective of the model is to minimize this loss, thereby pulling normal data points closer to the center of the hypersphere (TODO hypersphere who). However, this formulation introduces a potential issue: the model may converge to a trivial solution in which all embeddings collapse to the center, effectively shrinking the hypersphere to a single point \cite{ruff2018deepsvdd}. This phenomenon is called hypersphere collapse.
 
-Such behavior is a known challenge in one-class graph anomaly detection models like OCGIN (TODO ref). To mitigate this, additional constraints or regularization techniques are often employed (TODO ref). For example, approaches such as OCGTL construct ensembles of models (e.g., using generative adversarial networks) with different objectives to improve robustness and avoid trivial solutions (TODO ref).
+Such behavior is a known challenge in one-class graph anomaly detection models like OCGIN. To mitigate this, additional constraints or regularization techniques are often employed \cite{ruff2018deepsvdd}. For example, approaches such as OCGTL construct ensembles of models (e.g., using generative adversarial networks) with different objectives to improve robustness and avoid trivial solutions \cite{wang2024ocgtl}.
 
 \subsubsection{Classification using a trained OCGIN model}
 
@@ -513,7 +512,15 @@ However, many evaluation metrics require binary predictions rather than continuo
 
 The first approach is to determine a threshold based on the training data. For example, one may choose a threshold corresponding to a high quantile (e.g., $95\%$) of the training anomaly scores. Any sample with a score above this threshold is classified as anomalous. % A drawback of this method is that it assumes all training data is normal, which may lead to underestimation if anomalies are present in the training set.
 
-The second approach introduces a validation set (resulting in a train/validation/test split). Since the validation set contains labeled normal and anomalous samples, it can be used to select an optimal threshold. For example, the threshold can be chosen to maximize a performance metric such as accuracy or minimize an impurity measure such as the Gini index (discussed in section TODO ref auf seciob).
+The second approach introduces a validation set (resulting in a train/validation/test split). Since the validation set contains labeled normal and anomalous samples, it can be used to select an optimal threshold. For example, the threshold can be chosen to maximize a performance metric such as accuracy or minimize an impurity measure such as the Gini index (discussed in section \ref{sec:methodology}).
+
+The threshold in this work is selected using Youden’s J statistic (TODO ref) (also referred to as Youden’s index), which provides a criterion for balancing the trade-off between true positive and false positive rates. The metric is commonly used in binary classification and anomaly detection to identify the operating point that maximizes the separation between normal and anomalous samples. Formally, Youden’s J statistic is defined as the sum of sensitivity (true positive rate) and specificity (true negative rate) (see Chapter \ref{eval}) minus one:
+
+\[
+J = \text{Sensitivity} + \text{Specificity} - 1
+\]
+
+A higher value of \(J\) indicates better discriminatory performance, with the maximum possible value of \(1\) corresponding to perfect classification. During validation, the anomaly score threshold is varied across possible values, and the threshold yielding the highest Youden’s J statistic is selected. This approach ensures that both the detection of anomalies and the correct classification of normal samples are considered simultaneously, making it particularly suitable for anomaly detection settings with imbalanced class distributions.
 
 Once the threshold is determined, it defines a decision boundary: samples with scores below the threshold are considered normal, while those above it are classified as anomalous. The model can then be evaluated on the test set.
 
@@ -521,11 +528,12 @@ Once the threshold is determined, it defines a decision boundary: samples with s
 
 \subsection{Evaluation of Graph Anomaly Detection Models}
 
-The evaluation of any artificial neural network is based on the idea that a model cannot be evaluated on the same data on which it was trained, since it would make the analysis sensitive to overfitting (TODO ref). The solution to this is splitting the dataset into at least two parts: a training set and a test set. The model is trained on the training data and then evaluated on the test data by comparing its predictions with the true labels.
+The evaluation of any artificial neural network is based on the idea that a model cannot be evaluated on the same data on which it was trained, since it would make the analysis sensitive to overfitting \cite{hastie2009elements}. The solution to this is splitting the dataset into at least two parts: a training set and a test set. The model is trained on the training data and then evaluated on the test data by comparing its predictions with the true labels.
 
 A particular challenge in anomaly detection is, in many cases, the training data consists only of normal samples. Such datasets, where one class is represented more then the pthers are called imbalanced. As a result, special care must be taken when constructing evaluation datasets. In practice, evaluation often requires labeled data containing both normal and anomalous examples. Other than that, most evaluation techniques for binary classification can be used here too.
 
 \subsubsection{Evaluation Methods for Binary Classification}
+\label{eval}
 
 The evaluation of binary classification can be formulated as follows: given true labels $y \in \{0,1\}^n$ and predicted labels $\hat{y} \in \{0,1\}^n$, we aim to measure how well the model performs.
 
@@ -609,21 +617,21 @@ The ROC-AUC value is central to the evaluation of binary classification models, 
 
 \subsection{Logical constrains in deep Learning}
 
-Logical constraints are a field in deep learning that has attracted especially high interest in recent years. Papers (TODO quote) on the topic show that, by implementing logical rules in the learning process, one can improve performance, learn from less data, and improve interpretability. A major source of motivation is that most neural networks in practice are either domain-agnostic or have to obey certain rules. These could be, for example, physical laws.
+Logical constraints are a field in deep learning that has attracted especially high interest in recent years. Papers \cite{Giunchiglia_2022}, \cite{stoian2024realisticsyntheticdataconstraining} on the topic show that, by implementing logical rules in the learning process, one can improve performance, learn from less data, and improve interpretability. A major source of motivation is that most neural networks in practice are either domain-agnostic or have to obey certain rules. These could be, for example, physical laws.
 
 Logical constraints are formal rules that restrict the behavior of a machine learning model according to predefined relationships or domain knowledge. In deep learning, these constraints are used to ensure that the predictions of a neural network satisfy certain logical conditions in addition to fitting the training data.
 
 Logical constraints in deep learning are generally categorized into two types: hard and soft constraints.
 
-Hard constraints (TODO ref) must never be violated. They represent strict requirements that the model output has to satisfy under all circumstances. Hard constraints are commonly enforced through constrained optimization or symbolic reasoning methods.
+Hard constraints \cite{nocedal2006numerical} must never be violated. They represent strict requirements that the model output has to satisfy under all circumstances. Hard constraints are commonly enforced through constrained optimization or symbolic reasoning methods.
 
-Soft constraints (TODO ref) allow occasional violations but introduce penalties when constraints are not satisfied. Instead of enforcing absolute correctness, they encourage the model to prefer logically consistent solutions. Soft constraints are particularly important in modern deep learning because they can be integrated into differentiable optimization procedures.
+Soft constraints \cite{serafini2016ltn} allow occasional violations but introduce penalties when constraints are not satisfied. Instead of enforcing absolute correctness, they encourage the model to prefer logically consistent solutions. Soft constraints are particularly important in modern deep learning because they can be integrated into differentiable optimization procedures.
 
 In this section we will first look into mostly used logical formalisms, then we discuss methods of differentiable logic and in the end we will present some modern approaches of introducing logic into deep learning models.
 
 \subsubsection{Logical Formalisms}
 
-Logical formalizations provide a precise mathematical language for representing and reasoning about constraints, relations, and inference.  Several logical formalisms are commonly used in machine learning, such as propositional logic (TODO ref) or first-order logic (TODO ref). In this subsection we briefly discuss the most used ones.
+Logical formalizations provide a precise mathematical language for representing and reasoning about constraints, relations, and inference.  Several logical formalisms are commonly used in machine learning, such as propositional logic or first-order logic \cite{endelerton2001logic}. In this subsection we briefly discuss the most used ones.
 
 \paragraph{Propositional Logic.}
 
@@ -644,7 +652,7 @@ Formulas in first-order logic are constructed using the universal quantifier $\f
 \]
 states that every element satisfying \(P\) also satisfies \(Q\)
 
-Though satisfiability in first-order logic is undecidable (TODO ref), compared to propositional logic, first-order logic is significantly more expressive and allows formalization of relational constraints. 
+Though satisfiability in first-order logic is undecidable \cite{endelerton2001logic}, compared to propositional logic, first-order logic is significantly more expressive and allows formalization of relational constraints. 
 
 \paragraph{Description Logics.}
 
@@ -754,7 +762,7 @@ Product logic has a probabilistic interpretation and is particularly suitable wh
 \begin{table}[h]
 \centering
 \begin{tabular}{l|c|c|c}
-\textbf{Logic} & \textbf{Conjunction } (\land) & \textbf{Disjunction } (\lor) & \textbf{Negation } (\neg) \\
+\textbf{Logic} & \textbf{Conjunction } (\(\land\)) & \textbf{Disjunction } (\(\lor\)) & \textbf{Negation } (\(\neg\)) \\
 \hline
 Łukasiewicz &
 \(\max(0,a+b-1)\) &
@@ -806,13 +814,19 @@ P(X=x)
 \]
 where \(n_i(x)\) denotes the number of satisfied groundings of formula \(F_i\) in the world \(x\), and \(Z\) is the normalization constant (partition function). In contrast to classical logic, formulas in MLNs act as soft constraints: violations reduce probability rather than causing inconsistency.
 
+\subsection{Logic Tensor Networks}
+Logic Tensor Networks (LTNs) \cite{Badreddine_2022} are a neural-symbolic framework that combines first-order fuzzy logic with deep learning architectures. In LTNs, individuals, predicates, and relations are represented as continuous vector embeddings, while logical formulas are evaluated using differentiable fuzzy semantics. Formally, a predicate $P(x)$ is implemented as a differentiable function
+\[
+P_\theta : \mathbb{R}^n \rightarrow [0,1],
+\]
+parameterized by neural network weights \(\theta\). Logical formulas are then composed using differentiable logical operators. During training, the model parameters are optimized such that the degree of satisfaction of the logical constraints is maximized. This allows learning of logical constrains and their extraction after training (TODO formulation is wierd).
 
 
 \subsubsection{Integration of logical rules into deep Learning}
 
 \paragraph{Constraint-Based Loss Functions}
 
-One of the most widely used (TODO ref) approaches integrates soft logical constraints directly into the training objective through additional loss terms. The key idea is to guide the neural network toward solutions that not only minimize the prediction error but also satisfy domain-specific rules.
+One of the most widely used \cite{xu2018semanticloss} approaches integrates soft logical constraints directly into the training objective through additional loss terms. The key idea is to guide the neural network toward solutions that not only minimize the prediction error but also satisfy domain-specific rules.
 
 The general formulation is:
 
@@ -832,7 +846,7 @@ Advantages of this approach include: Easy integration into existing architecture
 
 \paragraph{Differentiable Logic Layers.}
 
-An alternative approach embeds logical reasoning directly into the architecture of neural networks through differentiable logic layers. Instead of applying logic only as an external regulator, logical operators become trainable computational components within the forward pass of the model. In such architectures, neurons or dedicated modules implement differentiable logical operations such as fuzzy conjunctions, disjunctions, and implications.
+An alternative approach embeds logical reasoning directly into the architecture of neural networks through differentiable logic layers \cite{yang2023injectinglogicalconstraintsneural}. Instead of applying logic only as an external regulator, logical operators become trainable computational components within the forward pass of the model. In such architectures, neurons or dedicated modules implement differentiable logical operations such as fuzzy conjunctions, disjunctions, and implications.
 
 Formally, given continuous truth values
 \[
@@ -844,12 +858,6 @@ y = T(a_1,\dots,a_n),
 \]
 where \(T\) is a differentiable relaxation of a logical connective, for example a \(t\)-norm. These layers can be stacked hierarchically to construct complex logical expressions within deep architectures. In contrast to purely symbolic systems (TODO, who), differentiable logic layers allow logical structure and neural representations to be learned jointly through gradient descent.
 
-\paragraph{Logic Tensor Networks.}
-Logic Tensor Networks (LTNs) are a neural-symbolic framework that combines first-order fuzzy logic with deep learning architectures. In LTNs, individuals, predicates, and relations are represented as continuous vector embeddings, while logical formulas are evaluated using differentiable fuzzy semantics. Formally, a predicate $P(x)$ is implemented as a differentiable function
-\[
-P_\theta : \mathbb{R}^n \rightarrow [0,1],
-\]
-parameterized by neural network weights \(\theta\). Logical formulas are then composed using differentiable logical operators. During training, the model parameters are optimized such that the degree of satisfaction of the logical constraints is maximized. This allows learning of logical constrains and their extraction after training (TODO formulation is wierd).
 
 \subsection{Decision Trees}
 
@@ -907,6 +915,100 @@ The tree is constructed in a top-down, greedy manner by recursively splitting th
 The algorithm stops either when a given maximum tree depth is achieved or all leaves are pure ($I(S_k) = 0$). Since trees quite often overfit without a stopping criterion, techniques such as pruning can be used to cut off the lower parts of the tree.
 
 
+
+\subsection{Logic Gate Networks}
+
+Many graph datasets used in this work contain predominantly categorical or binary features, such as bag-of-words representations in citation networks. For such features, decision trees may produce suboptimal partitions due to their reliance on threshold-based splits. As an alternative, we employ logic gate networks~\cite{petersen2022difflogic}, which learn Boolean formulas directly from binary data through differentiable optimization.
+
+\subsubsection{Architecture}
+
+A logic gate network consists of differentiable layers that learn combinations of Boolean gates. Each neuron in a logic layer selects a subset of its inputs and learns which Boolean function to apply. The full model used in this work is defined as
+
+\[
+\text{Model} = \texttt{GroupSum} \circ \texttt{LogicDense}^{(2)} \circ \texttt{LogicDense}^{(1)} \circ \texttt{FixedBinarization},
+\]
+
+where the input is first binarized, passed through two logic dense layers, and aggregated into class scores.
+
+\paragraph{LogicDense Layer.}
+A LogicDense layer with input dimension $d_{\text{in}}$ and output dimension $d_{\text{out}}$ is parameterized by a connection pattern and a set of gate type logits. Each output neuron connects to exactly $r$ input slots, where $r$ is the LUT rank. The connections are given by
+
+\[
+C \in \{0,\dots,d_{\text{in}}-1\}^{d_{\text{out}} \times r},
+\]
+
+where $C_{j\ell}$ specifies which input feeds into slot $\ell$ of neuron $j$. The LUT rank is chosen such that $d_{\text{out}} \cdot r \geq d_{\text{in}}$, ensuring full input coverage.
+
+For each input slot, the layer learns a categorical distribution over a set of Boolean gate types $\mathcal{G}$. In the \emph{raw} parametrization used here, each slot is parameterized by $|\mathcal{G}| = 16$ learnable logits, representing all possible Boolean functions of two inputs. Let $W_{j\ell} \in \mathbb{R}^{16}$ denote the logits for slot $\ell$ of neuron $j$. During training, the output of the neuron is a differentiable relaxation:
+
+\[
+P(G_{j\ell} = g) = \frac{\exp((W_{j\ell})_g)}{\sum_{g'=1}^{16} \exp((W_{j\ell})_{g'})},
+\qquad
+\tilde{h}_j = \sum_{\ell=1}^{r} \sum_{g=1}^{16} P(G_{j\ell} = g) \cdot g(b_{C_{j\ell}}).
+\]
+
+After training, the model is discretized by replacing the probability distribution with the most probable gate:
+
+\[
+g_{j\ell}^* = \arg\max_{g \in \{1,\dots,16\}} (W_{j\ell})_g,
+\]
+
+and evaluating the network using hard Boolean logic. The resulting discretized network is a pure Boolean circuit that can be executed efficiently.
+
+For the purpose of rule extraction, each learned gate is mapped to one of four semantic types relevant to constraint generation TODO there are more:
+
+\[
+\mathrm{gate}(W_{j\ell}) \in \{\mathrm{INPUT}, \mathrm{NOT\_INPUT}, \mathrm{AND}, \mathrm{OR}\},
+\]
+
+where $\mathrm{INPUT}$ passes the feature value unchanged, $\mathrm{NOT\_INPUT}$ negates it, AND combines multiple conditions conjunctively, and OR introduces disjunctive alternatives.
+
+\paragraph{GroupSum.}
+The final layer aggregates neuron outputs into per-class logits. Given $k$ classes and $n$ neurons divided into $k$ groups, the output for class $k$ is
+
+\[
+y_k = \frac{1}{\tau} \sum_{j \in \text{group}(k)} h_j,
+\]
+
+where $\tau$ is a temperature parameter that scales the output range.
+
+\subsubsection{Training}
+
+The logic gate network is trained end-to-end using the cross-entropy loss and the Adam optimizer. During training, the continuous relaxation allows gradient flow through the gate selection mechanism, enabling the network to learn which Boolean functions are most predictive. At inference time, the model is discretized, and only the most probable gates are retained. The resulting network captures logical combinations of binary features that discriminate between normal and anomalous samples.
+
+\subsubsection{Rule Extraction}
+
+After training and discretization, we extract logical rules from the learned gates and connections. The extraction proceeds by traversing the network from output back to input.
+
+For each output neuron in the second LogicDense layer, we determine its predicted class from the gate type of each of its $r$ slots. $\mathrm{INPUT}$ and $\mathrm{AND}$ gates indicate a positive prediction (anomalous), while $\mathrm{NOT\_INPUT}$ indicates a negative prediction (normal). For each such slot, we trace its connection back to a hidden neuron in the first layer and examine that hidden neuron's input slots. Each slot contributes a condition:
+
+\[
+\text{condition}(g, f) =
+\begin{cases}
+x_f > 0.5, & \mathrm{if } g \in \{\mathrm{INPUT}, \mathrm{AND}\}, \\[4pt]
+x_f \leq 0.5, & \mathrm{if } g = \mathrm{NOT\_INPUT}.
+\end{cases}
+\]
+
+Slots classified as OR are extracted as separate disjunctive rules rather than conjoined with the other conditions.
+
+A single path from input features to an output class defines a conjunctive rule:
+
+\[
+r_j: \bigwedge_{\ell=1}^{L} \bigl( x_{f_{j\ell}} \bowtie_{j\ell} 0.5 \bigr) \implies \hat{y}_j,
+\]
+
+where $\bowtie_{j\ell} \in \{\leq, >\}$ and $\hat{y}_j$ is the predicted class. The complete model represents a disjunction of such rules:
+
+\[
+\hat{y}(\mathbf{x}) = \bigvee_{j \in R_{\text{logix}}} r_j(\mathbf{x}),
+\]
+
+where $R_{\text{logix}}$ is the set of all extracted logic gate rules. Each rule is serialized into the same JSON format used for decision trees, including the feature index, operator, threshold, and predicted class.
+
+
+
+
 \clearpage
 \section{Methodology}
 \label{sec:methodology}
@@ -915,15 +1017,21 @@ Our approach is based on the idea that methodologies used in logic-based deep le
 
 In this chapter, we describe the challenges associated with constraint generation and its implementation. Afterwards, we discuss the methods used to incorporate these constraints into the loss function of an OCGIN model.
 
+TODO constrains sollen das und dies kaoennen und usw
+
 \subsection{Logical Constraint Generation}
 
 Since this study focuses on the general behavior of logical constraints domain-specific semantic knowledge about the data, it was necessary to develop a method for automatically generating constraints.
 
 One of the main challenges, which will be discussed in the next chapter, is the limited availability of anomaly detection datasets. Furthermore, the few existing datasets rarely provide predefined logical constraints that could be directly incorporated into the learning process.
 
+\subsection{Generation with Decision Trees}
+
 The approach considered in this work is based on decision trees. Decision trees naturally generate logical statements containing operators such as \texttt{OR}, \texttt{AND}, \texttt{<}, and \texttt{\(\geq\)}. This makes them particularly suitable for handling continuous features and their combinations. Furthermore, the interpretability of this method allows a more detailed analysis of the results. We train a decision tree on structural graph features and convert each root-to-leaf path into a logical rule with a purpose to provide a compact and interpretable structural description from which logical constraints can be extracted automatically.
 
 To also obtain features that capture structural properties of graphs, we compute a set of hand-crafted descriptors before training the decision tree.
+
+\vspace{1em}
 
 \textbf{Node-Level Features}
 
@@ -947,27 +1055,21 @@ For each node $v \in V$, in a graph $G = (V, E)$, where $d_\text{in}$ denotes th
   where the numerator counts edges between neighbors of $v$.
 \end{enumerate}
 
+\vspace{1em}
+
 \textbf{Graph-Level Features}
 
-(TODO this might be the biggest weaknesses of the thesis, since it is literally the dummest thing one can do for things like molecules and stuff. like, this does not work. i could either argue that i wanned global representations and bla bla but to be honest i implemented the feature extraction with an idea, that i will make it better like 6 month ago and totally forgot. so i either redo experiments with a better approach or motivate this monstrocity by throwing a gallon of water in it)
+To obtain graph-level representations, we employ an aggregation strategy inspired by the global mean pooling operation commonly used in GNNs. Similar to the node-level setting, the decision tree is trained using the original node attributes together with the additional structural features described above. However, in this case, each node inherits the label of its corresponding graph, allowing the tree to learn node patterns associated with normal or anomalous graphs.
 
-For each graph $G$, we took a straightforward approach aggregating the node-level statistics:
+After training, anomaly scores are computed for all nodes within a graph using the node-level scoring procedure. These node-level scores are then aggregated to obtain a single graph-level anomaly score. Following the idea of global mean pooling, the final graph score is defined as the mean of all node anomaly scores within the graph:
 
-\begin{enumerate}
-  \item Mean node features: The per-dimension mean of all node feature vectors:
-  
-  \begin{equation}
-  \bar{\mathbf{x}}_G^{(d)} = \frac{1}{|V|} \sum_{v \in V} \mathbf{x}_v^{(d)}, \quad d = 1, \dots, d_{\text{in}}.
-  \end{equation}
-  
-  \item Mean node degree: The average degree across all nodes in the graph:
-  
-  \begin{equation}
-  \overline{\deg}(G) = \frac{1}{|V|} \sum_{v \in V} \deg(v).  
-  \end{equation}
-\end{enumerate}
+\[
+s(G) = \frac{1}{|V|} \sum_{v \in V} s(v),
+\]
 
+where \(s(v)\) denotes the anomaly score assigned to node \(v\), and \(s(G)\) represents the resulting anomaly score of graph \(G\). 
 
+\vspace{1em}
 
 Each feature dimension is assigned a numeric index. The resulting feature matrix $\mathbf{X} \in \mathbb{R}^{m \times p}$, where $m$ is the number of samples (nodes or graphs) and $p$ is the total number of feature dimensions, is the input to the decision tree.
 
@@ -1003,22 +1105,30 @@ The \texttt{feature\_index} refers to the column index in the feature matrix $\m
 
 While this approach enables the straightforward generation of logical rules, it is primarily suitable for continuous features. Furthermore, the set of logical operators that can be represented is limited to \texttt{\(\geq\)}, \texttt{<}, \texttt{OR}, and \texttt{AND}. Another challenge is related to the evaluation of the decision tree itself, particularly with respect to the quality of the generated splits.
 
+\subsection{Generation with Logic gates}
+
+\subsubsection{Integration with Decision Tree Rules}
+
+Since the extraction produces rules in an identical format to those obtained from decision trees, both rule sets can be merged directly into a single constraint file. The constraint generation pipeline trains both models in parallel: the decision tree on all features (continuous and categorical), and the logic gate network exclusively on the binary columns of the feature matrix. The extracted rules are combined by appending the logic gate rules to the decision tree rules within the same JSON structure, ensuring that the differentiable constraint handlers described in the following subsection receive a unified rule set.
+
+Decision tree rules and logic gate rules offer complementary strengths. Decision trees partition the feature space using axis-aligned hyperrectangles defined by threshold comparisons, which is well-suited for continuous features. Logic gate networks, by contrast, learn arbitrary Boolean combinations of binary features through end-to-end gradient-based optimization, making them more effective for categorical attributes. Together, they provide a richer set of constraints for guiding the OCGIN embedding space.
+
 \subsection{Differentiable Constraint Evaluation}
 
 The logical rules extracted from the decision tree are discrete and non-differentiable. To use them within a gradient-based training, we convert each rule into a continuous value $L_c \in [0, 1]$ representing the degree to which a sample is anomalous. We propose two alternative approaches: fuzzy logic-based evaluation and distance-based scoring.
 
 \subsubsection{Fuzzy Logic-Based Approach}
 
-The first approach replaces each hard comparison in the decision tree with a sigmoid approximation. The sigmoid relaxation was chosen since it produces a soft boundary and asymptoticly converges to the hard predicates. Given a feature value $x$, a threshold $t$, and a steepness factor $\gamma$, the soft variants of the comparisons are defined as:
+The first approach replaces each hard comparison in the decision tree with a sigmoid approximation. The sigmoid relaxation was chosen since it produces a soft boundary and asymptoticly converges to the hard predicates. Given a feature value $x$, a threshold $t$, the soft variants of the comparisons are defined as:
 
 \begin{equation}
-\text{soft\_leq}(x, t) = \sigma\bigl(\gamma \cdot (t - x)\bigr),
+\text{soft\_leq}(x, t) = \sigma \bigl( \gamma \cdot \ (t - x)\bigr),
 \qquad
 \text{soft\_gt}(x, t) = \sigma\bigl(\gamma \cdot (x - t)\bigr),
 \label{eq:soft_comparisons}
 \end{equation}
 
-where $\sigma(\cdot)$ is the sigmoid function. As $\gamma \to \infty$, the soft comparisons approach the hard Boolean operators; in practice, $\gamma$ controls the sharpness of the decision boundary.
+where $\sigma(\cdot)$ is the sigmoid function and $\gamma$ ia a steepness  parameter. As $\gamma \to \infty$, the soft comparisons approach the hard Boolean operators; in practice, $\gamma$ controls the sharpness of the decision boundary.
 
 To combine multiple conditions within a single rule, we use the product t-norm for logical conjunction:
 
@@ -1235,7 +1345,7 @@ The second approach weights the SVDD loss of each sample by its constraint value
 
 Here, samples with high constraint values (i.e., samples that likely violate the logical rules) contribute more to the total loss. This amplifies the gradient signal for suspicious samples, pushing their embeddings further away from the center. Normal samples with $L_c \approx 0$ are unaffected.
 
-\paragraph{Ignore Suspicious Loss (TODO: still a working title please help me get away from IGNORE SUS. SOS!).}
+\paragraph{Supression Loss}
 
 The third approach is the inverse of weighting:
 
@@ -1267,16 +1377,13 @@ In this variant, the constraints are also applied during inference by incorporat
 
 \begin{align}
 a_i &= \| z_i - c \|^2 + L_c^{(i)} \quad &&\text{(additive)}, \\
-a_i &= \| z_i - c \|^2 \cdot \bigl(1 + L_c^{(i)}\bigr) \quad &&\text{(weighting)}, \\
-a_i &= \| z_i - c \|^2 \cdot \bigl(1 - L_c^{(i)}\bigr) \quad &&\text{(ignore suspicious)}.
+a_i &= \| z_i - c \|^2 \cdot \bigl(1 + L_c^{(i)}\bigr) \quad &&\text{(weighting)}
 \label{eq:scores_forecast}
 \end{align}
 
 This means that the constraints must be available at test time.
 
-While the suppression-based (ignore suspicious) strategy reduces the influence of suspicious samples during training, its interpretation during inference differs. In this case, high constraint values attenuate the embedding-based anomaly score, reflecting the assumption that samples strongly associated with constraint violations should contribute less to the final hypersphere-based confidence estimate.
-
-(TODO thats also dumm)
+While the suppression-based strategy reduces the influence of suspicious samples during training, its usage in iference time is incoherent. 
 
 \clearpage
 \section{Evaluation}
@@ -1396,6 +1503,7 @@ Hyperparameter & Value \\
 Learning rate & $10^{-3}$ \\
 Training epochs & 50 \\
 Batch size & 32 \\
+Sigmoid steepness parameter & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1491,8 +1599,15 @@ The complete experimental workflow was executed separately for every dataset and
     Performance was assessed using standard anomaly detection metrics, including ROC-AUC, balanced accuracy, precision, and recall.
 \end{enumerate}
 
+\subsection{Used Software}
 
+All experiments in this thesis were implemented using Python~\cite{python} (Version~3.12). The deep learning framework PyTorch~\cite{paszke2019pytorch} (Version~2.5) with CUDA~\cite{nvidia2023cuda} 12.1 support was used for model implementation and GPU-accelerated training. Graph neural network operations were implemented using PyTorch Geometric~\cite{fey2019pytorchgeometric} (Version~2.7.0). Additional graph-level anomaly detection models were evaluated using the PyGOD library~\cite{liu2024pygod} (Version~1.1.0). The logic gate network experiments used the torchlogix library.
 
+For the constraint generation pipeline, decision trees from scikit-learn~\cite{pedregosa2011scikit} (Version~1.7.2) were employed together with logic gate networks. Scientific computing was performed using NumPy~\cite{harris2020numpy} (Version~2.3.3) and SciPy~\cite{virtanen2020scipy} (Version~1.16.2). Data manipulation and analysis were conducted with pandas~\cite{mckinney2010pandas} (Version~2.3.3). Graph-theoretic computations relied on NetworkX~\cite{hagberg2008networkx} (Version~3.5).
+
+All figures and visualizations were generated using Matplotlib~\cite{hunter2007matplotlib} (Version~3.10.7) and Seaborn~\cite{waskom2021seaborn} (Version~0.13.2). Hyperparameter tuning and model evaluation utilized the metrics module of scikit-learn.
+
+The thesis itself was typeset using \LaTeX{} with the biblatex package and biber backend for bibliography management.
 
 \subsection{Experimental results}
 
@@ -1500,5 +1615,25 @@ The complete experimental workflow was executed separately for every dataset and
 \clearpage
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\printbibliography
+
+
+
 
 \end{document}

@@ -1,0 +1,56 @@
+
+Each neuron \(j \in \{1,\ldots,d_\ell\}\) receives an ordered pair of inputs from the previous layer,
+\[
+z_j^{(\ell)}
+=
+\big(
+h^{(\ell-1)}_{a_j^{(\ell)}},
+h^{(\ell-1)}_{b_j^{(\ell)}}
+\big),
+\]
+where
+\[
+a_j^{(\ell)}, b_j^{(\ell)}
+\in
+\{1,\ldots,d_{\ell-1}\}
+\]
+specify the connectivity pattern. Following the standard DLGN formulation, these connections are fixed prior to training and are not optimised.
+
+Define
+\[
+\mathcal{G} = \{g_1,\ldots,g_{16}\}
+\]
+as the set of the sixteen Boolean functions over two binary variables, corresponding to all possible truth tables. This set includes standard logical operators such as AND, OR, XOR, and NAND, as well as constant and projection functions.
+
+Each neuron maintains learnable logits
+\[
+W_j^{(\ell)} \in \mathbb{R}^{|\mathcal{G}|},
+\]
+which parameterise a categorical distribution over candidate gates:
+\[
+\pi_j^{(\ell)}(g)
+=
+\frac{
+\exp\!\left(
+W_{jg}^{(\ell)}
+\right)
+}{
+\sum_{g' \in \mathcal{G}}
+\exp\!\left(
+W_{jg'}^{(\ell)}
+\right)
+}.
+\]
+
+During training, Boolean operators are evaluated on relaxed inputs in \([0,1]\), producing continuous outputs compatible with gradient-based optimisation. The output of neuron \(j\) is computed as
+\[
+\tilde{h}_j^{(\ell)}
+=
+\sum_{g\in\mathcal{G}}
+\pi_j^{(\ell)}(g)\,
+g\!\left(
+z_j^{(\ell)}
+\right),
+\]
+where the discrete gate selection is replaced by a differentiable weighted mixture of Boolean operators.
+

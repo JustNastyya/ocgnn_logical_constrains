@@ -8,7 +8,7 @@ from experiments.logging_utils import print_config_params, get_filename, init_lo
 
 from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
 from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
-
+from constrains.constrains_generation_pipeline import generate_constrains_nl, generate_constrains_gl
 NORMAL_LABEL = 0
 
 
@@ -51,6 +51,22 @@ def vektor_metrics(vek):
     print(vek.min())
     print(vek)
 
+
+def debug_pipeline(config):
+    logger.info("##################### Loading config parameters")
+    dataset_name = config["dataset"]
+    batch_size = config["batch_size"]
+    
+    print_config_params(config)
+    
+    logger.info("##################### Loading data") 
+    dataset, _ = get_data(dataset_name, batch_size)
+    data, train_mask, val_mask, test_mask, tree_mask = split_train_val_test(dataset)
+    
+    logger.info("##################### generating constrains") 
+    constrains_filepath = generate_constrains_nl(data, tree_mask, dataset_name, config)
+    logger.info(f"Constrains saved to: {constrains_filepath}")
+    
     
 if __name__ == "__main__":
     config = {
@@ -60,14 +76,18 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "CiteSeer",
+        "dataset": "Cora",
         "model_train": NodeModels.LOGIC_ADD_NL_OCGIN,
         "is_logical": True,
         "constrains_filepath": "constrains/data/CiteSeer_auto_generated_3_101_102_103.json",
         "constrains_handler": NLDistanceBasedHandler,# NLFuzzyBasedHandler,
         "l_factor": 0.1,
         "save_logs": False,
+        "decision_tree": {
+            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
+            "max_depth": 3
+        },
+        "logix": {"hidden_size": 16, "lut_rank": 2}
     }
 
-    debug(config=config)
-    
+    debug_pipeline(config)

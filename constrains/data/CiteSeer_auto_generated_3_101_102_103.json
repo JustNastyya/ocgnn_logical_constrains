@@ -3,17 +3,17 @@
     {
       "conditions": [
         {
-          "feature_index": 2736,
+          "feature_index": 2683,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1516,
+          "feature_index": 1613,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 3472,
+          "feature_index": 2429,
           "op": "<=",
           "threshold": 0.0
         }
@@ -21,56 +21,85 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "37 v.s. 43"
+        "y_label_number": "27 v.s. 50"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 2736,
+          "feature_index": 2683,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 1516,
+          "feature_index": 1613,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 3472,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "all the same"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 2736,
-          "op": "<=",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 1516,
+          "feature_index": 2429,
           "op": ">",
           "threshold": 0.0
         }
       ],
       "predicted_class": 0,
       "meta": {
-        "depth": 2,
+        "depth": 3,
+        "y_label_number": "6 v.s. 1"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2683,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1613,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 241,
+          "op": "<=",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 0,
+      "meta": {
+        "depth": 3,
         "y_label_number": "all the same"
       }
     },
     {
       "conditions": [
         {
-          "feature_index": 2736,
+          "feature_index": 2683,
+          "op": "<=",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 1613,
+          "op": ">",
+          "threshold": 0.0
+        },
+        {
+          "feature_index": 241,
+          "op": ">",
+          "threshold": 0.0
+        }
+      ],
+      "predicted_class": 1,
+      "meta": {
+        "depth": 3,
+        "y_label_number": "all the same"
+      }
+    },
+    {
+      "conditions": [
+        {
+          "feature_index": 2683,
           "op": ">",
           "threshold": 0.0
         }

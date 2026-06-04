@@ -649,43 +649,43 @@ for writing the hole thing:
 Dehn war bei seiner Einführung der Grundlagen sehr gründlich. In deinem Fall würde ich auch definitiv GAD und Logical Constraints etwas allgemeiner / ausführlicher einführen. Wenn du aber beispielsweise als konkrete Methodik dich auf GINs fokussiert hast (und Alternativen auch nicht in einer Ablation nutzt), sind GAT / GCN z.B. denke ich nicht so wichtig (detailliert) einzuführen. Für Logical Constraints wäre es dagegen schon sinnvoller, zumindest einen groben Überblick über das Feld zu geben, insbesondere um den eigenen gewählten Ansatz zu motivieren.
 
 
+FUN FACTS LOGIX:
+
+the lut rank is about max number of inputs for one neuron.
+
+
+
 
 
 TODO:
+Code relevant issues:
 
-big issues found while writing:
-
-
-1)
-where $\sigma(\cdot)$ is the sigmoid function. Usually there is also defined a steepness  parameter gamma inside the sigmoid function TODO.
-
-2)
-ignore sus in in forecasting is dumm
-
-While the suppression-based (ignore suspicious) strategy reduces the influence of suspicious samples during training, its interpretation during inference differs. In this case, high constraint values attenuate the embedding-based anomaly score, reflecting the assumption that samples strongly associated with constraint violations should contribute less to the final hypersphere-based confidence estimate.
-
-(TODO thats also dumm)
-    
 3)
-logix as a part of trees
+logix as a part of trees. UPD: we have implemented it, but ran into a problem, which i dont understand completely. first write the thesis part on it
+
+4)
+gotta know how to handle binary operations with constraint scores
+
+5)
+speichern wann das model convergiert?
 
 
 TODOs FOR THE THESIS:
+1)
+(but introduciton will need one more look)
+THE CHECKING OF TODOS/REFS AND TEXT: made it to decision trees
 
-1) 
-die machine auf der dies gelaufen ist?
+3)
+related work: in methodology
 
-2)
-batch size and training epochs mentionen
+8)
+now we have a split into categorical vs non categorical
 
-3) 
-best Jourdans something the way i define the best threshold
 
-4)
-related work???
+8)
+images like can i take some from the internet?
+yes, aber citieren, oder kucken ob es uebernommen werden kann, oder original bei wikipedia finden
 
-5) now its for always supression
 
-6)
-graph desision trees are now kinda like node
-
+11)
+watermakrs von ki generiert ueberpruefen
