@@ -138,7 +138,7 @@ class GLNodeDistanceBasedHandler(DistanceBasedHandler):
         """returns a vector of length of number of graphs"""
         # extend X by the additional features
         attribute_list = self.json_rules["additional_attributes"].values()
-        config = GraphLevelFeatureExtractor(attribute_list)
+        config = NodeLevelFeatureExtractor(attribute_list)
         scores = []
         mapping_checked = False
 
@@ -150,17 +150,17 @@ class GLNodeDistanceBasedHandler(DistanceBasedHandler):
 
             for graph_data in data_list:
                 X, _ = config.extract_features(graph_data, balance=False)
-
+                
                 if not mapping_checked:
                     self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
                     mapping_checked = True
 
-                node_constraints = self.get_constraint_score(X)
-            
+                node_constraints = [self.get_constraint_score(x) for x in X]
+                
                 if self.aggregation == 'mean':
-                    graph_constraint = node_constraints.mean()
+                    graph_constraint = np.mean(node_constraints)
                 else:
-                    graph_constraint = node_constraints.max()
+                    graph_constraint = max(node_constraints)
 
                 scores.append(graph_constraint)
 

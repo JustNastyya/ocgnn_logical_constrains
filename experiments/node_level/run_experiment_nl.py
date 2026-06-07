@@ -104,7 +104,7 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "epochs": 50,
         "batch_size": 32,
-        "dataset": "Cora",
+        "dataset": "CiteSeer",
         "model_train": NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN, # constrains_attribute_nl_ocgin
         "is_logical": True,
         "constrains_handler": NLDistanceBasedHandler,# NLFuzzyBasedHandler,

@@ -1,7 +1,8 @@
 import torch
 from torch_geometric.utils import degree
 from torch_geometric.utils import to_undirected
-
+import torch.nn.functional as F
+from loguru import logger
 
 class TemplateFeatureExtractor:
     def __init__(self, attribute_list):
@@ -12,13 +13,27 @@ class TemplateFeatureExtractor:
             "clustering_coefficient": self.clustering_coefficient,
         }
 
-    def node_features(self, data):
+    def node_features(self, data, devide_cat=True, cat_threshold=10):
         if len(data.x.shape) == 1:
             return data.x
         # devide into list of features
         l_x = []
         for col in range(data.x.shape[1]):
-            l_x.append(data.x[:,col])
+            feature = data.x[:, col]
+            unique_vals = torch.unique(feature)
+            n_unique = len(unique_vals)
+            
+            if devide_cat and 2 < n_unique <= cat_threshold:
+                
+                logger.info(f"Feature column {col} treated as categorical with {n_unique} unique values, one-hot encoded to {one_hot.shape[1]} features")
+                _, encoded = torch.unique(feature, return_inverse=True)
+
+                one_hot = F.one_hot(encoded, num_classes=n_unique).float()
+                for k in range(one_hot.shape[1]):
+                    l_x.append(one_hot[:, k])
+            else:
+                l_x.append(feature)    
+    
         return l_x
     
     def node_degree(self, data):

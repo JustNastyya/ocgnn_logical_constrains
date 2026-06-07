@@ -13,7 +13,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 784,
+          "feature_index": 969,
           "op": "<=",
           "threshold": 0.0
         }
@@ -21,7 +21,7 @@
       "predicted_class": 1,
       "meta": {
         "depth": 3,
-        "y_label_number": "7 v.s. 44"
+        "y_label_number": "12 v.s. 49"
       }
     },
     {
@@ -37,7 +37,7 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 784,
+          "feature_index": 969,
           "op": ">",
           "threshold": 0.0
         }
@@ -75,12 +75,12 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 581,
+          "feature_index": 19,
           "op": "<=",
           "threshold": 0.0
         },
         {
-          "feature_index": 19,
+          "feature_index": 581,
           "op": "<=",
           "threshold": 0.0
         }
@@ -88,7 +88,7 @@
       "predicted_class": 0,
       "meta": {
         "depth": 3,
-        "y_label_number": "49 v.s. 12"
+        "y_label_number": "42 v.s. 15"
       }
     },
     {
@@ -96,40 +96,16 @@
         {
           "feature_index": 1263,
           "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 581,
-          "op": "<=",
           "threshold": 0.0
         },
         {
           "feature_index": 19,
-          "op": ">",
-          "threshold": 0.0
-        }
-      ],
-      "predicted_class": 1,
-      "meta": {
-        "depth": 3,
-        "y_label_number": "2 v.s. 7"
-      }
-    },
-    {
-      "conditions": [
-        {
-          "feature_index": 1263,
-          "op": ">",
+          "op": "<=",
           "threshold": 0.0
         },
         {
           "feature_index": 581,
           "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 214,
-          "op": "<=",
           "threshold": 0.0
         }
       ],
@@ -147,19 +123,14 @@
           "threshold": 0.0
         },
         {
-          "feature_index": 581,
-          "op": ">",
-          "threshold": 0.0
-        },
-        {
-          "feature_index": 214,
+          "feature_index": 19,
           "op": ">",
           "threshold": 0.0
         }
       ],
-      "predicted_class": 0,
+      "predicted_class": 1,
       "meta": {
-        "depth": 3,
+        "depth": 2,
         "y_label_number": "all the same"
       }
     }

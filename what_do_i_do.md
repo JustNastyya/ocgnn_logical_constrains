@@ -675,17 +675,21 @@ TODOs FOR THE THESIS:
 (but introduciton will need one more look)
 THE CHECKING OF TODOS/REFS AND TEXT: made it to decision trees
 
-3)
+2)
 related work: in methodology
 
-8)
+3)
 now we have a split into categorical vs non categorical
 
 
-8)
+4)
 images like can i take some from the internet?
 yes, aber citieren, oder kucken ob es uebernommen werden kann, oder original bei wikipedia finden
 
 
-11)
+5)
 watermakrs von ki generiert ueberpruefen
+
+6)
+dont forget about selecting top k best
+
