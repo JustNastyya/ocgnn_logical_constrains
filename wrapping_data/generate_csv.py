@@ -37,7 +37,10 @@ def generate_csv(
     all_rows = []
 
     all_files = os.listdir(input_path + "results")
+    
     for json_file in all_files:
+        if json_file == ".ipynb_checkpoints":
+            continue
         json_path = input_path + "results/" + json_file
         with open(json_path) as f:
             records = json.load(f)
@@ -69,7 +72,7 @@ def generate_csv(
 
 
 if __name__ == "__main__":
-    experiment_name = "constrains_forecasting"
+    experiment_name = "constraints_from_trees"
 
     # --------------- end
     input_path = f"wrapping_data/{experiment_name}/"

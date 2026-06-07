@@ -8,8 +8,8 @@ import plotly.express as px
 from scipy.stats import mannwhitneyu
 
 # to edit:
-experiment_name = "pure_loss_based"
-csv_name = "pure_loss_based_final.csv"
+experiment_name = "constraints_from_trees"
+csv_name = "constraints_from_trees_final.csv"
 
 
 INPUT_CSV = Path(__file__).parent / experiment_name / csv_name
