@@ -2,8 +2,7 @@ import json
 import torch.nn
 import numpy as np
 from loguru import logger
-from constrains.graph_decision_trees.graph_level.config import GraphLevelFeatureExtractor
-from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
+from constraints.graph_decision_trees.config import NodeLevelFeatureExtractor
 
 
 class DistanceBasedHandler:
@@ -22,7 +21,7 @@ class DistanceBasedHandler:
             return json.load(f)
     
     def _load_anomaly_rules(self):
-        for rule in self.json_rules["constrains"]:
+        for rule in self.json_rules["constraints"]:
             if rule["predicted_class"] == self.normal_label:
                 self.anomaly_rules.append(rule)
             else:
@@ -38,8 +37,8 @@ class DistanceBasedHandler:
     def _get_weighted_group_distance(self, x, constrain_group):
         """weighted_group_distance = lambda / n_constrains * SUM(distance(x, constrain_boundary))"""
         distance_sum = 0
-        for constrain in constrain_group:
-            distance_sum += self._get_distance(x, constrain)
+        for constraint in constrain_group:
+            distance_sum += self._get_distance(x, constraint)
         
         if len(constrain_group) == 0:
             return 0
@@ -47,7 +46,7 @@ class DistanceBasedHandler:
         return result
 
     def rule_satisfaction(self, x, constrain_group):
-        """is x in this group of constrains and if yes - get distance to the decision boundary"""
+        """is x in this group of constraints and if yes - get distance to the decision boundary"""
         for constraint in constrain_group:
             satisfies = True
             for cond in constraint["conditions"]:
@@ -103,30 +102,6 @@ class DistanceBasedHandler:
             logger.info(f"old attribute_list: {old_attribute_mapper}")
             
             raise Exception
-
-
-
-class GLDistanceBasedHandler(DistanceBasedHandler):
-    def __init__(self, filename, l_factor, normal_label):
-        super().__init__(filename, l_factor, normal_label)
-
-    def get_constraint_value(self, loader):
-        """returns a vector of length of number of graphs"""
-        # extend X by the additional features
-        attribute_list = self.json_rules["additional_attributes"].values()
-        config = GraphLevelFeatureExtractor(attribute_list)
-        X, _ = config.extract_features(loader, balance=False)
-        
-        # fail save
-        self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
-
-        scores = [self.get_constraint_score(x) for x in X]
-        
-        # apply sigmoid
-        scores_st = 1 / (1 + np.exp(np.array(scores)))
-        L_constrains = torch.tensor(scores_st, dtype=torch.float32, device=self.device)
-        
-        return L_constrains
 
 
 class GLNodeDistanceBasedHandler(DistanceBasedHandler):

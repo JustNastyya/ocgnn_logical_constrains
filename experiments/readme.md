@@ -7,7 +7,7 @@ i want to create an automatic pipeline for experimenting. i want to be able to s
 - learning rate
 - hidden layers
 - and the model
-- ggf the set of logical constrains
+- ggf the set of logical constraints
 - epochs
 - evaluation metrics
 
@@ -29,9 +29,9 @@ for results are to be: Loss, test error
 
 you can specialize if you want to automatically save logs or not.
 
-## constrains:
+## constraints:
 
-after adding a new constrains file in `constrains/data` you need to specialize the constrain handler, constrains filepath and the l_factor
+after adding a new constraints file in `constraints/data` you need to specialize the constrain handler, constraints filepath and the l_factor
 
 ## after addinga new model:
 

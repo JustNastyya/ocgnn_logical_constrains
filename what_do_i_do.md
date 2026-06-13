@@ -6,21 +6,21 @@ here i am going to informally keep track of stuff i learn, do, swear about and s
 
 ## general aim
 
-so i want to build a ocgnn model with logical constrains.
+so i want to build a ocgnn model with logical constraints.
 this time let it be graph level or whatever.
 
-and i want to compare it to a model without constrains.
+and i want to compare it to a model without constraints.
 
-this means i need to build a usual model first and then extend it with my constrains.
+this means i need to build a usual model first and then extend it with my constraints.
 
 ## my plan
 
 1. find data
 2. prepare it for training
 3. train an usual model for this data and evaluate it
-4. make up constrains with binary tree
-5. build in constrains
-6. train the model with constrains
+4. make up constraints with binary tree
+5. build in constraints
+6. train the model with constraints
 7. compare models
 
 ## sound alright, yeah?
@@ -33,7 +33,7 @@ this means i need to build a usual model first and then extend it with my constr
 4. what model exactly do i need?
 5. how exactly can i train it?
 6. how the fuck can i build a desicion tree on graphs
-7. how the fuck do i implement logical constrains
+7. how the fuck do i implement logical constraints
 
 
 # alright lets deal with all of it
@@ -135,11 +135,11 @@ do the same stuff but dont sum across the layer.
 there you can have either one center or a couple of centers for different kinds of nodes. but basically it is the same thing but without aggregation.
 
 
-# how the fuck can i use logical constrains??
+# how the fuck can i use logical constraints??
 
 ## usual nn
 
-1. form logical constrains
+1. form logical constraints
 2. turn logic into loss by saying
 `L_total = L_data + lambda * L_logic`
 3. turn your logic into soft logic
@@ -158,7 +158,7 @@ example is in `pytorch_basics/doing_logical-constrains_with_nn.py`
 
 there the `logits` are the raw outputs of the neural network
 
-## building logical constrains for graphs
+## building logical constraints for graphs
 
 all info under `models/graph_decision_trees/readme.md`
 
@@ -345,38 +345,38 @@ i mean, its not foor, got like a 0.08 test rate, but whatever
 
 aand now i have implemented my desicion tree for node level!
 
-the only thing todo is to implement the logical constrains for ocgin!
+the only thing todo is to implement the logical constraints for ocgin!
 
 ## starting the implemntation
 
-ideas for constrains:
+ideas for constraints:
 1. using in loss as rules. like L_total = L_task + lambda * SUM(rules_which_give_anomaly)
 2. + to node attributes
 3. fuzzy logic or lukasiewicz logic to the logic function
 
 will have to optimize the process
 
-### saving logical constrains
+### saving logical constraints
 
-i will save the got logical constrains in the file under path
-`constrains/smth.json`
-and i guess i will need a constaint handler to handle constrains. more to it under constrains. read about it under `constrains/readme.md`
+i will save the got logical constraints in the file under path
+`constraints/smth.json`
+and i guess i will need a constaint handler to handle constraints. more to it under constraints. read about it under `constraints/readme.md`
 
 FUCK. i forgot that my decision tree uses also other attributes other then node attributes. will have to go around
 
-so. i will save instead of feature indexes like my names of stuff. and my logical constrains handler will need to compute them like again and use them
+so. i will save instead of feature indexes like my names of stuff. and my logical constraints handler will need to compute them like again and use them
 nope. what i have done now is describe in the readme. it might even work
 
 ### first try to implement loss as rules
 
 i have to freaking idea what i am doing. i just added the computed loss to the hole loss.
-the model is in `constrains_in_loss/nl_ocgin`
+the model is in `constraints_in_loss/nl_ocgin`
 
 and now i am at the point where my great fail test is failing and idk why. you may solve my fuckups if you run the experiments
 
 ALRIGHT MOTHERFUCKER AHDHSADJA
 
-just trained my first OCGIN with logical constrains and it worked!! just had to mean up the constraint values. this motherfucker will work for any number of nodes/hidden layers, like whatever. i am so pumped.
+just trained my first OCGIN with logical constraints and it worked!! just had to mean up the constraint values. this motherfucker will work for any number of nodes/hidden layers, like whatever. i am so pumped.
 
 i guess i shall write a module which will save results from a bunch of experiments in a kinda json thing
 UPT: done, see run_bunch_experiments
@@ -393,14 +393,14 @@ UPD: cleaned up, works fine but only for 4 varying params
 
 UPD: now i think is about time i text Tim and find out if what i was doing here had any sence at all. what i do know i can do before the meeting:
 
-- implement other ways of using logical constrains
+- implement other ways of using logical constraints
 - implement all that for graph level solutions (that would include graph decision trees and graph level models)
 
 ### doing the same for GL
 
 starting with graph level decision trees
 
-FUCK: been implementing constrains handler for GL and for out that i had balance=True for NL constrains handler. That would mean, that i had my constrains implemented only on a small portion of the dataset. in theory on none, rigth.. FUCK. will have to do the experiments all over again
+FUCK: been implementing constraints handler for GL and for out that i had balance=True for NL constraints handler. That would mean, that i had my constraints implemented only on a small portion of the dataset. in theory on none, rigth.. FUCK. will have to do the experiments all over again
 
 ## constraints score!!!
 
@@ -435,20 +435,20 @@ buuut what am i saing with all that philosophically??
 
 like here is a wierd point -> be very carefull with it and... plot it nearer the hypersphere?
 
-perhaps i shall make logical constrains a part of the model? like not just in the training?
+perhaps i shall make logical constraints a part of the model? like not just in the training?
 
-otherwise it doesnt make sence to really use the "anomalious" constrains, right?
+otherwise it doesnt make sence to really use the "anomalious" constraints, right?
 
-SO NEW IDEA. use only normal constrains
+SO NEW IDEA. use only normal constraints
 
 # MEETIN WITH TIM
 
 big topics:
 - my training gives me rather... bad models
 + see down there!
-- constrains itself, how to get better constrains
+- constraints itself, how to get better constraints
 + yours are alright!
-- philosophically shall i make constrains not just part of the loss but a part of the model
+- philosophically shall i make constraints not just part of the loss but a part of the model
 + yes!
 - my constraint score - any use?
 + yes!
@@ -465,7 +465,7 @@ for my shitty training
 3. statt 95% quantil: aucroc                    done!
 4. dropout or other things ausprobieren
 5. odds ratio statt test rate!                  done!
-6. mehr schrauben in die constrains
+6. mehr schrauben in die constraints
 
 coole idee: lambda die sich variiert (`l_factor`)
 
@@ -508,20 +508,20 @@ slide 4: what all models do
 slide 5-6: OCGIN and its nachteile
 slide 7: OCGTL
 
-// section logical constrains
+// section logical constraints
 slide 8: what they look like
 slide 9: soft logic / hard logic
-slide 10: is it better with constrains
+slide 10: is it better with constraints
 
 // section my data
 
 slide 11: datasets
-slide 12: my constrains generation
-slide 13: my constrains
+slide 12: my constraints generation
+slide 13: my constraints
 
 // section my approach
 
-slide 14: soft logic driven constrains
+slide 14: soft logic driven constraints
 slide 15: ...
 
 // section what do i want to do.
@@ -556,25 +556,25 @@ and a huuuge thing is:
 why are all of the scores the same.. 
 
 ## Debugging results for cora, Rulehandler:
-- the feature vectors used in constrains are binary
+- the feature vectors used in constraints are binary
 - `torch.sigmoid(self.l_factor * (threshold - x))`. since l_factor is like really small all the vlues are about 0, so thats how we get 0.5 after a sigmoid
 - since sigmoid of -1 is like -0.25 and of 1 is like 0.75 after a couple of sigmoid the value will converge to 0.5. so that makes sence
 
 ### solution nr. 1: fuck the l_factor.
 results: now i have actually values from 0 to 1 buut
 
-for anormal constrains most of values are: 
+for anormal constraints most of values are: 
  0.33 or 2.88.
 but a bunch of them are somewhere else!
 
-for normal constrains:
+for normal constraints:
 a bit better but most of them are 0.5 and around that
 
-after plotting a hist for the constrains values i see that the differences for normal and anormal classes are in the constrains minimal. FUCK
+after plotting a hist for the constraints values i see that the differences for normal and anormal classes are in the constraints minimal. FUCK
 
 ### solution nr. 2: i do have to use the l_factor somewhere
 
-but the constrains value cant be too small and i cant to it before the sigmoid. soo lets use it right before the end game and dont use too of a small l_factor form now like 0.001.
+but the constraints value cant be too small and i cant to it before the sigmoid. soo lets use it right before the end game and dont use too of a small l_factor form now like 0.001.
 
 ### solution nr.3: fuck cora.
 
@@ -588,13 +588,13 @@ seems to me like its a dead end. for binary vectors the hol thing looses its ide
 
 ### solution nr.1: fuck the data
 
-if my constrains handler is distance based and it doesnt work on binary data then... well i dont have to make it work on binary data. try another data
+if my constraints handler is distance based and it doesnt work on binary data then... well i dont have to make it work on binary data. try another data
 
 ### just to carify for gl:
 
 an additional attribute for the hole graph doess not work cuz.. well, its one number for the hole graph. that was dumb.
 
-an idea: consider graph level constrains just like node level and integrate them just like that
+an idea: consider graph level constraints just like node level and integrate them just like that
 
 
 # after the first big round of experiments
@@ -603,11 +603,11 @@ well that didnt work. one big idea would be to add the constrained loss into the
 
 ### and the inside from klara:
 
-about the moleclule datasets. most important part of classifying a molecule would be existance/ or not existance of certain elements in a chain either by itself or in a combination. which means, my constrains based on mean values are useless here. 
+about the moleclule datasets. most important part of classifying a molecule would be existance/ or not existance of certain elements in a chain either by itself or in a combination. which means, my constraints based on mean values are useless here. 
 
-question: if i want to be able generate constrains of the type: if a feature nr 1 is that exact value and ... then how many features would that be for generating the tree? is it even possible or shall i go deeper into the nature of every dataset?
+question: if i want to be able generate constraints of the type: if a feature nr 1 is that exact value and ... then how many features would that be for generating the tree? is it even possible or shall i go deeper into the nature of every dataset?
 
-first idea would be: generation of "if nr.3 == x" for categorical features especially for graph level data. that addition will have to include changes to both constrains handlers
+first idea would be: generation of "if nr.3 == x" for categorical features especially for graph level data. that addition will have to include changes to both constraints handlers
 
 # logic gates
 from tim: differentiable logic gates torchlogix!!!

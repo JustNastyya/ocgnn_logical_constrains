@@ -165,7 +165,7 @@ class GraphDecisionTree:
         
         # adding the attribute list
         rules = {
-            "constrains": rules,
+            "constraints": rules,
             "additional_attributes": additional_attributes
         }
 

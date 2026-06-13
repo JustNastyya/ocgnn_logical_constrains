@@ -3,8 +3,8 @@ import torch
 import numpy as np
 from loguru import logger
 
-from constrains.graph_decision_trees.node_level.config import NodeLevelFeatureExtractor
-from constrains.constrains_handlers.nl_fuzzy_based_handler import FuzzyBasedHandler
+from constraints.graph_decision_trees.config import NodeLevelFeatureExtractor
+from constraints.constraints_handlers.nl_fuzzy_based_handler import FuzzyBasedHandler
 
 class GLNodeFuzzyHandler(FuzzyBasedHandler):
     def __init__(self, filename, l_factor, normal_label, aggregation='mean'):

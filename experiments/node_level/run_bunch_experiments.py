@@ -9,8 +9,8 @@ from itertools import product
 from models.model_registry import NodeModels
 from experiments.node_level.run_experiment_nl import experiment_logging_wrapper
 
-from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
+from constraints.constraints_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
 
 FILEPATH = "experiments/node_level/bunch_json_results/"
 TRAIN_NORMAL = True

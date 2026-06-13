@@ -7,7 +7,7 @@
 
 # Data (regeneratable from raw)
 data/
-constrains/data/
+constraints/data/
 
 # Processed datasets
 **/*.pt

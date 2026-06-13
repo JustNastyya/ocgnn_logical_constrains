@@ -1,6 +1,6 @@
 # Graph decision trees
 
-Main idea is to implement graph decision trees in order to generate simple logical constrains to use them later in OCGIN.
+Main idea is to implement graph decision trees in order to generate simple logical constraints to use them later in OCGIN.
 
 For every level a specialized model adn config are spezified.
 
@@ -8,7 +8,7 @@ the config is a class implementing feature extraction for every node
 
 there a list of node features is to be defined
 
-the results are automatically saved in `constrains/dataset_tree_depth.json`
+the results are automatically saved in `constraints/dataset_tree_depth.json`
 
 ## result structure
 

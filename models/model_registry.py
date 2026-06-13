@@ -4,24 +4,24 @@ from enum import Enum
 
 from models.simple_ocgin.node_level_ocgin import NodeOCGIN, train_node_ocgin
 from models.simple_ocgin.graph_level_ocgin import GraphOCGIN, train_graph_ocgin
-from models.constrains_in_loss.nl_ocgin import (
+from models.constraints_in_loss.nl_ocgin import (
     NodeOCGINLossConstrains, 
     train_node_ocgin_add_loss_constrains, 
     train_node_ocgin_weighting,
     train_node_ocgin_supression
 )
-from models.constrains_in_loss.gl_ocgin import (
+from models.constraints_in_loss.gl_ocgin import (
     GraphOCGINLossConstrains, 
     train_graph_ocgin_add_loss_constrains, 
     train_graph_ocgin_weighting,
     train_graph_ocgin_supression
 )
-from models.constrains_inference.nl_ocgin import (
+from models.constraints_inference.nl_ocgin import (
         NodeOCGINLossConstrainsInference,
     train_node_ocgin_add_loss_constrains_inference,
     train_node_ocgin_weighting_inference,
 )
-from models.constrains_inference.gl_ocgin import (
+from models.constraints_inference.gl_ocgin import (
     GraphOCGINLossConstrainsInference,
     train_graph_ocgin_add_loss_constrains_inference,
     train_graph_ocgin_weighting_inference,

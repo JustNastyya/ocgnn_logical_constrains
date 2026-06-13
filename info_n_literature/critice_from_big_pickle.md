@@ -8,15 +8,15 @@ A bachelor's thesis on **One-Class Graph Neural Networks with Logical Constraint
 
 ### Naming & Consistency
 
-1. **"constrains" is everywhere** — directory names, filenames, class names, variables. If it's a joke, it's committed deeply enough to confuse anyone reading your code or thesis. Decide: fix it or own it.
+1. **"constraints" is everywhere** — directory names, filenames, class names, variables. If it's a joke, it's committed deeply enough to confuse anyone reading your code or thesis. Decide: fix it or own it.
 
-2. **Inconsistent directory naming style**: `info_n_literature`, `sweat_n_tears` (informal/incomplete), vs. `constrains`, `experiments`, `wrapping_data` (descriptive but not self-explanatory). `wrapping_data` doesn't clearly communicate "experiment results + analysis."
+2. **Inconsistent directory naming style**: `info_n_literature`, `sweat_n_tears` (informal/incomplete), vs. `constraints`, `experiments`, `wrapping_data` (descriptive but not self-explanatory). `wrapping_data` doesn't clearly communicate "experiment results + analysis."
 
 3. **Mixed German/English** in comments and documentation. Pick one for a thesis codebase.
 
 ### Project Structure
 
-4. **No `__init__.py` files** in `constrains/`, `experiments/`, `models/`, `wrapping_data/` — these aren't proper Python packages. Imports probably rely on `PYTHONPATH` or running from root, which is fragile.
+4. **No `__init__.py` files** in `constraints/`, `experiments/`, `models/`, `wrapping_data/` — these aren't proper Python packages. Imports probably rely on `PYTHONPATH` or running from root, which is fragile.
 
 5. **No `setup.py` / `pyproject.toml`** — the project isn't installable. Anyone reproducing this needs to replicate your exact working directory setup.
 
@@ -26,9 +26,9 @@ A bachelor's thesis on **One-Class Graph Neural Networks with Logical Constraint
 
 ### Code Duplication
 
-8. **`models/constrains_in_loss/` vs `models/constrains_inference/`** — near-identical model files with minor differences in where constraints apply. This is textbook copy-paste inheritance. Should be a base class with a flag or strategy pattern.
+8. **`models/constraints_in_loss/` vs `models/constraints_inference/`** — near-identical model files with minor differences in where constraints apply. This is textbook copy-paste inheritance. Should be a base class with a flag or strategy pattern.
 
-9. **`constrains/graph_decision_trees/node_level/` and `graph_level/`** — highly duplicated configs, filename utils, template configs. The `config.py` and `filename_utils.py` in each differ only slightly. Refactor into shared code.
+9. **`constraints/graph_decision_trees/node_level/` and `graph_level/`** — highly duplicated configs, filename utils, template configs. The `config.py` and `filename_utils.py` in each differ only slightly. Refactor into shared code.
 
 ### Dependency Management
 

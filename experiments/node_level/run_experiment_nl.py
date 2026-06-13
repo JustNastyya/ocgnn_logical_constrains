@@ -6,11 +6,11 @@ from models.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
+from constraints.constraints_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
-from constrains.graph_decision_trees.node_level.train_and_print import train_for_model
+from constraints.graph_decision_trees.train_and_print import nl_train_for_model
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -61,7 +61,7 @@ def run_experiment(config):
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
         
-        constrains_filepath, rules = train_for_model(
+        constrains_filepath, rules = nl_train_for_model(
             data,
             tree_mask,
             decision_tree_att_list, 
@@ -69,7 +69,7 @@ def run_experiment(config):
             dataset_name
         )
 
-        logger.info("setting up the logical constrains")
+        logger.info("setting up the logical constraints")
         constrains_handler_obj = ConstrainHandler(constrains_filepath, l_factor, normal_label=NORMAL_LABEL)
     
         train_loop_func(model, data, train_mask, test_mask, epochs, lr, constrains_handler_obj)

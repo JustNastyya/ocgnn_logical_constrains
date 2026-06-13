@@ -11,7 +11,7 @@ def vektor_metrics(vek):
 class FuzzyBasedHandler:
     def __init__(self, filename, l_factor, normal_label):
         """
-        TODO constrains to use: would be a value either 1 or 0 would have automatically 
+        TODO constraints to use: would be a value either 1 or 0 would have automatically 
         detect which classes are anormal and so on
         """
         self.filename = filename
@@ -26,7 +26,7 @@ class FuzzyBasedHandler:
             return json.load(f)
     
     def _load_anomaly_rules(self):
-        for rule in self.json_rules["constrains"]:
+        for rule in self.json_rules["constraints"]:
             if rule["predicted_class"] == self.normal_label:
                 self.anomaly_rules.append(rule)
     

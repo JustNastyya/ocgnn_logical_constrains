@@ -9,10 +9,10 @@ from models.model_registry import GraphModels
 from experiments.graph_level.run_bunch_experiments import run_bunch_experiments as run_bunch_experiments_gl
 from experiments.graph_level.data_loader_gl import TUDATASETS
 
-from constrains.constrains_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
-from constrains.constrains_handlers.distance_handler import NLDistanceBasedHandler
-from constrains.constrains_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
-from constrains.constrains_handlers.distance_handler import GLNodeDistanceBasedHandler
+from constraints.constraints_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
+from constraints.constraints_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constraints.constraints_handlers.distance_handler import GLNodeDistanceBasedHandler
 
 def the_pipeline_nl():
     

@@ -6,9 +6,9 @@ from models.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constrains.constrains_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constraints.constraints_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
 
-from constrains.graph_decision_trees.graph_level.train_and_print import train_from_node_level_features
+from constraints.graph_decision_trees.train_and_print import train_for_model_gl
 
 from models.utils import (
     compute_anomaly_scores_graph_level,
@@ -63,13 +63,13 @@ def run_experiment(config):
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
         
-        constrains_filepath, _ = train_from_node_level_features(
+        constrains_filepath, _ = train_for_model_gl(
             tree_loader,
             decision_tree_att_list, 
             decision_tree_max_depth, 
             dataset_name
         )
-        logger.info("setting up the logical constrains")
+        logger.info("setting up the logical constraints")
 
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]

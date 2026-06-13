@@ -1,18 +1,18 @@
-# this is a constrains handler
+# this is a constraints handler
 
-it is designed to implement constrains fast and robust.
+it is designed to implement constraints fast and robust.
 
-we have handlers which load constrains and use them.
+we have handlers which load constraints and use them.
 
 ## data
-the constrains are saved under `data` and have a structure of:
+the constraints are saved under `data` and have a structure of:
 
 all conditions in the condition list are AND to each other to create the "predicted class"
 
-additional_attributes describe the additional attributes and their used indexes in the constrains
+additional_attributes describe the additional attributes and their used indexes in the constraints
 ```
 {
-    "constrains": [
+    "constraints": [
     {
         "conditions": [
         {
@@ -45,7 +45,7 @@ additional_attributes describe the additional attributes and their used indexes 
 
 `NLFuzzyBasedHandler`
 
-implements constrains on a given data (nodal attributes matrix)
+implements constraints on a given data (nodal attributes matrix)
 
 implements soft functions as:
 
@@ -57,4 +57,4 @@ implements soft functions as:
 
 `a OR b` is `1 - (1 - a) * (1 - b)`
 
-`get_constraint_value` returns the implementation of all constrains for a given x
+`get_constraint_value` returns the implementation of all constraints for a given x

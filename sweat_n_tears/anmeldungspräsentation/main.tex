@@ -26,7 +26,7 @@
 \usecolortheme{whale}
 \setbeamertemplate{caption}[numbered]
 
-\title[Integrating logical constrains in OCGNN for AD]{Integrating logical constrains \\in one-class graph neural networks for anomaly detection}
+\title[Integrating logical constraints in OCGNN for AD]{Integrating logical constraints \\in one-class graph neural networks for anomaly detection}
 \subtitle{}
 \author[A. Romanenko]{Anastasiia Romanenko}
 \institute[TU Dortmund]{Technische Universität Dortmund \\ Fakultät Statistik}
@@ -60,7 +60,7 @@
     
 \end{frame}
 
-\begin{frame}{Motivation of constrains driven graph AD}
+\begin{frame}{Motivation of constraints driven graph AD}
     In many real-world application we have prior knowledge about data, which can be formulated as logical rules
     
     \begin{itemize}
@@ -215,7 +215,7 @@
     \begin{small}
     \begin{verbatim}
 {
-  "constrains": [
+  "constraints": [
     {
       "conditions": [
         {"feature_index": 1263, "op": "<=", "threshold": 0.0},
@@ -253,7 +253,7 @@
         \end{enumerate}
         
         \vspace{0.2cm}
-        Output: A scalar violation score per node (higher values indicate stronger constraint violation for a chosen class of constrains)
+        Output: A scalar violation score per node (higher values indicate stronger constraint violation for a chosen class of constraints)
         
         
         \column{0.4\textwidth}
