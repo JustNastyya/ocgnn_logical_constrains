@@ -105,7 +105,7 @@ if __name__ == "__main__":
         "epochs": 50,
         "batch_size": 32,
         "dataset": "CiteSeer",
-        "model_train": NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN, # constrains_attribute_nl_ocgin
+        "model_train": NodeModels.LOGIC_INFERENCE_ADD_NL_OCGIN, # constrains_attribute_nl_ocgin
         "is_logical": True,
         "constrains_handler": NLDistanceBasedHandler,# NLFuzzyBasedHandler,
         "l_factor": 0.1,

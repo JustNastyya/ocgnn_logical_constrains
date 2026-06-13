@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import GINConv, global_mean_pool
 
 
-class GraphOCGINLossConstrains(nn.Module):
+class GraphOCGINLossConstrainsInference(nn.Module):
     def __init__(self, in_dim, hidden_dim, num_layers, device):
         super().__init__()
 
@@ -81,11 +81,11 @@ class GraphOCGINLossConstrains(nn.Module):
             return base_score * (1 + batch_constraints)
 
 # wrapper
-def train_graph_ocgin_add_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset):
+def train_graph_ocgin_add_loss_constrains_inference(model, loader, epochs, lr, constrains_obj, dataset):
     train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="add")
 
 # wrapper    
-def train_graph_ocgin_weighting(model, loader, epochs, lr, constrains_obj, dataset):
+def train_graph_ocgin_weighting_inference(model, loader, epochs, lr, constrains_obj, dataset):
     train_graph_ocgin_loss_constrains(model, loader, epochs, lr, constrains_obj, dataset, loss_type="node_weighting")
 
 

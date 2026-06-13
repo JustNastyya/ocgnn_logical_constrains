@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import GINConv, global_mean_pool
 
 
-class NodeOCGINLossConstrains(nn.Module):
+class NodeOCGINLossConstrainsInference(nn.Module):
     def __init__(self, in_dim, hidden_dim, num_layers, device):
         super().__init__()
 
@@ -42,11 +42,11 @@ class NodeOCGINLossConstrains(nn.Module):
 
         return x
 
-    def loss_add_constrain(self, z, constrain_L):
+    def loss_add_constrain_inference(self, z, constrain_L):
         constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center) ** 2, dim=1)) + constrain_L.mean()
 
-    def loss_node_weighting(self, z, constrain_L):
+    def loss_node_weighting_inference(self, z, constrain_L):
         constrain_L = constrain_L.to(z.device)
         return torch.mean(torch.sum((z - self.center)**2, dim=1) * (1 + constrain_L))
 
@@ -78,11 +78,11 @@ class NodeOCGINLossConstrains(nn.Module):
 
 
 # wrapper
-def train_node_ocgin_add_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+def train_node_ocgin_add_loss_constrains_inference(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
     train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="add")
 
 # wrapper    
-def train_node_ocgin_weighting(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
+def train_node_ocgin_weighting_inference(model, data, train_mask, test_mask, epochs, lr, constrains_obj):
     train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs, lr, constrains_obj, loss_type="node_weighting")
 
 
@@ -104,9 +104,9 @@ def train_node_ocgin_loss_constrains(model, data, train_mask, test_mask, epochs,
         data = data.to(model.device)
         z = model(data)
         if loss_type == "add":
-            loss = model.loss_add_constrain(z[train_mask], L_constrains[train_mask])
+            loss = model.loss_add_constrain_inference(z[train_mask], L_constrains[train_mask])
         elif loss_type == "node_weighting":
-            loss = model.loss_node_weighting(z[train_mask], L_constrains[train_mask])
+            loss = model.loss_node_weighting_inference(z[train_mask], L_constrains[train_mask])
 
         optimizer.zero_grad()
         loss.backward()

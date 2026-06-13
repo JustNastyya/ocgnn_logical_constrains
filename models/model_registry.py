@@ -17,14 +17,14 @@ from models.constrains_in_loss.gl_ocgin import (
     train_graph_ocgin_supression
 )
 from models.constrains_inference.nl_ocgin import (
-    NodeOCGINLossConstrains as NLNodeOCGINForecasting,
-    train_node_ocgin_add_loss_constrains as nl_train_add,
-    train_node_ocgin_weighting as nl_train_weight,
+        NodeOCGINLossConstrainsInference,
+    train_node_ocgin_add_loss_constrains_inference,
+    train_node_ocgin_weighting_inference,
 )
 from models.constrains_inference.gl_ocgin import (
-    GraphOCGINLossConstrains as GLGraphOCGINForecasting,
-    train_graph_ocgin_add_loss_constrains as gl_train_add,
-    train_graph_ocgin_weighting as gl_train_weight,
+    GraphOCGINLossConstrainsInference,
+    train_graph_ocgin_add_loss_constrains_inference,
+    train_graph_ocgin_weighting_inference,
 )
 
 
@@ -66,17 +66,17 @@ class NodeModels(Enum):
         description="OCGIN ignoring suspicious constraints",
         level="node"
     )
-    LOGIC_FORECAST_ADD_NL_OCGIN = ModelReference(
-        name="logic_forecast_add_nl_ocgin",
-        model_class=NLNodeOCGINForecasting,
-        train_loop=nl_train_add,
+    LOGIC_INFERENCE_ADD_NL_OCGIN = ModelReference(
+        name="LOGIC_INFERENCE_ADD_NL_OCGIN",
+        model_class=NodeOCGINLossConstrainsInference,
+        train_loop=train_node_ocgin_add_loss_constrains_inference,
         description="OCGIN with loss forecasting constraints (add)",
         level="node"
     )
-    LOGIC_FORECAST_WEIGHT_NL_OCGIN = ModelReference(
-        name="logic_forecast_weight_nl_ocgin",
-        model_class=NLNodeOCGINForecasting,
-        train_loop=nl_train_weight,
+    LOGIC_INFERENCE_WEIGHT_NL_OCGIN = ModelReference(
+        name="LOGIC_INFERENCE_WEIGHT_NL_OCGIN",
+        model_class=NodeOCGINLossConstrainsInference,
+        train_loop=train_node_ocgin_weighting_inference,
         description="OCGIN with loss forecasting constraints (weight)",
         level="node"
     )
@@ -110,17 +110,17 @@ class GraphModels(Enum):
         description="OCGIN ignoring suspicious constraints",
         level="graph"
     )
-    LOGIC_FORECAST_ADD_GL_OCGIN = ModelReference(
-        name="logic_forecast_add_gl_ocgin",
-        model_class=GLGraphOCGINForecasting,
-        train_loop=gl_train_add,
+    LOGIC_INFERENCE_ADD_GL_OCGIN = ModelReference(
+        name="LOGIC_INFERENCE_ADD_GL_OCGIN",
+        model_class=GraphOCGINLossConstrainsInference,
+        train_loop=train_graph_ocgin_add_loss_constrains_inference,
         description="OCGIN with loss forecasting constraints (add)",
         level="graph"
     )
-    LOGIC_FORECAST_WEIGHT_GL_OCGIN = ModelReference(
-        name="logic_forecast_weight_gl_ocgin",
-        model_class=GLGraphOCGINForecasting,
-        train_loop=gl_train_weight,
+    LOGIC_INFERENCE_WEIGHT_GL_OCGIN = ModelReference(
+        name="LOGIC_INFERENCE_WEIGHT_GL_OCGIN",
+        model_class=GraphOCGINLossConstrainsInference,
+        train_loop=train_graph_ocgin_weighting_inference,
         description="OCGIN with loss forecasting constraints (weight)",
         level="graph"
     )

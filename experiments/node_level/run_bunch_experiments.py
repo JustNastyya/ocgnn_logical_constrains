@@ -122,9 +122,8 @@ if __name__ == "__main__":
             "max_depth": 2,
         }],
         "model_train": [
-            NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN,
-            NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
-            NodeModels.LOGIC_FORECAST_IGNORE_SUS_NL_OCGIN
+            NodeModels.LOGIC_INFERENCE_ADD_NL_OCGIN,
+            NodeModels.LOGIC_INFERENCE_WEIGHT_NL_OCGIN,
         ],
         "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
     }

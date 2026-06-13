@@ -44,8 +44,8 @@ def the_pipeline_nl():
             NodeModels.LOGIC_ADD_NL_OCGIN,
             NodeModels.LOGIC_WEIGHT_NL_OCGIN,
             NodeModels.LOGIC_IGNORE_SUS_NL_OCGIN,
-            NodeModels.LOGIC_FORECAST_ADD_NL_OCGIN,
-            NodeModels.LOGIC_FORECAST_WEIGHT_NL_OCGIN,
+            NodeModels.LOGIC_INFERENCE_ADD_NL_OCGIN,
+            NodeModels.LOGIC_INFERENCE_WEIGHT_NL_OCGIN,
         ],
         "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
     }
@@ -94,8 +94,8 @@ def the_pipeline_gl():
             GraphModels.LOGIC_ADD_GL_OCGIN,
             GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
             GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN,
-            GraphModels.LOGIC_FORECAST_ADD_GL_OCGIN,
-            GraphModels.LOGIC_FORECAST_WEIGHT_GL_OCGIN,
+            GraphModels.LOGIC_INFERENCE_ADD_GL_OCGIN,
+            GraphModels.LOGIC_INFERENCE_WEIGHT_GL_OCGIN,
         ],
         "constrains_handler": [GLNodeFuzzyHandler, GLNodeDistanceBasedHandler]
     }
