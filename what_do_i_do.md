@@ -659,37 +659,17 @@ the lut rank is about max number of inputs for one neuron.
 
 TODO:
 Code relevant issues:
-
-3)
-logix as a part of trees. UPD: we have implemented it, but ran into a problem, which i dont understand completely. first write the thesis part on it
-
-4)
-gotta know how to handle binary operations with constraint scores
-
-5)
-speichern wann das model convergiert?
-
+aufräumen halt. code überprüfen
 
 TODOs FOR THE THESIS:
 1)
-(but introduciton will need one more look)
-THE CHECKING OF TODOS/REFS AND TEXT: made it to decision trees
-
-2)
 related work: in methodology
 
+2)
+TLN rausnehmen oder was?
+
 3)
-now we have a split into categorical vs non categorical
-
-
-4)
-images like can i take some from the internet?
-yes, aber citieren, oder kucken ob es uebernommen werden kann, oder original bei wikipedia finden
-
-
-5)
 watermakrs von ki generiert ueberpruefen
 
-6)
-dont forget about selecting top k best
+6) In Kapitel 4 würde ich zusätzlich zu den Performance-Metriken auch etwas zum Verhalten bei der Optimierung ergänzen (schnelleres / langsameres konvergieren des Losses / der Performance mit constraints o.Ä.), und der Runtime (nicht nötig für alle Experimente, die sind ja schon durchgeführt, aber vielleicht repräsentativ für ein paar Datensätze mal messen wie lange das generieren der Constraints mit den verschiedenen Ansätzen dauert / wie gut es skaliert). Und dann am Ende natürlich alles (inklusive Performanz) kritisch einordnen, was die praktischen Implikationen sind, und möglichen nächsten Schritte für vielversprechende weiterführende Ansätze sein könnten.
 
