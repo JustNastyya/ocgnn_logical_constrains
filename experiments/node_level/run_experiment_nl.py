@@ -10,7 +10,7 @@ from constraints.constraints_handlers.fuzzy_handler import NLFuzzyBasedHandler
 from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
-from constraints.graph_decision_trees.train_and_print import nl_train_for_model
+from constraints.graph_decision_trees.train_and_print import train_for_model_nl
 NORMAL_LABEL = 0
 
 def experiment_logging_wrapper(config):
@@ -61,7 +61,7 @@ def run_experiment(config):
         ConstrainHandler = config["constrains_handler"]
         l_factor = config["l_factor"]
         
-        constrains_filepath, rules = nl_train_for_model(
+        constrains_filepath, rules = train_for_model_nl(
             data,
             tree_mask,
             decision_tree_att_list, 
