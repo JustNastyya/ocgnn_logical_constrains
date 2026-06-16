@@ -9,7 +9,7 @@ from itertools import product
 from models.model_registry import GraphModels
 from experiments.graph_level.run_experiment_gl import experiment_logging_wrapper
 
-from constraints.constraints_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constraints.constraints_handlers.fuzzy_handler import GLNodeFuzzyHandler
 from constraints.constraints_handlers.distance_handler import GLNodeDistanceBasedHandler
 
 FILEPATH = "experiments/graph_level/bunch_json_results/"
@@ -63,7 +63,7 @@ def run_bunch_experiments(
         baseline_model: str,
         filepath: str
     ):
-    # gonna iterate over a bunch of settings and train
+    # iterate over a bunch of settings and train
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
@@ -96,46 +96,3 @@ def run_bunch_experiments(
             
             json_dump(results_l, file_full_path)
 
-
-
-if __name__ == "__main__":
-    default_config = {
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
-        "lr": 1e-3,
-        "epochs": 50,
-        "batch_size": 32,
-        "save_logs": False,
-        "aggregation": "mean",
-    }
-    
-    baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
-        "num_layers": [2, 3, 4, 5]
-    }
-    const_var_pars = {
-        "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
-        "decision_tree": [{
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
-            "max_depth": 3,
-        },
-        {
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
-            "max_depth": 2,
-        }],
-        "model_train": [
-            GraphModels.LOGIC_ADD_GL_OCGIN,
-            GraphModels.LOGIC_WEIGHTING_GL_OCGIN,
-            GraphModels.LOGIC_IGNORE_SUS_GL_OCGIN
-        ],
-        "constrains_handler": [GLNodeDistanceBasedHandler, GLNodeFuzzyHandler]
-    }
-    baseline_model=GraphModels.SIMPLE_GRAPH_OCGIN
-    default_config["dataset"] = "MUTAG"
-    result_name = "test_gl.json"
-    run_bunch_experiments(
-            default_config, 
-            baseline_var_pars, 
-            const_var_pars,
-            baseline_model,
-            result_name
-            )

@@ -6,7 +6,7 @@ from models.model_registry import NodeModels
 from experiments.node_level.data_loader_nl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constraints.constraints_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constraints.constraints_handlers.fuzzy_handler import NLFuzzyBasedHandler
 from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
 from models.utils import compute_anomaly_scores_node_level, get_ratios_nl, get_decision_boundary_nl
 
@@ -95,6 +95,7 @@ def run_experiment(config):
     for name, value in results.items():
         logger.info(f"{name}: {round(value, 3)}")
     return results 
+
 
 if __name__ == "__main__":
     config = {

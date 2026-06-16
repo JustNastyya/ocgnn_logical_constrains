@@ -666,10 +666,24 @@ TODOs FOR THE THESIS:
 related work: in methodology
 
 2)
-TLN rausnehmen oder was?
+TLN rausnehmen oder was? + sagen dass ich das als alternative exploriert habe
+
+3)
+DECISION TREES HAD DEPTH 3 AND 4
 
 3)
 watermakrs von ki generiert ueberpruefen
 
-6) In Kapitel 4 würde ich zusätzlich zu den Performance-Metriken auch etwas zum Verhalten bei der Optimierung ergänzen (schnelleres / langsameres konvergieren des Losses / der Performance mit constraints o.Ä.), und der Runtime (nicht nötig für alle Experimente, die sind ja schon durchgeführt, aber vielleicht repräsentativ für ein paar Datensätze mal messen wie lange das generieren der Constraints mit den verschiedenen Ansätzen dauert / wie gut es skaliert). Und dann am Ende natürlich alles (inklusive Performanz) kritisch einordnen, was die praktischen Implikationen sind, und möglichen nächsten Schritte für vielversprechende weiterführende Ansätze sein könnten.
+4) In Kapitel 4 würde ich zusätzlich zu den Performance-Metriken auch etwas zum Verhalten bei der Optimierung ergänzen (schnelleres / langsameres konvergieren des Losses / der Performance mit constraints o.Ä.), und der Runtime (nicht nötig für alle Experimente, die sind ja schon durchgeführt, aber vielleicht repräsentativ für ein paar Datensätze mal messen wie lange das generieren der Constraints mit den verschiedenen Ansätzen dauert / wie gut es skaliert). Und dann am Ende natürlich alles (inklusive Performanz) kritisch einordnen, was die praktischen Implikationen sind, und möglichen nächsten Schritte für vielversprechende weiterführende Ansätze sein könnten.
 
+5)
+im kapitel 4 : discussion
+
+6)
+conclusion: nochmal bezug auf die research questions 
+
+7)
+nochmal lesen und denken: wie kann man das hier nachimplementieren
+
+8)
+link zu dem github

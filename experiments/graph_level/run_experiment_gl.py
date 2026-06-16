@@ -6,7 +6,7 @@ from models.model_registry import GraphModels
 from experiments.graph_level.data_loader_gl import get_data, split_train_val_test
 from experiments.logging_utils import print_config_params, get_filename, init_logging
 
-from constraints.constraints_handlers.gl_node_fuzzy_handler import GLNodeFuzzyHandler
+from constraints.constraints_handlers.fuzzy_handler import GLNodeFuzzyHandler
 
 from constraints.graph_decision_trees.train_and_print import train_for_model_gl
 

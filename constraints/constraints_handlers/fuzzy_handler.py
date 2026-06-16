@@ -1,7 +1,7 @@
 import json
 import torch
 from loguru import logger
-
+from constraints.graph_decision_trees.config import NodeLevelFeatureExtractor
 
 def vektor_metrics(vek):
     print(vek.max())
@@ -10,10 +10,6 @@ def vektor_metrics(vek):
 
 class FuzzyBasedHandler:
     def __init__(self, filename, l_factor, normal_label):
-        """
-        TODO constraints to use: would be a value either 1 or 0 would have automatically 
-        detect which classes are anormal and so on
-        """
         self.filename = filename
         self.json_rules = self._load_rules(filename)
         self.l_factor = l_factor
@@ -67,3 +63,76 @@ class FuzzyBasedHandler:
             logger.info(f"old attribute_list: {old_attribute_mapper}")
             
             raise Exception
+
+
+class GLNodeFuzzyHandler(FuzzyBasedHandler):
+    def __init__(self, filename, l_factor, normal_label, aggregation='mean'):
+        super().__init__(filename, l_factor, normal_label)
+        self.aggregation = aggregation
+
+    def _evaluate_fuzzy(self, X):
+        rule_values = []
+
+        for rule in self.anomaly_rules:
+            rule_values.append(self.rule_satisfaction(rule, X))
+
+        if len(rule_values) == 0:
+            return torch.zeros(X.shape[0])
+
+        return self.l_factor * self.soft_or_prob(torch.stack(rule_values))
+
+    def get_constraint_value(self, loader):
+        """returns a vector of length of number of graphs"""
+        # extend X by the additional features
+        attribute_list = self.json_rules["additional_attributes"].values()
+        config = NodeLevelFeatureExtractor(attribute_list)
+
+        constraint_values = []
+        mapping_checked = False
+
+        for batch in loader:
+            if hasattr(batch, "to_data_list"):
+                data_list = batch.to_data_list()
+            else:
+                data_list = [batch]
+
+            for graph_data in data_list:
+                X, _ = config.extract_features(graph_data, balance=False)
+
+                if not mapping_checked:
+                    self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
+                    mapping_checked = True
+
+                node_constraints = self._evaluate_fuzzy(X)
+            
+                if self.aggregation == 'mean':
+                    graph_constraint = node_constraints.mean()
+                else:
+                    graph_constraint = node_constraints.max()
+
+                constraint_values.append(graph_constraint)
+
+        return torch.tensor(constraint_values)
+
+
+class NLFuzzyBasedHandler(FuzzyBasedHandler):
+    def __init__(self, filename, l_factor, normal_label):
+        super().__init__(filename, l_factor, normal_label)
+
+    def get_constraint_value(self, data):
+        """returns a vector of length of number of nodes"""
+        # extend X by the additional features
+        attribute_list = self.json_rules["additional_attributes"].values()
+        config = NodeLevelFeatureExtractor(attribute_list)
+        X, _ = config.extract_features(data, balance=False)
+        
+        # fail save
+        self._test_attribute_mapping(self.json_rules["additional_attributes"], config.index_mapping)
+
+        rule_values = []
+        for rule in self.anomaly_rules:
+            rule_values.append(self.rule_satisfaction(rule, X))
+        
+        if len(rule_values) == 0:
+            return torch.zeros(X.shape[0])
+        return self.l_factor * self.soft_or_prob(torch.stack(rule_values))

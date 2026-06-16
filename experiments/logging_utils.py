@@ -60,9 +60,6 @@ def get_filename(config, level):
 
 
 def init_logging(filename, level):
-    from loguru import logger
-    from pathlib import Path
-
     if level == "node":
         log_dir = Path(LOG_RESULTS_PATH_NL)
     else:

@@ -9,7 +9,7 @@ from itertools import product
 from models.model_registry import NodeModels
 from experiments.node_level.run_experiment_nl import experiment_logging_wrapper
 
-from constraints.constraints_handlers.nl_fuzzy_based_handler import NLFuzzyBasedHandler
+from constraints.constraints_handlers.fuzzy_handler import NLFuzzyBasedHandler
 from constraints.constraints_handlers.distance_handler import NLDistanceBasedHandler
 
 FILEPATH = "experiments/node_level/bunch_json_results/"
@@ -63,7 +63,7 @@ def run_bunch_experiments(
         baseline_model: str,
         filepath: str
     ):
-    # gonna iterate over a bunch of settings and train
+    # iterate over a bunch of settings and train
     # every time 1 + constrains_n models,
     # and save the results into the results folder as json
     
@@ -96,43 +96,3 @@ def run_bunch_experiments(
             
             json_dump(results_l, file_full_path)
 
-
-if __name__ == "__main__":
-    default_config = {
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
-        "lr": 1e-3,
-        "epochs": 50,
-        "batch_size": 32,
-        "dataset": "Cora",
-        "save_logs": False,
-    }
-    
-    baseline_var_pars = {
-        "hidden_dim": [4, 8, 16, 32, 64, 128, 256, 512],
-        "num_layers": [2, 3, 4, 5]
-    }
-    const_var_pars = {
-        "l_factor": [1, 0.1, 0.5, 0.01, 0.001],
-        "decision_tree": [{
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
-            "max_depth": 3,
-        },
-        {
-            "attribute_list": ["node_features", "node_degree", "clustering_coefficient"],
-            "max_depth": 2,
-        }],
-        "model_train": [
-            NodeModels.LOGIC_INFERENCE_ADD_NL_OCGIN,
-            NodeModels.LOGIC_INFERENCE_WEIGHT_NL_OCGIN,
-        ],
-        "constrains_handler": [NLFuzzyBasedHandler, NLDistanceBasedHandler]
-    }
-    baseline_model=NodeModels.SIMPLE_NODE_OCGIN
-    
-    run_bunch_experiments(
-        default_config, 
-        baseline_var_pars, 
-        const_var_pars,
-        baseline_model,
-        "first_test_logic_forecast_Cora.json"
-        )
