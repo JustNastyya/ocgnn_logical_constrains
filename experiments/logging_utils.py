@@ -10,11 +10,13 @@ FILENAME_CONFIG = [
     "hidden_dim",
     "logical_num"
 ]
-LOG_RESULTS_PATH_GL = "/home/ana/stuff/1uni/thesis/experiments/graph_level/log_results"
-LOG_RESULTS_PATH_NL = "/home/ana/stuff/1uni/thesis/experiments/node_level/log_results"
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-BUNCH_RESULTS_PATH_GL = "/home/ana/stuff/1uni/thesis/experiments/graph_level/bunch_results"
-BUNCH_RESULTS_PATH_NL = "/home/ana/stuff/1uni/thesis/experiments/node_level/bunch_results"
+LOG_RESULTS_PATH_GL = str(BASE_DIR / "experiments/graph_level/log_results")
+LOG_RESULTS_PATH_NL = str(BASE_DIR / "experiments/node_level/log_results")
+
+BUNCH_RESULTS_PATH_GL = str(BASE_DIR / "experiments/graph_level/bunch_results")
+BUNCH_RESULTS_PATH_NL = str(BASE_DIR / "experiments/node_level/bunch_results")
 
 def print_config_params(config):
     logger.info("Config parameters:")
